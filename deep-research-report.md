@@ -78,6 +78,16 @@ Interpretation standard:
 1. Treat baseline coefficients as conditional associations.
 2. Flag directional evidence, not causal effect sizes, unless identification assumptions are explicitly tested.
 
+### Current implementation note (May 2026)
+
+The repository now reports two distinct comparison specifications and they should not be interpreted as equivalent estimands:
+
+1. Incident exposure models use lagged terms (for example $l1\_cyber\_incidents\_log$) in country and year fixed-effects panel regressions.
+2. GCI readiness models currently use contemporaneous terms (for example $gci\_overall$) because available GCI input is effectively cross-sectional in this build.
+3. When readiness data do not support two-way fixed effects, the comparison pathway falls back to a contemporaneous specification with time fixed effects or pure cross-section robust standard errors, depending on sample structure.
+
+Practical implication: the incident columns and GCI columns in the incidents-vs-readiness table are useful for directional comparison, but not for strict coefficient-level causal ranking against each other.
+
 ## Workflow and code plan
 
 Use the existing repository pipeline:
@@ -143,6 +153,7 @@ Requirements:
 2. Incident counts may reflect both true exposure and reporting/disclosure differences.
 3. Readiness indicators and digital adoption indicators are related but not equivalent to spending.
 4. Cross-source methodological breaks (coverage, definitions, and collection protocols) may reduce comparability.
+5. In the current run, GCI readiness is predominantly single-year, so readiness estimates are contemporaneous and structurally different from lagged panel incident estimates.
 
 ## Claims audit table
 
