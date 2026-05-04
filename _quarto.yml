@@ -1,0 +1,11 @@
+project:
+	type: default
+
+format:
+	html:
+		toc: true
+		number-sections: true
+
+execute:
+	warning: false
+	message: false

@@ -1,0 +1,26 @@
+---
+title: "Cyber Macro Impact Pilot"
+format: html
+---
+
+## Research question
+
+How are country-level cyber readiness and incident intensity associated with macro outcomes such as GDP growth, productivity, investment, and employment?
+
+## Data
+
+This report expects a processed country-year panel at `data_processed/panel_country_year.parquet`.
+
+## Baseline model
+
+We use country and year fixed-effects models with lagged cyber variables and clustered standard errors at country level.
+
+## Outputs
+
+- One headline regression table
+- One robustness table
+- Two figures (structural and dynamic)
+
+## Notes
+
+This is an MVP scaffold. Populate scripts in `R/` to produce fully reproducible outputs.
