@@ -1,0 +1,193 @@
+"country","gci_tier","iso3c","year","gci_overall"
+"Afghanistan",5,"AFG",2024,10
+"Angola",4,"AGO",2024,37.5
+"Albania",2,"ALB",2024,90
+"Andorra",3,"AND",2024,70
+"United Arab Emirates",1,"ARE",2024,97.5
+"Argentina",4,"ARG",2024,37.5
+"Armenia",4,"ARM",2024,37.5
+"Australia",1,"AUS",2024,97.5
+"Austria",2,"AUT",2024,90
+"Azerbaijan",2,"AZE",2024,90
+"Burundi",5,"BDI",2024,10
+"Belgium",1,"BEL",2024,97.5
+"Benin",2,"BEN",2024,90
+"Burkina Faso",3,"BFA",2024,70
+"Bangladesh",1,"BGD",2024,97.5
+"Bulgaria",3,"BGR",2024,70
+"Bahrain",1,"BHR",2024,97.5
+"Bahamas",4,"BHS",2024,37.5
+"Bosnia and Herzegovina",4,"BIH",2024,37.5
+"Belarus",3,"BLR",2024,70
+"Belize",4,"BLZ",2024,37.5
+"Bolivia (Plurinational",4,"BOL",2024,37.5
+"Brazil",1,"BRA",2024,97.5
+"Barbados",4,"BRB",2024,37.5
+"Brunei Darussalam",3,"BRN",2024,70
+"Bhutan",3,"BTN",2024,70
+"Botswana",3,"BWA",2024,70
+"Central African Rep.",5,"CAF",2024,10
+"Canada",2,"CAN",2024,90
+"Switzerland",2,"CHE",2024,90
+"Chile",3,"CHL",2024,70
+"China",2,"CHN",2024,90
+"Côte d'Ivoire",3,"CIV",2024,70
+"Cameroon",3,"CMR",2024,70
+"Democratic Republic of the Congo",3,"COD",2024,70
+"Republic of the Congo",4,"COG",2024,37.5
+"Colombia",3,"COL",2024,70
+"Comoros",4,"COM",2024,37.5
+"Cape Verde",4,"CPV",2024,37.5
+"Costa Rica",3,"CRI",2024,70
+"Cuba",3,"CUB",2024,70
+"Cyprus",1,"CYP",2024,97.5
+"Czech Republic",2,"CZE",2024,90
+"Germany",1,"DEU",2024,97.5
+"Djibouti",4,"DJI",2024,37.5
+"Dominica",4,"DMA",2024,37.5
+"Denmark",1,"DNK",2024,97.5
+"Dominican Republic",3,"DOM",2024,70
+"Algeria",3,"DZA",2024,70
+"Ecuador",2,"ECU",2024,90
+"Egypt",1,"EGY",2024,97.5
+"Eritrea",5,"ERI",2024,10
+"Spain",1,"ESP",2024,97.5
+"Estonia",1,"EST",2024,97.5
+"Ethiopia",3,"ETH",2024,70
+"Finland",1,"FIN",2024,97.5
+"Fiji",4,"FJI",2024,37.5
+"France",1,"FRA",2024,97.5
+"Micronesia, Fed. Sts.",5,"FSM",2024,10
+"Gabon",4,"GAB",2024,37.5
+"United Kingdom",1,"GBR",2024,97.5
+"Georgia",2,"GEO",2024,90
+"Ghana",1,"GHA",2024,97.5
+"Guinea",3,"GIN",2024,70
+"Gambia",3,"GMB",2024,70
+"Guinea-Bissau",5,"GNB",2024,10
+"Equatorial Guinea",4,"GNQ",2024,37.5
+"Greece",1,"GRC",2024,97.5
+"Grenada",4,"GRD",2024,37.5
+"Guatemala",4,"GTM",2024,37.5
+"Guyana",4,"GUY",2024,37.5
+"Honduras",4,"HND",2024,37.5
+"Croatia",2,"HRV",2024,90
+"Haiti",4,"HTI",2024,37.5
+"Hungary",2,"HUN",2024,90
+"Indonesia",1,"IDN",2024,97.5
+"India",1,"IND",2024,97.5
+"Ireland",2,"IRL",2024,90
+"Iran",3,"IRN",2024,70
+"Iraq",4,"IRQ",2024,37.5
+"Iceland of the)",1,"ISL",2024,97.5
+"Israel",2,"ISR",2024,90
+"Italy",1,"ITA",2024,97.5
+"Jamaica",3,"JAM",2024,70
+"Jordan",1,"JOR",2024,97.5
+"Japan",1,"JPN",2024,97.5
+"Kazakhstan",2,"KAZ",2024,90
+"Kenya",1,"KEN",2024,97.5
+"Kyrgyzstan",3,"KGZ",2024,70
+"Cambodia",4,"KHM",2024,37.5
+"Kiribati",3,"KIR",2024,70
+"Saint Kitts and Nevis",4,"KNA",2024,37.5
+"Korea, Rep.",1,"KOR",2024,97.5
+"Kuwait",3,"KWT",2024,70
+"Lao P.D.R. the Grenadines",4,"LAO",2024,37.5
+"Lebanon",4,"LBN",2024,37.5
+"Liberia",4,"LBR",2024,37.5
+"Libya",3,"LBY",2024,70
+"Saint Lucia",4,"LCA",2024,37.5
+"Liechtenstein",4,"LIE",2024,37.5
+"Sri Lanka",2,"LKA",2024,90
+"Lesotho",4,"LSO",2024,37.5
+"Lithuania",2,"LTU",2024,90
+"Luxembourg",1,"LUX",2024,97.5
+"Latvia",3,"LVA",2024,70
+"Morocco",1,"MAR",2024,97.5
+"Monaco",3,"MCO",2024,70
+"Moldova",3,"MDA",2024,70
+"Madagascar",4,"MDG",2024,37.5
+"Maldives",5,"MDV",2024,10
+"Mexico",2,"MEX",2024,90
+"Marshall Islands",5,"MHL",2024,10
+"North Macedonia",3,"MKD",2024,70
+"Mali",4,"MLI",2024,37.5
+"Malta",2,"MLT",2024,90
+"Myanmar",3,"MMR",2024,70
+"Montenegro",3,"MNE",2024,70
+"Mongolia",3,"MNG",2024,70
+"Mozambique",3,"MOZ",2024,70
+"Mauritania",4,"MRT",2024,37.5
+"Mauritius",1,"MUS",2024,97.5
+"Malawi",3,"MWI",2024,70
+"Malaysia",1,"MYS",2024,97.5
+"Namibia",4,"NAM",2024,37.5
+"Niger",4,"NER",2024,37.5
+"Nigeria",3,"NGA",2024,70
+"Nicaragua",4,"NIC",2024,37.5
+"Netherlands (Kingdom",1,"NLD",2024,97.5
+"Norway",1,"NOR",2024,97.5
+"Nepal",3,"NPL",2024,70
+"Nauru",4,"NRU",2024,37.5
+"New Zealand",3,"NZL",2024,70
+"Oman",1,"OMN",2024,97.5
+"Pakistan",1,"PAK",2024,97.5
+"Panama",3,"PAN",2024,70
+"Peru",3,"PER",2024,70
+"Philippines",2,"PHL",2024,90
+"Papua New Guinea",3,"PNG",2024,70
+"Poland",2,"POL",2024,90
+"Portugal",1,"PRT",2024,97.5
+"Paraguay",3,"PRY",2024,70
+"Palestine",4,"PSE",2024,37.5
+"Qatar",1,"QAT",2024,97.5
+"Romania",2,"ROU",2024,90
+"Russia",2,"RUS",2024,90
+"Rwanda",1,"RWA",2024,97.5
+"Saudi Arabia",1,"SAU",2024,97.5
+"Sudan",4,"SDN",2024,37.5
+"Senegal",3,"SEN",2024,70
+"Singapore",1,"SGP",2024,97.5
+"Solomon Islands",5,"SLB",2024,10
+"Sierra Leone",3,"SLE",2024,70
+"El Salvador",4,"SLV",2024,37.5
+"San Marino",4,"SMR",2024,37.5
+"Somalia",4,"SOM",2024,37.5
+"Serbia",1,"SRB",2024,97.5
+"South Sudan",4,"SSD",2024,37.5
+"Sao Tome and Principe",4,"STP",2024,37.5
+"Suriname",4,"SUR",2024,37.5
+"Slovakia",2,"SVK",2024,90
+"Slovenia",1,"SVN",2024,97.5
+"Sweden",1,"SWE",2024,97.5
+"Eswatini",3,"SWZ",2024,70
+"Seychelles",4,"SYC",2024,37.5
+"Syrian Arab Republic State of)",4,"SYR",2024,37.5
+"Chad",4,"TCD",2024,37.5
+"Togo",2,"TGO",2024,90
+"Thailand",1,"THA",2024,97.5
+"Tajikistan",4,"TJK",2024,37.5
+"Turkmenistan",4,"TKM",2024,37.5
+"Timor-Leste",5,"TLS",2024,10
+"Tonga",4,"TON",2024,37.5
+"Trinidad and Tobago",3,"TTO",2024,70
+"Tunisia",3,"TUN",2024,70
+"Turkey",1,"TUR",2024,97.5
+"Tuvalu",4,"TUV",2024,37.5
+"Tanzania",1,"TZA",2024,97.5
+"Uganda",3,"UGA",2024,70
+"Ukraine",3,"UKR",2024,70
+"Uruguay",2,"URY",2024,90
+"United States",1,"USA",2024,97.5
+"Uzbekistan",2,"UZB",2024,90
+"Holy See",5,"VAT",2024,10
+"Saint Vincent and",4,"VCT",2024,37.5
+"Venezuela",4,"VEN",2024,37.5
+"Vietnam",1,"VNM",2024,97.5
+"Vanuatu",3,"VUT",2024,70
+"Samoa",4,"WSM",2024,37.5
+"Yemen",5,"YEM",2024,10
+"South Africa",2,"ZAF",2024,90
+"Zambia",2,"ZMB",2024,90
+"Zimbabwe",4,"ZWE",2024,37.5

@@ -9,6 +9,7 @@ dir.create("data_processed", showWarnings = FALSE)
 
 raw_path <- "data_raw/wdi/wdi_core_long.csv"
 incidents_path <- "data_raw/incidents/incidents_country_year.csv"
+gci_path <- "data_raw/itu/gci_country_year.csv"
 harmonised_path <- "data_processed/wdi_core_harmonised_long.csv"
 audit_path <- "data_processed/wdi_harmonise_audit.csv"
 
@@ -85,6 +86,40 @@ if (file.exists(incidents_path)) {
 		select(iso3c, country, year, indicator, variable, value)
 
 	harmonised <- bind_rows(harmonised, inc_long) %>%
+		arrange(iso3c, year, indicator, desc(!is.na(value))) %>%
+		group_by(iso3c, year, indicator, variable) %>%
+		slice(1) %>%
+		ungroup()
+}
+
+if (file.exists(gci_path)) {
+	gci_raw <- read.csv(gci_path, stringsAsFactors = FALSE) %>%
+		janitor::clean_names()
+
+	gci_required <- c("iso3c", "year", "gci_overall")
+	gci_missing <- setdiff(gci_required, names(gci_raw))
+	if (length(gci_missing) > 0) {
+		stop("GCI file is missing required columns: ", paste(gci_missing, collapse = ", "))
+	}
+
+	gci_long <- gci_raw %>%
+		transmute(
+			iso3c = toupper(trimws(iso3c)),
+			country = if ("country" %in% names(gci_raw)) trimws(country) else NA_character_,
+			year = suppressWarnings(as.integer(year)),
+			gci_overall = suppressWarnings(as.numeric(gci_overall)),
+			gci_tier = if ("gci_tier" %in% names(gci_raw)) suppressWarnings(as.numeric(gci_tier)) else NA_real_
+		) %>%
+		tidyr::pivot_longer(
+			cols = c(gci_overall, gci_tier),
+			names_to = "variable",
+			values_to = "value"
+		) %>%
+		mutate(indicator = "GCI_OPEN") %>%
+		filter(!is.na(iso3c), !is.na(year), !is.na(value)) %>%
+		select(iso3c, country, year, indicator, variable, value)
+
+	harmonised <- bind_rows(harmonised, gci_long) %>%
 		arrange(iso3c, year, indicator, desc(!is.na(value))) %>%
 		group_by(iso3c, year, indicator, variable) %>%
 		slice(1) %>%

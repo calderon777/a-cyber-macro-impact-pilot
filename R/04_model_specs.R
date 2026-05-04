@@ -12,6 +12,8 @@ headline_html <- "output/tables/headline_regressions.html"
 robust_html <- "output/tables/robustness_regressions.html"
 headline_csv <- "output/tables/headline_regressions.csv"
 robust_csv <- "output/tables/robustness_regressions.csv"
+comparison_html <- "output/tables/incidents_vs_readiness_regressions.html"
+comparison_csv <- "output/tables/incidents_vs_readiness_regressions.csv"
 
 if (!file.exists(panel_path)) {
 	stop("Missing panel file: ", panel_path, ". Run R/03_build_panel.R first.")
@@ -89,7 +91,12 @@ if (length(outcomes) == 0) {
 controls <- c("inflation_cpi", "trade_gdp", "population_total")
 controls <- controls[controls %in% names(panel)]
 
-lag_vars <- unique(c(main_regressor, controls))
+available_model_regressors <- unique(c(
+	main_regressor,
+	cyber_priority_regressors[cyber_priority_regressors %in% names(panel)],
+	context_fallback_regressor
+))
+lag_vars <- unique(c(available_model_regressors, controls))
 panel <- create_lags(panel, vars = lag_vars, lags = 1:3)
 
 baseline_models <- list()
@@ -135,6 +142,49 @@ if (length(baseline_models) == 0) {
 	stop("No estimable baseline models were produced.")
 }
 
+comparison_models <- list()
+comparison_regressors <- c("cyber_incidents_log", "gci_overall")
+comparison_regressors <- comparison_regressors[comparison_regressors %in% names(panel)]
+
+if (length(comparison_regressors) == 2) {
+	for (y in outcomes) {
+		for (r in comparison_regressors) {
+			terms <- c(paste0("l1_", r), paste0("l1_", controls))
+			terms <- terms[terms %in% names(panel)]
+
+			if (length(terms) == 0) {
+				next
+			}
+
+			needed_cols <- unique(c(y, terms, "iso3c", "year"))
+			model_data <- panel %>%
+			select(all_of(needed_cols)) %>%
+			filter(if_all(all_of(c(y, terms)), ~ !is.na(.x)))
+
+			if (nrow(model_data) < 50) {
+				next
+			}
+
+			fml <- as.formula(
+				paste0(y, " ~ ", paste(terms, collapse = " + "), " | iso3c + year")
+			)
+
+			fit <- tryCatch(
+				fixest::feols(
+					fml,
+					data = model_data,
+					cluster = ~iso3c
+				),
+				error = function(e) NULL
+			)
+
+			if (!is.null(fit)) {
+				comparison_models[[paste0(y, "__", r)]] <- fit
+			}
+		}
+	}
+}
+
 modelsummary::modelsummary(
 	baseline_models,
 	output = headline_html,
@@ -166,9 +216,30 @@ robust_df <- modelsummary::modelsummary(
 write.csv(headline_df, headline_csv, row.names = FALSE)
 write.csv(robust_df, robust_csv, row.names = FALSE)
 
+if (length(comparison_models) > 0) {
+	modelsummary::modelsummary(
+		comparison_models,
+		output = comparison_html,
+		stars = TRUE,
+		goftable = "nobs"
+	)
+
+	comparison_df <- modelsummary::modelsummary(
+		comparison_models,
+		output = "data.frame",
+		stars = TRUE,
+		goftable = "nobs"
+	)
+
+	write.csv(comparison_df, comparison_csv, row.names = FALSE)
+}
+
 message("Model specification step complete.")
 message("Main regressor used: ", main_regressor)
 message("Regressor mode: ", regressor_mode)
 message("Outcomes modeled: ", paste(outcomes, collapse = ", "))
 message("Wrote: ", headline_html)
 message("Wrote: ", robust_html)
+if (length(comparison_models) > 0) {
+	message("Wrote: ", comparison_html)
+}

@@ -37,19 +37,12 @@ create_lag <- function(df, var_name, k = 1L) {
 }
 
 candidate_regressors <- c(
-	"gci_overall",
 	"cyber_incidents_log",
+	"gci_overall",
 	"gtmi_overall",
 	"cyber_spend_gdp_optional",
 	"internet_users_pct"
 )
-main_regressor <- dplyr::first(candidate_regressors[candidate_regressors %in% names(panel)])
-
-if (is.na(main_regressor) || length(main_regressor) == 0) {
-	stop("No supported regressor available for figure generation.")
-}
-
-panel <- create_lag(panel, main_regressor, 1L)
 
 y_var <- if ("gdp_per_person_employed" %in% names(panel)) {
 	"gdp_per_person_employed"
@@ -57,6 +50,30 @@ y_var <- if ("gdp_per_person_employed" %in% names(panel)) {
 	"gdp_growth"
 } else {
 	stop("No supported outcome available for structural chart.")
+}
+
+available_regressors <- candidate_regressors[candidate_regressors %in% names(panel)]
+if (length(available_regressors) == 0) {
+	stop("No supported regressor available for figure generation.")
+}
+
+main_regressor <- NA_character_
+for (candidate in available_regressors) {
+	p <- create_lag(panel, candidate, 1L)
+	x_name <- paste0("l1_", candidate)
+	n_obs <- p %>%
+		filter(!is.na(.data[[x_name]]), !is.na(.data[[y_var]])) %>%
+		nrow()
+
+	if (n_obs >= 100) {
+		main_regressor <- candidate
+		panel <- p
+		break
+	}
+}
+
+if (is.na(main_regressor)) {
+	stop("No supported regressor has enough lagged observations for figure generation.")
 }
 
 x_var <- paste0("l1_", main_regressor)

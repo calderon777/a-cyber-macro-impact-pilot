@@ -239,6 +239,223 @@ message("Indicator-year requests failed after retries: ", failed_requests)
 message("Total rows stored: ", nrow(combined))
 
 # -----------------------------------------------------------------------------
+# Optional GCI ingestion (ITU epublications translation payload)
+# -----------------------------------------------------------------------------
+
+gci_slug <- Sys.getenv("GCI_SLUG", unset = "global-cybersecurity-index-2024")
+gci_lang <- Sys.getenv("GCI_LANG", unset = "en")
+gci_year <- as.integer(Sys.getenv("GCI_YEAR", unset = "2024"))
+gci_translation_url <- sprintf(
+	"https://www.itu.int/epublications/api/v1/translation/%s/%s",
+	gci_slug,
+	gci_lang
+)
+gci_out <- "data_raw/itu/gci_country_year.csv"
+gci_log <- "data_raw/itu/gci_refresh_log.csv"
+
+repair_split_country_names <- function(x) {
+	if (length(x) == 0) {
+		return(x)
+	}
+
+	suffix_tokens <- c("of the)", "State of)", "the Grenadines", "Korea")
+	out <- character(0)
+
+	for (token in x) {
+		cur <- trimws(token)
+		if (!nzchar(cur)) {
+			next
+		}
+
+		if (length(out) > 0 && cur %in% suffix_tokens) {
+			out[length(out)] <- paste(out[length(out)], cur)
+		} else {
+			out <- c(out, cur)
+		}
+	}
+
+	out
+}
+
+normalize_country_name <- function(x) {
+	x <- trimws(x)
+	x <- gsub("\\s+", " ", x)
+
+	recode <- c(
+		"Dem. Rep. of the Congo" = "Democratic Republic of the Congo",
+		"Congo (Rep. of the)" = "Republic of the Congo",
+		"Dominican Rep." = "Dominican Republic",
+		"Iran (Islamic Republic of)" = "Iran",
+		"Korea (Republic of)" = "Korea, Rep.",
+		"Dem. People's Rep. of Korea" = "Korea, Dem. People's Rep.",
+		"Dem. People’s Rep. of Korea" = "Korea, Dem. People's Rep.",
+		"Lao P.D.R." = "Lao People's Democratic Republic",
+		"Nepal (Republic of)" = "Nepal",
+		"State of Palestine" = "Palestine",
+		"Turkiye" = "Turkey",
+		"Türkiye" = "Turkey",
+		"Viet Nam" = "Vietnam",
+		"Cabo Verde" = "Cape Verde",
+		"Russian Federation" = "Russia",
+		"Micronesia" = "Micronesia, Fed. Sts.",
+		"Vatican" = "Holy See"
+	)
+
+	if (x %in% names(recode)) {
+		x <- unname(recode[[x]])
+	}
+
+	x
+}
+
+extract_tier_countries <- function(html, start_pat, end_pat) {
+	block_match <- regexpr(
+		paste0(start_pat, "[\\s\\S]*?", end_pat),
+		html,
+		perl = TRUE
+	)
+
+	if (block_match[1] == -1) {
+		return(character(0))
+	}
+
+	block <- regmatches(html, block_match)
+	entries <- gregexpr("<p class=\\\"Table-text-small[^>]*>([^<]+)</p>", block, perl = TRUE)
+	raw_tags <- regmatches(block, entries)[[1]]
+	if (length(raw_tags) == 0) {
+		return(character(0))
+	}
+
+	raw_values <- sub("^.*?>", "", raw_tags)
+	raw_values <- sub("</p>$", "", raw_values)
+	raw_values <- gsub("&amp;", "&", raw_values, fixed = TRUE)
+	raw_values <- trimws(raw_values)
+	raw_values <- raw_values[nzchar(raw_values)]
+
+	repair_split_country_names(raw_values)
+}
+
+safe_fetch_gci <- function() {
+	setTimeLimit(elapsed = 120, transient = TRUE)
+	on.exit(setTimeLimit(cpu = Inf, elapsed = Inf, transient = FALSE), add = TRUE)
+
+	jsonlite::fromJSON(gci_translation_url, simplifyVector = FALSE)
+}
+
+gci_payload <- tryCatch(
+	safe_fetch_gci(),
+	error = function(e) {
+		message("GCI fetch skipped: ", conditionMessage(e))
+		NULL
+	}
+)
+
+if (!is.null(gci_payload)) {
+	html <- ""
+	if (!is.null(gci_payload$content) && length(gci_payload$content) > 0 && !is.null(gci_payload$content[[1]]$html)) {
+		html <- gci_payload$content[[1]]$html
+	}
+
+	if (!nzchar(html)) {
+		message("GCI payload contained no parsable HTML content. Skipping GCI ingestion.")
+	} else {
+		tier_1 <- extract_tier_countries(
+			html,
+			"<p class=\\\"Heading_bcolor\\\">Tier 1",
+			"<p class=\\\"Heading_bcolor\\\">Tier 2"
+		)
+		tier_2 <- extract_tier_countries(
+			html,
+			"<p class=\\\"Heading_bcolor\\\">Tier 2",
+			"<p class=\\\"Heading_bcolor\\\">Tier 3"
+		)
+		tier_3 <- extract_tier_countries(
+			html,
+			"<p class=\\\"Heading_bcolor\\\">Tier 3",
+			"<p class=\\\"Heading_bcolor\\\">Tier 4"
+		)
+		tier_4 <- extract_tier_countries(
+			html,
+			"<p class=\\\"Heading_bcolor\\\">Tier 4",
+			"<p class=\\\"Heading_bcolor\\\">Tier 5"
+		)
+		tier_5 <- extract_tier_countries(
+			html,
+			"<p class=\\\"Heading_bcolor\\\">Tier 5",
+			"<h3 id=\\\"_idParaDest-14\\\""
+		)
+
+		gci_raw <- bind_rows(
+			data.frame(country = tier_1, gci_tier = 1L, stringsAsFactors = FALSE),
+			data.frame(country = tier_2, gci_tier = 2L, stringsAsFactors = FALSE),
+			data.frame(country = tier_3, gci_tier = 3L, stringsAsFactors = FALSE),
+			data.frame(country = tier_4, gci_tier = 4L, stringsAsFactors = FALSE),
+			data.frame(country = tier_5, gci_tier = 5L, stringsAsFactors = FALSE)
+		) %>%
+			mutate(
+				country = vapply(country, normalize_country_name, FUN.VALUE = character(1)),
+				iso3c = countrycode::countrycode(country, origin = "country.name", destination = "iso3c", warn = FALSE),
+				year = gci_year,
+				# Midpoint proxy from ITU tier boundaries: T1 [95,100], T2 [85,95), T3 [55,85), T4 [20,55), T5 [0,20)
+				gci_overall = dplyr::case_when(
+					gci_tier == 1L ~ 97.5,
+					gci_tier == 2L ~ 90.0,
+					gci_tier == 3L ~ 70.0,
+					gci_tier == 4L ~ 37.5,
+					gci_tier == 5L ~ 10.0,
+					TRUE ~ NA_real_
+				)
+			) %>%
+			filter(!is.na(iso3c), !is.na(year), !is.na(gci_overall)) %>%
+			distinct(iso3c, year, .keep_all = TRUE) %>%
+			arrange(iso3c, year)
+
+		if (nrow(gci_raw) == 0) {
+			message("GCI ingestion produced zero mapped country-year rows.")
+		} else {
+			if (file.exists(gci_out)) {
+				existing_gci <- read.csv(gci_out, stringsAsFactors = FALSE)
+				existing_gci$year <- as.integer(existing_gci$year)
+				append_gci <- anti_join(
+					gci_raw,
+					existing_gci %>% select(iso3c, year),
+					by = c("iso3c", "year")
+				)
+				gci_final <- bind_rows(existing_gci, append_gci) %>%
+					arrange(iso3c, year)
+				gci_rows_appended <- nrow(append_gci)
+			} else {
+				gci_final <- gci_raw
+				gci_rows_appended <- nrow(gci_raw)
+			}
+
+			write.csv(gci_final, gci_out, row.names = FALSE)
+
+			gci_refresh <- data.frame(
+				refreshed_at_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
+				source = gci_translation_url,
+				year = gci_year,
+				rows_after_cleaning = nrow(gci_raw),
+				rows_appended = gci_rows_appended,
+				total_rows_after_write = nrow(gci_final),
+				stringsAsFactors = FALSE
+			)
+
+			if (file.exists(gci_log)) {
+				old_gci_log <- read.csv(gci_log, stringsAsFactors = FALSE)
+				gci_refresh <- bind_rows(old_gci_log, gci_refresh)
+			}
+
+			write.csv(gci_refresh, gci_log, row.names = FALSE)
+
+			message("GCI refresh complete.")
+			message("Rows appended this run (GCI): ", gci_rows_appended)
+			message("Total GCI rows stored: ", nrow(gci_final))
+		}
+	}
+}
+
+# -----------------------------------------------------------------------------
 # Optional incidents ingestion (open CSV URL or local CSV source)
 # -----------------------------------------------------------------------------
 

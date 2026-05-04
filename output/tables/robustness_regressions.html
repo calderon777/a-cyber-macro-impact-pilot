@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tinytable_rqb4q8haj5kd6we7qfvv</title>
+    <title>tinytable_ozibakgw1hahjclyxsh5</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
@@ -12,8 +12,8 @@
 
     <script>
 
-      function styleCell_rqb4q8haj5kd6we7qfvv(i, j, css_id) {
-          var table = document.getElementById("tinytable_rqb4q8haj5kd6we7qfvv");
+      function styleCell_ozibakgw1hahjclyxsh5(i, j, css_id) {
+          var table = document.getElementById("tinytable_ozibakgw1hahjclyxsh5");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -23,7 +23,7 @@
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_rqb4q8haj5kd6we7qfvv');
+        var table = document.getElementById('tinytable_ozibakgw1hahjclyxsh5');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -31,8 +31,8 @@
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_rqb4q8haj5kd6we7qfvv(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_rqb4q8haj5kd6we7qfvv");
+      function spanCell_ozibakgw1hahjclyxsh5(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_ozibakgw1hahjclyxsh5");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -62,20 +62,20 @@
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 20, j: 1 }, { i: 20, j: 3 }, { i: 20, j: 2 }, { i: 20, j: 4 },  ], css_id: 'tinytable_css_j5rhkvhmdo4jhz1hsglz',}, 
-          { positions: [ { i: 10, j: 1 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 3 },  ], css_id: 'tinytable_css_87dqtdhhicx6p4kn7zfp',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 4, j: 1 }, { i: 9, j: 1 }, { i: 2, j: 2 }, { i: 7, j: 1 }, { i: 12, j: 1 }, { i: 13, j: 1 }, { i: 14, j: 1 }, { i: 15, j: 1 }, { i: 3, j: 1 }, { i: 17, j: 1 }, { i: 18, j: 1 }, { i: 19, j: 1 }, { i: 12, j: 2 }, { i: 8, j: 1 }, { i: 1, j: 2 }, { i: 15, j: 2 }, { i: 11, j: 1 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 7, j: 2 }, { i: 16, j: 1 }, { i: 9, j: 2 }, { i: 2, j: 3 }, { i: 11, j: 2 }, { i: 4, j: 3 }, { i: 13, j: 2 }, { i: 14, j: 2 }, { i: 7, j: 3 }, { i: 3, j: 2 }, { i: 17, j: 2 }, { i: 18, j: 2 }, { i: 19, j: 2 }, { i: 12, j: 3 }, { i: 8, j: 2 }, { i: 1, j: 3 }, { i: 15, j: 3 }, { i: 3, j: 3 }, { i: 17, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 12, j: 4 }, { i: 16, j: 2 }, { i: 9, j: 3 }, { i: 2, j: 4 }, { i: 11, j: 3 }, { i: 4, j: 4 }, { i: 13, j: 3 }, { i: 14, j: 3 }, { i: 7, j: 4 }, { i: 16, j: 3 }, { i: 9, j: 4 }, { i: 18, j: 3 }, { i: 19, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 3 }, { i: 1, j: 4 }, { i: 15, j: 4 }, { i: 11, j: 4 }, { i: 17, j: 4 }, { i: 5, j: 4 }, { i: 6, j: 4 }, { i: 19, j: 4 }, { i: 8, j: 4 }, { i: 13, j: 4 }, { i: 14, j: 4 }, { i: 16, j: 4 }, { i: 18, j: 4 },  ], css_id: 'tinytable_css_tg1uroj0r1klk3r6rxug',}, 
-          { positions: [ { i: 0, j: 1 }, { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_jn4ggz7lofjuwcabhuqn',}, 
-          { positions: [ { i: 20, j: 0 },  ], css_id: 'tinytable_css_84b9z4bw15btyy0bu9vi',}, 
-          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_luvt96wypx9qh5vp4kdd',}, 
-          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 14, j: 0 }, { i: 11, j: 0 }, { i: 12, j: 0 }, { i: 13, j: 0 }, { i: 18, j: 0 }, { i: 15, j: 0 }, { i: 16, j: 0 }, { i: 17, j: 0 }, { i: 19, j: 0 },  ], css_id: 'tinytable_css_4acbi8zke50gpnit1soq',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_2pyp36kwwtushses9xev',}, 
+          { positions: [ { i: 20, j: 1 }, { i: 20, j: 3 }, { i: 20, j: 2 }, { i: 20, j: 4 },  ], css_id: 'tinytable_css_scp04soxsc20ssgr48j7',}, 
+          { positions: [ { i: 10, j: 1 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 3 },  ], css_id: 'tinytable_css_otj249jgtiu4ibrl5u23',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 4, j: 1 }, { i: 9, j: 1 }, { i: 2, j: 2 }, { i: 7, j: 1 }, { i: 12, j: 1 }, { i: 13, j: 1 }, { i: 14, j: 1 }, { i: 15, j: 1 }, { i: 3, j: 1 }, { i: 17, j: 1 }, { i: 18, j: 1 }, { i: 19, j: 1 }, { i: 12, j: 2 }, { i: 8, j: 1 }, { i: 1, j: 2 }, { i: 15, j: 2 }, { i: 11, j: 1 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 7, j: 2 }, { i: 16, j: 1 }, { i: 9, j: 2 }, { i: 2, j: 3 }, { i: 11, j: 2 }, { i: 4, j: 3 }, { i: 13, j: 2 }, { i: 14, j: 2 }, { i: 7, j: 3 }, { i: 3, j: 2 }, { i: 17, j: 2 }, { i: 18, j: 2 }, { i: 19, j: 2 }, { i: 12, j: 3 }, { i: 8, j: 2 }, { i: 1, j: 3 }, { i: 15, j: 3 }, { i: 3, j: 3 }, { i: 17, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 12, j: 4 }, { i: 16, j: 2 }, { i: 9, j: 3 }, { i: 2, j: 4 }, { i: 11, j: 3 }, { i: 4, j: 4 }, { i: 13, j: 3 }, { i: 14, j: 3 }, { i: 7, j: 4 }, { i: 16, j: 3 }, { i: 9, j: 4 }, { i: 18, j: 3 }, { i: 19, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 3 }, { i: 1, j: 4 }, { i: 15, j: 4 }, { i: 11, j: 4 }, { i: 17, j: 4 }, { i: 5, j: 4 }, { i: 6, j: 4 }, { i: 19, j: 4 }, { i: 8, j: 4 }, { i: 13, j: 4 }, { i: 14, j: 4 }, { i: 16, j: 4 }, { i: 18, j: 4 },  ], css_id: 'tinytable_css_me60wu6uebieyxkeerzw',}, 
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_rmy8u9ekhai603vf4vkz',}, 
+          { positions: [ { i: 20, j: 0 },  ], css_id: 'tinytable_css_mel5bedkskjy38gxmvzn',}, 
+          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_yyeqchsdglsjbjjh7uwh',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 14, j: 0 }, { i: 11, j: 0 }, { i: 12, j: 0 }, { i: 13, j: 0 }, { i: 18, j: 0 }, { i: 15, j: 0 }, { i: 16, j: 0 }, { i: 17, j: 0 }, { i: 19, j: 0 },  ], css_id: 'tinytable_css_m913u5zp2pbk5x1twz9l',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_wbr0vqbnyb0win13oz6x',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_rqb4q8haj5kd6we7qfvv(cell.i, cell.j, group.css_id);
+                  styleCell_ozibakgw1hahjclyxsh5(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -83,17 +83,17 @@
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_j5rhkvhmdo4jhz1hsglz, .table th.tinytable_css_j5rhkvhmdo4jhz1hsglz { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_87dqtdhhicx6p4kn7zfp, .table th.tinytable_css_87dqtdhhicx6p4kn7zfp { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_tg1uroj0r1klk3r6rxug, .table th.tinytable_css_tg1uroj0r1klk3r6rxug { text-align: center; }
-      .table td.tinytable_css_jn4ggz7lofjuwcabhuqn, .table th.tinytable_css_jn4ggz7lofjuwcabhuqn { text-align: center; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_84b9z4bw15btyy0bu9vi, .table th.tinytable_css_84b9z4bw15btyy0bu9vi { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_luvt96wypx9qh5vp4kdd, .table th.tinytable_css_luvt96wypx9qh5vp4kdd { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_4acbi8zke50gpnit1soq, .table th.tinytable_css_4acbi8zke50gpnit1soq { text-align: left; }
-      .table td.tinytable_css_2pyp36kwwtushses9xev, .table th.tinytable_css_2pyp36kwwtushses9xev { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_scp04soxsc20ssgr48j7, .table th.tinytable_css_scp04soxsc20ssgr48j7 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_otj249jgtiu4ibrl5u23, .table th.tinytable_css_otj249jgtiu4ibrl5u23 { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_me60wu6uebieyxkeerzw, .table th.tinytable_css_me60wu6uebieyxkeerzw { text-align: center; }
+      .table td.tinytable_css_rmy8u9ekhai603vf4vkz, .table th.tinytable_css_rmy8u9ekhai603vf4vkz { text-align: center; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_mel5bedkskjy38gxmvzn, .table th.tinytable_css_mel5bedkskjy38gxmvzn { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_yyeqchsdglsjbjjh7uwh, .table th.tinytable_css_yyeqchsdglsjbjjh7uwh { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_m913u5zp2pbk5x1twz9l, .table th.tinytable_css_m913u5zp2pbk5x1twz9l { text-align: left; }
+      .table td.tinytable_css_wbr0vqbnyb0win13oz6x, .table th.tinytable_css_wbr0vqbnyb0win13oz6x { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_rqb4q8haj5kd6we7qfvv" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_ozibakgw1hahjclyxsh5" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>
@@ -108,57 +108,57 @@
         <tbody>
                 <tr>
                   <td>l2_cyber_incidents_log</td>
-                  <td>0.068</td>
-                  <td>186.114</td>
-                  <td>0.562*</td>
-                  <td>0.176</td>
+                  <td>0.040</td>
+                  <td>169.306</td>
+                  <td>0.515*</td>
+                  <td>0.188</td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>(0.291)</td>
-                  <td>(335.800)</td>
-                  <td>(0.248)</td>
-                  <td>(0.143)</td>
+                  <td>(0.294)</td>
+                  <td>(340.830)</td>
+                  <td>(0.251)</td>
+                  <td>(0.144)</td>
                 </tr>
                 <tr>
                   <td>l3_cyber_incidents_log</td>
-                  <td>0.042</td>
-                  <td>733.820+</td>
-                  <td>0.154</td>
-                  <td>0.139</td>
+                  <td>0.032</td>
+                  <td>725.222</td>
+                  <td>0.147</td>
+                  <td>0.145</td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>(0.265)</td>
-                  <td>(440.747)</td>
-                  <td>(0.213)</td>
-                  <td>(0.121)</td>
+                  <td>(0.266)</td>
+                  <td>(444.140)</td>
+                  <td>(0.214)</td>
+                  <td>(0.122)</td>
                 </tr>
                 <tr>
                   <td>l1_inflation_cpi</td>
                   <td>0.010**</td>
-                  <td>−7.071</td>
-                  <td>−0.005</td>
+                  <td>−7.014</td>
+                  <td>−0.004</td>
                   <td>−0.003</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>(0.003)</td>
-                  <td>(7.333)</td>
+                  <td>(7.332)</td>
                   <td>(0.010)</td>
                   <td>(0.003)</td>
                 </tr>
                 <tr>
                   <td>l1_trade_gdp</td>
-                  <td>0.011</td>
-                  <td>23.069</td>
                   <td>0.012</td>
+                  <td>24.055</td>
+                  <td>0.013</td>
                   <td>0.002</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>(0.029)</td>
-                  <td>(35.653)</td>
+                  <td>(35.579)</td>
                   <td>(0.021)</td>
                   <td>(0.011)</td>
                 </tr>
@@ -178,58 +178,58 @@
                 </tr>
                 <tr>
                   <td>Num.Obs.</td>
-                  <td>675</td>
                   <td>671</td>
                   <td>667</td>
-                  <td>672</td>
+                  <td>663</td>
+                  <td>668</td>
                 </tr>
                 <tr>
                   <td>R2</td>
                   <td>0.622</td>
                   <td>0.996</td>
-                  <td>0.861</td>
+                  <td>0.860</td>
                   <td>0.986</td>
                 </tr>
                 <tr>
                   <td>R2 Adj.</td>
                   <td>0.538</td>
                   <td>0.995</td>
-                  <td>0.831</td>
+                  <td>0.829</td>
                   <td>0.983</td>
                 </tr>
                 <tr>
                   <td>R2 Within</td>
                   <td>0.005</td>
-                  <td>0.019</td>
-                  <td>0.015</td>
-                  <td>0.017</td>
+                  <td>0.018</td>
+                  <td>0.014</td>
+                  <td>0.018</td>
                 </tr>
                 <tr>
                   <td>R2 Within Adj.</td>
                   <td>−0.004</td>
-                  <td>0.010</td>
-                  <td>0.006</td>
-                  <td>0.008</td>
+                  <td>0.009</td>
+                  <td>0.004</td>
+                  <td>0.009</td>
                 </tr>
                 <tr>
                   <td>AIC</td>
-                  <td>3657.2</td>
-                  <td>13030.9</td>
-                  <td>3337.9</td>
-                  <td>2372.6</td>
+                  <td>3639.5</td>
+                  <td>12956.5</td>
+                  <td>3315.3</td>
+                  <td>2360.5</td>
                 </tr>
                 <tr>
                   <td>BIC</td>
-                  <td>4212.5</td>
-                  <td>13585.4</td>
-                  <td>3887.3</td>
-                  <td>2927.4</td>
+                  <td>4194.1</td>
+                  <td>13510.3</td>
+                  <td>3863.9</td>
+                  <td>2914.5</td>
                 </tr>
                 <tr>
                   <td>RMSE</td>
                   <td>3.03</td>
-                  <td>3320.20</td>
-                  <td>2.46</td>
+                  <td>3324.74</td>
+                  <td>2.45</td>
                   <td>1.18</td>
                 </tr>
                 <tr>

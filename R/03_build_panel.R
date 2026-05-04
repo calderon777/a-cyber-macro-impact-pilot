@@ -39,6 +39,7 @@ if (file.exists(indicator_map_path)) {
 			variable,
 			indicator,
 			source = dplyr::case_when(
+				indicator == "GCI_OPEN" ~ "ITU GCI tier extraction",
 				indicator == "INCIDENTS_OPEN" ~ "Open incidents source",
 				TRUE ~ "World Development Indicators"
 			),
@@ -53,6 +54,7 @@ if (file.exists(indicator_map_path)) {
 			variable,
 			indicator,
 			source = dplyr::case_when(
+				indicator == "GCI_OPEN" ~ "ITU GCI tier extraction",
 				indicator == "INCIDENTS_OPEN" ~ "Open incidents source",
 				TRUE ~ "World Development Indicators"
 			),
