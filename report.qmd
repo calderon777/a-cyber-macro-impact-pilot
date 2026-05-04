@@ -3,11 +3,10 @@ title: "Cyber Macro Impact Pilot"
 subtitle: "Institutional Technical Report"
 author:
   - name: "Dr Camilo Calderon"
+    email: camilo.calderon@city.ac.uk
     affiliations:
       - name: City, University of London
-        email: camilo.calderon@city.ac.uk
       - name: University of Cambridge
-        email: cc907@cam.ac.uk
 date: "2026-05-04"
 format:
   html:
@@ -24,6 +23,10 @@ reference-section-title: References
 nocite: |
   @pwt2024, @cissm, @eurepoc
 ---
+
+::: {.small style="color:#555; margin-top:-1em; margin-bottom:1.5em;"}
+camilo.calderon@city.ac.uk | cc907@cam.ac.uk
+:::
 
 ## Research question
 
