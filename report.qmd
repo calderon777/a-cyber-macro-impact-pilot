@@ -111,7 +111,7 @@ summary_tbl <- tibble::tibble(
 knitr::kable(summary_tbl)
 ```
 
-::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+::: {style="font-size:0.85em; color:#555; margin-top:0.25em; margin-bottom:1.5em;"}
 *Note:* World Bank regional and income-group aggregate codes are excluded prior to panel construction. Panel covers 2014–2025; year coverage varies by indicator and country. Sources: World Development Indicators [@wb_wdi]; ITU GCI [@itu_gci]; open incident repositories [@wb_annex2024].
 :::
 
@@ -128,7 +128,7 @@ if (file.exists(dict_path)) {
 }
 ```
 
-::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+::: {style="font-size:0.85em; color:#555; margin-top:0.25em; margin-bottom:1.5em;"}
 *Note:* Variables sourced from World Development Indicators (World Bank), ITU GCI (ITU), and open incident repositories. Imputed and derived variables are distinguished by the `transform` column. Full source metadata available in `data_processed/data_dictionary.csv`.
 :::
 
@@ -314,7 +314,7 @@ The readiness pathway tells a different story from the incident pathway. Lagged 
 
 ```{r}
 #| label: fig-coefficients
-#| fig-cap: "Fixed-Effects Coefficient Estimates: Cyber Incidents versus Readiness by Outcome"
+#| fig-cap: "Standardized Fixed-Effects Coefficient Estimates: Cyber Incidents versus Readiness by Outcome"
 #| echo: false
 #| out-width: "100%"
 fig_coeff <- "output/figures/comparison_coefficients.png"
@@ -325,8 +325,8 @@ if (file.exists(fig_coeff)) {
 }
 ```
 
-::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
-*Note:* Points show OLS coefficient estimates from two-way (country and year) fixed-effects models with one-year lagged cyber regressors. Horizontal bars show 95% confidence intervals constructed from country-clustered standard errors. The vertical reference line is at zero. Panels are faceted by regressor type (Incidents vs GCI Readiness); scales are free across panels to accommodate differences in units. GCI readiness values for 2021–2023 are linearly interpolated between the 2020 and 2024 editions; see @tbl-gci-qa for coverage details. Sources: [@itu_gci; @wb_annex2024; @wb_wdi].
+::: {style="font-size:0.85em; color:#555; margin-top:0.25em; margin-bottom:1.5em;"}
+*Note:* Points show standardized coefficients from two-way (country and year) fixed-effects models with one-year lagged cyber regressors. Horizontal bars show 95% confidence intervals constructed from country-clustered standard errors. The vertical reference line is at zero. Each point is the estimated change in the outcome, in standard deviations, associated with a one-standard-deviation increase in the relevant lagged cyber proxy. This standardization is used in the figure only so magnitudes can be compared across proxies on a common scale; @tbl-comparison reports the same models in raw units. The normalized GCI variant is a percentile-rank measure scaled from 0 to 1 within each edition, so a one-unit shift corresponds to 100 percentile points before standardization in the plot. GCI readiness values for 2021–2023 are linearly interpolated between the 2020 and 2024 editions; see @tbl-gci-qa for coverage details. Sources: [@itu_gci; @wb_annex2024; @wb_wdi].
 :::
 
 ## Income-Group Heterogeneity

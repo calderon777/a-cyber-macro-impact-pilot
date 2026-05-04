@@ -324,6 +324,8 @@ if (has_incidents && has_readiness) {
 						model = model_name,
 						outcome = y,
 						regressor = r,
+						outcome_sd = stats::sd(model_data[[y]], na.rm = TRUE),
+						regressor_sd = stats::sd(model_data[[paste0("l1_", r)]], na.rm = TRUE),
 						stringsAsFactors = FALSE
 					)
 				)
@@ -433,6 +435,22 @@ if (length(comparison_models) > 0) {
 		"Incidents vs readiness FE",
 		comparison_lookup
 	) %>%
+		left_join(
+			comparison_lookup %>%
+				select(model, outcome_sd, regressor_sd),
+			by = "model"
+		) %>%
+		mutate(
+			std_beta_scale = dplyr::if_else(
+				is.na(outcome_sd) | is.na(regressor_sd) | outcome_sd == 0,
+				NA_real_,
+				regressor_sd / outcome_sd
+			),
+			std_estimate = estimate * std_beta_scale,
+			std_error = std.error * std_beta_scale,
+			std_conf.low = std_estimate - 1.96 * std_error,
+			std_conf.high = std_estimate + 1.96 * std_error
+		) %>%
 		add_nobs(comparison_models)
 
 	write.csv(comparison_compact, comparison_compact_csv, row.names = FALSE)

@@ -184,11 +184,16 @@ if (file.exists(comparison_compact_csv)) {
 			regressor_label = dplyr::case_when(
 				term == "l1_cyber_incidents_log" ~ "Incidents",
 				term == "l1_gci_overall" ~ "GCI readiness (level)",
-				term == "l1_gci_overall_norm" ~ "GCI readiness (percentile norm)",
+				term == "l1_gci_overall_norm" ~ "GCI readiness (percentile rank, 0-1)",
 				TRUE ~ term
 			),
-			conf.low = estimate - 1.96 * std.error,
-			conf.high = estimate + 1.96 * std.error
+			outcome_label = factor(
+				outcome_label,
+				levels = c("Productivity", "Investment share", "GDP growth", "Employment ratio")
+			),
+			plot_estimate = dplyr::if_else(!is.na(std_estimate), std_estimate, estimate),
+			plot_conf_low = dplyr::if_else(!is.na(std_conf.low), std_conf.low, estimate - 1.96 * std.error),
+			plot_conf_high = dplyr::if_else(!is.na(std_conf.high), std_conf.high, estimate + 1.96 * std.error)
 		)
 
 	if (nrow(comparison_coefficients) > 0) {
@@ -196,27 +201,31 @@ if (file.exists(comparison_compact_csv)) {
 
 		p_coefficients <- ggplot(
 			comparison_coefficients,
-			aes(x = estimate, y = outcome_label, color = regressor_label)
+			aes(x = plot_estimate, y = outcome_label, color = regressor_label)
 		) +
 			geom_vline(xintercept = 0, linewidth = 0.4, color = "grey55") +
-			geom_errorbar(aes(xmin = conf.low, xmax = conf.high), orientation = "y", width = 0.18, linewidth = 0.8) +
-			geom_point(size = 2.0) +
-			facet_wrap(~regressor_label, scales = "free_x") +
+			geom_errorbar(aes(xmin = plot_conf_low, xmax = plot_conf_high), orientation = "y", width = 0.18, linewidth = 0.8) +
+			geom_point(size = 2.6) +
+			facet_wrap(~regressor_label, scales = "fixed") +
 			scale_color_manual(
 				values = c(
 					"Incidents" = "#1f4e79",
 					"GCI readiness (level)" = "#c24e00",
-					"GCI readiness (percentile norm)" = "#2e7d32"
+					"GCI readiness (percentile rank, 0-1)" = "#2e7d32"
 				)
 			) +
 			labs(
-				title = "Lagged Cyber Proxy Coefficients by Outcome",
-				x = "Coefficient estimate with 95% interval",
+				title = "Standardized Lagged Cyber Proxy Coefficients by Outcome",
+				x = "Standardized coefficient (SD of outcome per 1 SD increase in regressor)",
 				y = NULL,
 				color = NULL
 			) +
 			theme_minimal(base_size = 11) +
-			theme(legend.position = "none")
+			theme(
+				legend.position = "none",
+				panel.grid.minor = element_blank(),
+				strip.text = element_text(size = 10)
+			)
 
 		ggsave(fig_comparison_coefficients, p_coefficients, width = 10, height = 6, dpi = 300)
 	}

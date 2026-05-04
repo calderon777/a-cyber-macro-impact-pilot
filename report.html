@@ -254,7 +254,7 @@ Table&nbsp;1: Panel Dataset Summary
 </figure>
 </div>
 </div>
-<div style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;">
+<div style="font-size:0.85em; color:#555; margin-top:0.25em; margin-bottom:1.5em;">
 <p><em>Note:</em> World Bank regional and income-group aggregate codes are excluded prior to panel construction. Panel covers 2014–2025; year coverage varies by indicator and country. Sources: World Development Indicators <span class="citation" data-cites="wb_wdi">(<a href="#ref-wb_wdi" role="doc-biblioref">World Bank, n.d.b</a>)</span>; ITU GCI <span class="citation" data-cites="itu_gci">(<a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union, n.d.a</a>)</span>; open incident repositories <span class="citation" data-cites="wb_annex2024">(<a href="#ref-wb_annex2024" role="doc-biblioref">World Bank, 2024</a>)</span>.</p>
 </div>
 <p>The panel is unbalanced in practice: WDI controls (inflation, trade, population) are observed annually, GCI readiness is published in discrete editions (2020 and 2024 within the panel window), and the cyber incidents annex covers 2014–2022 with later years carried forward. Listwise deletion in the regressions therefore varies across specifications; minimum-sample thresholds (50 observations and 10 countries) are applied uniformly.</p>
@@ -425,7 +425,7 @@ Table&nbsp;2: Variable Dictionary
 </figure>
 </div>
 </div>
-<div style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;">
+<div style="font-size:0.85em; color:#555; margin-top:0.25em; margin-bottom:1.5em;">
 <p><em>Note:</em> Variables sourced from World Development Indicators (World Bank), ITU GCI (ITU), and open incident repositories. Imputed and derived variables are distinguished by the <code>transform</code> column. Full source metadata available in <code>data_processed/data_dictionary.csv</code>.</p>
 </div>
 <p><a href="#fig-dynamic" class="quarto-xref">Figure&nbsp;1</a> offers a high-level descriptive view of how the cyber proxy and aggregate GDP growth co-move across the panel window. The two series are standardised to a common scale to permit visual comparison. The figure is descriptive only and is not intended as evidence of any cyber–macro mechanism: common global shocks, most prominently the 2020 pandemic recession, can drive co-movement in cross-country annual means without any direct causal channel.</p>
@@ -1454,14 +1454,14 @@ Table&nbsp;6: Incidents versus Readiness Comparison: Fixed-Effects Estimates
 <img src="output/figures/comparison_coefficients.png" class="img-fluid figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coefficients-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3: Fixed-Effects Coefficient Estimates: Cyber Incidents versus Readiness by Outcome
+Figure&nbsp;3: Standardized Fixed-Effects Coefficient Estimates: Cyber Incidents versus Readiness by Outcome
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;">
-<p><em>Note:</em> Points show OLS coefficient estimates from two-way (country and year) fixed-effects models with one-year lagged cyber regressors. Horizontal bars show 95% confidence intervals constructed from country-clustered standard errors. The vertical reference line is at zero. Panels are faceted by regressor type (Incidents vs GCI Readiness); scales are free across panels to accommodate differences in units. GCI readiness values for 2021–2023 are linearly interpolated between the 2020 and 2024 editions; see <a href="#tbl-gci-qa" class="quarto-xref">Table&nbsp;3</a> for coverage details. Sources: <span class="citation" data-cites="itu_gci wb_annex2024 wb_wdi">(<a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union, n.d.a</a>; <a href="#ref-wb_annex2024" role="doc-biblioref">World Bank, 2024</a>, <a href="#ref-wb_wdi" role="doc-biblioref">n.d.b</a>)</span>.</p>
+<div style="font-size:0.85em; color:#555; margin-top:0.25em; margin-bottom:1.5em;">
+<p><em>Note:</em> Points show standardized coefficients from two-way (country and year) fixed-effects models with one-year lagged cyber regressors. Horizontal bars show 95% confidence intervals constructed from country-clustered standard errors. The vertical reference line is at zero. Each point is the estimated change in the outcome, in standard deviations, associated with a one-standard-deviation increase in the relevant lagged cyber proxy. This standardization is used in the figure only so magnitudes can be compared across proxies on a common scale; <a href="#tbl-comparison" class="quarto-xref">Table&nbsp;6</a> reports the same models in raw units. The normalized GCI variant is a percentile-rank measure scaled from 0 to 1 within each edition, so a one-unit shift corresponds to 100 percentile points before standardization in the plot. GCI readiness values for 2021–2023 are linearly interpolated between the 2020 and 2024 editions; see <a href="#tbl-gci-qa" class="quarto-xref">Table&nbsp;3</a> for coverage details. Sources: <span class="citation" data-cites="itu_gci wb_annex2024 wb_wdi">(<a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union, n.d.a</a>; <a href="#ref-wb_annex2024" role="doc-biblioref">World Bank, 2024</a>, <a href="#ref-wb_wdi" role="doc-biblioref">n.d.b</a>)</span>.</p>
 </div>
 </section>
 <section id="income-group-heterogeneity" class="level2" data-number="4.4">
