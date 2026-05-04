@@ -45,16 +45,32 @@ create_lags <- function(df, vars, lags = 1:3, group_col = "iso3c") {
 	df
 }
 
-candidate_regressors <- c(
-	"gci_overall",
+cyber_priority_regressors <- c(
 	"cyber_incidents_log",
+	"gci_overall",
 	"gtmi_overall",
-	"cyber_spend_gdp_optional",
-	"internet_users_pct"
+	"cyber_spend_gdp_optional"
 )
+context_fallback_regressor <- "internet_users_pct"
+allow_context_fallback <- tolower(Sys.getenv("ALLOW_CONTEXT_FALLBACK", unset = "false")) %in% c("1", "true", "yes")
 
-main_regressor <- dplyr::first(candidate_regressors[candidate_regressors %in% names(panel)])
-if (is.na(main_regressor) || length(main_regressor) == 0) {
+available_cyber <- cyber_priority_regressors[cyber_priority_regressors %in% names(panel)]
+
+if (length(available_cyber) > 0) {
+	main_regressor <- dplyr::first(available_cyber)
+	regressor_mode <- "cyber-primary"
+} else if (context_fallback_regressor %in% names(panel)) {
+	if (!allow_context_fallback) {
+		stop(
+			"No cyber regressor found in panel. Set ALLOW_CONTEXT_FALLBACK=true to run with internet_users_pct fallback."
+		)
+	}
+	main_regressor <- context_fallback_regressor
+	regressor_mode <- "context-fallback"
+	warning(
+		"Proceeding with context fallback regressor (internet_users_pct). Interpret headline estimates as non-cyber baseline."
+	)
+} else {
 	stop("No supported main regressor found in panel.")
 }
 
@@ -152,6 +168,7 @@ write.csv(robust_df, robust_csv, row.names = FALSE)
 
 message("Model specification step complete.")
 message("Main regressor used: ", main_regressor)
+message("Regressor mode: ", regressor_mode)
 message("Outcomes modeled: ", paste(outcomes, collapse = ", "))
 message("Wrote: ", headline_html)
 message("Wrote: ", robust_html)

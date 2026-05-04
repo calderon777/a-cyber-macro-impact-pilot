@@ -1,4 +1,6 @@
 "variable","indicator","source","frequency","transform"
+"cyber_incidents","INCIDENTS_OPEN","Open incidents source","annual","none"
+"cyber_incidents_log","INCIDENTS_OPEN","Open incidents source","annual","none"
 "employment_ratio","SL.EMP.TOTL.SP.ZS","World Development Indicators","annual","none"
 "gcf_gdp","NE.GDI.TOTL.ZS","World Development Indicators","annual","none"
 "gdp_growth","NY.GDP.MKTP.KD.ZG","World Development Indicators","annual","none"

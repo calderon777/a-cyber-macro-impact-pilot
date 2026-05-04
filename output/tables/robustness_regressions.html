@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tinytable_hpe66z8sx2jhme3j43mc</title>
+    <title>tinytable_rqb4q8haj5kd6we7qfvv</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
@@ -12,8 +12,8 @@
 
     <script>
 
-      function styleCell_hpe66z8sx2jhme3j43mc(i, j, css_id) {
-          var table = document.getElementById("tinytable_hpe66z8sx2jhme3j43mc");
+      function styleCell_rqb4q8haj5kd6we7qfvv(i, j, css_id) {
+          var table = document.getElementById("tinytable_rqb4q8haj5kd6we7qfvv");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -23,7 +23,7 @@
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_hpe66z8sx2jhme3j43mc');
+        var table = document.getElementById('tinytable_rqb4q8haj5kd6we7qfvv');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -31,8 +31,8 @@
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_hpe66z8sx2jhme3j43mc(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_hpe66z8sx2jhme3j43mc");
+      function spanCell_rqb4q8haj5kd6we7qfvv(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_rqb4q8haj5kd6we7qfvv");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -62,20 +62,20 @@
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 20, j: 1 }, { i: 20, j: 3 }, { i: 20, j: 2 }, { i: 20, j: 4 },  ], css_id: 'tinytable_css_n9ochkckh58gt1kuuzjc',}, 
-          { positions: [ { i: 10, j: 1 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 3 },  ], css_id: 'tinytable_css_9onj2j93z8ivoikyugq9',}, 
-          { positions: [ { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 4, j: 1 }, { i: 9, j: 1 }, { i: 2, j: 2 }, { i: 7, j: 1 }, { i: 12, j: 1 }, { i: 13, j: 1 }, { i: 14, j: 1 }, { i: 15, j: 1 }, { i: 3, j: 1 }, { i: 17, j: 1 }, { i: 18, j: 1 }, { i: 19, j: 1 }, { i: 12, j: 2 }, { i: 8, j: 1 }, { i: 1, j: 2 }, { i: 15, j: 2 }, { i: 11, j: 1 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 7, j: 2 }, { i: 16, j: 1 }, { i: 9, j: 2 }, { i: 2, j: 3 }, { i: 11, j: 2 }, { i: 4, j: 3 }, { i: 13, j: 2 }, { i: 14, j: 2 }, { i: 7, j: 3 }, { i: 3, j: 2 }, { i: 17, j: 2 }, { i: 18, j: 2 }, { i: 19, j: 2 }, { i: 12, j: 3 }, { i: 8, j: 2 }, { i: 1, j: 3 }, { i: 15, j: 3 }, { i: 3, j: 3 }, { i: 17, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 12, j: 4 }, { i: 16, j: 2 }, { i: 9, j: 3 }, { i: 2, j: 4 }, { i: 11, j: 3 }, { i: 4, j: 4 }, { i: 13, j: 3 }, { i: 14, j: 3 }, { i: 7, j: 4 }, { i: 16, j: 3 }, { i: 9, j: 4 }, { i: 18, j: 3 }, { i: 19, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 3 }, { i: 1, j: 4 }, { i: 15, j: 4 }, { i: 11, j: 4 }, { i: 17, j: 4 }, { i: 5, j: 4 }, { i: 6, j: 4 }, { i: 19, j: 4 }, { i: 8, j: 4 }, { i: 13, j: 4 }, { i: 14, j: 4 }, { i: 16, j: 4 }, { i: 18, j: 4 },  ], css_id: 'tinytable_css_yo5ew2z3ri85dacx1ehy',}, 
-          { positions: [ { i: 0, j: 1 }, { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_yjyessf56satfryssy2h',}, 
-          { positions: [ { i: 20, j: 0 },  ], css_id: 'tinytable_css_4oadsbycua0501w0micy',}, 
-          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_h432qdtkyqn3jfwawisu',}, 
-          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 14, j: 0 }, { i: 11, j: 0 }, { i: 12, j: 0 }, { i: 13, j: 0 }, { i: 18, j: 0 }, { i: 15, j: 0 }, { i: 16, j: 0 }, { i: 17, j: 0 }, { i: 19, j: 0 },  ], css_id: 'tinytable_css_gnid0r3qk83augxw2oek',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_2v4nckyzo1qgo0yevfj0',}, 
+          { positions: [ { i: 20, j: 1 }, { i: 20, j: 3 }, { i: 20, j: 2 }, { i: 20, j: 4 },  ], css_id: 'tinytable_css_j5rhkvhmdo4jhz1hsglz',}, 
+          { positions: [ { i: 10, j: 1 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 3 },  ], css_id: 'tinytable_css_87dqtdhhicx6p4kn7zfp',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 4, j: 1 }, { i: 9, j: 1 }, { i: 2, j: 2 }, { i: 7, j: 1 }, { i: 12, j: 1 }, { i: 13, j: 1 }, { i: 14, j: 1 }, { i: 15, j: 1 }, { i: 3, j: 1 }, { i: 17, j: 1 }, { i: 18, j: 1 }, { i: 19, j: 1 }, { i: 12, j: 2 }, { i: 8, j: 1 }, { i: 1, j: 2 }, { i: 15, j: 2 }, { i: 11, j: 1 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 7, j: 2 }, { i: 16, j: 1 }, { i: 9, j: 2 }, { i: 2, j: 3 }, { i: 11, j: 2 }, { i: 4, j: 3 }, { i: 13, j: 2 }, { i: 14, j: 2 }, { i: 7, j: 3 }, { i: 3, j: 2 }, { i: 17, j: 2 }, { i: 18, j: 2 }, { i: 19, j: 2 }, { i: 12, j: 3 }, { i: 8, j: 2 }, { i: 1, j: 3 }, { i: 15, j: 3 }, { i: 3, j: 3 }, { i: 17, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 12, j: 4 }, { i: 16, j: 2 }, { i: 9, j: 3 }, { i: 2, j: 4 }, { i: 11, j: 3 }, { i: 4, j: 4 }, { i: 13, j: 3 }, { i: 14, j: 3 }, { i: 7, j: 4 }, { i: 16, j: 3 }, { i: 9, j: 4 }, { i: 18, j: 3 }, { i: 19, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 3 }, { i: 1, j: 4 }, { i: 15, j: 4 }, { i: 11, j: 4 }, { i: 17, j: 4 }, { i: 5, j: 4 }, { i: 6, j: 4 }, { i: 19, j: 4 }, { i: 8, j: 4 }, { i: 13, j: 4 }, { i: 14, j: 4 }, { i: 16, j: 4 }, { i: 18, j: 4 },  ], css_id: 'tinytable_css_tg1uroj0r1klk3r6rxug',}, 
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_jn4ggz7lofjuwcabhuqn',}, 
+          { positions: [ { i: 20, j: 0 },  ], css_id: 'tinytable_css_84b9z4bw15btyy0bu9vi',}, 
+          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_luvt96wypx9qh5vp4kdd',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 14, j: 0 }, { i: 11, j: 0 }, { i: 12, j: 0 }, { i: 13, j: 0 }, { i: 18, j: 0 }, { i: 15, j: 0 }, { i: 16, j: 0 }, { i: 17, j: 0 }, { i: 19, j: 0 },  ], css_id: 'tinytable_css_4acbi8zke50gpnit1soq',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_2pyp36kwwtushses9xev',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_hpe66z8sx2jhme3j43mc(cell.i, cell.j, group.css_id);
+                  styleCell_rqb4q8haj5kd6we7qfvv(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -83,17 +83,17 @@
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_n9ochkckh58gt1kuuzjc, .table th.tinytable_css_n9ochkckh58gt1kuuzjc { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_9onj2j93z8ivoikyugq9, .table th.tinytable_css_9onj2j93z8ivoikyugq9 { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_yo5ew2z3ri85dacx1ehy, .table th.tinytable_css_yo5ew2z3ri85dacx1ehy { text-align: center; }
-      .table td.tinytable_css_yjyessf56satfryssy2h, .table th.tinytable_css_yjyessf56satfryssy2h { text-align: center; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_4oadsbycua0501w0micy, .table th.tinytable_css_4oadsbycua0501w0micy { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_h432qdtkyqn3jfwawisu, .table th.tinytable_css_h432qdtkyqn3jfwawisu { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_gnid0r3qk83augxw2oek, .table th.tinytable_css_gnid0r3qk83augxw2oek { text-align: left; }
-      .table td.tinytable_css_2v4nckyzo1qgo0yevfj0, .table th.tinytable_css_2v4nckyzo1qgo0yevfj0 { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_j5rhkvhmdo4jhz1hsglz, .table th.tinytable_css_j5rhkvhmdo4jhz1hsglz { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_87dqtdhhicx6p4kn7zfp, .table th.tinytable_css_87dqtdhhicx6p4kn7zfp { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_tg1uroj0r1klk3r6rxug, .table th.tinytable_css_tg1uroj0r1klk3r6rxug { text-align: center; }
+      .table td.tinytable_css_jn4ggz7lofjuwcabhuqn, .table th.tinytable_css_jn4ggz7lofjuwcabhuqn { text-align: center; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_84b9z4bw15btyy0bu9vi, .table th.tinytable_css_84b9z4bw15btyy0bu9vi { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_luvt96wypx9qh5vp4kdd, .table th.tinytable_css_luvt96wypx9qh5vp4kdd { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_4acbi8zke50gpnit1soq, .table th.tinytable_css_4acbi8zke50gpnit1soq { text-align: left; }
+      .table td.tinytable_css_2pyp36kwwtushses9xev, .table th.tinytable_css_2pyp36kwwtushses9xev { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_hpe66z8sx2jhme3j43mc" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_rqb4q8haj5kd6we7qfvv" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>
@@ -107,66 +107,66 @@
         <tfoot><tr><td colspan='5'>+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td></tr></tfoot>
         <tbody>
                 <tr>
-                  <td>l2_internet_users_pct</td>
-                  <td>0.069+</td>
-                  <td>8.252</td>
-                  <td>0.023</td>
-                  <td>0.005</td>
+                  <td>l2_cyber_incidents_log</td>
+                  <td>0.068</td>
+                  <td>186.114</td>
+                  <td>0.562*</td>
+                  <td>0.176</td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>(0.036)</td>
-                  <td>(52.272)</td>
-                  <td>(0.031)</td>
-                  <td>(0.021)</td>
+                  <td>(0.291)</td>
+                  <td>(335.800)</td>
+                  <td>(0.248)</td>
+                  <td>(0.143)</td>
                 </tr>
                 <tr>
-                  <td>l3_internet_users_pct</td>
-                  <td>−0.062</td>
-                  <td>−54.107</td>
-                  <td>0.006</td>
-                  <td>−0.021</td>
+                  <td>l3_cyber_incidents_log</td>
+                  <td>0.042</td>
+                  <td>733.820+</td>
+                  <td>0.154</td>
+                  <td>0.139</td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>(0.050)</td>
-                  <td>(45.123)</td>
-                  <td>(0.040)</td>
-                  <td>(0.017)</td>
+                  <td>(0.265)</td>
+                  <td>(440.747)</td>
+                  <td>(0.213)</td>
+                  <td>(0.121)</td>
                 </tr>
                 <tr>
                   <td>l1_inflation_cpi</td>
-                  <td>0.004</td>
-                  <td>−5.962</td>
-                  <td>−0.007</td>
+                  <td>0.010**</td>
+                  <td>−7.071</td>
+                  <td>−0.005</td>
                   <td>−0.003</td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>(0.004)</td>
-                  <td>(7.540)</td>
-                  <td>(0.012)</td>
-                  <td>(0.004)</td>
+                  <td>(0.003)</td>
+                  <td>(7.333)</td>
+                  <td>(0.010)</td>
+                  <td>(0.003)</td>
                 </tr>
                 <tr>
                   <td>l1_trade_gdp</td>
-                  <td>−0.019</td>
-                  <td>−45.539</td>
-                  <td>−0.003</td>
-                  <td>0.015*</td>
+                  <td>0.011</td>
+                  <td>23.069</td>
+                  <td>0.012</td>
+                  <td>0.002</td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>(0.032)</td>
-                  <td>(44.169)</td>
-                  <td>(0.019)</td>
-                  <td>(0.007)</td>
+                  <td>(0.029)</td>
+                  <td>(35.653)</td>
+                  <td>(0.021)</td>
+                  <td>(0.011)</td>
                 </tr>
                 <tr>
                   <td>l1_population_total</td>
+                  <td>0.000</td>
                   <td>−0.000</td>
-                  <td>−0.000</td>
-                  <td>−0.000</td>
+                  <td>0.000</td>
                   <td>0.000</td>
                 </tr>
                 <tr>
@@ -178,59 +178,59 @@
                 </tr>
                 <tr>
                   <td>Num.Obs.</td>
-                  <td>1236</td>
-                  <td>1198</td>
-                  <td>1209</td>
-                  <td>1336</td>
+                  <td>675</td>
+                  <td>671</td>
+                  <td>667</td>
+                  <td>672</td>
                 </tr>
                 <tr>
                   <td>R2</td>
-                  <td>0.384</td>
-                  <td>0.989</td>
-                  <td>0.821</td>
-                  <td>0.983</td>
+                  <td>0.622</td>
+                  <td>0.996</td>
+                  <td>0.861</td>
+                  <td>0.986</td>
                 </tr>
                 <tr>
                   <td>R2 Adj.</td>
-                  <td>0.285</td>
-                  <td>0.987</td>
-                  <td>0.792</td>
-                  <td>0.980</td>
+                  <td>0.538</td>
+                  <td>0.995</td>
+                  <td>0.831</td>
+                  <td>0.983</td>
                 </tr>
                 <tr>
                   <td>R2 Within</td>
-                  <td>0.004</td>
-                  <td>0.009</td>
-                  <td>0.004</td>
-                  <td>0.012</td>
+                  <td>0.005</td>
+                  <td>0.019</td>
+                  <td>0.015</td>
+                  <td>0.017</td>
                 </tr>
                 <tr>
                   <td>R2 Within Adj.</td>
-                  <td>−0.001</td>
-                  <td>0.004</td>
-                  <td>−0.001</td>
+                  <td>−0.004</td>
+                  <td>0.010</td>
+                  <td>0.006</td>
                   <td>0.008</td>
                 </tr>
                 <tr>
                   <td>AIC</td>
-                  <td>7604.7</td>
-                  <td>24237.3</td>
-                  <td>6623.6</td>
-                  <td>5146.4</td>
+                  <td>3657.2</td>
+                  <td>13030.9</td>
+                  <td>3337.9</td>
+                  <td>2372.6</td>
                 </tr>
                 <tr>
                   <td>BIC</td>
-                  <td>8490.4</td>
-                  <td>25087.1</td>
-                  <td>7490.2</td>
-                  <td>6019.6</td>
+                  <td>4212.5</td>
+                  <td>13585.4</td>
+                  <td>3887.3</td>
+                  <td>2927.4</td>
                 </tr>
                 <tr>
                   <td>RMSE</td>
-                  <td>4.56</td>
-                  <td>5205.20</td>
-                  <td>3.25</td>
-                  <td>1.46</td>
+                  <td>3.03</td>
+                  <td>3320.20</td>
+                  <td>2.46</td>
+                  <td>1.18</td>
                 </tr>
                 <tr>
                   <td>FE: iso3c</td>
