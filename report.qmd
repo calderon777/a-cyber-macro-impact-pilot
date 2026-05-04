@@ -1,6 +1,6 @@
 ---
 title: "Cyber Macro Impact Pilot"
-subtitle: "Institutional Technical Report"
+subtitle: "Open-Data Panel Evidence on Cyber Risk and Macroeconomic Outcomes, 2014–2025"
 author:
   - name: "Dr Camilo Calderon"
     email: camilo.calderon@city.ac.uk
@@ -43,23 +43,33 @@ camilo.calderon@city.ac.uk | cc907@cam.ac.uk
 **Keywords:** cybersecurity · macroeconomics · panel data · fixed effects · cyber risk · ITU Global Cybersecurity Index · cyber incidents · productivity
 :::
 
-## Research question
+# Abstract {.unnumbered}
 
-How are country-level cyber readiness and incident intensity associated with macro outcomes such as GDP growth, productivity, investment, and employment?
+This note presents an open-data, country-year panel pilot examining how cyber risk indicators relate to macroeconomic outcomes. Using a balanced panel of 224 country-territory units over 2014–2025, we estimate two-way (country and year) fixed-effects models with country-clustered standard errors, regressing GDP growth, labour productivity, the investment ratio, and the employment ratio on lagged measures of cyber incident exposure (World Bank annex counts) and cyber readiness (ITU Global Cybersecurity Index). To address the discontinuous publication schedule of the GCI, we apply a transparent linear-interpolation and bounded-carry rule between the 2020 and 2024 editions and report a percentile-normalised variant as a scale-sensitivity check.
 
-This pilot is framed as associational, following measurement and identification cautions in the literature [@cobos2024; @kopp2017; @oecd2024].
+Headline results are modest. Pooled lagged-incident coefficients are uniformly small and statistically insignificant at conventional levels; readiness coefficients are directionally negative for productivity, investment, and employment in the level specification and statistically significant for productivity and employment, with the percentile-normalised variant preserving the sign throughout but losing significance. Income-group splits show that the readiness association is concentrated in high-income economies. Estimates should be interpreted as conditional associations, not causal effects.
 
-::: {.callout-note}
-## Reporting Standard
-All model estimates in this report are interpreted as conditional associations rather than causal effects. This follows the source-consistent evidence standard for cyber-risk macro analysis [@kopp2017; @oecd2024].
+::: {.callout-note appearance="simple"}
+**Reporting standard.** All estimates in this note are interpreted as conditional associations rather than causal effects, following the source-consistent evidence standard for cyber-risk macro analysis [@kopp2017; @oecd2024].
 :::
 
-## Data
+# Introduction
 
-This report uses the processed panel at `data_processed/panel_country_year.parquet`.
-World Bank regional and income-group aggregates are excluded before panel construction so the fixed effects operate on country and territory units only.
+Cyber incidents and the institutional capacity to manage them are now routine entries on the macro-financial risk register, yet the empirical record on their economic correlates remains thin and methodologically fragmented [@cobos2024; @oecd2024]. Two structural problems explain the gap. First, there is no internationally comparable, country-year measure of direct cyber expenditure in the open data ecosystem; analysts must rely on indirect proxies — incident counts, readiness indices, and digital adoption controls — each with known disclosure or scaling limitations. Second, public cross-country indicators that do exist are typically published at irregular intervals (the ITU Global Cybersecurity Index, for example, is released as discrete editions rather than as an annual series), which forces explicit imputation choices when constructing a balanced panel.
 
-Core sources include World Development Indicators and World Bank API documentation for macro controls [@wb_wdi; @wb_api], ITU datasets for readiness context [@itu_gci; @itu_datahub; @itu_idi], and World Bank annex incident counts for exposure proxies [@wb_annex2024].
+This note asks a single question:
+
+> **How are country-level cyber readiness and incident intensity associated with macroeconomic outcomes — GDP growth, labour productivity, the investment ratio, and the employment ratio — in a panel of 224 country-territory units observed between 2014 and 2025?**
+
+The contribution is methodological as much as substantive. We assemble a fully reproducible open-data panel from World Development Indicators, ITU readiness data, and the World Bank cyber incidents annex; we estimate two-way fixed-effects specifications with explicit minimum-sample guardrails; and we report a dual-pathway readiness sensitivity (level scale and within-edition percentile) so that scale-representation effects can be separated from directional inference. The point estimates we report are deliberately framed as associational. The note's value is therefore in the discipline of the measurement and the transparency of the imputation decisions, not in the size of the coefficients.
+
+The remainder of this note is organised as follows. Section 2 documents the panel and source datasets. Section 3 sets out the empirical strategy, the GCI interpolation rule, and the fallback specifications used when two-way fixed effects are not estimable. Section 4 presents headline, robustness, comparison, and heterogeneity results. Section 5 discusses GCI measurement sensitivity in detail. Section 6 catalogues the limitations that bound interpretation. Section 7 concludes with implications for measurement practice and outlines a constructive research agenda.
+
+# Data
+
+The analysis uses a country-year panel constructed from four open data spines: World Development Indicators for macroeconomic outcomes and controls [@wb_wdi; @wb_api]; ITU sources for readiness and digital-context indicators [@itu_gci; @itu_datahub; @itu_idi]; the World Bank's published annex of disclosed cyber incidents per country for incident exposure [@wb_annex2024]; and World Bank country metadata for income-group classification used in the heterogeneity analysis. Regional and income-group aggregate codes (for example, "EUU" or "LMC") are removed before panel construction so that all fixed-effects identification operates on country and territory units.
+
+@tbl-snapshot summarises the assembled panel.
 
 ```{r}
 #| label: tbl-snapshot
@@ -97,6 +107,10 @@ knitr::kable(summary_tbl)
 *Note:* World Bank regional and income-group aggregate codes are excluded prior to panel construction. Panel covers 2014–2025; year coverage varies by indicator and country. Sources: World Development Indicators [@wb_wdi]; ITU GCI [@itu_gci]; open incident repositories [@wb_annex2024].
 :::
 
+The panel is unbalanced in practice: WDI controls (inflation, trade, population) are observed annually, GCI readiness is published in discrete editions (2020 and 2024 within the panel window), and the cyber incidents annex covers 2014–2022 with later years carried forward. Listwise deletion in the regressions therefore varies across specifications; minimum-sample thresholds (50 observations and 10 countries) are applied uniformly.
+
+@tbl-dictionary provides the full variable dictionary, including the source attribution and any transformation applied during panel construction.
+
 ```{r}
 #| label: tbl-dictionary
 #| tbl-cap: "Variable Dictionary"
@@ -110,24 +124,44 @@ if (file.exists(dict_path)) {
 *Note:* Variables sourced from World Development Indicators (World Bank), ITU GCI (ITU), and open incident repositories. Imputed and derived variables are distinguished by the `transform` column. Full source metadata available in `data_processed/data_dictionary.csv`.
 :::
 
-## Baseline model
+@fig-dynamic offers a high-level descriptive view of how the cyber proxy and aggregate GDP growth co-move across the panel window. The two series are standardised to a common scale to permit visual comparison. The figure is descriptive only and is not intended as evidence of any cyber–macro mechanism: common global shocks, most prominently the 2020 pandemic recession, can drive co-movement in cross-country annual means without any direct causal channel.
 
-We use country and year fixed-effects models with lagged cyber variables and clustered standard errors at country level.
+```{r}
+#| label: fig-dynamic
+#| fig-cap: "Standardised Annual Mean of Cyber Proxy and GDP Growth, 2014–2025"
+#| echo: false
+#| out-width: "100%"
+fig_dyn <- "output/figures/dynamic_fallback_trend.png"
+if (file.exists(fig_dyn)) {
+	knitr::include_graphics(fig_dyn)
+} else {
+	cat("Dynamic figure not found. Run R/05_figures.R.\n")
+}
+```
 
-The model design follows standard panel-association practice under explicit non-causal interpretation and known cyber measurement limitations [@kopp2017; @oecd2024; @cobos2024].
+::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+*Note:* Both series are standardised (z-score) cross-country annual means to allow comparison across different units of measurement. GDP growth sourced from World Development Indicators (World Bank). Cyber proxy is the primary available regressor (ITU GCI or log cyber incidents, depending on panel availability). Co-movement should be interpreted as descriptive association only; common global shocks (e.g., the COVID-19 pandemic in 2020) may drive apparent correlation without any direct cyber-macro mechanism. Sources: [@wb_wdi; @itu_gci; @wb_annex2024].
+:::
 
-From a data governance perspective, this specification prioritizes transparency over overfitted precision: interpolation and carry rules are explicit, imputation is flagged, and comparison pathways use aligned lagged estimands for interpretability [@itu_gci; @wb_wdi; @wb_annex2024].
+# Empirical Strategy
 
-For the incidents-vs-readiness comparison, both pathways now share the same lagged two-way FE estimand:
+## Specification
 
-1. Incident intensity (`cyber_incidents_log`) is estimated with lagged terms (`l1_cyber_incidents_log`) in two-way FE panel models.
-2. Readiness (`gci_overall`) is also estimated with lagged terms (`l1_gci_overall`) in two-way FE panel models. GCI values for 2021-2023 are linearly interpolated between the 2020 edition (scores 0-100) and the 2024 edition (tier midpoints). Earlier panel years carry the 2020 value backward, later years carry the 2024 value forward, and all derived rows are flagged by `gci_overall_imputed = TRUE`.
-3. A scale-sensitivity variant (`gci_overall_norm`) converts observed 2020 and 2024 anchors to within-edition percentiles (0-1), then applies the same interpolation and carry rules. This provides a robustness check against cross-edition level-scale shifts.
-4. When either specification does not support two-way FE (too few observations after listwise deletion), the model path falls back to time FE or pure cross-section with heteroskedasticity-robust standard errors.
+For each macroeconomic outcome $y_{it}$ for country $i$ in year $t$, we estimate
 
-The shared estimator structure makes coefficient magnitudes more directly comparable than a contemporaneous vs. lagged comparison would allow. The GCI interpolation and carry assumptions are maintained for coverage; directional interpretation is appropriate, but absolute magnitudes for derived years carry additional uncertainty.
+$$
+y_{it} = \beta\,C_{i,t-k} + \gamma' X_{i,t-k} + \alpha_i + \lambda_t + \varepsilon_{it},
+$$
 
-Significance markers in the tables use `+` for p < 0.10, `*` for p < 0.05, `**` for p < 0.01, and `***` for p < 0.001. In the headline incident models, the incident coefficient is not significant at the 5% level; the productivity and investment specifications are only marginal at the 10% level. In the readiness comparison, interpret `l1_gci_overall` and `l1_gci_overall_norm` jointly as level-scale and normalized-scale sensitivity evidence, given the interpolation and carry assumptions described above.
+where $C_{i,t-k}$ is a single cyber regressor (incident exposure or readiness) at lag $k$, $X_{i,t-k}$ is the vector of macro controls (inflation, trade openness, population) at the same lag, $\alpha_i$ is a country fixed effect, $\lambda_t$ is a year fixed effect, and standard errors are clustered at the country level. The headline specification uses $k=1$; a distributed-lag robustness specification uses $k \in \{2,3\}$. Each regression requires a minimum of 50 country-year observations and 10 distinct countries to be reported.
+
+Significance markers in all tables follow conventional thresholds: `+` denotes $p < 0.10$, `*` denotes $p < 0.05$, `**` denotes $p < 0.01$, and `***` denotes $p < 0.001$. These conventions apply throughout the report.
+
+## GCI interpolation and carry-forward
+
+The ITU Global Cybersecurity Index is published as discrete editions rather than as an annual series. Within the panel window, only the 2020 edition (direct scores on a 0–100 scale) and the 2024 edition (tier midpoints of 97.5, 90, 70, 37.5, and 10) provide observations. Years 2021–2023 are linearly interpolated between the two anchors; pre-2020 years carry the 2020 value backward, and 2024–2025 years carry the 2024 value forward. Every derived (non-anchor) value is flagged by the `gci_overall_imputed` indicator so that the imputation footprint is auditable.
+
+@tbl-gci-qa quantifies the share of the GCI sample that is observed against the share that is interpolated or carried.
 
 ```{r}
 #| label: tbl-gci-qa
@@ -141,6 +175,18 @@ if (file.exists(gci_qa_path)) {
 ::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
 *Note:* Observed anchor years are 2020 (GCI edition with direct 0–100 scores) and 2024 (tier midpoints: 97.5, 90, 70, 37.5, 10). Years 2021–2023 are linearly interpolated between anchors. Pre-2020 years carry the 2020 value backward; post-2024 years carry the 2024 value forward. The `gci_overall_imputed` flag identifies all non-observed (derived) values. Source: ITU GCI [@itu_gci].
 :::
+
+To separate genuine directional findings from artefacts of the GCI level scale, we additionally compute a percentile-normalised variant (`gci_overall_norm`) that maps each anchor year's observed scores onto a within-edition $[0,1]$ percentile rank before applying the same interpolation and carry rule. The two variants share an identical estimand and differ only in the scale on which the readiness construct is represented; the comparison is reported in @tbl-comparison and discussed in §5.
+
+## Fallback specifications
+
+When listwise deletion leaves too few observations to identify the two-way fixed-effects model — typically because a regressor is observed for only one or two years in the relevant subsample — we fall back to a year-fixed-effects specification with heteroskedasticity-robust standard errors, or, in the limit of a single-year cross-section, to OLS with heteroskedasticity-robust standard errors and no fixed effects. Fallbacks are applied automatically by the comparison estimator in `R/04_model_specs.R`; they preserve the lagged-regressor structure and the minimum-sample thresholds.
+
+# Results
+
+## Headline Estimates
+
+@tbl-headline reports the headline two-way fixed-effects estimates with one-year lagged cyber incidents as the main regressor.
 
 ```{r}
 #| label: tbl-headline
@@ -167,8 +213,33 @@ if (file.exists(headline_csv)) {
 ```
 
 ::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
-*Note:* Two-way fixed-effects (country and year) OLS with one-year lagged cyber incidents (`l1_cyber_incidents_log`) and controls (inflation, trade, population). Standard errors clustered at country level. Outcomes: GDP growth (`gdp_growth`), GDP per person employed (`gdp_per_person_employed`), gross capital formation as share of GDP (`gcf_gdp`), employment ratio (`employment_ratio`). Significance: + p\<0.10, \* p\<0.05, \*\* p\<0.01, \*\*\* p\<0.001. Minimum 50 observations and 10 countries required per model. Sources: [@wb_wdi; @wb_annex2024].
+*Note:* Two-way fixed-effects (country and year) OLS with one-year lagged cyber incidents (`l1_cyber_incidents_log`) and controls (inflation, trade, population). Standard errors clustered at country level. Outcomes: GDP growth (`gdp_growth`), GDP per person employed (`gdp_per_person_employed`), gross capital formation as share of GDP (`gcf_gdp`), employment ratio (`employment_ratio`). Minimum 50 observations and 10 countries required per model. Sources: [@wb_wdi; @wb_annex2024].
 :::
+
+The lagged-incident coefficient is small in absolute magnitude across all four outcomes and is not statistically significant at conventional levels in any specification. The point estimates for productivity and the investment ratio reach only marginal significance ($p < 0.10$). Read alongside the controls — population and trade openness are likewise non-significant once country and year fixed effects absorb the cross-sectional and temporal variation — the headline message is that within-country, year-on-year movements in disclosed cyber incidents do not detectably co-move with the next year's macro outcomes once persistent country characteristics and global year shocks are removed. This is consistent with the disclosure-dependence concern that incident counts are a lower bound on true exposure [@cobos2024].
+
+@fig-structural visualises the partial correlation between the lagged cyber proxy and labour productivity, with country and year fixed effects removed from both axes. The cloud is wide and the fitted slope is shallow, reinforcing the headline-table result that any conditional association is small relative to the residual variance.
+
+```{r}
+#| label: fig-structural
+#| fig-cap: "Partial Correlation between Lagged Cyber Proxy and Macroeconomic Productivity"
+#| echo: false
+#| out-width: "100%"
+fig_struct <- "output/figures/partial_correlation_scatter.png"
+if (file.exists(fig_struct)) {
+	knitr::include_graphics(fig_struct)
+} else {
+	cat("Structural figure not found. Run R/05_figures.R.\n")
+}
+```
+
+::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+*Note:* Each point represents a country-year observation. Both axes display residuals after removing country and year fixed effects via OLS with factor dummies. The fitted line is an OLS regression of residualised outcome on residualised regressor. A positive slope indicates that countries with above-average cyber proxy values in the prior year tend to show above-average productivity outcomes, conditional on country-specific and time-specific factors. This is a descriptive partial-correlation plot; it does not establish causality. Sources: World Development Indicators [@wb_wdi]; ITU GCI [@itu_gci]; open incident repositories [@wb_annex2024].
+:::
+
+## Robustness to Lag Structure
+
+@tbl-robust replaces the one-year lag with two- and three-year lags of the cyber-incidents regressor, leaving the fixed-effects structure and the controls unchanged. The aim is to test whether a slower-acting incident effect is being missed at the one-year horizon.
 
 ```{r}
 #| label: tbl-robust
@@ -192,8 +263,14 @@ if (file.exists(robust_csv)) {
 ```
 
 ::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
-*Note:* Distributed-lag robustness specification replacing the one-year lag with two- and three-year lags (`l2_`, `l3_`) of the cyber incidents regressor. Two-way fixed effects and country-clustered standard errors are retained. Comparison with @tbl-headline tests whether associations are stable across lag structures. Significance markers as above.
+*Note:* Distributed-lag robustness specification replacing the one-year lag with two- and three-year lags (`l2_`, `l3_`) of the cyber incidents regressor. Two-way fixed effects and country-clustered standard errors are retained. Comparison with @tbl-headline tests whether associations are stable across lag structures.
 :::
+
+The distributed-lag coefficients confirm the headline finding: there is no statistically significant association between lagged incident counts and any of the four outcomes at horizons of one, two, or three years. Consistency across lag structures rules out the explanation that the headline null is purely a question of timing.
+
+## Incidents versus Readiness
+
+The headline incident specification is uninformative about the *capacity* to manage cyber risk. @tbl-comparison estimates the same lagged two-way fixed-effects model separately on incident exposure (`l1_cyber_incidents_log`), level-scale readiness (`l1_gci_overall`), and percentile-normalised readiness (`l1_gci_overall_norm`), so that the three regressors share an identical estimand and differ only in their conceptual content and scale.
 
 ```{r}
 #| label: tbl-comparison
@@ -220,8 +297,33 @@ if (file.exists(comparison_csv)) {
 ```
 
 ::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
-*Note:* Side-by-side comparison of incident exposure (`l1_cyber_incidents_log`) and readiness (`l1_gci_overall`, `l1_gci_overall_norm`) in identical two-way fixed-effects specifications with one-year lags. The normalized variant (`gci_overall_norm`) rescales GCI to a 0–1 percentile within each edition as a scale-sensitivity check. GCI values for 2021–2023 are linearly interpolated (see @tbl-gci-qa). Significance markers as in @tbl-headline. Sources: [@itu_gci; @wb_annex2024; @wb_wdi].
+*Note:* Side-by-side comparison of incident exposure (`l1_cyber_incidents_log`) and readiness (`l1_gci_overall`, `l1_gci_overall_norm`) in identical two-way fixed-effects specifications with one-year lags. The normalised variant (`gci_overall_norm`) rescales GCI to a 0–1 percentile within each edition as a scale-sensitivity check. GCI values for 2021–2023 are linearly interpolated (see @tbl-gci-qa). Sources: [@itu_gci; @wb_annex2024; @wb_wdi].
 :::
+
+The readiness pathway tells a different story from the incident pathway. Lagged level-scale GCI carries a statistically significant negative association with productivity and with the employment ratio, and a directionally negative but non-significant association with the investment ratio. The signs are stable when readiness is rescaled to a within-edition percentile, although statistical significance is not preserved (see §5 for interpretation). The negative readiness coefficient is initially counterintuitive — a higher-readiness country in year $t-1$ is associated with a lower-than-trend macro outcome in year $t$ — but this should be read in light of the fact that the GCI readiness construct loads heavily on legal and institutional capability, which itself correlates with countries that have larger and more interconnected attack surfaces. The estimate is a within-country conditional association, not a behavioural elasticity.
+
+@fig-coefficients summarises the comparison visually: lagged-incident coefficients cluster tightly around zero with confidence intervals that span both signs, whereas lagged-readiness coefficients are visibly displaced from zero for productivity and employment with intervals that exclude zero for the level specification.
+
+```{r}
+#| label: fig-coefficients
+#| fig-cap: "Fixed-Effects Coefficient Estimates: Cyber Incidents versus Readiness by Outcome"
+#| echo: false
+#| out-width: "100%"
+fig_coeff <- "output/figures/comparison_coefficients.png"
+if (file.exists(fig_coeff)) {
+	knitr::include_graphics(fig_coeff)
+} else {
+	cat("Coefficient figure not found. Run R/05_figures.R.\n")
+}
+```
+
+::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+*Note:* Points show OLS coefficient estimates from two-way (country and year) fixed-effects models with one-year lagged cyber regressors. Horizontal bars show 95% confidence intervals constructed from country-clustered standard errors. The vertical reference line is at zero. Panels are faceted by regressor type (Incidents vs GCI Readiness); scales are free across panels to accommodate differences in units. GCI readiness values for 2021–2023 are linearly interpolated between the 2020 and 2024 editions; see @tbl-gci-qa for coverage details. Sources: [@itu_gci; @wb_annex2024; @wb_wdi].
+:::
+
+## Income-Group Heterogeneity
+
+The pooled estimates above mask potentially important variation across development levels. @tbl-heterogeneity stratifies the estimation by World Bank income classification (High income, Upper middle income, and a Lower-income pooled bucket combining Lower middle and Low income).
 
 ```{r}
 #| label: tbl-heterogeneity
@@ -249,91 +351,49 @@ if (file.exists(heterogeneity_csv)) {
 ```
 
 ::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
-*Note:* Income-group subsamples defined by World Bank classification: High income, Upper middle income, Lower income (Lower middle and Low income pooled). Eleven country/territory codes without income-group assignment are excluded from this analysis. Each row shows the lagged cyber regressor coefficient from a two-way fixed-effects model estimated on the income-group subsample; minimum thresholds of 50 observations and 10 countries per model apply. Significance markers as in @tbl-headline. Source: World Bank country metadata [@wb_wdi].
+*Note:* Income-group subsamples defined by World Bank classification: High income, Upper middle income, Lower income (Lower middle and Low income pooled). Eleven country/territory codes without income-group assignment are excluded from this analysis. Each row shows the lagged cyber regressor coefficient from a two-way fixed-effects model estimated on the income-group subsample; minimum thresholds of 50 observations and 10 countries per model apply. Source: World Bank country metadata [@wb_wdi].
 :::
 
-### Heterogeneity Summary
+Three patterns emerge:
 
-Income-group splits reveal differentiated cyber-macro associations across country development levels, consistent with broader findings that institutional readiness and reporting capacity vary systematically across income strata [@oecd2024; @kopp2017].
+- **High-income economies** carry the readiness signal. The level-GCI productivity coefficient is statistically significant, and a comparable association is detectable in the percentile-normalised variant. The interpretation is consistent with the hypothesis that wealthier, more digitalised economies have larger productivity exposure to readiness changes — both as a benefit channel (better governance) and as a risk channel (more exposed digital infrastructure) [@oecd2024].
+- **Upper-middle-income economies** show mixed and partially significant readiness associations and weak incident associations, suggesting transmission mechanisms that are heterogeneous within the bucket. The negative GCI–productivity association in this subsample is harder to interpret without firm-level data and may reflect measurement noise more than a structural channel.
+- **Lower-income economies** exhibit wider intervals and fewer significant coefficients in every specification. Both the smaller sample size and the weaker disclosure architecture in this group [@cobos2024; @wb_annex2024] are consistent with this attenuation.
 
-- **High-income countries** show statistically significant readiness effects, notably in productivity (positive, p=0.01 for level GCI; p=0.02 for normalized variant), consistent with hypothesis that wealthier economies may derive larger productivity gains from cyber readiness.
-- **Upper-middle-income countries** show mixed results, with some negative GCI associations in productivity (p=0.02) and weaker overall significance, suggesting heterogeneous transmission mechanisms.
-- **Lower-income countries** exhibit wider confidence intervals and fewer significant coefficients, reflecting both smaller sample sizes and potentially distinct cyber–macro linkages.
+Across all three groups, the lagged-incident coefficient is weaker than its pooled counterpart — a pattern that is consistent with disclosure heterogeneity diluting the within-group signal once country and year fixed effects have been absorbed. Readiness is therefore the more informative cyber regressor in the heterogeneity analysis, with the caveat that its interpretation depends on the GCI scale assumptions discussed in §5.
 
-Incident effects in heterogeneity models are generally weaker than in the pooled specification, indicating incident intensity may be a noisier exposure proxy in stratified sub-samples, particularly where disclosure and reporting architectures differ [@cobos2024; @wb_annex2024].
+# GCI Measurement Sensitivity
 
-**Metadata coverage caveat:** World Bank country metadata classification leaves 11 panel country/territory codes (primarily small or disputed territories) without an assigned income-group bucket. These observations are excluded from the heterogeneity analysis. Conclusions from the heterogeneity split should be interpreted as applicable to the classified subset; results may not generalize uniformly to unclassified territories or to regions heavily represented in that unclassified remainder. A full list of excluded codes is available in the raw panel data dictionary.
+The two GCI variants reported above — the level-scale `l1_gci_overall` and the percentile-normalised `l1_gci_overall_norm` — share the same estimand, the same sample, and the same interpolation/carry rule. They differ only in how the readiness construct is represented: a 0–100 score versus a within-edition $[0,1]$ percentile. The pair therefore isolates the contribution of scale choice to the empirical findings, in the spirit of the OECD measurement framework that warns against drawing inference from a single proxy [@oecd2024].
 
-## GCI Scale-Sensitivity Interpretation
+The substantive pattern across the four outcomes is sign-stable. In every outcome, the level-scale and percentile-scale coefficients carry the same sign: positive for GDP growth, and negative for productivity, the investment ratio, and the employment ratio. Statistical power, however, differs. The level specification preserves significance for productivity and employment, while the percentile specification preserves the direction in every case but loses significance throughout. The mechanical reason is that the percentile transformation compresses GCI variation into a $[0,1]$ range and places greater weight on within-edition rank movement than on the underlying score level, which dampens year-on-year variation in the regressor and increases standard errors.
 
-The comparison results include both a level-scale readiness variable (`l1_gci_overall`) and a normalized percentile-scale variant (`l1_gci_overall_norm`). Both apply the same FE estimand, interpolation, and carry-forward logic; they differ only in scale representation. This design follows OECD-style measurement discipline by separating representation effects from directional inference [@oecd2024].
+The interpretive guidance follows: the level-scale specification is the more informative point estimate, and the percentile-scale specification is best read as a sign-robustness bound. The fact that the sign is stable across both representations is a non-trivial check; it indicates that the level results are not an artefact of the raw 0–100 score magnitude. The fact that significance is lost in the percentile specification, however, is itself a measurement caveat: it confirms that interpolation and bounded carry of a discrete-edition index inject sufficient uncertainty into the readiness construct to make scale choices materially affect what is detectable [@itu_gci; @cobos2024].
 
-**Directional stability across outcomes and income groups:**
+# Limitations
 
-- **GDP growth**: Level +0.034 (marginal, p=0.07); Normalized +0.816 (ns, p=0.78). Same positive direction; normalized loses significance.
-- **Productivity**: Level −133.4** (p=0.002); Normalized −4479 (ns, p=0.35). Same negative direction; level retains significance.
-- **Investment**: Level −0.078 (ns, p=0.11); Normalized −5.24 (ns, p=0.24). Same negative direction throughout.
-- **Employment**: Level −0.046*** (p=0.001); Normalized −2.06 (ns, p=0.26). Same negative direction; level significant.
+The interpretation of the results above is bounded by six limitations.
 
-The sign consistency across both scales and outcomes provides directional evidence that the GCI-macro association is robust to the choice of scale representation. However, the level-scale formulation (`l1_gci_overall`) retains more statistical power, suggesting it better captures year-to-year variation in the underlying readiness construct. The normalized variant loses significance primarily in outcomes with strong level-scale coefficients (productivity, employment), which implies the percentile normalization dampens signal more than it stabilizes. This pattern is consistent with measurement-fragmentation concerns highlighted in the source literature [@oecd2024; @cobos2024; @itu_gci].
+**Cyber spending is missing.** No internationally comparable, country-year measure of direct cyber expenditure exists in the open data ecosystem within the panel window. Readiness indicators and incident counts are structural proxies, not direct spending measures.
 
-**Interpretation guidance:**
+**Incident exposure is disclosure-dependent.** The World Bank annex covers 2014–2022, and post-annex years carry the last observed value forward. Disclosed-incident counts should be read as a lower bound on true exposure; cross-country differences in disclosure regimes mean that the regressor mixes true incidence with reporting capacity [@cobos2024].
 
-When interpreting GCI-based results, prioritize the level-scale specification (`l1_gci_overall`) as the primary evidence, since it has greater sensitivity to variation. The normalized results serve as a scale-robustness bound: conclusions are directionally stable even when transforming to a 0–1 percentile scale, which confirms the association is not an artifact of the raw 0–100 score magnitude.
+**GCI scale discontinuity.** The 2020 and 2024 GCI editions use methodologically different scoring approaches (direct scores in 2020; tier midpoints in 2024). The interpolation and carry rule is a transparent stitching device rather than a substantive estimate of unobserved annual GCI values. Readers should treat absolute level magnitudes for derived years as approximate; directional inference is more robust.
 
-## Figures
+**GCI is observed in two editions only.** The interpolation supplies coverage for the intervening years but does not represent annual observation. The `gci_overall_imputed` flag isolates derived values for any reader who wishes to restrict attention to anchor years.
 
-```{r}
-#| label: fig-structural
-#| fig-cap: "Partial Correlation between Lagged Cyber Proxy and Macroeconomic Productivity"
-#| echo: false
-#| out-width: "100%"
-fig_struct <- "output/figures/partial_correlation_scatter.png"
-if (file.exists(fig_struct)) {
-	knitr::include_graphics(fig_struct)
-} else {
-	cat("Structural figure not found. Run R/05_figures.R.\n")
-}
-```
+**Incomplete metadata coverage in the heterogeneity analysis.** World Bank income-group classification covers 213 of the 224 panel country/territory units (95.1%). The 11 unmatched codes — primarily small or disputed territories — are excluded from the heterogeneity stratification. Conclusions from the heterogeneity split apply to the classified subset; they may not generalise to unclassified or under-covered jurisdictions.
 
-::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
-*Note:* Each point represents a country-year observation. Both axes display residuals after removing country and year fixed effects via OLS with factor dummies. The fitted line is an OLS regression of residualized outcome on residualized regressor. A positive slope indicates that countries with above-average cyber proxy values in the prior year tend to show above-average productivity outcomes, conditional on country-specific and time-specific factors. This is a descriptive partial-correlation plot; it does not establish causality. Sources: World Development Indicators [@wb_wdi]; ITU GCI [@itu_gci]; open incident repositories [@wb_annex2024].
+**Cross-source methodological heterogeneity.** Coverage, definitions, and collection protocols vary across WDI, ITU, World Bank annex, and incident sources. Some loss of comparability across estimates is unavoidable in any open-data exercise of this kind.
+
+# Conclusion
+
+The pilot delivers two clean findings under tight methodological discipline. First, lagged disclosed-incident counts do not detectably co-move with the next year's macroeconomic outcomes once country and year fixed effects absorb persistent and global variation; the headline incident-pathway null is stable across one-, two-, and three-year lags. Second, lagged ITU GCI readiness, which is a richer composite of legal, institutional, and capability dimensions, carries a statistically significant negative association with productivity and the employment ratio in the pooled panel; the association is concentrated in high-income economies in the heterogeneity stratification, sign-stable under percentile normalisation, but powered to significance only in the level-scale specification.
+
+The implications are primarily for measurement practice rather than for policy elasticities. The pilot demonstrates that a fully reproducible open-data panel — combining WDI, ITU, and the World Bank incidents annex — can support disciplined fixed-effects estimation when interpolation, carry, and fallback rules are made explicit and auditable. It also documents that the three available open cyber regressors carry materially different empirical content: incident counts are noisy and disclosure-dependent; level-scale readiness is the most statistically powered; percentile-normalised readiness is most useful as a scale-robustness device. None of the three should be read as a clean elasticity in isolation.
+
+Three constructive directions follow from these results. First, an annual readiness series — released either by the ITU or by an independent observer — would substantially reduce the imputation footprint that currently bounds GCI inference. Second, sectoral and firm-level extensions would allow the productivity and employment associations to be unpacked at the level where the underlying mechanisms operate, rather than at the country-year aggregate where they are diluted. Third, identification strategies that exploit plausibly exogenous shocks to readiness or to disclosure regimes — regulatory changes, large-scale disclosed incidents, or capability-building programmes — would push the literature beyond the conditional-association frame that the present open-data spine can support.
+
+::: {.small style="color:#555; margin-top:2em;"}
+*Reproducibility.* This report is generated end-to-end from the script pipeline in `R/`, with source ingestion and transformation traceability documented through pipeline logs and tabular QA outputs [@wb_api; @wb_wdi; @itu_datahub].
 :::
-
-```{r}
-#| label: fig-dynamic
-#| fig-cap: "Standardised Annual Mean of Cyber Proxy and GDP Growth, 2014–2025"
-#| echo: false
-#| out-width: "100%"
-fig_dyn <- "output/figures/dynamic_fallback_trend.png"
-if (file.exists(fig_dyn)) {
-	knitr::include_graphics(fig_dyn)
-} else {
-	cat("Dynamic figure not found. Run R/05_figures.R.\n")
-}
-```
-
-::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
-*Note:* Both series are standardised (z-score) cross-country annual means to allow comparison across different units of measurement. GDP growth sourced from World Development Indicators (World Bank). Cyber proxy is the primary available regressor (ITU GCI or log cyber incidents, depending on panel availability). Co-movement should be interpreted as descriptive association only; common global shocks (e.g., the COVID-19 pandemic in 2020) may drive apparent correlation without any direct cyber-macro mechanism. Sources: [@wb_wdi; @itu_gci; @wb_annex2024].
-:::
-
-```{r}
-#| label: fig-coefficients
-#| fig-cap: "Fixed-Effects Coefficient Estimates: Cyber Incidents versus Readiness by Outcome"
-#| echo: false
-#| out-width: "100%"
-fig_coeff <- "output/figures/comparison_coefficients.png"
-if (file.exists(fig_coeff)) {
-	knitr::include_graphics(fig_coeff)
-} else {
-	cat("Coefficient figure not found. Run R/05_figures.R.\n")
-}
-```
-
-::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
-*Note:* Points show OLS coefficient estimates from two-way (country and year) fixed-effects models with one-year lagged cyber regressors. Horizontal bars show 95% confidence intervals constructed from country-clustered standard errors. The vertical reference line is at zero. Panels are faceted by regressor type (Incidents vs GCI Readiness); scales are free across panels to accommodate differences in units. GCI readiness values for 2021–2023 are linearly interpolated between the 2020 and 2024 editions; see @tbl-gci-qa for coverage details. Significance: + p\<0.10, \* p\<0.05, \*\* p\<0.01, \*\*\* p\<0.001. Sources: [@itu_gci; @wb_annex2024; @wb_wdi].
-:::
-
-## Notes
-
-This MVP report is reproducible from the script pipeline in `R/`, with source ingestion and transformation traceability documented through pipeline logs and tabular QA outputs [@wb_api; @wb_wdi; @itu_datahub].

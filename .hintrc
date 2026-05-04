@@ -1,0 +1,8 @@
+{
+  "ignoredUrlsPatterns": [
+    ".*/report_files/.*",
+    ".*/.*_files/.*",
+    ".*/output/.*",
+    ".*\\.html$"
+  ]
+}

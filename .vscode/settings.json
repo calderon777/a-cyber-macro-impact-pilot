@@ -1,0 +1,10 @@
+{
+  "files.exclude": {
+    "**/report_files/**": true,
+    "**/*_files/**": true
+  },
+  "search.exclude": {
+    "**/report_files/**": true,
+    "**/*_files/**": true
+  }
+}

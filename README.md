@@ -43,6 +43,25 @@ The pipeline is designed for reproducibility across environments:
 
 Note: GCI values for 2021-2023 are interpolated from 2020 and 2024 anchors, so these years are synthetic. See the report and code comments for full interpolation assumptions.
 
+## Diagnostics scope (VS Code + Webhint)
+
+To keep diagnostics actionable, linting and search should focus on source files rather than generated deliverables.
+
+- Workspace excludes are configured in `.vscode/settings.json` for generated directories:
+	- `**/report_files/**`
+	- `**/*_files/**`
+- Webhint ignores are configured in `.hintrc` for generated/vendor outputs:
+	- `**/report_files/**`
+	- `**/*_files/**`
+	- `**/output/**`
+	- generated `*.html` deliverables
+
+Team policy:
+
+- Fix warnings in owned source files (for example `report.qmd`, `R/` scripts, custom assets).
+- Do not hand-edit generated files (for example `report.html`, `report_files/**`) to satisfy lint checks.
+- If generated output triggers warnings, update Quarto config/templates or source content, then re-render.
+
 ## Current status
 
 - [x] Project scaffold created
