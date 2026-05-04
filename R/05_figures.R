@@ -138,16 +138,17 @@ trend_df <- trend_df %>%
 
 write.csv(trend_df, data_dynamic, row.names = FALSE)
 
+trend_cols_present <- intersect(c("gdp_growth_idx", "proxy_idx"), names(trend_df))
 trend_long <- trend_df %>%
-	select(year, gdp_growth_idx, proxy_idx) %>%
+	select(year, dplyr::any_of(c("gdp_growth_idx", "proxy_idx"))) %>%
 	tidyr::pivot_longer(
-		cols = c(gdp_growth_idx, proxy_idx),
+		cols = dplyr::any_of(c("gdp_growth_idx", "proxy_idx")),
 		names_to = "series",
 		values_to = "value"
 	) %>%
 	filter(!is.na(value))
 
-dropped_trend_rows <- nrow(trend_df) * 2L - nrow(trend_long)
+dropped_trend_rows <- nrow(trend_df) * length(trend_cols_present) - nrow(trend_long)
 
 p_dynamic <- ggplot(trend_long, aes(x = year, y = value, color = series)) +
 	geom_line(linewidth = 1.0) +

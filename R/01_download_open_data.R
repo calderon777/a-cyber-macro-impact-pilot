@@ -420,7 +420,7 @@ safe_fetch_gci <- function(slug, lang) {
 	)
 
 	setTimeLimit(elapsed = 120, transient = TRUE)
-	on.exit(setTimeLimit(cpu = Inf, elapsed = Inf, transient = FALSE), add = TRUE)
+	on.exit(setTimeLimit(cpu = Inf, elapsed = Inf, transient = FALSE), add = FALSE)
 
 	jsonlite::fromJSON(gci_translation_url, simplifyVector = FALSE)
 }

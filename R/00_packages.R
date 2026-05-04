@@ -1,6 +1,6 @@
 # Install and load required packages for the MVP.
 required_packages <- c(
-	"wbstats", "httr2", "jsonlite", "readxl", "arrow", "janitor",
+	"httr2", "jsonlite", "readxl", "arrow", "janitor",
 	"countrycode", "dplyr", "tidyr", "stringr", "fixest", "modelsummary",
 	"broom", "ggplot2", "patchwork", "targets"
 )

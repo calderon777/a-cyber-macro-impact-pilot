@@ -130,7 +130,7 @@ add_nobs <- function(tbl, models) {
 fit_fe_model <- function(df, outcome, terms, min_obs = 50L, min_countries = 10L) {
 	needed_cols <- unique(c(outcome, terms, "iso3c", "year"))
 	model_data <- df %>%
-		select(all_of(needed_cols)) %>%
+		select(any_of(needed_cols)) %>%
 		filter(if_all(all_of(c(outcome, terms)), ~ !is.na(.x)))
 
 	if (
@@ -265,7 +265,7 @@ if (has_incidents && has_readiness) {
 
 			needed_cols <- unique(c(y, terms, "iso3c", "year"))
 			model_data <- panel %>%
-			select(all_of(needed_cols)) %>%
+			select(any_of(needed_cols)) %>%
 			filter(if_all(all_of(c(y, terms)), ~ !is.na(.x)))
 
 			if (nrow(model_data) < 50) {
