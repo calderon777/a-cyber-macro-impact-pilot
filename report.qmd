@@ -1,16 +1,40 @@
 ---
 title: "Cyber Macro Impact Pilot"
-format: html
+subtitle: "Institutional Technical Report"
+author: "Cyber Macro Impact Pilot Team"
+date: "2026-05-04"
+format:
+  html:
+    toc: true
+    number-sections: true
+    toc-depth: 3
+    smooth-scroll: true
+    theme: cosmo
+    css: styles/report-institutional.css
+bibliography: references.bib
+link-citations: true
+reference-section-title: References
+nocite: |
+  @pwt2024, @cissm, @eurepoc
 ---
 
 ## Research question
 
 How are country-level cyber readiness and incident intensity associated with macro outcomes such as GDP growth, productivity, investment, and employment?
 
+This pilot is framed as associational, following measurement and identification cautions in the literature [@cobos2024; @kopp2017; @oecd2024].
+
+::: {.callout-note}
+## Reporting Standard
+All model estimates in this report are interpreted as conditional associations rather than causal effects. This follows the source-consistent evidence standard for cyber-risk macro analysis [@kopp2017; @oecd2024].
+:::
+
 ## Data
 
 This report uses the processed panel at `data_processed/panel_country_year.parquet`.
 World Bank regional and income-group aggregates are excluded before panel construction so the fixed effects operate on country and territory units only.
+
+Core sources include World Development Indicators and World Bank API documentation for macro controls [@wb_wdi; @wb_api], ITU datasets for readiness context [@itu_gci; @itu_datahub; @itu_idi], and World Bank annex incident counts for exposure proxies [@wb_annex2024].
 
 ```{r}
 suppressPackageStartupMessages({
@@ -52,6 +76,10 @@ if (file.exists(dict_path)) {
 ## Baseline model
 
 We use country and year fixed-effects models with lagged cyber variables and clustered standard errors at country level.
+
+The model design follows standard panel-association practice under explicit non-causal interpretation and known cyber measurement limitations [@kopp2017; @oecd2024; @cobos2024].
+
+From a data governance perspective, this specification prioritizes transparency over overfitted precision: interpolation and carry rules are explicit, imputation is flagged, and comparison pathways use aligned lagged estimands for interpretability [@itu_gci; @wb_wdi; @wb_annex2024].
 
 For the incidents-vs-readiness comparison, both pathways now share the same lagged two-way FE estimand:
 
@@ -159,19 +187,19 @@ if (file.exists(heterogeneity_csv)) {
 
 ### Heterogeneity Summary
 
-Income-group splits reveal differentiated cyber–macro associations across country development levels:
+Income-group splits reveal differentiated cyber-macro associations across country development levels, consistent with broader findings that institutional readiness and reporting capacity vary systematically across income strata [@oecd2024; @kopp2017].
 
 - **High-income countries** show statistically significant readiness effects, notably in productivity (positive, p=0.01 for level GCI; p=0.02 for normalized variant), consistent with hypothesis that wealthier economies may derive larger productivity gains from cyber readiness.
 - **Upper-middle-income countries** show mixed results, with some negative GCI associations in productivity (p=0.02) and weaker overall significance, suggesting heterogeneous transmission mechanisms.
 - **Lower-income countries** exhibit wider confidence intervals and fewer significant coefficients, reflecting both smaller sample sizes and potentially distinct cyber–macro linkages.
 
-Incident effects in heterogeneity models are generally weaker than in the pooled specification, indicating incident intensity may be a noisier readiness proxy in stratified sub-samples.
+Incident effects in heterogeneity models are generally weaker than in the pooled specification, indicating incident intensity may be a noisier exposure proxy in stratified sub-samples, particularly where disclosure and reporting architectures differ [@cobos2024; @wb_annex2024].
 
 **Metadata coverage caveat:** World Bank country metadata classification leaves 11 panel country/territory codes (primarily small or disputed territories) without an assigned income-group bucket. These observations are excluded from the heterogeneity analysis. Conclusions from the heterogeneity split should be interpreted as applicable to the classified subset; results may not generalize uniformly to unclassified territories or to regions heavily represented in that unclassified remainder. A full list of excluded codes is available in the raw panel data dictionary.
 
 ## GCI Scale-Sensitivity Interpretation
 
-The comparison results include both a level-scale readiness variable (`l1_gci_overall`) and a normalized percentile-scale variant (`l1_gci_overall_norm`). Both apply the same FE estimand, interpolation, and carry-forward logic; they differ only in scale representation.
+The comparison results include both a level-scale readiness variable (`l1_gci_overall`) and a normalized percentile-scale variant (`l1_gci_overall_norm`). Both apply the same FE estimand, interpolation, and carry-forward logic; they differ only in scale representation. This design follows OECD-style measurement discipline by separating representation effects from directional inference [@oecd2024].
 
 **Directional stability across outcomes and income groups:**
 
@@ -180,7 +208,7 @@ The comparison results include both a level-scale readiness variable (`l1_gci_ov
 - **Investment**: Level −0.078 (ns, p=0.11); Normalized −5.24 (ns, p=0.24). Same negative direction throughout.
 - **Employment**: Level −0.046*** (p=0.001); Normalized −2.06 (ns, p=0.26). Same negative direction; level significant.
 
-The sign consistency across both scales and outcomes provides directional evidence that the GCI–macro association is robust to the choice of scale representation. However, the level-scale formulation (`l1_gci_overall`) retains more statistical power, suggesting it better captures year-to-year variation in the underlying readiness construct. The normalized variant loses significance primarily in outcomes with strong level-scale coefficients (productivity, employment), which implies the percentile normalization dampens signal more than it stabilizes.
+The sign consistency across both scales and outcomes provides directional evidence that the GCI-macro association is robust to the choice of scale representation. However, the level-scale formulation (`l1_gci_overall`) retains more statistical power, suggesting it better captures year-to-year variation in the underlying readiness construct. The normalized variant loses significance primarily in outcomes with strong level-scale coefficients (productivity, employment), which implies the percentile normalization dampens signal more than it stabilizes. This pattern is consistent with measurement-fragmentation concerns highlighted in the source literature [@oecd2024; @cobos2024; @itu_gci].
 
 **Interpretation guidance:**
 
@@ -217,4 +245,4 @@ if (file.exists(fig_coeff)) {
 
 ## Notes
 
-This MVP report is reproducible from the script pipeline in `R/`.
+This MVP report is reproducible from the script pipeline in `R/`, with source ingestion and transformation traceability documented through pipeline logs and tabular QA outputs [@wb_api; @wb_wdi; @itu_datahub].

@@ -1,0 +1,59 @@
+/* Institutional report styling: sober, readable, publication-friendly */
+:root {
+  --brand-ink: #1f2d3d;
+  --brand-accent: #2f4f6f;
+  --brand-muted: #5a6b7d;
+  --brand-rule: #d7dee6;
+  --brand-bg-note: #f5f8fb;
+}
+
+body {
+  line-height: 1.65;
+  color: var(--brand-ink);
+}
+
+h1, h2, h3, h4 {
+  color: var(--brand-accent);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+h1.title {
+  margin-bottom: 0.2rem;
+}
+
+.subtitle {
+  color: var(--brand-muted);
+  font-weight: 600;
+}
+
+.author, .date {
+  color: var(--brand-muted);
+}
+
+p, li {
+  font-size: 1rem;
+}
+
+table {
+  border-top: 1px solid var(--brand-rule);
+  border-bottom: 1px solid var(--brand-rule);
+}
+
+thead th {
+  border-bottom: 1px solid var(--brand-rule) !important;
+  color: var(--brand-accent);
+}
+
+.callout-note {
+  background: var(--brand-bg-note);
+  border-left: 4px solid var(--brand-accent);
+}
+
+#refs {
+  font-size: 0.97rem;
+}
+
+a {
+  text-decoration-thickness: 1px;
+}
