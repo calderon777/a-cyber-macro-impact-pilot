@@ -120,7 +120,7 @@ div.csl-indent {
 <section id="research-question" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="research-question"><span class="header-section-number">1</span> Research question</h2>
 <p>How are country-level cyber readiness and incident intensity associated with macro outcomes such as GDP growth, productivity, investment, and employment?</p>
-<p>This pilot is framed as associational, following measurement and identification cautions in the literature <span class="citation" data-cites="cobos2024 kopp2017 oecd2024">(<a href="#ref-cobos2024" role="doc-biblioref">Cobos and Cakir 2024</a>; <a href="#ref-kopp2017" role="doc-biblioref">Kopp, Kaffenberger, and Wilson 2017</a>; <a href="#ref-oecd2024" role="doc-biblioref">Organisation for Economic Co-operation and Development 2024</a>)</span>.</p>
+<p>This pilot is framed as associational, following measurement and identification cautions in the literature <span class="citation" data-cites="cobos2024 kopp2017 oecd2024">(<a href="#ref-cobos2024" role="doc-biblioref">Cobos &amp; Cakir, 2024</a>; <a href="#ref-kopp2017" role="doc-biblioref">Kopp et al., 2017</a>; <a href="#ref-oecd2024" role="doc-biblioref">Organisation for Economic Co-operation and Development, 2024</a>)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -131,14 +131,14 @@ Reporting Standard
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>All model estimates in this report are interpreted as conditional associations rather than causal effects. This follows the source-consistent evidence standard for cyber-risk macro analysis <span class="citation" data-cites="kopp2017 oecd2024">(<a href="#ref-kopp2017" role="doc-biblioref">Kopp, Kaffenberger, and Wilson 2017</a>; <a href="#ref-oecd2024" role="doc-biblioref">Organisation for Economic Co-operation and Development 2024</a>)</span>.</p>
+<p>All model estimates in this report are interpreted as conditional associations rather than causal effects. This follows the source-consistent evidence standard for cyber-risk macro analysis <span class="citation" data-cites="kopp2017 oecd2024">(<a href="#ref-kopp2017" role="doc-biblioref">Kopp et al., 2017</a>; <a href="#ref-oecd2024" role="doc-biblioref">Organisation for Economic Co-operation and Development, 2024</a>)</span>.</p>
 </div>
 </div>
 </section>
 <section id="data" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="data"><span class="header-section-number">2</span> Data</h2>
 <p>This report uses the processed panel at <code>data_processed/panel_country_year.parquet</code>. World Bank regional and income-group aggregates are excluded before panel construction so the fixed effects operate on country and territory units only.</p>
-<p>Core sources include World Development Indicators and World Bank API documentation for macro controls <span class="citation" data-cites="wb_wdi wb_api">(<a href="#ref-wb_wdi" role="doc-biblioref">World Bank n.d.</a>, <a href="#ref-wb_api" role="doc-biblioref">n.d.</a>)</span>, ITU datasets for readiness context <span class="citation" data-cites="itu_gci itu_datahub itu_idi">(<a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union n.d.</a>, <a href="#ref-itu_datahub" role="doc-biblioref">n.d.</a>, <a href="#ref-itu_idi" role="doc-biblioref">n.d.</a>)</span>, and World Bank annex incident counts for exposure proxies <span class="citation" data-cites="wb_annex2024">(<a href="#ref-wb_annex2024" role="doc-biblioref">World Bank 2024</a>)</span>.</p>
+<p>Core sources include World Development Indicators and World Bank API documentation for macro controls <span class="citation" data-cites="wb_wdi wb_api">(<a href="#ref-wb_wdi" role="doc-biblioref">World Bank, n.d.b</a>, <a href="#ref-wb_api" role="doc-biblioref">n.d.a</a>)</span>, ITU datasets for readiness context <span class="citation" data-cites="itu_gci itu_datahub itu_idi">(<a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union, n.d.a</a>, <a href="#ref-itu_datahub" role="doc-biblioref">n.d.c</a>, <a href="#ref-itu_idi" role="doc-biblioref">n.d.b</a>)</span>, and World Bank annex incident counts for exposure proxies <span class="citation" data-cites="wb_annex2024">(<a href="#ref-wb_annex2024" role="doc-biblioref">World Bank, 2024</a>)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -332,8 +332,8 @@ Reporting Standard
 <section id="baseline-model" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="baseline-model"><span class="header-section-number">3</span> Baseline model</h2>
 <p>We use country and year fixed-effects models with lagged cyber variables and clustered standard errors at country level.</p>
-<p>The model design follows standard panel-association practice under explicit non-causal interpretation and known cyber measurement limitations <span class="citation" data-cites="kopp2017 oecd2024 cobos2024">(<a href="#ref-kopp2017" role="doc-biblioref">Kopp, Kaffenberger, and Wilson 2017</a>; <a href="#ref-oecd2024" role="doc-biblioref">Organisation for Economic Co-operation and Development 2024</a>; <a href="#ref-cobos2024" role="doc-biblioref">Cobos and Cakir 2024</a>)</span>.</p>
-<p>From a data governance perspective, this specification prioritizes transparency over overfitted precision: interpolation and carry rules are explicit, imputation is flagged, and comparison pathways use aligned lagged estimands for interpretability <span class="citation" data-cites="itu_gci wb_wdi wb_annex2024">(<a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union n.d.</a>; <a href="#ref-wb_wdi" role="doc-biblioref">World Bank n.d.</a>, <a href="#ref-wb_annex2024" role="doc-biblioref">2024</a>)</span>.</p>
+<p>The model design follows standard panel-association practice under explicit non-causal interpretation and known cyber measurement limitations <span class="citation" data-cites="kopp2017 oecd2024 cobos2024">(<a href="#ref-cobos2024" role="doc-biblioref">Cobos &amp; Cakir, 2024</a>; <a href="#ref-kopp2017" role="doc-biblioref">Kopp et al., 2017</a>; <a href="#ref-oecd2024" role="doc-biblioref">Organisation for Economic Co-operation and Development, 2024</a>)</span>.</p>
+<p>From a data governance perspective, this specification prioritizes transparency over overfitted precision: interpolation and carry rules are explicit, imputation is flagged, and comparison pathways use aligned lagged estimands for interpretability <span class="citation" data-cites="itu_gci wb_wdi wb_annex2024">(<a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union, n.d.a</a>; <a href="#ref-wb_annex2024" role="doc-biblioref">World Bank, 2024</a>, <a href="#ref-wb_wdi" role="doc-biblioref">n.d.b</a>)</span>.</p>
 <p>For the incidents-vs-readiness comparison, both pathways now share the same lagged two-way FE estimand:</p>
 <ol type="1">
 <li>Incident intensity (<code>cyber_incidents_log</code>) is estimated with lagged terms (<code>l1_cyber_incidents_log</code>) in two-way FE panel models.</li>
@@ -1514,19 +1514,19 @@ Reporting Standard
 </div>
 <section id="heterogeneity-summary" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="heterogeneity-summary"><span class="header-section-number">3.1</span> Heterogeneity Summary</h3>
-<p>Income-group splits reveal differentiated cyber-macro associations across country development levels, consistent with broader findings that institutional readiness and reporting capacity vary systematically across income strata <span class="citation" data-cites="oecd2024 kopp2017">(<a href="#ref-oecd2024" role="doc-biblioref">Organisation for Economic Co-operation and Development 2024</a>; <a href="#ref-kopp2017" role="doc-biblioref">Kopp, Kaffenberger, and Wilson 2017</a>)</span>.</p>
+<p>Income-group splits reveal differentiated cyber-macro associations across country development levels, consistent with broader findings that institutional readiness and reporting capacity vary systematically across income strata <span class="citation" data-cites="oecd2024 kopp2017">(<a href="#ref-kopp2017" role="doc-biblioref">Kopp et al., 2017</a>; <a href="#ref-oecd2024" role="doc-biblioref">Organisation for Economic Co-operation and Development, 2024</a>)</span>.</p>
 <ul>
 <li><strong>High-income countries</strong> show statistically significant readiness effects, notably in productivity (positive, p=0.01 for level GCI; p=0.02 for normalized variant), consistent with hypothesis that wealthier economies may derive larger productivity gains from cyber readiness.</li>
 <li><strong>Upper-middle-income countries</strong> show mixed results, with some negative GCI associations in productivity (p=0.02) and weaker overall significance, suggesting heterogeneous transmission mechanisms.</li>
 <li><strong>Lower-income countries</strong> exhibit wider confidence intervals and fewer significant coefficients, reflecting both smaller sample sizes and potentially distinct cyber–macro linkages.</li>
 </ul>
-<p>Incident effects in heterogeneity models are generally weaker than in the pooled specification, indicating incident intensity may be a noisier exposure proxy in stratified sub-samples, particularly where disclosure and reporting architectures differ <span class="citation" data-cites="cobos2024 wb_annex2024">(<a href="#ref-cobos2024" role="doc-biblioref">Cobos and Cakir 2024</a>; <a href="#ref-wb_annex2024" role="doc-biblioref">World Bank 2024</a>)</span>.</p>
+<p>Incident effects in heterogeneity models are generally weaker than in the pooled specification, indicating incident intensity may be a noisier exposure proxy in stratified sub-samples, particularly where disclosure and reporting architectures differ <span class="citation" data-cites="cobos2024 wb_annex2024">(<a href="#ref-cobos2024" role="doc-biblioref">Cobos &amp; Cakir, 2024</a>; <a href="#ref-wb_annex2024" role="doc-biblioref">World Bank, 2024</a>)</span>.</p>
 <p><strong>Metadata coverage caveat:</strong> World Bank country metadata classification leaves 11 panel country/territory codes (primarily small or disputed territories) without an assigned income-group bucket. These observations are excluded from the heterogeneity analysis. Conclusions from the heterogeneity split should be interpreted as applicable to the classified subset; results may not generalize uniformly to unclassified territories or to regions heavily represented in that unclassified remainder. A full list of excluded codes is available in the raw panel data dictionary.</p>
 </section>
 </section>
 <section id="gci-scale-sensitivity-interpretation" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="gci-scale-sensitivity-interpretation"><span class="header-section-number">4</span> GCI Scale-Sensitivity Interpretation</h2>
-<p>The comparison results include both a level-scale readiness variable (<code>l1_gci_overall</code>) and a normalized percentile-scale variant (<code>l1_gci_overall_norm</code>). Both apply the same FE estimand, interpolation, and carry-forward logic; they differ only in scale representation. This design follows OECD-style measurement discipline by separating representation effects from directional inference <span class="citation" data-cites="oecd2024">(<a href="#ref-oecd2024" role="doc-biblioref">Organisation for Economic Co-operation and Development 2024</a>)</span>.</p>
+<p>The comparison results include both a level-scale readiness variable (<code>l1_gci_overall</code>) and a normalized percentile-scale variant (<code>l1_gci_overall_norm</code>). Both apply the same FE estimand, interpolation, and carry-forward logic; they differ only in scale representation. This design follows OECD-style measurement discipline by separating representation effects from directional inference <span class="citation" data-cites="oecd2024">(<a href="#ref-oecd2024" role="doc-biblioref">Organisation for Economic Co-operation and Development, 2024</a>)</span>.</p>
 <p><strong>Directional stability across outcomes and income groups:</strong></p>
 <ul>
 <li><strong>GDP growth</strong>: Level +0.034 (marginal, p=0.07); Normalized +0.816 (ns, p=0.78). Same positive direction; normalized loses significance.</li>
@@ -1534,7 +1534,7 @@ Reporting Standard
 <li><strong>Investment</strong>: Level −0.078 (ns, p=0.11); Normalized −5.24 (ns, p=0.24). Same negative direction throughout.</li>
 <li><strong>Employment</strong>: Level −0.046*** (p=0.001); Normalized −2.06 (ns, p=0.26). Same negative direction; level significant.</li>
 </ul>
-<p>The sign consistency across both scales and outcomes provides directional evidence that the GCI-macro association is robust to the choice of scale representation. However, the level-scale formulation (<code>l1_gci_overall</code>) retains more statistical power, suggesting it better captures year-to-year variation in the underlying readiness construct. The normalized variant loses significance primarily in outcomes with strong level-scale coefficients (productivity, employment), which implies the percentile normalization dampens signal more than it stabilizes. This pattern is consistent with measurement-fragmentation concerns highlighted in the source literature <span class="citation" data-cites="oecd2024 cobos2024 itu_gci">(<a href="#ref-oecd2024" role="doc-biblioref">Organisation for Economic Co-operation and Development 2024</a>; <a href="#ref-cobos2024" role="doc-biblioref">Cobos and Cakir 2024</a>; <a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union n.d.</a>)</span>.</p>
+<p>The sign consistency across both scales and outcomes provides directional evidence that the GCI-macro association is robust to the choice of scale representation. However, the level-scale formulation (<code>l1_gci_overall</code>) retains more statistical power, suggesting it better captures year-to-year variation in the underlying readiness construct. The normalized variant loses significance primarily in outcomes with strong level-scale coefficients (productivity, employment), which implies the percentile normalization dampens signal more than it stabilizes. This pattern is consistent with measurement-fragmentation concerns highlighted in the source literature <span class="citation" data-cites="oecd2024 cobos2024 itu_gci">(<a href="#ref-cobos2024" role="doc-biblioref">Cobos &amp; Cakir, 2024</a>; <a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union, n.d.a</a>; <a href="#ref-oecd2024" role="doc-biblioref">Organisation for Economic Co-operation and Development, 2024</a>)</span>.</p>
 <p><strong>Interpretation guidance:</strong></p>
 <p>When interpreting GCI-based results, prioritize the level-scale specification (<code>l1_gci_overall</code>) as the primary evidence, since it has greater sensitivity to variation. The normalized results serve as a scale-robustness bound: conclusions are directionally stable even when transforming to a 0–1 percentile scale, which confirms the association is not an artifact of the raw 0–100 score magnitude.</p>
 </section>
@@ -1570,49 +1570,49 @@ Reporting Standard
 </section>
 <section id="notes" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="notes"><span class="header-section-number">6</span> Notes</h2>
-<p>This MVP report is reproducible from the script pipeline in <code>R/</code>, with source ingestion and transformation traceability documented through pipeline logs and tabular QA outputs <span class="citation" data-cites="wb_api wb_wdi itu_datahub">(<a href="#ref-wb_api" role="doc-biblioref">World Bank n.d.</a>, <a href="#ref-wb_wdi" role="doc-biblioref">n.d.</a>; <a href="#ref-itu_datahub" role="doc-biblioref">International Telecommunication Union n.d.</a>)</span>.</p>
+<p>This MVP report is reproducible from the script pipeline in <code>R/</code>, with source ingestion and transformation traceability documented through pipeline logs and tabular QA outputs <span class="citation" data-cites="wb_api wb_wdi itu_datahub">(<a href="#ref-itu_datahub" role="doc-biblioref">International Telecommunication Union, n.d.c</a>; <a href="#ref-wb_api" role="doc-biblioref">World Bank, n.d.a</a>, <a href="#ref-wb_wdi" role="doc-biblioref">n.d.b</a>)</span>.</p>
 </section>
 <section id="bibliography" class="level1 unnumbered">
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-cissm" class="csl-entry" role="listitem">
-Centre for International and Security Studies at Maryland. n.d. <span>“Cyber Events Database.”</span> <a href="https://cissm.umd.edu/cyber-events-database">https://cissm.umd.edu/cyber-events-database</a>.
+Centre for International and Security Studies at Maryland. (n.d.). <em>Cyber events database</em>. <a href="https://cissm.umd.edu/cyber-events-database">https://cissm.umd.edu/cyber-events-database</a>
 </div>
 <div id="ref-cobos2024" class="csl-entry" role="listitem">
-Cobos, E. V., and S. Cakir. 2024. <span>“A Review of the Economic Costs of Cyber Incidents.”</span> World Bank. <a href="https://documents1.worldbank.org/curated/en/099092324164536687/pdf/P17876919ffee4079180e81701969ad0a18.pdf">https://documents1.worldbank.org/curated/en/099092324164536687/pdf/P17876919ffee4079180e81701969ad0a18.pdf</a>.
+Cobos, E. V., &amp; Cakir, S. (2024). <em>A review of the economic costs of cyber incidents</em>. World Bank. <a href="https://documents1.worldbank.org/curated/en/099092324164536687/pdf/P17876919ffee4079180e81701969ad0a18.pdf">https://documents1.worldbank.org/curated/en/099092324164536687/pdf/P17876919ffee4079180e81701969ad0a18.pdf</a>
 </div>
 <div id="ref-eurepoc" class="csl-entry" role="listitem">
-EuRepoC. n.d. <span>“Cyber Incidents Database.”</span> <a href="https://eurepoc.eu/database/">https://eurepoc.eu/database/</a>.
+EuRepoC. (n.d.). <em>Cyber incidents database</em>. <a href="https://eurepoc.eu/database/">https://eurepoc.eu/database/</a>
 </div>
 <div id="ref-pwt2024" class="csl-entry" role="listitem">
-Feenstra, Robert C., Robert Inklaar, and Marcel P. Timmer. 2024. <span>“Penn World Table (Version 11).”</span> Groningen Growth; Development Centre, University of Groningen. <a href="https://www.rug.nl/ggdc/productivity/pwt/">https://www.rug.nl/ggdc/productivity/pwt/</a>.
+Feenstra, R. C., Inklaar, R., &amp; Timmer, M. P. (2024). <em>Penn world table (version 11)</em> [Dataset]. Groningen Growth; Development Centre, University of Groningen. <a href="https://www.rug.nl/ggdc/productivity/pwt/">https://www.rug.nl/ggdc/productivity/pwt/</a>
 </div>
 <div id="ref-itu_gci" class="csl-entry" role="listitem">
-International Telecommunication Union. n.d. <span>“Global Cybersecurity Index.”</span> <a href="https://www.itu.int/en/ITU-D/Cybersecurity/pages/global-cybersecurity-index.aspx">https://www.itu.int/en/ITU-D/Cybersecurity/pages/global-cybersecurity-index.aspx</a>.
+International Telecommunication Union. (n.d.a). <em>Global cybersecurity index</em>. <a href="https://www.itu.int/en/ITU-D/Cybersecurity/pages/global-cybersecurity-index.aspx">https://www.itu.int/en/ITU-D/Cybersecurity/pages/global-cybersecurity-index.aspx</a>
 </div>
 <div id="ref-itu_idi" class="csl-entry" role="listitem">
-———. n.d. <span>“ICT Development Index (IDI).”</span> <a href="https://www.itu.int/en/ITU-D/Statistics/Pages/IDI/default.aspx">https://www.itu.int/en/ITU-D/Statistics/Pages/IDI/default.aspx</a>.
+International Telecommunication Union. (n.d.b). <em>ICT development index (IDI)</em>. <a href="https://www.itu.int/en/ITU-D/Statistics/Pages/IDI/default.aspx">https://www.itu.int/en/ITU-D/Statistics/Pages/IDI/default.aspx</a>
 </div>
 <div id="ref-itu_datahub" class="csl-entry" role="listitem">
-———. n.d. <span>“ITU DataHub.”</span> <a href="https://datahub.itu.int/">https://datahub.itu.int/</a>.
+International Telecommunication Union. (n.d.c). <em>ITU DataHub</em>. <a href="https://datahub.itu.int/">https://datahub.itu.int/</a>
 </div>
 <div id="ref-kopp2017" class="csl-entry" role="listitem">
-Kopp, Emmanuel, Louis Kaffenberger, and Christopher Wilson. 2017. <span>“Cyber Risk, Market Failures, and Financial Stability.”</span> IMF Working Paper No. 2017/185. International Monetary Fund. <a href="https://doi.org/10.5089/9781484313787.001">https://doi.org/10.5089/9781484313787.001</a>.
+Kopp, E., Kaffenberger, L., &amp; Wilson, C. (2017). <em>Cyber risk, market failures, and financial stability</em> (IMF Working Paper No. 2017/185). International Monetary Fund. <a href="https://doi.org/10.5089/9781484313787.001">https://doi.org/10.5089/9781484313787.001</a>
 </div>
 <div id="ref-oecd2024" class="csl-entry" role="listitem">
-Organisation for Economic Co-operation and Development. 2024. <span>“New Perspectives on Measuring Cybersecurity.”</span> OECD Digital Economy Papers No. 366. OECD Publishing. <a href="https://doi.org/10.1787/b1e31997-en">https://doi.org/10.1787/b1e31997-en</a>.
-</div>
-<div id="ref-wb_api" class="csl-entry" role="listitem">
-World Bank. n.d. <span>“About the Indicators API Documentation.”</span> <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation">https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation</a>.
-</div>
-<div id="ref-wb_wdi" class="csl-entry" role="listitem">
-———. n.d. <span>“World Development Indicators.”</span> <a href="https://databank.worldbank.org/source/world-development-indicators">https://databank.worldbank.org/source/world-development-indicators</a>.
+Organisation for Economic Co-operation and Development. (2024). <em>New perspectives on measuring cybersecurity</em> (OECD Digital Economy Papers No. 366). OECD Publishing. <a href="https://doi.org/10.1787/b1e31997-en">https://doi.org/10.1787/b1e31997-en</a>
 </div>
 <div id="ref-wb_annex2024" class="csl-entry" role="listitem">
-———. 2024. <span>“A Review of the Economic Costs of Cyber Incidents: Annex - Number of Disclosed Cyber Incidents Per Country 2014–2022.”</span> World Bank. <a href="https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099092324164513733/p1787691fbc9980d19c891b7e706e6f352">https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099092324164513733/p1787691fbc9980d19c891b7e706e6f352</a>.
+World Bank. (2024). <em>A review of the economic costs of cyber incidents: Annex - number of disclosed cyber incidents per country 2014–2022</em>. World Bank. <a href="https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099092324164513733/p1787691fbc9980d19c891b7e706e6f352">https://documents.worldbank.org/en/publication/documents-reports/documentdetail/099092324164513733/p1787691fbc9980d19c891b7e706e6f352</a>
+</div>
+<div id="ref-wb_api" class="csl-entry" role="listitem">
+World Bank. (n.d.a). <em>About the indicators API documentation</em>. <a href="https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation">https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation</a>
+</div>
+<div id="ref-wb_wdi" class="csl-entry" role="listitem">
+World Bank. (n.d.b). <em>World development indicators</em>. <a href="https://databank.worldbank.org/source/world-development-indicators">https://databank.worldbank.org/source/world-development-indicators</a>
 </div>
 </div></section></div></main>
 <!-- /main column -->
