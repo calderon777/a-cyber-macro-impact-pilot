@@ -71,18 +71,37 @@ All phase 2 objectives are satisfied.
 3. Finalized GCI scale-sensitivity interpretation in report: documented directional stability across outcomes and income groups, showed level-scale is more powerful, positioned normalized variant as scale-robustness bound.
 4. Evaluated GTMI (Government Technology Maturity Index) and NCSI (National Cyber Security Index) for inclusion: both indices have limited historical coverage or are not yet established with continuous annual series across 2014-2025 panel scope. Decision: reject inclusion for now due to time-series gap; document as reviewed in decision log.
 
-## Immediate remaining execution plan (phase 3)
-1. Continue publication-readiness improvements.
-2. Finalize heterogeneity summary and metadata caveat narrative.
-3. Add session/renv validation path to runbook or CI.
+## Pending tasks (not done yet)
 
-### 1) Publication readiness and narrative summary
-1. Review the coefficient plot and compact tables in the rendered report for readability and clarity.
-2. Add a heterogeneity summary section documenting income-group splits and the 11 country/territory codes without World Bank metadata coverage.
-3. Clarify how missing income-group assignment affects model interpretation and generalizability.
+### Phase 4a: Temporal dynamics and distributed lags
+1. Extend the comparison workflow to estimate distributed-lag specifications with `k = 1, 2, 3` for incidents and readiness.
+2. Add cumulative lag-effect summaries and dynamic-path visuals.
+3. Report whether lag structure changes sign, magnitude, or significance patterns.
 
-### 2) Runbook and reproducibility hardening
-1. Add session info or `renv` lock validation to runbook or CI path to capture environment reproducibility.
+### Phase 4b: Sectoral and outcome heterogeneity expansion
+1. Identify and ingest additional sector-relevant outcomes available in open sources.
+2. Extend heterogeneity beyond current income-group splits where coverage permits.
+3. Add outcome-by-regressor comparison outputs in `output/tables/` and `output/figures/`.
+
+### Phase 4c: ML feature importance and non-linearity checks
+1. Build a non-parametric benchmark (for example, random forest or gradient boosting) on the panel.
+2. Compute feature-importance diagnostics for cyber and control variables.
+3. Compare ranking and directional consistency against fixed-effects results.
+
+### Phase 4d: Event-study extension
+1. Assess incident data suitability for event-window construction (time granularity and country coverage).
+2. If feasible, implement lead/lag event-study specifications with fixed effects.
+3. Add event-study plots and a timing-focused interpretation note.
+
+### Phase 4e: Publication and release pipeline
+1. Draft policy-brief and manuscript artifacts from current report outputs.
+2. Add reproducibility release steps (archive/DOI and tagged release process).
+3. Add CI or scheduled checks for pipeline reruns and report rendering.
+
+### Data gaps still unresolved
+1. Direct cyber-spending measures are not available in the current open panel.
+2. Cyber-loss/damage measures are not integrated in the current model set.
+3. GTMI and NCSI remain excluded from core estimation due to historical coverage gaps.
 
 ## Definition of done for phase 3
 - GCI scale caveat is either addressed analytically or bounded clearly in sensitivity analysis.
