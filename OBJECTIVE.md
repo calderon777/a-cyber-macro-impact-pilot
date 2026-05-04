@@ -23,14 +23,5 @@ The first delivery target is a runnable pipeline that:
 - `output/tables/` and `output/figures/`
 - `README.md`
 
-## Immediate execution plan
-1. Create repository structure and placeholder files.
-2. Initialise git locally.
-3. Add initial README and objective-driven roadmap.
-4. Commit baseline scaffold.
-5. Create GitHub remote repository and push.
-
-## Definition of done for phase 1
-- Repo has documented structure, objective, and reproducible startup instructions.
-- Empty-but-valid scripts exist for data download, harmonisation, panel build, models, and figures.
-- GitHub remote is connected and initial commit is pushed.
+## Related planning document
+Implementation sequencing and operational tasks are tracked in `execution_plan.md`.
