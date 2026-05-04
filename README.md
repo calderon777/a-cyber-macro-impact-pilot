@@ -28,6 +28,6 @@ See OBJECTIVE.md for the execution scope and phase-based definition of done.
 ## Current status
 
 - [x] Project scaffold created
-- [ ] Data download and harmonisation implemented
+- [x] Data download and harmonisation implemented
 - [ ] Baseline FE models implemented
 - [ ] Report fully rendered with results
