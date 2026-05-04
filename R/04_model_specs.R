@@ -149,7 +149,12 @@ comparison_regressors <- comparison_regressors[comparison_regressors %in% names(
 if (length(comparison_regressors) == 2) {
 	for (y in outcomes) {
 		for (r in comparison_regressors) {
-			terms <- c(paste0("l1_", r), paste0("l1_", controls))
+			if (r == "gci_overall") {
+				# Readiness is largely cross-sectional in current data, so estimate a contemporaneous spec.
+				terms <- c(r, controls)
+			} else {
+				terms <- c(paste0("l1_", r), paste0("l1_", controls))
+			}
 			terms <- terms[terms %in% names(panel)]
 
 			if (length(terms) == 0) {
@@ -165,18 +170,48 @@ if (length(comparison_regressors) == 2) {
 				next
 			}
 
-			fml <- as.formula(
-				paste0(y, " ~ ", paste(terms, collapse = " + "), " | iso3c + year")
-			)
+			has_multi_year <- dplyr::n_distinct(model_data$year) > 1
+			has_panel_depth <- dplyr::n_distinct(model_data$iso3c) < nrow(model_data)
 
-			fit <- tryCatch(
-				fixest::feols(
-					fml,
-					data = model_data,
-					cluster = ~iso3c
-				),
-				error = function(e) NULL
-			)
+			if (has_panel_depth && has_multi_year) {
+				fml <- as.formula(
+					paste0(y, " ~ ", paste(terms, collapse = " + "), " | iso3c + year")
+				)
+				fit <- tryCatch(
+					fixest::feols(
+						fml,
+						data = model_data,
+						cluster = ~iso3c
+					),
+					error = function(e) NULL
+				)
+			} else if (has_multi_year) {
+				# Keep time controls in repeated cross-section settings.
+				fml <- as.formula(
+					paste0(y, " ~ ", paste(terms, collapse = " + "), " | year")
+				)
+				fit <- tryCatch(
+					fixest::feols(
+						fml,
+						data = model_data,
+						vcov = "hetero"
+					),
+					error = function(e) NULL
+				)
+			} else {
+				# Pure cross-section: no fixed effects, heteroskedasticity-robust SE.
+				fml <- as.formula(
+					paste0(y, " ~ ", paste(terms, collapse = " + "))
+				)
+				fit <- tryCatch(
+					fixest::feols(
+						fml,
+						data = model_data,
+						vcov = "hetero"
+					),
+					error = function(e) NULL
+				)
+			}
 
 			if (!is.null(fit)) {
 				comparison_models[[paste0(y, "__", r)]] <- fit
