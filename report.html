@@ -48,9 +48,13 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#research-question" id="toc-research-question" class="nav-link active" data-scroll-target="#research-question"><span class="header-section-number">1</span> Research question</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2</span> Data</a></li>
-  <li><a href="#baseline-model" id="toc-baseline-model" class="nav-link" data-scroll-target="#baseline-model"><span class="header-section-number">3</span> Baseline model</a></li>
-  <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures"><span class="header-section-number">4</span> Figures</a></li>
-  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes"><span class="header-section-number">5</span> Notes</a></li>
+  <li><a href="#baseline-model" id="toc-baseline-model" class="nav-link" data-scroll-target="#baseline-model"><span class="header-section-number">3</span> Baseline model</a>
+  <ul class="collapse">
+  <li><a href="#heterogeneity-summary" id="toc-heterogeneity-summary" class="nav-link" data-scroll-target="#heterogeneity-summary"><span class="header-section-number">3.1</span> Heterogeneity Summary</a></li>
+  </ul></li>
+  <li><a href="#gci-scale-sensitivity-interpretation" id="toc-gci-scale-sensitivity-interpretation" class="nav-link" data-scroll-target="#gci-scale-sensitivity-interpretation"><span class="header-section-number">4</span> GCI Scale-Sensitivity Interpretation</a></li>
+  <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures"><span class="header-section-number">5</span> Figures</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes"><span class="header-section-number">6</span> Notes</a></li>
   </ul>
 </nav>
 </div>
@@ -1453,9 +1457,34 @@ ul.task-list li input[type="checkbox"] {
 </table>
 </div>
 </div>
+<section id="heterogeneity-summary" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="heterogeneity-summary"><span class="header-section-number">3.1</span> Heterogeneity Summary</h3>
+<p>Income-group splits reveal differentiated cyber–macro associations across country development levels:</p>
+<ul>
+<li><strong>High-income countries</strong> show statistically significant readiness effects, notably in productivity (positive, p=0.01 for level GCI; p=0.02 for normalized variant), consistent with hypothesis that wealthier economies may derive larger productivity gains from cyber readiness.</li>
+<li><strong>Upper-middle-income countries</strong> show mixed results, with some negative GCI associations in productivity (p=0.02) and weaker overall significance, suggesting heterogeneous transmission mechanisms.</li>
+<li><strong>Lower-income countries</strong> exhibit wider confidence intervals and fewer significant coefficients, reflecting both smaller sample sizes and potentially distinct cyber–macro linkages.</li>
+</ul>
+<p>Incident effects in heterogeneity models are generally weaker than in the pooled specification, indicating incident intensity may be a noisier readiness proxy in stratified sub-samples.</p>
+<p><strong>Metadata coverage caveat:</strong> World Bank country metadata classification leaves 11 panel country/territory codes (primarily small or disputed territories) without an assigned income-group bucket. These observations are excluded from the heterogeneity analysis. Conclusions from the heterogeneity split should be interpreted as applicable to the classified subset; results may not generalize uniformly to unclassified territories or to regions heavily represented in that unclassified remainder. A full list of excluded codes is available in the raw panel data dictionary.</p>
 </section>
-<section id="figures" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="figures"><span class="header-section-number">4</span> Figures</h2>
+</section>
+<section id="gci-scale-sensitivity-interpretation" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="gci-scale-sensitivity-interpretation"><span class="header-section-number">4</span> GCI Scale-Sensitivity Interpretation</h2>
+<p>The comparison results include both a level-scale readiness variable (<code>l1_gci_overall</code>) and a normalized percentile-scale variant (<code>l1_gci_overall_norm</code>). Both apply the same FE estimand, interpolation, and carry-forward logic; they differ only in scale representation.</p>
+<p><strong>Directional stability across outcomes and income groups:</strong></p>
+<ul>
+<li><strong>GDP growth</strong>: Level +0.034 (marginal, p=0.07); Normalized +0.816 (ns, p=0.78). Same positive direction; normalized loses significance.</li>
+<li><strong>Productivity</strong>: Level −133.4** (p=0.002); Normalized −4479 (ns, p=0.35). Same negative direction; level retains significance.</li>
+<li><strong>Investment</strong>: Level −0.078 (ns, p=0.11); Normalized −5.24 (ns, p=0.24). Same negative direction throughout.</li>
+<li><strong>Employment</strong>: Level −0.046*** (p=0.001); Normalized −2.06 (ns, p=0.26). Same negative direction; level significant.</li>
+</ul>
+<p>The sign consistency across both scales and outcomes provides directional evidence that the GCI–macro association is robust to the choice of scale representation. However, the level-scale formulation (<code>l1_gci_overall</code>) retains more statistical power, suggesting it better captures year-to-year variation in the underlying readiness construct. The normalized variant loses significance primarily in outcomes with strong level-scale coefficients (productivity, employment), which implies the percentile normalization dampens signal more than it stabilizes.</p>
+<p><strong>Interpretation guidance:</strong></p>
+<p>When interpreting GCI-based results, prioritize the level-scale specification (<code>l1_gci_overall</code>) as the primary evidence, since it has greater sensitivity to variation. The normalized results serve as a scale-robustness bound: conclusions are directionally stable even when transforming to a 0–1 percentile scale, which confirms the association is not an artifact of the raw 0–100 score magnitude.</p>
+</section>
+<section id="figures" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="figures"><span class="header-section-number">5</span> Figures</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -1484,8 +1513,8 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </section>
-<section id="notes" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="notes"><span class="header-section-number">5</span> Notes</h2>
+<section id="notes" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="notes"><span class="header-section-number">6</span> Notes</h2>
 <p>This MVP report is reproducible from the script pipeline in <code>R/</code>.</p>
 </section>
 

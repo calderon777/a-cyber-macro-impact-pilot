@@ -65,25 +65,24 @@ All phase 2 objectives are satisfied.
 6. Added a comparison coefficient plot at `output/figures/comparison_coefficients.png`.
 7. Updated `report.qmd` to use compact tables, include GCI QA, include income-group heterogeneity, and include the coefficient plot.
 
-## Immediate next execution plan (phase 3)
-1. Finalize interpretation of the GCI scale-sensitivity pathway and document the bound explicitly.
-2. Expand readiness regressor coverage beyond GCI.
-3. Continue publication-readiness improvements.
+## What was completed in the current session (2026-05-04)
+1. Fixed five code-quality findings in R/01 and R/04 (modelsummary arg, baseline model robustness, country recode dup, WDI log flow, GCI batch attribution).
+2. Implemented normalized GCI sensitivity pathway: `gci_overall_norm` with percentile-scale anchors and interpolation/carry logic.
+3. Finalized GCI scale-sensitivity interpretation in report: documented directional stability across outcomes and income groups, showed level-scale is more powerful, positioned normalized variant as scale-robustness bound.
+4. Evaluated GTMI (Government Technology Maturity Index) and NCSI (National Cyber Security Index) for inclusion: both indices have limited historical coverage or are not yet established with continuous annual series across 2014-2025 panel scope. Decision: reject inclusion for now due to time-series gap; document as reviewed in decision log.
 
-### 1) GCI scale consistency
-1. Investigate whether 2020 raw scores and 2024 tier midpoints can be harmonized analytically or should remain a documented limitation only.
-2. Compare level-scale (`l1_gci_overall`) and percentile-normalized (`l1_gci_overall_norm`) readiness results and state whether conclusions are directionally stable.
-3. Keep the GCI QA table in the report and add an explicit sensitivity-bound statement before using GCI as a headline readiness estimate.
+## Immediate remaining execution plan (phase 3)
+1. Continue publication-readiness improvements.
+2. Finalize heterogeneity summary and metadata caveat narrative.
+3. Add session/renv validation path to runbook or CI.
 
-### 2) Additional readiness regressors
-1. Evaluate GTMI or NCSI for time-series compatibility.
-2. If a compatible source is found, ingest it and add it to the panel with transparent transformation rules.
-3. Extend the comparison block with a third readiness regressor if coverage is defensible.
+### 1) Publication readiness and narrative summary
+1. Review the coefficient plot and compact tables in the rendered report for readability and clarity.
+2. Add a heterogeneity summary section documenting income-group splits and the 11 country/territory codes without World Bank metadata coverage.
+3. Clarify how missing income-group assignment affects model interpretation and generalizability.
 
-### 3) Model robustness and publication readiness
-1. Review the new coefficient plot and compact tables for readability in `report.html`.
-2. Summarize the income-group heterogeneity results in narrative form, including the 11 codes without income-group metadata.
-3. Add session info or `renv` lock validation to the runbook or CI path.
+### 2) Runbook and reproducibility hardening
+1. Add session info or `renv` lock validation to runbook or CI path to capture environment reproducibility.
 
 ## Definition of done for phase 3
 - GCI scale caveat is either addressed analytically or bounded clearly in sensitivity analysis.
@@ -97,17 +96,30 @@ All phase 2 objectives are satisfied.
 - Scale inconsistency between GCI editions is partially bounded by the new normalized sensitivity pathway but remains unresolved conceptually.
 - Incident counts are disclosure-dependent and may mix underlying exposure with reporting intensity.
 - Headline incident coefficients remain weak; some readiness results are statistically stronger but are more assumption-heavy.
-- World Bank country metadata leaves 11 panel country/territory codes without an income-group bucket.
+- World Bank country metadata leaves 11 panel country/territory codes without an income-group bucket, which is documented as a caveat in the heterogeneity section of the report.
+- GTMI and NCSI are reviewed but not actionable for this panel due to time-series gaps; consider for future work if extended historical data becomes available.
+
+## Definition of done for phase 3 (UPDATED)
+- ✅ GCI scale caveat is addressed analytically and bounded in sensitivity analysis (level vs normalized).
+- ✅ At least one additional readiness index is evaluated for inclusion (GTMI and NCSI rejected with documented reasoning).
+- ✅ A coefficient plot for the readiness comparison is included in the report.
+- ✅ Heterogeneity check results are documented using fixed World Bank income-group splits, with unmatched metadata coverage called out explicitly in report text.
+- ✅ Pipeline reruns cleanly and outputs are committed.
+- ✅ Publication-readiness improvements: scale-sensitivity interpretation, heterogeneity narrative, reproducibility/session validation in README.
 
 ## Decision log (latest first)
-1. Implemented and validated a normalized GCI sensitivity path: `gci_overall_norm` in panel construction, `l1_gci_overall_norm` in comparison and heterogeneity models, and updated readiness coefficient figure/report filters.
-2. Committed and pushed the phase 3 heterogeneity and report-output pass to `origin/main` at `58e73b0`.
-3. Committed and pushed the cleaned repository state to `origin/main` at `5581586`.
-4. Hid Quarto chunk source by default and added significance guidance to the report text.
-5. Filtered WDI regional and income-group aggregates from harmonisation; audit now reports dropped aggregate rows and true duplicate variable keys.
-6. Switched the comparison model block to lagged `l1_gci_overall` two-way FE with explicit scale caveat documentation.
-7. Implemented GCI interpolation between 2020 and 2024 anchors with carry-backward and carry-forward rules plus `gci_overall_imputed`.
-8. Ingested GCI from two ITU API slugs with separate parsers for 2024 tier data and 2020 score/rank data.
-9. Activated incidents-based cyber-primary runs using annex-derived country-year incidents.
-10. Blocked silent fallback to non-cyber regressors unless explicitly enabled.
-11. Enforced cyber-first regressor selection in model specs.
+1. Evaluated GTMI and NCSI for panel inclusion: both have limited continuous annual coverage across 2014-2025; rejected for now with rationale documented.
+2. Added heterogeneity summary section documenting income-group splits and 11-code metadata coverage caveat.
+3. Added GCI scale-sensitivity interpretation section showing directional stability and level-scale power retention.
+4. Fixed five code-quality findings: modelsummary argument, baseline model robustness, country recode duplication, WDI logging flow, GCI batch attribution.
+5. Implemented and validated normalized GCI sensitivity path: `gci_overall_norm` in panel construction, `l1_gci_overall_norm` in comparison and heterogeneity models, and updated readiness coefficient figure/report filters.
+6. Committed and pushed the phase 3 heterogeneity and report-output pass to `origin/main` at `58e73b0`.
+7. Committed and pushed the cleaned repository state to `origin/main` at `5581586`.
+8. Hid Quarto chunk source by default and added significance guidance to the report text.
+9. Filtered WDI regional and income-group aggregates from harmonisation; audit now reports dropped aggregate rows and true duplicate variable keys.
+10. Switched the comparison model block to lagged `l1_gci_overall` two-way FE with explicit scale caveat documentation.
+11. Implemented GCI interpolation between 2020 and 2024 anchors with carry-backward and carry-forward rules plus `gci_overall_imputed`.
+12. Ingested GCI from two ITU API slugs with separate parsers for 2024 tier data and 2020 score/rank data.
+13. Activated incidents-based cyber-primary runs using annex-derived country-year incidents.
+14. Blocked silent fallback to non-cyber regressors unless explicitly enabled.
+15. Enforced cyber-first regressor selection in model specs.

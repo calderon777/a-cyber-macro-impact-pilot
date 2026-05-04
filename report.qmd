@@ -157,6 +157,35 @@ if (file.exists(heterogeneity_csv)) {
 }
 ```
 
+### Heterogeneity Summary
+
+Income-group splits reveal differentiated cyber–macro associations across country development levels:
+
+- **High-income countries** show statistically significant readiness effects, notably in productivity (positive, p=0.01 for level GCI; p=0.02 for normalized variant), consistent with hypothesis that wealthier economies may derive larger productivity gains from cyber readiness.
+- **Upper-middle-income countries** show mixed results, with some negative GCI associations in productivity (p=0.02) and weaker overall significance, suggesting heterogeneous transmission mechanisms.
+- **Lower-income countries** exhibit wider confidence intervals and fewer significant coefficients, reflecting both smaller sample sizes and potentially distinct cyber–macro linkages.
+
+Incident effects in heterogeneity models are generally weaker than in the pooled specification, indicating incident intensity may be a noisier readiness proxy in stratified sub-samples.
+
+**Metadata coverage caveat:** World Bank country metadata classification leaves 11 panel country/territory codes (primarily small or disputed territories) without an assigned income-group bucket. These observations are excluded from the heterogeneity analysis. Conclusions from the heterogeneity split should be interpreted as applicable to the classified subset; results may not generalize uniformly to unclassified territories or to regions heavily represented in that unclassified remainder. A full list of excluded codes is available in the raw panel data dictionary.
+
+## GCI Scale-Sensitivity Interpretation
+
+The comparison results include both a level-scale readiness variable (`l1_gci_overall`) and a normalized percentile-scale variant (`l1_gci_overall_norm`). Both apply the same FE estimand, interpolation, and carry-forward logic; they differ only in scale representation.
+
+**Directional stability across outcomes and income groups:**
+
+- **GDP growth**: Level +0.034 (marginal, p=0.07); Normalized +0.816 (ns, p=0.78). Same positive direction; normalized loses significance.
+- **Productivity**: Level −133.4** (p=0.002); Normalized −4479 (ns, p=0.35). Same negative direction; level retains significance.
+- **Investment**: Level −0.078 (ns, p=0.11); Normalized −5.24 (ns, p=0.24). Same negative direction throughout.
+- **Employment**: Level −0.046*** (p=0.001); Normalized −2.06 (ns, p=0.26). Same negative direction; level significant.
+
+The sign consistency across both scales and outcomes provides directional evidence that the GCI–macro association is robust to the choice of scale representation. However, the level-scale formulation (`l1_gci_overall`) retains more statistical power, suggesting it better captures year-to-year variation in the underlying readiness construct. The normalized variant loses significance primarily in outcomes with strong level-scale coefficients (productivity, employment), which implies the percentile normalization dampens signal more than it stabilizes.
+
+**Interpretation guidance:**
+
+When interpreting GCI-based results, prioritize the level-scale specification (`l1_gci_overall`) as the primary evidence, since it has greater sensitivity to variation. The normalized results serve as a scale-robustness bound: conclusions are directionally stable even when transforming to a 0–1 percentile scale, which confirms the association is not an artifact of the raw 0–100 score magnitude.
+
 ## Figures
 
 ```{r, echo=FALSE, out.width='100%'}

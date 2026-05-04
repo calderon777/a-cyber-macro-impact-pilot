@@ -622,10 +622,6 @@ for (i in seq_len(nrow(gci_specs))) {
 if (length(gci_batches) == 0) {
 	message("No GCI editions produced rows this run.")
 } else {
-	gci_raw_all <- bind_rows(gci_batches) %>%
-		distinct(iso3c, year, .keep_all = TRUE) %>%
-		arrange(iso3c, year)
-
 	if (file.exists(gci_out)) {
 		existing_gci <- read.csv(gci_out, stringsAsFactors = FALSE)
 		existing_gci$year <- as.integer(existing_gci$year)
