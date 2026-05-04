@@ -4,6 +4,7 @@
 "employment_ratio","SL.EMP.TOTL.SP.ZS","World Development Indicators","annual","none"
 "gcf_gdp","NE.GDI.TOTL.ZS","World Development Indicators","annual","none"
 "gci_overall","GCI_OPEN","ITU GCI tier extraction","annual","none"
+"gci_overall_imputed","GCI_OPEN","Derived: linear interpolation between GCI 2020 and 2024 anchor years","annual","flag"
 "gci_tier","GCI_OPEN","ITU GCI tier extraction","annual","none"
 "gdp_growth","NY.GDP.MKTP.KD.ZG","World Development Indicators","annual","none"
 "gdp_per_person_employed","SL.GDP.PCAP.EM.KD","World Development Indicators","annual","none"

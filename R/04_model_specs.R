@@ -149,12 +149,11 @@ comparison_regressors <- comparison_regressors[comparison_regressors %in% names(
 if (length(comparison_regressors) == 2) {
 	for (y in outcomes) {
 		for (r in comparison_regressors) {
-			if (r == "gci_overall") {
-				# Readiness is largely cross-sectional in current data, so estimate a contemporaneous spec.
-				terms <- c(r, controls)
-			} else {
-				terms <- c(paste0("l1_", r), paste0("l1_", controls))
-			}
+			# Both incident and GCI regressors use the lagged FE spec.
+			# GCI values for 2021-2023 are linearly interpolated (flagged by
+			# gci_overall_imputed); the interpolation makes l1_gci_overall
+			# estimable in a proper panel FE framework.
+			terms <- c(paste0("l1_", r), paste0("l1_", controls))
 			terms <- terms[terms %in% names(panel)]
 
 			if (length(terms) == 0) {

@@ -51,13 +51,13 @@ if (file.exists(dict_path)) {
 
 We use country and year fixed-effects models with lagged cyber variables and clustered standard errors at country level.
 
-For the incidents-vs-readiness comparison, estimator structure differs by data availability in the current build:
+For the incidents-vs-readiness comparison, both pathways now share the same lagged two-way FE estimand:
 
-1. Incident intensity (`cyber_incidents_log`) is estimated with lagged terms in two-way FE panel models.
-2. Readiness (`gci_overall`) is estimated contemporaneously because current GCI input is predominantly single-year.
-3. When readiness data do not support two-way FE, the model path falls back to time FE or pure cross-section with heteroskedasticity-robust standard errors.
+1. Incident intensity (`cyber_incidents_log`) is estimated with lagged terms (`l1_cyber_incidents_log`) in two-way FE panel models.
+2. Readiness (`gci_overall`) is also estimated with lagged terms (`l1_gci_overall`) in two-way FE panel models. GCI values for 2021–2023 are linearly interpolated between the 2020 edition (scores 0–100) and the 2024 edition (tier midpoints); rows derived by interpolation are flagged by `gci_overall_imputed = TRUE`.
+3. When either specification does not support two-way FE (too few observations after listwise deletion), the model path falls back to time FE or pure cross-section with heteroskedasticity-robust standard errors.
 
-These columns are useful for directional comparison, but not for strict coefficient-level causal ranking against each other.
+The shared estimator structure makes coefficient magnitudes more directly comparable than a contemporaneous vs. lagged comparison would allow. The interpolation assumption (linear trend between edition years) is maintained; directional interpretation is appropriate but absolute magnitudes for interpolated years carry additional uncertainty.
 
 ```{r}
 headline_csv <- "output/tables/headline_regressions.csv"
