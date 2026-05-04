@@ -10,7 +10,14 @@ gci_interpolate <- function(yr, val) {
 	if (length(obs) == 0) return(val)
 	out <- val
 	if (length(obs) >= 2) {
-		out <- stats::approx(yr[obs], val[obs], xout = yr, rule = 1)$y
+		anchor <- data.frame(
+			yr = yr[obs],
+			val = val[obs]
+		)
+		anchor <- anchor[!duplicated(anchor$yr), , drop = FALSE]
+		if (nrow(anchor) >= 2) {
+			out <- stats::approx(anchor$yr, anchor$val, xout = yr, rule = 1)$y
+		}
 	}
 	# Carry backward from the first anchor.
 	out[yr < yr[obs[1]]]           <- val[obs[1]]
@@ -85,6 +92,31 @@ if ("gci_overall" %in% names(panel)) {
 
 	n_imputed <- sum(panel$gci_overall_imputed, na.rm = TRUE)
 	message("GCI interpolation: ", n_imputed, " country-year values imputed (non-anchor).")
+
+	# Sensitivity series: convert anchor-year GCI values to within-edition
+	# percentiles, then apply the same interpolation/carry rules in 0-1 space.
+	gci_norm_anchor <- panel %>%
+		filter(year %in% c(2020L, 2024L), !is.na(gci_overall), !gci_overall_imputed) %>%
+		group_by(year) %>%
+		mutate(gci_overall_norm_anchor = dplyr::percent_rank(gci_overall)) %>%
+		ungroup() %>%
+		select(iso3c, year, gci_overall_norm_anchor)
+
+	panel <- panel %>%
+		left_join(gci_norm_anchor, by = c("iso3c", "year")) %>%
+		group_by(iso3c) %>%
+		arrange(year) %>%
+		mutate(
+			.gci_norm_anchor = !is.na(gci_overall_norm_anchor),
+			gci_overall_norm = gci_interpolate(year, gci_overall_norm_anchor),
+			gci_overall_norm_imputed = !.gci_norm_anchor & !is.na(gci_overall_norm)
+		) %>%
+		select(-.gci_norm_anchor, -gci_overall_norm_anchor) %>%
+		ungroup() %>%
+		arrange(iso3c, year)
+
+	n_norm_imputed <- sum(panel$gci_overall_norm_imputed, na.rm = TRUE)
+	message("GCI normalized sensitivity interpolation: ", n_norm_imputed, " country-year values imputed (non-anchor).")
 }
 
 arrow::write_parquet(panel, panel_path)
@@ -123,16 +155,60 @@ if (file.exists(indicator_map_path)) {
 		arrange(variable)
 }
 
-# Append derived GCI flag if it was created
+# Append derived GCI fields if they were created
+derived_gci_rows <- data.frame(
+	variable = character(0),
+	indicator = character(0),
+	source = character(0),
+	frequency = character(0),
+	transform = character(0),
+	stringsAsFactors = FALSE
+)
+
 if ("gci_overall_imputed" %in% names(panel)) {
-	gci_flag_row <- data.frame(
-		variable  = "gci_overall_imputed",
-		indicator = "GCI_OPEN",
-		source    = "Derived: linear interpolation between GCI 2020 and 2024 anchor years",
-		frequency = "annual",
-		transform = "flag"
+	derived_gci_rows <- dplyr::bind_rows(
+		derived_gci_rows,
+		data.frame(
+			variable  = "gci_overall_imputed",
+			indicator = "GCI_OPEN",
+			source    = "Derived: linear interpolation between GCI 2020 and 2024 anchor years",
+			frequency = "annual",
+			transform = "flag",
+			stringsAsFactors = FALSE
+		)
 	)
-	data_dictionary <- dplyr::bind_rows(data_dictionary, gci_flag_row) %>%
+}
+
+if ("gci_overall_norm" %in% names(panel)) {
+	derived_gci_rows <- dplyr::bind_rows(
+		derived_gci_rows,
+		data.frame(
+			variable  = "gci_overall_norm",
+			indicator = "GCI_OPEN",
+			source    = "Derived: within-edition percentile scaling in anchor years (2020, 2024), then interpolation/carry",
+			frequency = "annual",
+			transform = "percentile scale [0,1]",
+			stringsAsFactors = FALSE
+		)
+	)
+}
+
+if ("gci_overall_norm_imputed" %in% names(panel)) {
+	derived_gci_rows <- dplyr::bind_rows(
+		derived_gci_rows,
+		data.frame(
+			variable  = "gci_overall_norm_imputed",
+			indicator = "GCI_OPEN",
+			source    = "Derived: interpolation/carry flag for gci_overall_norm",
+			frequency = "annual",
+			transform = "flag",
+			stringsAsFactors = FALSE
+		)
+	)
+}
+
+if (nrow(derived_gci_rows) > 0) {
+	data_dictionary <- dplyr::bind_rows(data_dictionary, derived_gci_rows) %>%
 		arrange(variable)
 }
 

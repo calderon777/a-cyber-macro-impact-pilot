@@ -118,11 +118,11 @@ ul.task-list li input[type="checkbox"] {
 <table class="caption-top table table-sm table-striped small">
 <caption>Data dictionary</caption>
 <colgroup>
-<col style="width: 12%">
-<col style="width: 10%">
-<col style="width: 37%">
+<col style="width: 11%">
 <col style="width: 9%">
-<col style="width: 30%">
+<col style="width: 45%">
+<col style="width: 7%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -173,6 +173,20 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">gci_overall_imputed</td>
 <td style="text-align: left;">GCI_OPEN</td>
 <td style="text-align: left;">Derived: linear interpolation between GCI 2020 and 2024 anchor years</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">flag</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">GCI_OPEN</td>
+<td style="text-align: left;">Derived: within-edition percentile scaling in anchor years (2020, 2024), then interpolation/carry</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">percentile scale [0,1]</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gci_overall_norm_imputed</td>
+<td style="text-align: left;">GCI_OPEN</td>
+<td style="text-align: left;">Derived: interpolation/carry flag for gci_overall_norm</td>
 <td style="text-align: left;">annual</td>
 <td style="text-align: left;">flag</td>
 </tr>
@@ -265,10 +279,11 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>Incident intensity (<code>cyber_incidents_log</code>) is estimated with lagged terms (<code>l1_cyber_incidents_log</code>) in two-way FE panel models.</li>
 <li>Readiness (<code>gci_overall</code>) is also estimated with lagged terms (<code>l1_gci_overall</code>) in two-way FE panel models. GCI values for 2021-2023 are linearly interpolated between the 2020 edition (scores 0-100) and the 2024 edition (tier midpoints). Earlier panel years carry the 2020 value backward, later years carry the 2024 value forward, and all derived rows are flagged by <code>gci_overall_imputed = TRUE</code>.</li>
+<li>A scale-sensitivity variant (<code>gci_overall_norm</code>) converts observed 2020 and 2024 anchors to within-edition percentiles (0-1), then applies the same interpolation and carry rules. This provides a robustness check against cross-edition level-scale shifts.</li>
 <li>When either specification does not support two-way FE (too few observations after listwise deletion), the model path falls back to time FE or pure cross-section with heteroskedasticity-robust standard errors.</li>
 </ol>
 <p>The shared estimator structure makes coefficient magnitudes more directly comparable than a contemporaneous vs.&nbsp;lagged comparison would allow. The GCI interpolation and carry assumptions are maintained for coverage; directional interpretation is appropriate, but absolute magnitudes for derived years carry additional uncertainty.</p>
-<p>Significance markers in the tables use <code>+</code> for p &lt; 0.10, <code>*</code> for p &lt; 0.05, <code>**</code> for p &lt; 0.01, and <code>***</code> for p &lt; 0.001. In the headline incident models, the incident coefficient is not significant at the 5% level; the productivity and investment specifications are only marginal at the 10% level. In the readiness comparison, <code>l1_gci_overall</code> is significant for productivity and employment, but these estimates rely heavily on the GCI interpolation and carry assumptions described above.</p>
+<p>Significance markers in the tables use <code>+</code> for p &lt; 0.10, <code>*</code> for p &lt; 0.05, <code>**</code> for p &lt; 0.01, and <code>***</code> for p &lt; 0.001. In the headline incident models, the incident coefficient is not significant at the 5% level; the productivity and investment specifications are only marginal at the 10% level. In the readiness comparison, interpret <code>l1_gci_overall</code> and <code>l1_gci_overall_norm</code> jointly as level-scale and normalized-scale sensitivity evidence, given the interpolation and carry assumptions described above.</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -715,7 +730,7 @@ ul.task-list li input[type="checkbox"] {
 <col style="width: 19%">
 <col style="width: 22%">
 <col style="width: 10%">
-<col style="width: 9%">
+<col style="width: 10%">
 <col style="width: 7%">
 <col style="width: 4%">
 </colgroup>
@@ -804,6 +819,42 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">1517</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">gdp_growth</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_gci_overall_norm</td>
+<td style="text-align: left;">0.816</td>
+<td style="text-align: left;">(2.896)</td>
+<td style="text-align: right;">0.779</td>
+<td style="text-align: right;">1517</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gdp_growth</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_inflation_cpi</td>
+<td style="text-align: left;">-0.003</td>
+<td style="text-align: left;">(0.007)</td>
+<td style="text-align: right;">0.644</td>
+<td style="text-align: right;">1517</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gdp_growth</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_trade_gdp</td>
+<td style="text-align: left;">-0.021</td>
+<td style="text-align: left;">(0.019)</td>
+<td style="text-align: right;">0.273</td>
+<td style="text-align: right;">1517</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gdp_growth</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_population_total</td>
+<td style="text-align: left;">-0.000</td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: right;">0.200</td>
+<td style="text-align: right;">1517</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">gdp_per_person_employed</td>
 <td style="text-align: left;">cyber_incidents_log</td>
 <td style="text-align: left;">l1_cyber_incidents_log</td>
@@ -873,6 +924,42 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">0.000</td>
 <td style="text-align: left;">(0.000)</td>
 <td style="text-align: right;">0.960</td>
+<td style="text-align: right;">1463</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gdp_per_person_employed</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_gci_overall_norm</td>
+<td style="text-align: left;">-4478.857</td>
+<td style="text-align: left;">(4816.940)</td>
+<td style="text-align: right;">0.354</td>
+<td style="text-align: right;">1463</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gdp_per_person_employed</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_inflation_cpi</td>
+<td style="text-align: left;">-11.680</td>
+<td style="text-align: left;">(7.748)</td>
+<td style="text-align: right;">0.134</td>
+<td style="text-align: right;">1463</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gdp_per_person_employed</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_trade_gdp</td>
+<td style="text-align: left;">9.034</td>
+<td style="text-align: left;">(33.011)</td>
+<td style="text-align: right;">0.785</td>
+<td style="text-align: right;">1463</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gdp_per_person_employed</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_population_total</td>
+<td style="text-align: left;">0.000</td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: right;">0.903</td>
 <td style="text-align: right;">1463</td>
 </tr>
 <tr class="odd">
@@ -948,6 +1035,42 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: right;">1481</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">gcf_gdp</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_gci_overall_norm</td>
+<td style="text-align: left;">-5.242</td>
+<td style="text-align: left;">(4.413)</td>
+<td style="text-align: right;">0.237</td>
+<td style="text-align: right;">1481</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gcf_gdp</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_inflation_cpi</td>
+<td style="text-align: left;">-0.015</td>
+<td style="text-align: left;">(0.015)</td>
+<td style="text-align: right;">0.311</td>
+<td style="text-align: right;">1481</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gcf_gdp</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_trade_gdp</td>
+<td style="text-align: left;">0.012</td>
+<td style="text-align: left;">(0.025)</td>
+<td style="text-align: right;">0.642</td>
+<td style="text-align: right;">1481</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gcf_gdp</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_population_total</td>
+<td style="text-align: left;">-0.000</td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: right;">0.957</td>
+<td style="text-align: right;">1481</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">employment_ratio</td>
 <td style="text-align: left;">cyber_incidents_log</td>
 <td style="text-align: left;">l1_cyber_incidents_log</td>
@@ -1017,6 +1140,42 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">-0.000</td>
 <td style="text-align: left;">(0.000)</td>
 <td style="text-align: right;">0.756</td>
+<td style="text-align: right;">1598</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">employment_ratio</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_gci_overall_norm</td>
+<td style="text-align: left;">-2.056</td>
+<td style="text-align: left;">(1.829)</td>
+<td style="text-align: right;">0.263</td>
+<td style="text-align: right;">1598</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">employment_ratio</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_inflation_cpi</td>
+<td style="text-align: left;">-0.006+</td>
+<td style="text-align: left;">(0.003)</td>
+<td style="text-align: right;">0.075</td>
+<td style="text-align: right;">1598</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">employment_ratio</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_trade_gdp</td>
+<td style="text-align: left;">0.028**</td>
+<td style="text-align: left;">(0.010)</td>
+<td style="text-align: right;">0.004</td>
+<td style="text-align: right;">1598</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">employment_ratio</td>
+<td style="text-align: left;">gci_overall_norm</td>
+<td style="text-align: left;">l1_population_total</td>
+<td style="text-align: left;">-0.000</td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: right;">0.799</td>
 <td style="text-align: right;">1598</td>
 </tr>
 </tbody>

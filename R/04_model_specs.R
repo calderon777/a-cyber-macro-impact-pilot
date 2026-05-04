@@ -154,6 +154,7 @@ fit_fe_model <- function(df, outcome, terms, min_obs = 50L, min_countries = 10L)
 cyber_priority_regressors <- c(
 	"cyber_incidents_log",
 	"gci_overall",
+	"gci_overall_norm",
 	"gtmi_overall",
 	"cyber_spend_gdp_optional"
 )
@@ -248,16 +249,17 @@ if (length(baseline_models) == 0) {
 
 comparison_models <- list()
 comparison_lookup <- data.frame()
-comparison_regressors <- c("cyber_incidents_log", "gci_overall")
+comparison_regressors <- c("cyber_incidents_log", "gci_overall", "gci_overall_norm")
 comparison_regressors <- comparison_regressors[comparison_regressors %in% names(panel)]
+has_incidents <- "cyber_incidents_log" %in% comparison_regressors
+has_readiness <- any(c("gci_overall", "gci_overall_norm") %in% comparison_regressors)
 
-if (length(comparison_regressors) == 2) {
+if (has_incidents && has_readiness) {
 	for (y in outcomes) {
 		for (r in comparison_regressors) {
-			# Both incident and GCI regressors use the lagged FE spec.
-			# GCI values for 2021-2023 are linearly interpolated (flagged by
-			# gci_overall_imputed); the interpolation makes l1_gci_overall
-			# estimable in a proper panel FE framework.
+			# Incidents and readiness regressors share the same lagged FE spec.
+			# Readiness can include level GCI (gci_overall) and normalized
+			# percentile sensitivity (gci_overall_norm).
 			terms <- c(paste0("l1_", r), paste0("l1_", controls))
 			terms <- terms[terms %in% names(panel)]
 
@@ -337,7 +339,7 @@ if (length(comparison_regressors) == 2) {
 heterogeneity_models <- list()
 heterogeneity_lookup <- data.frame()
 
-if ("income_group_model" %in% names(panel) && length(comparison_regressors) == 2) {
+if ("income_group_model" %in% names(panel) && has_incidents && has_readiness) {
 	income_groups <- c("High income", "Upper middle income", "Lower income")
 
 	for (g in income_groups) {

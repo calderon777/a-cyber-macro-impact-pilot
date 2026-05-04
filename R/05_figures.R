@@ -171,7 +171,7 @@ ggsave(fig_dynamic, p_dynamic, width = 10, height = 6, dpi = 300)
 
 if (file.exists(comparison_compact_csv)) {
 	comparison_coefficients <- read.csv(comparison_compact_csv, stringsAsFactors = FALSE) %>%
-		filter(term %in% c("l1_cyber_incidents_log", "l1_gci_overall")) %>%
+		filter(term %in% c("l1_cyber_incidents_log", "l1_gci_overall", "l1_gci_overall_norm")) %>%
 		mutate(
 			outcome_label = dplyr::case_when(
 				outcome == "gdp_growth" ~ "GDP growth",
@@ -182,7 +182,8 @@ if (file.exists(comparison_compact_csv)) {
 			),
 			regressor_label = dplyr::case_when(
 				term == "l1_cyber_incidents_log" ~ "Incidents",
-				term == "l1_gci_overall" ~ "GCI readiness",
+				term == "l1_gci_overall" ~ "GCI readiness (level)",
+				term == "l1_gci_overall_norm" ~ "GCI readiness (percentile norm)",
 				TRUE ~ term
 			),
 			conf.low = estimate - 1.96 * std.error,
@@ -201,7 +202,11 @@ if (file.exists(comparison_compact_csv)) {
 			geom_point(size = 2.0) +
 			facet_wrap(~regressor_label, scales = "free_x") +
 			scale_color_manual(
-				values = c("Incidents" = "#1f4e79", "GCI readiness" = "#c24e00")
+				values = c(
+					"Incidents" = "#1f4e79",
+					"GCI readiness (level)" = "#c24e00",
+					"GCI readiness (percentile norm)" = "#2e7d32"
+				)
 			) +
 			labs(
 				title = "Lagged Cyber Proxy Coefficients by Outcome",
