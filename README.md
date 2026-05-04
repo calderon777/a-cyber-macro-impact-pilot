@@ -29,5 +29,5 @@ See OBJECTIVE.md for the execution scope and phase-based definition of done.
 
 - [x] Project scaffold created
 - [x] Data download and harmonisation implemented
-- [ ] Baseline FE models implemented
+- [x] Baseline FE models implemented
 - [ ] Report fully rendered with results

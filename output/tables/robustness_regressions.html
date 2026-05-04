@@ -1,0 +1,257 @@
+<!-- preamble start -->
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tinytable_wr4vnpgx6mpvmnyijt6j</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+<!-- preamble end -->
+
+    <script>
+
+      function styleCell_wr4vnpgx6mpvmnyijt6j(i, j, css_id) {
+          var table = document.getElementById("tinytable_wr4vnpgx6mpvmnyijt6j");
+          var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
+          if (cell) {
+              console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
+              cell.classList.add(css_id);
+          } else {
+              console.warn(`Cell at (${i}, ${j}) not found.`);
+          }
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_wr4vnpgx6mpvmnyijt6j');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_wr4vnpgx6mpvmnyijt6j(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_wr4vnpgx6mpvmnyijt6j");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: 20, j: 1 }, { i: 20, j: 3 }, { i: 20, j: 2 }, { i: 20, j: 4 },  ], css_id: 'tinytable_css_5qe4a8mgjw8489umi54a',}, 
+          { positions: [ { i: 10, j: 1 }, { i: 10, j: 2 }, { i: 10, j: 4 }, { i: 10, j: 3 },  ], css_id: 'tinytable_css_tc32sqaaw8kgsd7olayx',}, 
+          { positions: [ { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 4, j: 1 }, { i: 9, j: 1 }, { i: 2, j: 2 }, { i: 7, j: 1 }, { i: 12, j: 1 }, { i: 13, j: 1 }, { i: 14, j: 1 }, { i: 15, j: 1 }, { i: 3, j: 1 }, { i: 17, j: 1 }, { i: 18, j: 1 }, { i: 19, j: 1 }, { i: 12, j: 2 }, { i: 8, j: 1 }, { i: 1, j: 2 }, { i: 15, j: 2 }, { i: 11, j: 1 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 7, j: 2 }, { i: 16, j: 1 }, { i: 9, j: 2 }, { i: 2, j: 3 }, { i: 11, j: 2 }, { i: 4, j: 3 }, { i: 13, j: 2 }, { i: 14, j: 2 }, { i: 7, j: 3 }, { i: 3, j: 2 }, { i: 17, j: 2 }, { i: 18, j: 2 }, { i: 19, j: 2 }, { i: 12, j: 3 }, { i: 8, j: 2 }, { i: 1, j: 3 }, { i: 15, j: 3 }, { i: 3, j: 3 }, { i: 17, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 12, j: 4 }, { i: 16, j: 2 }, { i: 9, j: 3 }, { i: 2, j: 4 }, { i: 11, j: 3 }, { i: 4, j: 4 }, { i: 13, j: 3 }, { i: 14, j: 3 }, { i: 7, j: 4 }, { i: 16, j: 3 }, { i: 9, j: 4 }, { i: 18, j: 3 }, { i: 19, j: 3 }, { i: 3, j: 4 }, { i: 8, j: 3 }, { i: 1, j: 4 }, { i: 15, j: 4 }, { i: 11, j: 4 }, { i: 17, j: 4 }, { i: 5, j: 4 }, { i: 6, j: 4 }, { i: 19, j: 4 }, { i: 8, j: 4 }, { i: 13, j: 4 }, { i: 14, j: 4 }, { i: 16, j: 4 }, { i: 18, j: 4 },  ], css_id: 'tinytable_css_jo8xv35y9irlip3sfszy',}, 
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 3 }, { i: 0, j: 2 }, { i: 0, j: 4 },  ], css_id: 'tinytable_css_ekkap1u5v4z1dg5a4w9f',}, 
+          { positions: [ { i: 20, j: 0 },  ], css_id: 'tinytable_css_jr45mzjn5uopu7cvswzo',}, 
+          { positions: [ { i: 10, j: 0 },  ], css_id: 'tinytable_css_yfgj1ufsr662cyvva6yc',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 9, j: 0 }, { i: 14, j: 0 }, { i: 11, j: 0 }, { i: 12, j: 0 }, { i: 13, j: 0 }, { i: 18, j: 0 }, { i: 15, j: 0 }, { i: 16, j: 0 }, { i: 17, j: 0 }, { i: 19, j: 0 },  ], css_id: 'tinytable_css_y0ckfxvhjx2oha4ici81',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_8nn1na5aaj123a1e900u',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  styleCell_wr4vnpgx6mpvmnyijt6j(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <style>
+      /* tinytable css entries after */
+      .table td.tinytable_css_5qe4a8mgjw8489umi54a, .table th.tinytable_css_5qe4a8mgjw8489umi54a { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_tc32sqaaw8kgsd7olayx, .table th.tinytable_css_tc32sqaaw8kgsd7olayx { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_jo8xv35y9irlip3sfszy, .table th.tinytable_css_jo8xv35y9irlip3sfszy { text-align: center; }
+      .table td.tinytable_css_ekkap1u5v4z1dg5a4w9f, .table th.tinytable_css_ekkap1u5v4z1dg5a4w9f { text-align: center; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_jr45mzjn5uopu7cvswzo, .table th.tinytable_css_jr45mzjn5uopu7cvswzo { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_yfgj1ufsr662cyvva6yc, .table th.tinytable_css_yfgj1ufsr662cyvva6yc { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_y0ckfxvhjx2oha4ici81, .table th.tinytable_css_y0ckfxvhjx2oha4ici81 { text-align: left; }
+      .table td.tinytable_css_8nn1na5aaj123a1e900u, .table th.tinytable_css_8nn1na5aaj123a1e900u { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_wr4vnpgx6mpvmnyijt6j" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+        <thead>
+        
+              <tr>
+                <th scope="col"> </th>
+                <th scope="col">gdp_growth</th>
+                <th scope="col">gdp_per_person_employed</th>
+                <th scope="col">gcf_gdp</th>
+                <th scope="col">employment_ratio</th>
+              </tr>
+        </thead>
+        <tfoot><tr><td colspan='5'>+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td></tr></tfoot>
+        <tbody>
+                <tr>
+                  <td>l2_internet_users_pct</td>
+                  <td>0.069+</td>
+                  <td>8.252</td>
+                  <td>0.023</td>
+                  <td>0.005</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.036)</td>
+                  <td>(52.272)</td>
+                  <td>(0.031)</td>
+                  <td>(0.021)</td>
+                </tr>
+                <tr>
+                  <td>l3_internet_users_pct</td>
+                  <td>−0.062</td>
+                  <td>−54.107</td>
+                  <td>0.006</td>
+                  <td>−0.021</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.050)</td>
+                  <td>(45.123)</td>
+                  <td>(0.040)</td>
+                  <td>(0.017)</td>
+                </tr>
+                <tr>
+                  <td>l1_inflation_cpi</td>
+                  <td>0.004</td>
+                  <td>−5.962</td>
+                  <td>−0.007</td>
+                  <td>−0.003</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.004)</td>
+                  <td>(7.540)</td>
+                  <td>(0.012)</td>
+                  <td>(0.004)</td>
+                </tr>
+                <tr>
+                  <td>l1_trade_gdp</td>
+                  <td>−0.019</td>
+                  <td>−45.539</td>
+                  <td>−0.003</td>
+                  <td>0.015*</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.032)</td>
+                  <td>(44.169)</td>
+                  <td>(0.019)</td>
+                  <td>(0.007)</td>
+                </tr>
+                <tr>
+                  <td>l1_population_total</td>
+                  <td>−0.000</td>
+                  <td>−0.000</td>
+                  <td>−0.000</td>
+                  <td>0.000</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>(0.000)</td>
+                  <td>(0.000)</td>
+                  <td>(0.000)</td>
+                  <td>(0.000)</td>
+                </tr>
+                <tr>
+                  <td>Num.Obs.</td>
+                  <td>1236</td>
+                  <td>1198</td>
+                  <td>1209</td>
+                  <td>1336</td>
+                </tr>
+                <tr>
+                  <td>R2</td>
+                  <td>0.384</td>
+                  <td>0.989</td>
+                  <td>0.821</td>
+                  <td>0.983</td>
+                </tr>
+                <tr>
+                  <td>R2 Adj.</td>
+                  <td>0.285</td>
+                  <td>0.987</td>
+                  <td>0.792</td>
+                  <td>0.980</td>
+                </tr>
+                <tr>
+                  <td>R2 Within</td>
+                  <td>0.004</td>
+                  <td>0.009</td>
+                  <td>0.004</td>
+                  <td>0.012</td>
+                </tr>
+                <tr>
+                  <td>R2 Within Adj.</td>
+                  <td>−0.001</td>
+                  <td>0.004</td>
+                  <td>−0.001</td>
+                  <td>0.008</td>
+                </tr>
+                <tr>
+                  <td>AIC</td>
+                  <td>7604.7</td>
+                  <td>24237.3</td>
+                  <td>6623.6</td>
+                  <td>5146.4</td>
+                </tr>
+                <tr>
+                  <td>BIC</td>
+                  <td>8490.4</td>
+                  <td>25087.1</td>
+                  <td>7490.2</td>
+                  <td>6019.6</td>
+                </tr>
+                <tr>
+                  <td>RMSE</td>
+                  <td>4.56</td>
+                  <td>5205.20</td>
+                  <td>3.25</td>
+                  <td>1.46</td>
+                </tr>
+                <tr>
+                  <td>FE: iso3c</td>
+                  <td>X</td>
+                  <td>X</td>
+                  <td>X</td>
+                  <td>X</td>
+                </tr>
+                <tr>
+                  <td>FE: year</td>
+                  <td>X</td>
+                  <td>X</td>
+                  <td>X</td>
+                  <td>X</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- postamble start -->
+  </body>
+
+</html>
+<!-- postamble end -->
+<!-- hack to avoid NA insertion in last line -->
