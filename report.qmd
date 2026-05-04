@@ -3,7 +3,6 @@ title: "Cyber Macro Impact Pilot"
 subtitle: "Open-Data Panel Evidence on Cyber Risk and Macroeconomic Outcomes, 2014–2025"
 author:
   - name: "Dr Camilo Calderon"
-    email: camilo.calderon@city.ac.uk
     affiliations:
       - name: City, University of London
       - name: University of Cambridge
@@ -35,13 +34,22 @@ nocite: |
   @pwt2024, @cissm, @eurepoc
 ---
 
-::: {.small style="color:#555; margin-top:-1em; margin-bottom:0.25em;"}
+::: {.author-emails .small style="color:#555; margin-bottom:0.25em;"}
 camilo.calderon@city.ac.uk | cc907@cam.ac.uk
 :::
 
-::: {.small style="color:#555; margin-bottom:1.5em;"}
-**Keywords:** cybersecurity · macroeconomics · panel data · fixed effects · cyber risk · ITU Global Cybersecurity Index · cyber incidents · productivity
-:::
+```{=html}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+	const author = document.querySelector(".quarto-title-meta-contents .author");
+	const emails = document.querySelector(".author-emails");
+
+	if (author && emails && author.parentElement) {
+		author.parentElement.appendChild(emails);
+	}
+});
+</script>
+```
 
 # Abstract {.unnumbered}
 
