@@ -1,7 +1,7 @@
 ---
 title: "Cyber Macro Impact Pilot"
 subtitle: "Institutional Technical Report"
-author: "Cyber Macro Impact Pilot Team"
+author: "Dr Camilo Calderon"
 date: "2026-05-04"
 format:
   html:
