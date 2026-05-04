@@ -69,9 +69,10 @@ Definitions:
 
 Recommended estimation sequence:
 
-1. Baseline FE with $k=1$ lag
-2. Distributed-lag FE with $k=1,2,3$
-3. Sensitivity checks with alternate cyber families and sample restrictions
+1. Baseline FE with $k=1$ lag (✅ implemented for incidents and GCI level/normalized)
+2. Distributed-lag FE with $k=1,2,3$ (optional future extension)
+3. Heterogeneity checks by income group and region (✅ implemented for High/Upper-middle/Lower income)
+4. Sensitivity checks with alternate cyber families and sample restrictions (✅ GCI dual-pathway; GTMI/NCSI evaluated and rejected)
 
 Interpretation standard:
 
@@ -80,13 +81,21 @@ Interpretation standard:
 
 ### Current implementation note (May 2026)
 
-The repository now reports two distinct comparison specifications and they should not be interpreted as equivalent estimands:
+The repository now implements a dual-pathway readiness sensitivity analysis and documents heterogeneity by income group. Key specifications:
 
-1. Incident exposure models use lagged terms (for example $l1\_cyber\_incidents\_log$) in country and year fixed-effects panel regressions.
-2. GCI readiness models now also use lagged terms (for example $l1\_gci\_overall$) in country and year fixed-effects panel regressions. GCI values for years 2021-2023 are linearly interpolated between the 2020 edition (scores 0-100) and the 2024 edition (tier midpoints). Earlier panel years carry the 2020 value backward, later years carry the 2024 value forward, and the `gci_overall_imputed` flag column distinguishes observed anchor years from derived values.
-3. When readiness data do not support two-way fixed effects (for example, too few observations after listwise deletion), the comparison pathway falls back to a time-FE or cross-section specification with heteroskedasticity-robust standard errors, depending on sample structure.
+1. **Incident exposure models** use lagged terms (for example $l1\_cyber\_incidents\_log$) in country and year fixed-effects panel regressions across the full panel (2696 rows, 224 countries, 2014–2025).
 
-Practical implication: with interpolation and carry rules in place, both the incident and GCI columns in the comparison table share the same lagged two-way FE estimand, making coefficient magnitudes more directly comparable. These derived GCI values are a maintained approximation; directional interpretation is appropriate but causal ranking should remain cautious.
+2. **GCI readiness models—level scale** use lagged $l1\_gci\_overall$ (0–100 scale). GCI values for years 2021–2023 are linearly interpolated between the 2020 edition (direct scores 0–100) and the 2024 edition (tier midpoints). Earlier panel years carry the 2020 value backward, later years carry the 2024 value forward; `gci_overall_imputed` flag distinguishes observed anchor years from derived values.
+
+3. **GCI readiness models—normalized scale** use lagged $l1\_gci\_overall\_norm$ (percentile-scaled 0–1 within edition). The normalized variant applies the same interpolation and carry rules as the level-scale GCI, ensuring comparability of scale-sensitivity bounds. Coefficients on normalized GCI in aggregate models are not individually significant, but heterogeneity checks show consistent directional alignment with level-scale results across income groups.
+
+4. **Heterogeneity stratification** by World Bank income-group buckets (High income, Upper middle income, Lower income pooled) reveals that incident and readiness associations are robust across income groups, though heterogeneity sample sizes are smaller. World Bank metadata assignment leaves 11 country/territory codes without income-group classification; this is documented as a caveat in model interpretation.
+
+5. **Fallback specification**: When readiness data do not support two-way fixed effects (e.g., too few observations after listwise deletion), the comparison pathway falls back to time-FE or cross-section with heteroskedasticity-robust standard errors, depending on sample structure.
+
+**Additional readiness indices evaluated**: Global Cybersecurity Maturity Index (GTMI) and National Cyber Security Index (NCSI) were assessed for inclusion. Both offer limited historical coverage (typically post-2020) and do not provide continuous annual series across the full 2014–2025 panel scope. Decision: retained dual-pathway GCI sensitivity (level + normalized) as primary readiness specification, with GTMI/NCSI noted as potential future extensions if extended historical data becomes available.
+
+**Practical implications**: With interpolation and carry rules in place, both incident and dual-GCI columns in the comparison table share the same lagged two-way FE estimand, making coefficient magnitudes more directly comparable. Derived GCI values (2021–2023 interpolation, pre-2020 and post-2024 carries) are a maintained approximation; directional interpretation is appropriate but causal ranking should remain cautious. The normalized-scale variant provides an explicit check against scale-inconsistency risk between GCI editions.
 
 ## Workflow and code plan
 
@@ -149,11 +158,19 @@ Requirements:
 
 ## Limitations
 
-1. Direct country-year cyber spending remains sparse in open sources provided here.
-2. Incident counts may reflect both true exposure and reporting/disclosure differences.
-3. Readiness indicators and digital adoption indicators are related but not equivalent to spending.
-4. Cross-source methodological breaks (coverage, definitions, and collection protocols) may reduce comparability.
-5. GCI readiness values for 2021-2023 are linearly interpolated between the 2020 and 2024 edition anchor years, with 2020 carried backward to earlier panel years and 2024 carried forward to later panel years. The 2020 edition reports direct scores (0-100) while the 2024 edition reports tier midpoints (97.5 / 90 / 70 / 37.5 / 10); derived values span two different measurement scales, so absolute magnitudes should be interpreted with caution.
+1. **Cyber spending**: Direct country-year cyber spending remains sparse in open sources provided here. Readiness indicators and digital adoption indicators serve as structural proxies but are not equivalent to direct spending measures.
+
+2. **Incident counts**: Incident exposure counts reflect both true exposure and reporting/disclosure differences. World Bank annex covers 2014–2022; subsequent years in the panel carry forward the last observed value. Treat incident counts as lower-bound exposure indicators.
+
+3. **GCI measurement scale discontinuity**: Readiness values for 2021–2023 are linearly interpolated between the 2020 edition (direct scores 0–100) and the 2024 edition (tier midpoints: 97.5, 90, 70, 37.5, 10). Earlier panel years (2014–2020) carry the 2020 value backward; later years (2024–2025) carry the 2024 value forward. The two editions use different measurement approaches, so derived values span two distinct scales. Absolute magnitudes of interpolated GCI values should be interpreted with caution; directional comparisons are more robust. The normalized-scale GCI variant (`gci_overall_norm`, percentile-scaled 0–1 within edition) provides a scale-robust sensitivity check.
+
+4. **GCI coverage gaps**: GCI is available as discrete editions (2020, 2024) rather than annual observations. The interpolation is a pragmatic approximation but should not be interpreted as annual observation. The `gci_overall_imputed` flag identifies all derived (non-observed) values.
+
+5. **Income group metadata**: World Bank income-group classification covers 213 of 224 panel countries/territories (95.1%). The 11 unmatched codes are excluded from income-group heterogeneity models; results from heterogeneity checks may not generalize to unmatched regions or country types.
+
+6. **Cross-source methodological breaks**: Coverage, definitions, and collection protocols vary across WDI, ITU, World Bank, and incident sources. These differences may reduce comparability of estimates across outcome and regressor families.
+
+7. **Macro outcome availability**: Current implementation focuses on macro associations documented via country-year panel structure. Event-study designs, sectoral analysis, and firm-level extensions are deferred to future work.
 
 ## Claims audit table
 
