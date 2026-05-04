@@ -25,6 +25,13 @@ See OBJECTIVE.md for the execution scope and phase-based definition of done.
 	- R/05_figures.R
 4. Render report.qmd.
 
+Optional incidents input:
+
+- Set `INCIDENTS_CSV_URL` before running `R/01_download_open_data.R` to ingest an open country-year incidents CSV.
+- Or place a local file at `data_raw/incidents/incidents_source.csv`.
+- Required logical fields: country ISO3 (or country name), year, and incident count.
+- The pipeline will create `cyber_incidents` and `cyber_incidents_log` automatically.
+
 ## Current status
 
 - [x] Project scaffold created

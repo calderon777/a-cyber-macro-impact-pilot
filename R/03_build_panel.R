@@ -38,7 +38,10 @@ if (file.exists(indicator_map_path)) {
 		transmute(
 			variable,
 			indicator,
-			source = "World Development Indicators",
+			source = dplyr::case_when(
+				indicator == "INCIDENTS_OPEN" ~ "Open incidents source",
+				TRUE ~ "World Development Indicators"
+			),
 			frequency = "annual",
 			transform = "none"
 		) %>%
@@ -49,7 +52,10 @@ if (file.exists(indicator_map_path)) {
 		transmute(
 			variable,
 			indicator,
-			source = "World Development Indicators",
+			source = dplyr::case_when(
+				indicator == "INCIDENTS_OPEN" ~ "Open incidents source",
+				TRUE ~ "World Development Indicators"
+			),
 			frequency = "annual",
 			transform = "none"
 		) %>%

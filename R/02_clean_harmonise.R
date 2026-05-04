@@ -1,5 +1,6 @@
 suppressPackageStartupMessages({
 	library(dplyr)
+	library(tidyr)
 	library(countrycode)
 	library(janitor)
 })
@@ -7,6 +8,7 @@ suppressPackageStartupMessages({
 dir.create("data_processed", showWarnings = FALSE)
 
 raw_path <- "data_raw/wdi/wdi_core_long.csv"
+incidents_path <- "data_raw/incidents/incidents_country_year.csv"
 harmonised_path <- "data_processed/wdi_core_harmonised_long.csv"
 audit_path <- "data_processed/wdi_harmonise_audit.csv"
 
@@ -54,6 +56,40 @@ harmonised <- harmonised %>%
 	group_by(iso3c, year, indicator, variable) %>%
 	slice(1) %>%
 	ungroup()
+
+if (file.exists(incidents_path)) {
+	inc_raw <- read.csv(incidents_path, stringsAsFactors = FALSE) %>%
+		janitor::clean_names()
+
+	inc_required <- c("iso3c", "year", "cyber_incidents", "cyber_incidents_log")
+	inc_missing <- setdiff(inc_required, names(inc_raw))
+	if (length(inc_missing) > 0) {
+		stop("Incidents file is missing required columns: ", paste(inc_missing, collapse = ", "))
+	}
+
+	inc_long <- inc_raw %>%
+		transmute(
+			iso3c = toupper(trimws(iso3c)),
+			country = if ("country" %in% names(inc_raw)) trimws(country) else NA_character_,
+			year = suppressWarnings(as.integer(year)),
+			cyber_incidents = suppressWarnings(as.numeric(cyber_incidents)),
+			cyber_incidents_log = suppressWarnings(as.numeric(cyber_incidents_log))
+		) %>%
+		tidyr::pivot_longer(
+			cols = c(cyber_incidents, cyber_incidents_log),
+			names_to = "variable",
+			values_to = "value"
+		) %>%
+		mutate(indicator = "INCIDENTS_OPEN") %>%
+		filter(!is.na(iso3c), !is.na(year), !is.na(value)) %>%
+		select(iso3c, country, year, indicator, variable, value)
+
+	harmonised <- bind_rows(harmonised, inc_long) %>%
+		arrange(iso3c, year, indicator, desc(!is.na(value))) %>%
+		group_by(iso3c, year, indicator, variable) %>%
+		slice(1) %>%
+		ungroup()
+}
 
 write.csv(harmonised, harmonised_path, row.names = FALSE)
 

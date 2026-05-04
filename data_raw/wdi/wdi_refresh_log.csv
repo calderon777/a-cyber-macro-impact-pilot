@@ -1,2 +1,4 @@
-"refreshed_at_utc","fetch_start_year","fetch_end_year","rows_fetched","rows_appended","total_rows_after_write"
-"2026-05-04 08:39:03 UTC",2014,2025,25536,25536,25536
+"refreshed_at_utc","fetch_start_year","fetch_end_year","rows_fetched","rows_appended","total_rows_after_write","failed_requests"
+"2026-05-04 08:39:03 UTC",2014,2025,25536,25536,25536,NA
+"2026-05-04 09:07:32 UTC",2026,2025,0,0,25536,0
+"2026-05-04 09:09:39 UTC",2026,2025,0,0,25536,0

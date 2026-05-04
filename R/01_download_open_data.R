@@ -59,7 +59,9 @@ if (file.exists(out_path)) {
 	fetch_start_year <- start_year
 }
 
-if (fetch_start_year > end_year) {
+skip_wdi_refresh <- fetch_start_year > end_year
+
+if (skip_wdi_refresh) {
 	message(
 		"No new WDI years to fetch. Latest local year is ",
 		max_year,
@@ -67,13 +69,9 @@ if (fetch_start_year > end_year) {
 		end_year,
 		"."
 	)
-	if (!file.exists(metadata_path)) {
-		write.csv(indicator_map, metadata_path, row.names = FALSE)
-	}
-	quit(save = "no", status = 0)
 }
 
-message("Fetching WDI data for years ", fetch_start_year, " to ", end_year, "...")
+message("WDI refresh window: ", fetch_start_year, " to ", end_year)
 
 # Persist indicator metadata up front so artifact exists even during long bootstrap runs.
 write.csv(indicator_map, metadata_path, row.names = FALSE)
@@ -152,7 +150,7 @@ if (nrow(existing) == 0) {
 	)
 }
 
-years_to_fetch <- fetch_start_year:end_year
+years_to_fetch <- if (skip_wdi_refresh) integer(0) else fetch_start_year:end_year
 rows_fetched_total <- 0L
 rows_appended_total <- 0L
 failed_requests <- 0L
@@ -239,3 +237,127 @@ message("Rows fetched this run: ", rows_fetched_total)
 message("Rows appended this run: ", rows_appended_total)
 message("Indicator-year requests failed after retries: ", failed_requests)
 message("Total rows stored: ", nrow(combined))
+
+# -----------------------------------------------------------------------------
+# Optional incidents ingestion (open CSV URL or local CSV source)
+# -----------------------------------------------------------------------------
+
+incidents_url <- Sys.getenv("INCIDENTS_CSV_URL", unset = "")
+incidents_local_source <- "data_raw/incidents/incidents_source.csv"
+incidents_raw_cache <- "data_raw/incidents/incidents_source_cached.csv"
+incidents_out <- "data_raw/incidents/incidents_country_year.csv"
+incidents_log <- "data_raw/incidents/incidents_refresh_log.csv"
+
+resolve_incident_col <- function(nm, candidates) {
+	idx <- which(tolower(nm) %in% tolower(candidates))
+	if (length(idx) == 0) {
+		return(NA_character_)
+	}
+	nm[idx[1]]
+}
+
+read_incidents_source <- function() {
+	if (nzchar(incidents_url)) {
+		message("Downloading incidents source from INCIDENTS_CSV_URL...")
+		dat <- tryCatch(
+			read.csv(incidents_url, stringsAsFactors = FALSE),
+			error = function(e) {
+				stop("Failed to read INCIDENTS_CSV_URL: ", conditionMessage(e))
+			}
+		)
+		write.csv(dat, incidents_raw_cache, row.names = FALSE)
+		return(dat)
+	}
+
+	if (file.exists(incidents_local_source)) {
+		message("Using local incidents source: ", incidents_local_source)
+		return(read.csv(incidents_local_source, stringsAsFactors = FALSE))
+	}
+
+	return(NULL)
+}
+
+incidents_src <- read_incidents_source()
+
+if (is.null(incidents_src)) {
+	message("No incidents source found. Set INCIDENTS_CSV_URL or provide data_raw/incidents/incidents_source.csv.")
+} else {
+	nm <- names(incidents_src)
+	iso_col <- resolve_incident_col(nm, c("iso3c", "country_iso3", "country_code", "target_iso3", "iso"))
+	country_col <- resolve_incident_col(nm, c("country", "country_name", "target_country"))
+	year_col <- resolve_incident_col(nm, c("year", "event_year", "date_year"))
+	count_col <- resolve_incident_col(nm, c("incidents", "incident_count", "count", "events"))
+
+	if (is.na(year_col) || is.na(count_col) || (is.na(iso_col) && is.na(country_col))) {
+		stop(
+			"Incidents source must include year and incident count columns plus iso3c or country column. ",
+			"Detected columns: ",
+			paste(nm, collapse = ", ")
+		)
+	}
+
+	incidents_clean <- incidents_src %>%
+		transmute(
+			iso3c = if (!is.na(iso_col)) toupper(trimws(.data[[iso_col]])) else NA_character_,
+			country = if (!is.na(country_col)) trimws(.data[[country_col]]) else NA_character_,
+			year = suppressWarnings(as.integer(.data[[year_col]])),
+			cyber_incidents = suppressWarnings(as.numeric(.data[[count_col]]))
+		) %>%
+		mutate(
+			iso3c_from_country = if_else(
+				is.na(iso3c) | !grepl("^[A-Z]{3}$", iso3c),
+				countrycode::countrycode(country, origin = "country.name", destination = "iso3c", warn = FALSE),
+				iso3c
+			),
+			iso3c = if_else(!is.na(iso3c) & grepl("^[A-Z]{3}$", iso3c), iso3c, iso3c_from_country)
+		) %>%
+		select(iso3c, country, year, cyber_incidents) %>%
+		filter(!is.na(iso3c), !is.na(year), !is.na(cyber_incidents)) %>%
+		group_by(iso3c, year) %>%
+		summarise(
+			country = dplyr::first(na.omit(country)),
+			cyber_incidents = sum(cyber_incidents, na.rm = TRUE),
+			.groups = "drop"
+		) %>%
+		mutate(cyber_incidents_log = log1p(cyber_incidents)) %>%
+		arrange(iso3c, year)
+
+	if (file.exists(incidents_out)) {
+		existing_incidents <- read.csv(incidents_out, stringsAsFactors = FALSE)
+		existing_incidents$year <- as.integer(existing_incidents$year)
+		append_inc <- anti_join(
+			incidents_clean,
+			existing_incidents %>% select(iso3c, year),
+			by = c("iso3c", "year")
+		)
+		incidents_final <- bind_rows(existing_incidents, append_inc) %>%
+			arrange(iso3c, year)
+		rows_appended_inc <- nrow(append_inc)
+	} else {
+		incidents_final <- incidents_clean
+		rows_appended_inc <- nrow(incidents_clean)
+	}
+
+	write.csv(incidents_final, incidents_out, row.names = FALSE)
+
+	inc_log <- data.frame(
+		refreshed_at_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
+		source = if (nzchar(incidents_url)) incidents_url else incidents_local_source,
+		rows_in_source = nrow(incidents_src),
+		rows_after_cleaning = nrow(incidents_clean),
+		rows_appended = rows_appended_inc,
+		total_rows_after_write = nrow(incidents_final),
+		stringsAsFactors = FALSE
+	)
+
+	if (file.exists(incidents_log)) {
+		old_inc_log <- read.csv(incidents_log, stringsAsFactors = FALSE)
+		inc_log <- bind_rows(old_inc_log, inc_log)
+	}
+
+	write.csv(inc_log, incidents_log, row.names = FALSE)
+
+	message("Incidents refresh complete.")
+	message("Rows appended this run (incidents): ", rows_appended_inc)
+	message("Total incidents rows stored: ", nrow(incidents_final))
+}
