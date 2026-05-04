@@ -8,6 +8,15 @@ author:
       - name: City, University of London
       - name: University of Cambridge
 date: "2026-05-04"
+keywords:
+  - cybersecurity
+  - macroeconomics
+  - panel data
+  - fixed effects
+  - cyber risk
+  - ITU Global Cybersecurity Index
+  - cyber incidents
+  - productivity
 format:
   html:
     toc: true
@@ -24,8 +33,12 @@ nocite: |
   @pwt2024, @cissm, @eurepoc
 ---
 
-::: {.small style="color:#555; margin-top:-1em; margin-bottom:1.5em;"}
+::: {.small style="color:#555; margin-top:-1em; margin-bottom:0.25em;"}
 camilo.calderon@city.ac.uk | cc907@cam.ac.uk
+:::
+
+::: {.small style="color:#555; margin-bottom:1.5em;"}
+**Keywords:** cybersecurity · macroeconomics · panel data · fixed effects · cyber risk · ITU Global Cybersecurity Index · cyber incidents · productivity
 :::
 
 ## Research question
