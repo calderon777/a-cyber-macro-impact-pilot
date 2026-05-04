@@ -163,9 +163,14 @@ Reporting Standard
 <p>This report uses the processed panel at <code>data_processed/panel_country_year.parquet</code>. World Bank regional and income-group aggregates are excluded before panel construction so the fixed effects operate on country and territory units only.</p>
 <p>Core sources include World Development Indicators and World Bank API documentation for macro controls <span class="citation" data-cites="wb_wdi wb_api">(<a href="#ref-wb_wdi" role="doc-biblioref">World Bank, n.d.b</a>, <a href="#ref-wb_api" role="doc-biblioref">n.d.a</a>)</span>, ITU datasets for readiness context <span class="citation" data-cites="itu_gci itu_datahub itu_idi">(<a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union, n.d.a</a>, <a href="#ref-itu_datahub" role="doc-biblioref">n.d.c</a>, <a href="#ref-itu_idi" role="doc-biblioref">n.d.b</a>)</span>, and World Bank annex incident counts for exposure proxies <span class="citation" data-cites="wb_annex2024">(<a href="#ref-wb_annex2024" role="doc-biblioref">World Bank, 2024</a>)</span>.</p>
 <div class="cell">
+<div id="tbl-snapshot" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-snapshot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Panel Dataset Summary
+</figcaption>
+<div aria-describedby="tbl-snapshot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Panel snapshot</caption>
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">metric</th>
@@ -193,10 +198,21 @@ Reporting Standard
 </table>
 </div>
 </div>
+</figure>
+</div>
+</div>
+<div style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;">
+<p><em>Note:</em> World Bank regional and income-group aggregate codes are excluded prior to panel construction. Panel covers 2014–2025; year coverage varies by indicator and country. Sources: World Development Indicators <span class="citation" data-cites="wb_wdi">(<a href="#ref-wb_wdi" role="doc-biblioref">World Bank, n.d.b</a>)</span>; ITU GCI <span class="citation" data-cites="itu_gci">(<a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union, n.d.a</a>)</span>; open incident repositories <span class="citation" data-cites="wb_annex2024">(<a href="#ref-wb_annex2024" role="doc-biblioref">World Bank, 2024</a>)</span>.</p>
+</div>
 <div class="cell">
+<div id="tbl-dictionary" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-dictionary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Variable Dictionary
+</figcaption>
+<div aria-describedby="tbl-dictionary-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Data dictionary</caption>
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 9%">
@@ -351,6 +367,12 @@ Reporting Standard
 </table>
 </div>
 </div>
+</figure>
+</div>
+</div>
+<div style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;">
+<p><em>Note:</em> Variables sourced from World Development Indicators (World Bank), ITU GCI (ITU), and open incident repositories. Imputed and derived variables are distinguished by the <code>transform</code> column. Full source metadata available in <code>data_processed/data_dictionary.csv</code>.</p>
+</div>
 </section>
 <section id="baseline-model" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="baseline-model"><span class="header-section-number">3</span> Baseline model</h2>
@@ -367,9 +389,14 @@ Reporting Standard
 <p>The shared estimator structure makes coefficient magnitudes more directly comparable than a contemporaneous vs.&nbsp;lagged comparison would allow. The GCI interpolation and carry assumptions are maintained for coverage; directional interpretation is appropriate, but absolute magnitudes for derived years carry additional uncertainty.</p>
 <p>Significance markers in the tables use <code>+</code> for p &lt; 0.10, <code>*</code> for p &lt; 0.05, <code>**</code> for p &lt; 0.01, and <code>***</code> for p &lt; 0.001. In the headline incident models, the incident coefficient is not significant at the 5% level; the productivity and investment specifications are only marginal at the 10% level. In the readiness comparison, interpret <code>l1_gci_overall</code> and <code>l1_gci_overall_norm</code> jointly as level-scale and normalized-scale sensitivity evidence, given the interpolation and carry assumptions described above.</p>
 <div class="cell">
+<div id="tbl-gci-qa" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gci-qa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: GCI Observed versus Derived Coverage by Year Band
+</figcaption>
+<div aria-describedby="tbl-gci-qa-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>GCI observed vs derived coverage</caption>
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 33%">
 <col style="width: 21%">
@@ -461,10 +488,21 @@ Reporting Standard
 </table>
 </div>
 </div>
+</figure>
+</div>
+</div>
+<div style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;">
+<p><em>Note:</em> Observed anchor years are 2020 (GCI edition with direct 0–100 scores) and 2024 (tier midpoints: 97.5, 90, 70, 37.5, 10). Years 2021–2023 are linearly interpolated between anchors. Pre-2020 years carry the 2020 value backward; post-2024 years carry the 2024 value forward. The <code>gci_overall_imputed</code> flag identifies all non-observed (derived) values. Source: ITU GCI <span class="citation" data-cites="itu_gci">(<a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union, n.d.a</a>)</span>.</p>
+</div>
 <div class="cell">
+<div id="tbl-headline" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-headline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Headline Fixed-Effects Estimates: One-Year Lagged Cyber Incidents
+</figcaption>
+<div aria-describedby="tbl-headline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Headline FE models</caption>
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 30%">
 <col style="width: 29%">
@@ -616,10 +654,21 @@ Reporting Standard
 </table>
 </div>
 </div>
+</figure>
+</div>
+</div>
+<div style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;">
+<p><em>Note:</em> Two-way fixed-effects (country and year) OLS with one-year lagged cyber incidents (<code>l1_cyber_incidents_log</code>) and controls (inflation, trade, population). Standard errors clustered at country level. Outcomes: GDP growth (<code>gdp_growth</code>), GDP per person employed (<code>gdp_per_person_employed</code>), gross capital formation as share of GDP (<code>gcf_gdp</code>), employment ratio (<code>employment_ratio</code>). Significance: + p&lt;0.10, * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001. Minimum 50 observations and 10 countries required per model. Sources: <span class="citation" data-cites="wb_wdi wb_annex2024">(<a href="#ref-wb_annex2024" role="doc-biblioref">World Bank, 2024</a>, <a href="#ref-wb_wdi" role="doc-biblioref">n.d.b</a>)</span>.</p>
+</div>
 <div class="cell">
+<div id="tbl-robust" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-robust-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: Robustness Specification: Distributed-Lag Fixed-Effects Estimates
+</figcaption>
+<div aria-describedby="tbl-robust-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Robustness FE models</caption>
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 30%">
 <col style="width: 29%">
@@ -803,10 +852,21 @@ Reporting Standard
 </table>
 </div>
 </div>
+</figure>
+</div>
+</div>
+<div style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;">
+<p><em>Note:</em> Distributed-lag robustness specification replacing the one-year lag with two- and three-year lags (<code>l2_</code>, <code>l3_</code>) of the cyber incidents regressor. Two-way fixed effects and country-clustered standard errors are retained. Comparison with <a href="#tbl-headline" class="quarto-xref">Table&nbsp;4</a> tests whether associations are stable across lag structures. Significance markers as above.</p>
+</div>
 <div class="cell">
+<div id="tbl-comparison" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6: Incidents versus Readiness Comparison: Fixed-Effects Estimates
+</figcaption>
+<div aria-describedby="tbl-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Incidents vs readiness comparison models</caption>
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 23%">
 <col style="width: 19%">
@@ -1264,10 +1324,21 @@ Reporting Standard
 </table>
 </div>
 </div>
+</figure>
+</div>
+</div>
+<div style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;">
+<p><em>Note:</em> Side-by-side comparison of incident exposure (<code>l1_cyber_incidents_log</code>) and readiness (<code>l1_gci_overall</code>, <code>l1_gci_overall_norm</code>) in identical two-way fixed-effects specifications with one-year lags. The normalized variant (<code>gci_overall_norm</code>) rescales GCI to a 0–1 percentile within each edition as a scale-sensitivity check. GCI values for 2021–2023 are linearly interpolated (see <a href="#tbl-gci-qa" class="quarto-xref">Table&nbsp;3</a>). Significance markers as in <a href="#tbl-headline" class="quarto-xref">Table&nbsp;4</a>. Sources: <span class="citation" data-cites="itu_gci wb_annex2024 wb_wdi">(<a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union, n.d.a</a>; <a href="#ref-wb_annex2024" role="doc-biblioref">World Bank, 2024</a>, <a href="#ref-wb_wdi" role="doc-biblioref">n.d.b</a>)</span>.</p>
+</div>
 <div class="cell">
+<div id="tbl-heterogeneity" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-heterogeneity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;7: Income-Group Heterogeneity: Fixed-Effects Estimates by World Bank Classification
+</figcaption>
+<div aria-describedby="tbl-heterogeneity-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Income-group heterogeneity models</caption>
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 16%">
 <col style="width: 20%">
@@ -1535,6 +1606,12 @@ Reporting Standard
 </table>
 </div>
 </div>
+</figure>
+</div>
+</div>
+<div style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;">
+<p><em>Note:</em> Income-group subsamples defined by World Bank classification: High income, Upper middle income, Lower income (Lower middle and Low income pooled). Eleven country/territory codes without income-group assignment are excluded from this analysis. Each row shows the lagged cyber regressor coefficient from a two-way fixed-effects model estimated on the income-group subsample; minimum thresholds of 50 observations and 10 countries per model apply. Significance markers as in <a href="#tbl-headline" class="quarto-xref">Table&nbsp;4</a>. Source: World Bank country metadata <span class="citation" data-cites="wb_wdi">(<a href="#ref-wb_wdi" role="doc-biblioref">World Bank, n.d.b</a>)</span>.</p>
+</div>
 <section id="heterogeneity-summary" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="heterogeneity-summary"><span class="header-section-number">3.1</span> Heterogeneity Summary</h3>
 <p>Income-group splits reveal differentiated cyber-macro associations across country development levels, consistent with broader findings that institutional readiness and reporting capacity vary systematically across income strata <span class="citation" data-cites="oecd2024 kopp2017">(<a href="#ref-kopp2017" role="doc-biblioref">Kopp et al., 2017</a>; <a href="#ref-oecd2024" role="doc-biblioref">Organisation for Economic Co-operation and Development, 2024</a>)</span>.</p>
@@ -1565,30 +1642,54 @@ Reporting Standard
 <h2 data-number="5" class="anchored" data-anchor-id="figures"><span class="header-section-number">5</span> Figures</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="output/figures/partial_correlation_scatter.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<div id="fig-structural" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-structural-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="output/figures/partial_correlation_scatter.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-structural-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Partial Correlation between Lagged Cyber Proxy and Macroeconomic Productivity
+</figcaption>
 </figure>
 </div>
 </div>
+</div>
+<div style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;">
+<p><em>Note:</em> Each point represents a country-year observation. Both axes display residuals after removing country and year fixed effects via OLS with factor dummies. The fitted line is an OLS regression of residualized outcome on residualized regressor. A positive slope indicates that countries with above-average cyber proxy values in the prior year tend to show above-average productivity outcomes, conditional on country-specific and time-specific factors. This is a descriptive partial-correlation plot; it does not establish causality. Sources: World Development Indicators <span class="citation" data-cites="wb_wdi">(<a href="#ref-wb_wdi" role="doc-biblioref">World Bank, n.d.b</a>)</span>; ITU GCI <span class="citation" data-cites="itu_gci">(<a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union, n.d.a</a>)</span>; open incident repositories <span class="citation" data-cites="wb_annex2024">(<a href="#ref-wb_annex2024" role="doc-biblioref">World Bank, 2024</a>)</span>.</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="output/figures/dynamic_fallback_trend.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<div id="fig-dynamic" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dynamic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="output/figures/dynamic_fallback_trend.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dynamic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Standardised Annual Mean of Cyber Proxy and GDP Growth, 2014–2025
+</figcaption>
 </figure>
 </div>
 </div>
+</div>
+<div style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;">
+<p><em>Note:</em> Both series are standardised (z-score) cross-country annual means to allow comparison across different units of measurement. GDP growth sourced from World Development Indicators (World Bank). Cyber proxy is the primary available regressor (ITU GCI or log cyber incidents, depending on panel availability). Co-movement should be interpreted as descriptive association only; common global shocks (e.g., the COVID-19 pandemic in 2020) may drive apparent correlation without any direct cyber-macro mechanism. Sources: <span class="citation" data-cites="wb_wdi itu_gci wb_annex2024">(<a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union, n.d.a</a>; <a href="#ref-wb_annex2024" role="doc-biblioref">World Bank, 2024</a>, <a href="#ref-wb_wdi" role="doc-biblioref">n.d.b</a>)</span>.</p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="output/figures/comparison_coefficients.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<div id="fig-coefficients" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-coefficients-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="output/figures/comparison_coefficients.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-coefficients-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Fixed-Effects Coefficient Estimates: Cyber Incidents versus Readiness by Outcome
+</figcaption>
 </figure>
 </div>
 </div>
+</div>
+<div style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;">
+<p><em>Note:</em> Points show OLS coefficient estimates from two-way (country and year) fixed-effects models with one-year lagged cyber regressors. Horizontal bars show 95% confidence intervals constructed from country-clustered standard errors. The vertical reference line is at zero. Panels are faceted by regressor type (Incidents vs GCI Readiness); scales are free across panels to accommodate differences in units. GCI readiness values for 2021–2023 are linearly interpolated between the 2020 and 2024 editions; see <a href="#tbl-gci-qa" class="quarto-xref">Table&nbsp;3</a> for coverage details. Significance: + p&lt;0.10, * p&lt;0.05, ** p&lt;0.01, *** p&lt;0.001. Sources: <span class="citation" data-cites="itu_gci wb_annex2024 wb_wdi">(<a href="#ref-itu_gci" role="doc-biblioref">International Telecommunication Union, n.d.a</a>; <a href="#ref-wb_annex2024" role="doc-biblioref">World Bank, 2024</a>, <a href="#ref-wb_wdi" role="doc-biblioref">n.d.b</a>)</span>.</p>
 </div>
 </section>
 <section id="notes" class="level2" data-number="6">

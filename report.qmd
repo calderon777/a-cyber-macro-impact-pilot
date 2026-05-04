@@ -20,6 +20,8 @@ keywords:
 format:
   html:
     toc: true
+    lof: true
+    lot: true
     number-sections: true
     toc-depth: 3
     smooth-scroll: true
@@ -60,6 +62,8 @@ World Bank regional and income-group aggregates are excluded before panel constr
 Core sources include World Development Indicators and World Bank API documentation for macro controls [@wb_wdi; @wb_api], ITU datasets for readiness context [@itu_gci; @itu_datahub; @itu_idi], and World Bank annex incident counts for exposure proxies [@wb_annex2024].
 
 ```{r}
+#| label: tbl-snapshot
+#| tbl-cap: "Panel Dataset Summary"
 suppressPackageStartupMessages({
 	library(arrow)
 	library(dplyr)
@@ -86,15 +90,25 @@ summary_tbl <- tibble::tibble(
 	)
 )
 
-knitr::kable(summary_tbl, caption = "Panel snapshot")
+knitr::kable(summary_tbl)
 ```
 
+::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+*Note:* World Bank regional and income-group aggregate codes are excluded prior to panel construction. Panel covers 2014–2025; year coverage varies by indicator and country. Sources: World Development Indicators [@wb_wdi]; ITU GCI [@itu_gci]; open incident repositories [@wb_annex2024].
+:::
+
 ```{r}
+#| label: tbl-dictionary
+#| tbl-cap: "Variable Dictionary"
 if (file.exists(dict_path)) {
 	dict <- read.csv(dict_path, stringsAsFactors = FALSE)
-	knitr::kable(dict, caption = "Data dictionary")
+	knitr::kable(dict)
 }
 ```
+
+::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+*Note:* Variables sourced from World Development Indicators (World Bank), ITU GCI (ITU), and open incident repositories. Imputed and derived variables are distinguished by the `transform` column. Full source metadata available in `data_processed/data_dictionary.csv`.
+:::
 
 ## Baseline model
 
@@ -116,13 +130,21 @@ The shared estimator structure makes coefficient magnitudes more directly compar
 Significance markers in the tables use `+` for p < 0.10, `*` for p < 0.05, `**` for p < 0.01, and `***` for p < 0.001. In the headline incident models, the incident coefficient is not significant at the 5% level; the productivity and investment specifications are only marginal at the 10% level. In the readiness comparison, interpret `l1_gci_overall` and `l1_gci_overall_norm` jointly as level-scale and normalized-scale sensitivity evidence, given the interpolation and carry assumptions described above.
 
 ```{r}
+#| label: tbl-gci-qa
+#| tbl-cap: "GCI Observed versus Derived Coverage by Year Band"
 if (file.exists(gci_qa_path)) {
 	gci_qa <- read.csv(gci_qa_path, stringsAsFactors = FALSE)
-	knitr::kable(gci_qa, caption = "GCI observed vs derived coverage")
+	knitr::kable(gci_qa)
 }
 ```
 
+::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+*Note:* Observed anchor years are 2020 (GCI edition with direct 0–100 scores) and 2024 (tier midpoints: 97.5, 90, 70, 37.5, 10). Years 2021–2023 are linearly interpolated between anchors. Pre-2020 years carry the 2020 value backward; post-2024 years carry the 2024 value forward. The `gci_overall_imputed` flag identifies all non-observed (derived) values. Source: ITU GCI [@itu_gci].
+:::
+
 ```{r}
+#| label: tbl-headline
+#| tbl-cap: "Headline Fixed-Effects Estimates: One-Year Lagged Cyber Incidents"
 headline_csv <- "output/tables/headline_regressions_compact.csv"
 robust_csv <- "output/tables/robustness_regressions_compact.csv"
 
@@ -138,13 +160,19 @@ if (file.exists(headline_csv)) {
 			p_value = p.value_fmt,
 			nobs
 		)
-	knitr::kable(headline, caption = "Headline FE models")
+	knitr::kable(headline)
 } else {
 	cat("Headline table not found. Run R/04_model_specs.R.\n")
 }
 ```
 
+::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+*Note:* Two-way fixed-effects (country and year) OLS with one-year lagged cyber incidents (`l1_cyber_incidents_log`) and controls (inflation, trade, population). Standard errors clustered at country level. Outcomes: GDP growth (`gdp_growth`), GDP per person employed (`gdp_per_person_employed`), gross capital formation as share of GDP (`gcf_gdp`), employment ratio (`employment_ratio`). Significance: + p\<0.10, \* p\<0.05, \*\* p\<0.01, \*\*\* p\<0.001. Minimum 50 observations and 10 countries required per model. Sources: [@wb_wdi; @wb_annex2024].
+:::
+
 ```{r}
+#| label: tbl-robust
+#| tbl-cap: "Robustness Specification: Distributed-Lag Fixed-Effects Estimates"
 if (file.exists(robust_csv)) {
 	robust <- read.csv(robust_csv, stringsAsFactors = FALSE)
 	robust <- robust %>%
@@ -157,13 +185,19 @@ if (file.exists(robust_csv)) {
 			p_value = p.value_fmt,
 			nobs
 		)
-	knitr::kable(robust, caption = "Robustness FE models")
+	knitr::kable(robust)
 } else {
 	cat("Robustness table not found. Run R/04_model_specs.R.\n")
 }
 ```
 
+::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+*Note:* Distributed-lag robustness specification replacing the one-year lag with two- and three-year lags (`l2_`, `l3_`) of the cyber incidents regressor. Two-way fixed effects and country-clustered standard errors are retained. Comparison with @tbl-headline tests whether associations are stable across lag structures. Significance markers as above.
+:::
+
 ```{r}
+#| label: tbl-comparison
+#| tbl-cap: "Incidents versus Readiness Comparison: Fixed-Effects Estimates"
 comparison_csv <- "output/tables/incidents_vs_readiness_regressions_compact.csv"
 
 if (file.exists(comparison_csv)) {
@@ -179,13 +213,19 @@ if (file.exists(comparison_csv)) {
 			p_value = p.value_fmt,
 			nobs
 		)
-	knitr::kable(comparison, caption = "Incidents vs readiness comparison models")
+	knitr::kable(comparison)
 } else {
 	cat("Comparison table not found. Run R/04_model_specs.R.\n")
 }
 ```
 
+::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+*Note:* Side-by-side comparison of incident exposure (`l1_cyber_incidents_log`) and readiness (`l1_gci_overall`, `l1_gci_overall_norm`) in identical two-way fixed-effects specifications with one-year lags. The normalized variant (`gci_overall_norm`) rescales GCI to a 0–1 percentile within each edition as a scale-sensitivity check. GCI values for 2021–2023 are linearly interpolated (see @tbl-gci-qa). Significance markers as in @tbl-headline. Sources: [@itu_gci; @wb_annex2024; @wb_wdi].
+:::
+
 ```{r}
+#| label: tbl-heterogeneity
+#| tbl-cap: "Income-Group Heterogeneity: Fixed-Effects Estimates by World Bank Classification"
 heterogeneity_csv <- "output/tables/heterogeneity_regressions.csv"
 
 if (file.exists(heterogeneity_csv)) {
@@ -202,11 +242,15 @@ if (file.exists(heterogeneity_csv)) {
 			p_value = p.value_fmt,
 			nobs
 		)
-	knitr::kable(heterogeneity, caption = "Income-group heterogeneity models")
+	knitr::kable(heterogeneity)
 } else {
 	cat("Heterogeneity table not found. Run R/04_model_specs.R.\n")
 }
 ```
+
+::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+*Note:* Income-group subsamples defined by World Bank classification: High income, Upper middle income, Lower income (Lower middle and Low income pooled). Eleven country/territory codes without income-group assignment are excluded from this analysis. Each row shows the lagged cyber regressor coefficient from a two-way fixed-effects model estimated on the income-group subsample; minimum thresholds of 50 observations and 10 countries per model apply. Significance markers as in @tbl-headline. Source: World Bank country metadata [@wb_wdi].
+:::
 
 ### Heterogeneity Summary
 
@@ -239,7 +283,11 @@ When interpreting GCI-based results, prioritize the level-scale specification (`
 
 ## Figures
 
-```{r, echo=FALSE, out.width='100%'}
+```{r}
+#| label: fig-structural
+#| fig-cap: "Partial Correlation between Lagged Cyber Proxy and Macroeconomic Productivity"
+#| echo: false
+#| out-width: "100%"
 fig_struct <- "output/figures/partial_correlation_scatter.png"
 if (file.exists(fig_struct)) {
 	knitr::include_graphics(fig_struct)
@@ -248,7 +296,15 @@ if (file.exists(fig_struct)) {
 }
 ```
 
-```{r, echo=FALSE, out.width='100%'}
+::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+*Note:* Each point represents a country-year observation. Both axes display residuals after removing country and year fixed effects via OLS with factor dummies. The fitted line is an OLS regression of residualized outcome on residualized regressor. A positive slope indicates that countries with above-average cyber proxy values in the prior year tend to show above-average productivity outcomes, conditional on country-specific and time-specific factors. This is a descriptive partial-correlation plot; it does not establish causality. Sources: World Development Indicators [@wb_wdi]; ITU GCI [@itu_gci]; open incident repositories [@wb_annex2024].
+:::
+
+```{r}
+#| label: fig-dynamic
+#| fig-cap: "Standardised Annual Mean of Cyber Proxy and GDP Growth, 2014–2025"
+#| echo: false
+#| out-width: "100%"
 fig_dyn <- "output/figures/dynamic_fallback_trend.png"
 if (file.exists(fig_dyn)) {
 	knitr::include_graphics(fig_dyn)
@@ -257,7 +313,15 @@ if (file.exists(fig_dyn)) {
 }
 ```
 
-```{r, echo=FALSE, out.width='100%'}
+::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+*Note:* Both series are standardised (z-score) cross-country annual means to allow comparison across different units of measurement. GDP growth sourced from World Development Indicators (World Bank). Cyber proxy is the primary available regressor (ITU GCI or log cyber incidents, depending on panel availability). Co-movement should be interpreted as descriptive association only; common global shocks (e.g., the COVID-19 pandemic in 2020) may drive apparent correlation without any direct cyber-macro mechanism. Sources: [@wb_wdi; @itu_gci; @wb_annex2024].
+:::
+
+```{r}
+#| label: fig-coefficients
+#| fig-cap: "Fixed-Effects Coefficient Estimates: Cyber Incidents versus Readiness by Outcome"
+#| echo: false
+#| out-width: "100%"
 fig_coeff <- "output/figures/comparison_coefficients.png"
 if (file.exists(fig_coeff)) {
 	knitr::include_graphics(fig_coeff)
@@ -265,6 +329,10 @@ if (file.exists(fig_coeff)) {
 	cat("Coefficient figure not found. Run R/05_figures.R.\n")
 }
 ```
+
+::: {style="font-size:0.85em; color:#555; margin-top:-0.75em; margin-bottom:1.5em;"}
+*Note:* Points show OLS coefficient estimates from two-way (country and year) fixed-effects models with one-year lagged cyber regressors. Horizontal bars show 95% confidence intervals constructed from country-clustered standard errors. The vertical reference line is at zero. Panels are faceted by regressor type (Incidents vs GCI Readiness); scales are free across panels to accommodate differences in units. GCI readiness values for 2021–2023 are linearly interpolated between the 2020 and 2024 editions; see @tbl-gci-qa for coverage details. Significance: + p\<0.10, \* p\<0.05, \*\* p\<0.01, \*\*\* p\<0.001. Sources: [@itu_gci; @wb_annex2024; @wb_wdi].
+:::
 
 ## Notes
 
