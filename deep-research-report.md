@@ -83,10 +83,10 @@ Interpretation standard:
 The repository now reports two distinct comparison specifications and they should not be interpreted as equivalent estimands:
 
 1. Incident exposure models use lagged terms (for example $l1\_cyber\_incidents\_log$) in country and year fixed-effects panel regressions.
-2. GCI readiness models now also use lagged terms (for example $l1\_gci\_overall$) in country and year fixed-effects panel regressions. GCI values for years 2021–2023 are linearly interpolated between the 2020 edition (scores 0–100) and the 2024 edition (tier midpoints); the `gci_overall_imputed` flag column distinguishes observed anchor years from derived values.
+2. GCI readiness models now also use lagged terms (for example $l1\_gci\_overall$) in country and year fixed-effects panel regressions. GCI values for years 2021-2023 are linearly interpolated between the 2020 edition (scores 0-100) and the 2024 edition (tier midpoints). Earlier panel years carry the 2020 value backward, later years carry the 2024 value forward, and the `gci_overall_imputed` flag column distinguishes observed anchor years from derived values.
 3. When readiness data do not support two-way fixed effects (for example, too few observations after listwise deletion), the comparison pathway falls back to a time-FE or cross-section specification with heteroskedasticity-robust standard errors, depending on sample structure.
 
-Practical implication: with interpolation in place, both the incident and GCI columns in the comparison table share the same lagged two-way FE estimand, making coefficient magnitudes more directly comparable. The interpolation assumption (linear trend between edition years) is a maintained approximation; directional interpretation is appropriate but causal ranking should remain cautious.
+Practical implication: with interpolation and carry rules in place, both the incident and GCI columns in the comparison table share the same lagged two-way FE estimand, making coefficient magnitudes more directly comparable. These derived GCI values are a maintained approximation; directional interpretation is appropriate but causal ranking should remain cautious.
 
 ## Workflow and code plan
 
@@ -153,7 +153,7 @@ Requirements:
 2. Incident counts may reflect both true exposure and reporting/disclosure differences.
 3. Readiness indicators and digital adoption indicators are related but not equivalent to spending.
 4. Cross-source methodological breaks (coverage, definitions, and collection protocols) may reduce comparability.
-5. GCI readiness values for 2021–2023 are linearly interpolated between the 2020 and 2024 edition anchor years. The 2020 edition reports direct scores (0–100) while the 2024 edition reports tier midpoints (97.5 / 90 / 70 / 37.5 / 10); interpolation spans two different measurement scales, so absolute magnitudes of interpolated values should be interpreted with caution.
+5. GCI readiness values for 2021-2023 are linearly interpolated between the 2020 and 2024 edition anchor years, with 2020 carried backward to earlier panel years and 2024 carried forward to later panel years. The 2020 edition reports direct scores (0-100) while the 2024 edition reports tier midpoints (97.5 / 90 / 70 / 37.5 / 10); derived values span two different measurement scales, so absolute magnitudes should be interpreted with caution.
 
 ## Claims audit table
 

@@ -1,2 +1,2 @@
-"rows_raw","rows_harmonised","countries_harmonised","year_min","year_max","duplicate_keys_remaining"
-25536,27778,270,2014,2025,1264
+"rows_raw","rows_harmonised","wdi_non_country_rows_dropped","countries_harmonised","year_min","year_max","duplicate_variable_keys_remaining"
+25536,23362,4416,224,2014,2025,0

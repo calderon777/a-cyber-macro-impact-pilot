@@ -20,13 +20,16 @@ if (!file.exists(raw_path)) {
 raw <- read.csv(raw_path, stringsAsFactors = FALSE) %>%
 	janitor::clean_names()
 
+valid_iso3c <- unique(countrycode::codelist[["iso3c"]])
+valid_iso3c <- valid_iso3c[!is.na(valid_iso3c)]
+
 required_cols <- c("iso3c", "country", "year", "indicator", "value", "variable")
 missing_cols <- setdiff(required_cols, names(raw))
 if (length(missing_cols) > 0) {
 	stop("Input file is missing required columns: ", paste(missing_cols, collapse = ", "))
 }
 
-harmonised <- raw %>%
+wdi_pre_filter <- raw %>%
 	transmute(
 		iso3c_raw = toupper(trimws(iso3c)),
 		country = trimws(country),
@@ -47,8 +50,20 @@ harmonised <- raw %>%
 			iso3c_raw,
 			iso3c_from_country
 		)
+	)
+
+dropped_non_country_wdi_rows <- wdi_pre_filter %>%
+	filter(!is.na(iso3c), !iso3c %in% valid_iso3c) %>%
+	nrow()
+
+harmonised <- wdi_pre_filter %>%
+	filter(
+		!is.na(iso3c),
+		iso3c %in% valid_iso3c,
+		!is.na(year),
+		!is.na(indicator),
+		!is.na(variable)
 	) %>%
-	filter(!is.na(iso3c), !is.na(year), !is.na(indicator), !is.na(variable)) %>%
 	select(iso3c, country, year, indicator, variable, value)
 
 # Keep one row per key. If duplicate rows exist, keep the first non-missing value.
@@ -82,7 +97,7 @@ if (file.exists(incidents_path)) {
 			values_to = "value"
 		) %>%
 		mutate(indicator = "INCIDENTS_OPEN") %>%
-		filter(!is.na(iso3c), !is.na(year), !is.na(value)) %>%
+		filter(!is.na(iso3c), iso3c %in% valid_iso3c, !is.na(year), !is.na(value)) %>%
 		select(iso3c, country, year, indicator, variable, value)
 
 	harmonised <- bind_rows(harmonised, inc_long) %>%
@@ -116,7 +131,7 @@ if (file.exists(gci_path)) {
 			values_to = "value"
 		) %>%
 		mutate(indicator = "GCI_OPEN") %>%
-		filter(!is.na(iso3c), !is.na(year), !is.na(value)) %>%
+		filter(!is.na(iso3c), iso3c %in% valid_iso3c, !is.na(year), !is.na(value)) %>%
 		select(iso3c, country, year, indicator, variable, value)
 
 	harmonised <- bind_rows(harmonised, gci_long) %>%
@@ -131,11 +146,12 @@ write.csv(harmonised, harmonised_path, row.names = FALSE)
 audit <- data.frame(
 	rows_raw = nrow(raw),
 	rows_harmonised = nrow(harmonised),
+	wdi_non_country_rows_dropped = dropped_non_country_wdi_rows,
 	countries_harmonised = dplyr::n_distinct(harmonised$iso3c),
 	year_min = min(harmonised$year, na.rm = TRUE),
 	year_max = max(harmonised$year, na.rm = TRUE),
-	duplicate_keys_remaining = harmonised %>%
-		count(iso3c, year, indicator) %>%
+	duplicate_variable_keys_remaining = harmonised %>%
+		count(iso3c, year, indicator, variable) %>%
 		filter(n > 1) %>%
 		nrow(),
 	stringsAsFactors = FALSE

@@ -141,7 +141,10 @@ trend_long <- trend_df %>%
 		cols = c(gdp_growth_idx, proxy_idx),
 		names_to = "series",
 		values_to = "value"
-	)
+	) %>%
+	filter(!is.na(value))
+
+dropped_trend_rows <- nrow(trend_df) * 2L - nrow(trend_long)
 
 p_dynamic <- ggplot(trend_long, aes(x = year, y = value, color = series)) +
 	geom_line(linewidth = 1.0) +
@@ -154,7 +157,7 @@ p_dynamic <- ggplot(trend_long, aes(x = year, y = value, color = series)) +
 		)
 	) +
 	labs(
-		title = "Dynamic Fallback Trend Chart",
+		title = "Cyber Proxy and GDP Growth Trend",
 		x = "Year",
 		y = "Standardized annual mean",
 		color = NULL
@@ -165,5 +168,8 @@ ggsave(fig_dynamic, p_dynamic, width = 10, height = 6, dpi = 300)
 
 message("Figure generation complete.")
 message("Main regressor used: ", main_regressor)
+if (dropped_trend_rows > 0) {
+	message("Trend plot omitted missing series-year points: ", dropped_trend_rows)
+}
 message("Wrote: ", fig_structural)
 message("Wrote: ", fig_dynamic)

@@ -4,7 +4,7 @@ suppressPackageStartupMessages({
 	library(arrow)
 })
 
-# Helper: linear interpolation between anchor years + bounded carry-forward/backward
+# Helper: linear interpolation between anchor years plus bounded carry rules.
 gci_interpolate <- function(yr, val) {
 	obs <- which(!is.na(val))
 	if (length(obs) == 0) return(val)
@@ -12,9 +12,9 @@ gci_interpolate <- function(yr, val) {
 	if (length(obs) >= 2) {
 		out <- stats::approx(yr[obs], val[obs], xout = yr, rule = 1)$y
 	}
-	# carry backward from first anchor
+	# Carry backward from the first anchor.
 	out[yr < yr[obs[1]]]           <- val[obs[1]]
-	# carry forward from last anchor
+	# Carry forward from the last anchor.
 	out[yr > yr[obs[length(obs)]]] <- val[obs[length(obs)]]
 	out
 }
@@ -43,10 +43,10 @@ panel <- long_df %>%
 	) %>%
 	arrange(iso3c, year)
 
-# ── GCI interpolation / carry-forward ────────────────────────────────────────
+# GCI interpolation and bounded carry rules.
 # GCI anchor years are 2020 (scores 0-100) and 2024 (tier midpoints).
-# Linearly interpolate gci_overall for 2021-2023; carry backward from 2020
-# and forward from 2024 for years outside the anchor range.
+# Linearly interpolate gci_overall for 2021-2023, carry 2020 backward to
+# earlier panel years, and carry 2024 forward to later panel years.
 # gci_overall_imputed = TRUE flags rows whose value was derived, not observed.
 if ("gci_overall" %in% names(panel)) {
 	panel <- panel %>%

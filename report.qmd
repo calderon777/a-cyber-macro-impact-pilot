@@ -10,6 +10,7 @@ How are country-level cyber readiness and incident intensity associated with mac
 ## Data
 
 This report uses the processed panel at `data_processed/panel_country_year.parquet`.
+World Bank regional and income-group aggregates are excluded before panel construction so the fixed effects operate on country and territory units only.
 
 ```{r}
 suppressPackageStartupMessages({
@@ -54,10 +55,12 @@ We use country and year fixed-effects models with lagged cyber variables and clu
 For the incidents-vs-readiness comparison, both pathways now share the same lagged two-way FE estimand:
 
 1. Incident intensity (`cyber_incidents_log`) is estimated with lagged terms (`l1_cyber_incidents_log`) in two-way FE panel models.
-2. Readiness (`gci_overall`) is also estimated with lagged terms (`l1_gci_overall`) in two-way FE panel models. GCI values for 2021–2023 are linearly interpolated between the 2020 edition (scores 0–100) and the 2024 edition (tier midpoints); rows derived by interpolation are flagged by `gci_overall_imputed = TRUE`.
+2. Readiness (`gci_overall`) is also estimated with lagged terms (`l1_gci_overall`) in two-way FE panel models. GCI values for 2021-2023 are linearly interpolated between the 2020 edition (scores 0-100) and the 2024 edition (tier midpoints). Earlier panel years carry the 2020 value backward, later years carry the 2024 value forward, and all derived rows are flagged by `gci_overall_imputed = TRUE`.
 3. When either specification does not support two-way FE (too few observations after listwise deletion), the model path falls back to time FE or pure cross-section with heteroskedasticity-robust standard errors.
 
-The shared estimator structure makes coefficient magnitudes more directly comparable than a contemporaneous vs. lagged comparison would allow. The interpolation assumption (linear trend between edition years) is maintained; directional interpretation is appropriate but absolute magnitudes for interpolated years carry additional uncertainty.
+The shared estimator structure makes coefficient magnitudes more directly comparable than a contemporaneous vs. lagged comparison would allow. The GCI interpolation and carry assumptions are maintained for coverage; directional interpretation is appropriate, but absolute magnitudes for derived years carry additional uncertainty.
+
+Significance markers in the tables use `+` for p < 0.10, `*` for p < 0.05, `**` for p < 0.01, and `***` for p < 0.001. In the headline incident models, the incident coefficient is not significant at the 5% level; the productivity and investment specifications are only marginal at the 10% level. In the readiness comparison, `l1_gci_overall` is significant for productivity and employment, but these estimates rely heavily on the GCI interpolation and carry assumptions described above.
 
 ```{r}
 headline_csv <- "output/tables/headline_regressions.csv"

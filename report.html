@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -116,34 +81,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="data"><span class="header-section-number">2</span> Data</h2>
-<p>This report uses the processed panel at <code>data_processed/panel_country_year.parquet</code>.</p>
+<p>This report uses the processed panel at <code>data_processed/panel_country_year.parquet</code>. World Bank regional and income-group aggregates are excluded before panel construction so the fixed effects operate on country and territory units only.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>({</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(arrow)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(dplyr)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(knitr)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>panel_path <span class="ot">&lt;-</span> <span class="st">"data_processed/panel_country_year.parquet"</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>dict_path <span class="ot">&lt;-</span> <span class="st">"data_processed/data_dictionary.csv"</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(panel_path)) {</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Missing panel file. Run R/03_build_panel.R first."</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>panel <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">read_parquet</span>(panel_path)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>summary_tbl <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">metric =</span> <span class="fu">c</span>(<span class="st">"Rows"</span>, <span class="st">"Countries"</span>, <span class="st">"Year min"</span>, <span class="st">"Year max"</span>),</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">value =</span> <span class="fu">c</span>(</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">nrow</span>(panel),</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">n_distinct</span>(panel<span class="sc">$</span>iso3c),</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">min</span>(panel<span class="sc">$</span>year, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">max</span>(panel<span class="sc">$</span>year, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_tbl, <span class="at">caption =</span> <span class="st">"Panel snapshot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Panel snapshot</caption>
@@ -156,11 +95,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Rows</td>
-<td style="text-align: right;">3223</td>
+<td style="text-align: right;">2696</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Countries</td>
-<td style="text-align: right;">270</td>
+<td style="text-align: right;">224</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Year min</td>
@@ -175,19 +114,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(dict_path)) {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    dict <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(dict_path, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(dict, <span class="at">caption =</span> <span class="st">"Data dictionary"</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Data dictionary</caption>
 <colgroup>
-<col style="width: 26%">
-<col style="width: 19%">
-<col style="width: 31%">
-<col style="width: 10%">
-<col style="width: 10%">
+<col style="width: 18%">
+<col style="width: 13%">
+<col style="width: 52%">
+<col style="width: 7%">
+<col style="width: 7%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -235,48 +170,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">none</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">gci_overall_imputed</td>
+<td style="text-align: left;">GCI_OPEN</td>
+<td style="text-align: left;">Derived: linear interpolation between GCI 2020 and 2024 anchor years</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">flag</td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;">gci_tier</td>
 <td style="text-align: left;">GCI_OPEN</td>
 <td style="text-align: left;">ITU GCI tier extraction</td>
 <td style="text-align: left;">annual</td>
 <td style="text-align: left;">none</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">gdp_growth</td>
 <td style="text-align: left;">NY.GDP.MKTP.KD.ZG</td>
 <td style="text-align: left;">World Development Indicators</td>
 <td style="text-align: left;">annual</td>
 <td style="text-align: left;">none</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">gdp_per_person_employed</td>
 <td style="text-align: left;">SL.GDP.PCAP.EM.KD</td>
 <td style="text-align: left;">World Development Indicators</td>
 <td style="text-align: left;">annual</td>
 <td style="text-align: left;">none</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">inflation_cpi</td>
 <td style="text-align: left;">FP.CPI.TOTL.ZG</td>
 <td style="text-align: left;">World Development Indicators</td>
 <td style="text-align: left;">annual</td>
 <td style="text-align: left;">none</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">internet_users_pct</td>
 <td style="text-align: left;">IT.NET.USER.ZS</td>
 <td style="text-align: left;">World Development Indicators</td>
 <td style="text-align: left;">annual</td>
 <td style="text-align: left;">none</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">population_total</td>
 <td style="text-align: left;">SP.POP.TOTL</td>
 <td style="text-align: left;">World Development Indicators</td>
 <td style="text-align: left;">annual</td>
 <td style="text-align: left;">none</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">trade_gdp</td>
 <td style="text-align: left;">NE.TRD.GNFS.ZS</td>
 <td style="text-align: left;">World Development Indicators</td>
@@ -291,23 +233,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="baseline-model" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="baseline-model"><span class="header-section-number">3</span> Baseline model</h2>
 <p>We use country and year fixed-effects models with lagged cyber variables and clustered standard errors at country level.</p>
-<p>For the incidents-vs-readiness comparison, estimator structure differs by data availability in the current build:</p>
+<p>For the incidents-vs-readiness comparison, both pathways now share the same lagged two-way FE estimand:</p>
 <ol type="1">
-<li>Incident intensity (<code>cyber_incidents_log</code>) is estimated with lagged terms in two-way FE panel models.</li>
-<li>Readiness (<code>gci_overall</code>) is estimated contemporaneously because current GCI input is predominantly single-year.</li>
-<li>When readiness data do not support two-way FE, the model path falls back to time FE or pure cross-section with heteroskedasticity-robust standard errors.</li>
+<li>Incident intensity (<code>cyber_incidents_log</code>) is estimated with lagged terms (<code>l1_cyber_incidents_log</code>) in two-way FE panel models.</li>
+<li>Readiness (<code>gci_overall</code>) is also estimated with lagged terms (<code>l1_gci_overall</code>) in two-way FE panel models. GCI values for 2021-2023 are linearly interpolated between the 2020 edition (scores 0-100) and the 2024 edition (tier midpoints). Earlier panel years carry the 2020 value backward, later years carry the 2024 value forward, and all derived rows are flagged by <code>gci_overall_imputed = TRUE</code>.</li>
+<li>When either specification does not support two-way FE (too few observations after listwise deletion), the model path falls back to time FE or pure cross-section with heteroskedasticity-robust standard errors.</li>
 </ol>
-<p>These columns are useful for directional comparison, but not for strict coefficient-level causal ranking against each other.</p>
+<p>The shared estimator structure makes coefficient magnitudes more directly comparable than a contemporaneous vs.&nbsp;lagged comparison would allow. The GCI interpolation and carry assumptions are maintained for coverage; directional interpretation is appropriate, but absolute magnitudes for derived years carry additional uncertainty.</p>
+<p>Significance markers in the tables use <code>+</code> for p &lt; 0.10, <code>*</code> for p &lt; 0.05, <code>**</code> for p &lt; 0.01, and <code>***</code> for p &lt; 0.001. In the headline incident models, the incident coefficient is not significant at the 5% level; the productivity and investment specifications are only marginal at the 10% level. In the readiness comparison, <code>l1_gci_overall</code> is significant for productivity and employment, but these estimates rely heavily on the GCI interpolation and carry assumptions described above.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>headline_csv <span class="ot">&lt;-</span> <span class="st">"output/tables/headline_regressions.csv"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>robust_csv <span class="ot">&lt;-</span> <span class="st">"output/tables/robustness_regressions.csv"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(headline_csv)) {</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    headline <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(headline_csv, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(headline, <span class="at">caption =</span> <span class="st">"Headline FE models"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Headline table not found. Run R/04_model_specs.R.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Headline FE models</caption>
@@ -336,27 +270,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_cyber_incidents_log</td>
 <td style="text-align: left;">estimate</td>
-<td style="text-align: left;">-0.066</td>
-<td style="text-align: left;">814.480*</td>
-<td style="text-align: left;">0.497+</td>
-<td style="text-align: left;">0.193</td>
+<td style="text-align: left;">-0.121</td>
+<td style="text-align: left;">808.261+</td>
+<td style="text-align: left;">0.485+</td>
+<td style="text-align: left;">0.187</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_cyber_incidents_log</td>
 <td style="text-align: left;">std.error</td>
-<td style="text-align: left;">(0.232)</td>
-<td style="text-align: left;">(409.242)</td>
-<td style="text-align: left;">(0.267)</td>
+<td style="text-align: left;">(0.228)</td>
+<td style="text-align: left;">(409.866)</td>
+<td style="text-align: left;">(0.268)</td>
 <td style="text-align: left;">(0.126)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_inflation_cpi</td>
 <td style="text-align: left;">estimate</td>
-<td style="text-align: left;">0.001</td>
-<td style="text-align: left;">-10.606</td>
-<td style="text-align: left;">-0.015</td>
+<td style="text-align: left;">0.000</td>
+<td style="text-align: left;">-10.532</td>
+<td style="text-align: left;">-0.016</td>
 <td style="text-align: left;">-0.005</td>
 </tr>
 <tr class="even">
@@ -364,25 +298,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">l1_inflation_cpi</td>
 <td style="text-align: left;">std.error</td>
 <td style="text-align: left;">(0.006)</td>
-<td style="text-align: left;">(10.003)</td>
-<td style="text-align: left;">(0.017)</td>
+<td style="text-align: left;">(9.975)</td>
+<td style="text-align: left;">(0.018)</td>
 <td style="text-align: left;">(0.004)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_trade_gdp</td>
 <td style="text-align: left;">estimate</td>
-<td style="text-align: left;">-0.043</td>
-<td style="text-align: left;">-12.993</td>
-<td style="text-align: left;">0.018</td>
-<td style="text-align: left;">0.025*</td>
+<td style="text-align: left;">-0.045</td>
+<td style="text-align: left;">-14.537</td>
+<td style="text-align: left;">0.015</td>
+<td style="text-align: left;">0.027*</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_trade_gdp</td>
 <td style="text-align: left;">std.error</td>
 <td style="text-align: left;">(0.043)</td>
-<td style="text-align: left;">(49.580)</td>
+<td style="text-align: left;">(49.952)</td>
 <td style="text-align: left;">(0.021)</td>
 <td style="text-align: left;">(0.012)</td>
 </tr>
@@ -408,73 +342,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">Num.Obs.</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">872</td>
-<td style="text-align: left;">866</td>
-<td style="text-align: left;">862</td>
-<td style="text-align: left;">869</td>
+<td style="text-align: left;">860</td>
+<td style="text-align: left;">854</td>
+<td style="text-align: left;">850</td>
+<td style="text-align: left;">857</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">R2</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">0.534</td>
+<td style="text-align: left;">0.539</td>
 <td style="text-align: left;">0.995</td>
-<td style="text-align: left;">0.843</td>
+<td style="text-align: left;">0.845</td>
 <td style="text-align: left;">0.979</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">R2 Adj.</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">0.445</td>
+<td style="text-align: left;">0.450</td>
 <td style="text-align: left;">0.993</td>
-<td style="text-align: left;">0.813</td>
+<td style="text-align: left;">0.815</td>
 <td style="text-align: left;">0.975</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">R2 Within</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">0.008</td>
+<td style="text-align: left;">0.009</td>
 <td style="text-align: left;">0.017</td>
 <td style="text-align: left;">0.023</td>
-<td style="text-align: left;">0.028</td>
+<td style="text-align: left;">0.030</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">R2 Within Adj.</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">0.003</td>
+<td style="text-align: left;">0.004</td>
 <td style="text-align: left;">0.012</td>
-<td style="text-align: left;">0.017</td>
-<td style="text-align: left;">0.023</td>
+<td style="text-align: left;">0.018</td>
+<td style="text-align: left;">0.024</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">AIC</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">4995.8</td>
-<td style="text-align: left;">16950.3</td>
-<td style="text-align: left;">4476.6</td>
-<td style="text-align: left;">3424.6</td>
+<td style="text-align: left;">4901.6</td>
+<td style="text-align: left;">16721.3</td>
+<td style="text-align: left;">4398.3</td>
+<td style="text-align: left;">3373.0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">BIC</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">5668.5</td>
-<td style="text-align: left;">17617.2</td>
-<td style="text-align: left;">5142.9</td>
-<td style="text-align: left;">4096.8</td>
+<td style="text-align: left;">5567.5</td>
+<td style="text-align: left;">17381.5</td>
+<td style="text-align: left;">5057.9</td>
+<td style="text-align: left;">4038.4</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">RMSE</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">3.61</td>
-<td style="text-align: left;">3662.66</td>
-<td style="text-align: left;">2.76</td>
-<td style="text-align: left;">1.48</td>
+<td style="text-align: left;">3.55</td>
+<td style="text-align: left;">3671.19</td>
+<td style="text-align: left;">2.73</td>
+<td style="text-align: left;">1.47</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gof</td>
@@ -499,12 +433,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(robust_csv)) {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    robust <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(robust_csv, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(robust, <span class="at">caption =</span> <span class="st">"Robustness FE models"</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Robustness table not found. Run R/04_model_specs.R.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Robustness FE models</caption>
@@ -533,45 +461,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l2_cyber_incidents_log</td>
 <td style="text-align: left;">estimate</td>
-<td style="text-align: left;">0.040</td>
-<td style="text-align: left;">169.306</td>
-<td style="text-align: left;">0.515*</td>
-<td style="text-align: left;">0.188</td>
+<td style="text-align: left;">0.107</td>
+<td style="text-align: left;">189.970</td>
+<td style="text-align: left;">0.509+</td>
+<td style="text-align: left;">0.207</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l2_cyber_incidents_log</td>
 <td style="text-align: left;">std.error</td>
-<td style="text-align: left;">(0.294)</td>
-<td style="text-align: left;">(340.830)</td>
-<td style="text-align: left;">(0.251)</td>
-<td style="text-align: left;">(0.144)</td>
+<td style="text-align: left;">(0.296)</td>
+<td style="text-align: left;">(349.518)</td>
+<td style="text-align: left;">(0.259)</td>
+<td style="text-align: left;">(0.147)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l3_cyber_incidents_log</td>
 <td style="text-align: left;">estimate</td>
-<td style="text-align: left;">0.032</td>
-<td style="text-align: left;">725.222</td>
-<td style="text-align: left;">0.147</td>
-<td style="text-align: left;">0.145</td>
+<td style="text-align: left;">0.019</td>
+<td style="text-align: left;">721.771</td>
+<td style="text-align: left;">0.139</td>
+<td style="text-align: left;">0.159</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l3_cyber_incidents_log</td>
 <td style="text-align: left;">std.error</td>
-<td style="text-align: left;">(0.266)</td>
-<td style="text-align: left;">(444.140)</td>
-<td style="text-align: left;">(0.214)</td>
-<td style="text-align: left;">(0.122)</td>
+<td style="text-align: left;">(0.275)</td>
+<td style="text-align: left;">(473.949)</td>
+<td style="text-align: left;">(0.224)</td>
+<td style="text-align: left;">(0.126)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_inflation_cpi</td>
 <td style="text-align: left;">estimate</td>
-<td style="text-align: left;">0.010**</td>
-<td style="text-align: left;">-7.014</td>
-<td style="text-align: left;">-0.004</td>
+<td style="text-align: left;">0.009**</td>
+<td style="text-align: left;">-7.182</td>
+<td style="text-align: left;">-0.005</td>
 <td style="text-align: left;">-0.003</td>
 </tr>
 <tr class="even">
@@ -579,7 +507,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">l1_inflation_cpi</td>
 <td style="text-align: left;">std.error</td>
 <td style="text-align: left;">(0.003)</td>
-<td style="text-align: left;">(7.332)</td>
+<td style="text-align: left;">(7.386)</td>
 <td style="text-align: left;">(0.010)</td>
 <td style="text-align: left;">(0.003)</td>
 </tr>
@@ -588,24 +516,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">l1_trade_gdp</td>
 <td style="text-align: left;">estimate</td>
 <td style="text-align: left;">0.012</td>
-<td style="text-align: left;">24.055</td>
-<td style="text-align: left;">0.013</td>
-<td style="text-align: left;">0.002</td>
+<td style="text-align: left;">24.031</td>
+<td style="text-align: left;">0.010</td>
+<td style="text-align: left;">0.003</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_trade_gdp</td>
 <td style="text-align: left;">std.error</td>
 <td style="text-align: left;">(0.029)</td>
-<td style="text-align: left;">(35.579)</td>
-<td style="text-align: left;">(0.021)</td>
+<td style="text-align: left;">(37.345)</td>
+<td style="text-align: left;">(0.022)</td>
 <td style="text-align: left;">(0.011)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_population_total</td>
 <td style="text-align: left;">estimate</td>
-<td style="text-align: left;">0.000</td>
+<td style="text-align: left;">0.000+</td>
 <td style="text-align: left;">-0.000</td>
 <td style="text-align: left;">0.000</td>
 <td style="text-align: left;">0.000</td>
@@ -623,28 +551,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">Num.Obs.</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">671</td>
-<td style="text-align: left;">667</td>
-<td style="text-align: left;">663</td>
-<td style="text-align: left;">668</td>
+<td style="text-align: left;">640</td>
+<td style="text-align: left;">637</td>
+<td style="text-align: left;">632</td>
+<td style="text-align: left;">638</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">R2</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">0.622</td>
+<td style="text-align: left;">0.642</td>
 <td style="text-align: left;">0.996</td>
-<td style="text-align: left;">0.860</td>
+<td style="text-align: left;">0.856</td>
 <td style="text-align: left;">0.986</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">R2 Adj.</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">0.538</td>
+<td style="text-align: left;">0.558</td>
 <td style="text-align: left;">0.995</td>
-<td style="text-align: left;">0.829</td>
-<td style="text-align: left;">0.983</td>
+<td style="text-align: left;">0.822</td>
+<td style="text-align: left;">0.982</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gof</td>
@@ -652,8 +580,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;"></td>
 <td style="text-align: left;">0.005</td>
 <td style="text-align: left;">0.018</td>
-<td style="text-align: left;">0.014</td>
-<td style="text-align: left;">0.018</td>
+<td style="text-align: left;">0.013</td>
+<td style="text-align: left;">0.021</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gof</td>
@@ -661,35 +589,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;"></td>
 <td style="text-align: left;">-0.004</td>
 <td style="text-align: left;">0.009</td>
-<td style="text-align: left;">0.004</td>
-<td style="text-align: left;">0.009</td>
+<td style="text-align: left;">0.003</td>
+<td style="text-align: left;">0.012</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">AIC</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">3639.5</td>
-<td style="text-align: left;">12956.5</td>
-<td style="text-align: left;">3315.3</td>
-<td style="text-align: left;">2360.5</td>
+<td style="text-align: left;">3422.1</td>
+<td style="text-align: left;">12401.8</td>
+<td style="text-align: left;">3176.3</td>
+<td style="text-align: left;">2248.6</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">BIC</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">4194.1</td>
-<td style="text-align: left;">13510.3</td>
-<td style="text-align: left;">3863.9</td>
-<td style="text-align: left;">2914.5</td>
+<td style="text-align: left;">3966.4</td>
+<td style="text-align: left;">12945.5</td>
+<td style="text-align: left;">3714.6</td>
+<td style="text-align: left;">2792.5</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">RMSE</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">3.03</td>
-<td style="text-align: left;">3324.74</td>
-<td style="text-align: left;">2.45</td>
-<td style="text-align: left;">1.18</td>
+<td style="text-align: left;">2.90</td>
+<td style="text-align: left;">3374.69</td>
+<td style="text-align: left;">2.47</td>
+<td style="text-align: left;">1.16</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gof</td>
@@ -714,14 +642,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>comparison_csv <span class="ot">&lt;-</span> <span class="st">"output/tables/incidents_vs_readiness_regressions.csv"</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(comparison_csv)) {</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    comparison <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(comparison_csv, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(comparison, <span class="at">caption =</span> <span class="st">"Incidents vs readiness comparison models"</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Comparison table not found. Run R/04_model_specs.R.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Incidents vs readiness comparison models</caption>
@@ -758,24 +678,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_cyber_incidents_log</td>
 <td style="text-align: left;">estimate</td>
-<td style="text-align: left;">-0.066</td>
+<td style="text-align: left;">-0.121</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">814.480*</td>
+<td style="text-align: left;">808.261+</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">0.497+</td>
+<td style="text-align: left;">0.485+</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">0.193</td>
+<td style="text-align: left;">0.187</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_cyber_incidents_log</td>
 <td style="text-align: left;">std.error</td>
-<td style="text-align: left;">(0.232)</td>
+<td style="text-align: left;">(0.228)</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">(409.242)</td>
+<td style="text-align: left;">(409.866)</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">(0.267)</td>
+<td style="text-align: left;">(0.268)</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">(0.126)</td>
 <td style="text-align: left;"></td>
@@ -784,339 +704,235 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_inflation_cpi</td>
 <td style="text-align: left;">estimate</td>
-<td style="text-align: left;">0.001</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">-10.606</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">0.000</td>
+<td style="text-align: left;">-0.003</td>
+<td style="text-align: left;">-10.532</td>
+<td style="text-align: left;">-11.958</td>
+<td style="text-align: left;">-0.016</td>
 <td style="text-align: left;">-0.015</td>
-<td style="text-align: left;"></td>
 <td style="text-align: left;">-0.005</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.006+</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_inflation_cpi</td>
 <td style="text-align: left;">std.error</td>
 <td style="text-align: left;">(0.006)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(10.003)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(0.017)</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.007)</td>
+<td style="text-align: left;">(9.975)</td>
+<td style="text-align: left;">(7.757)</td>
+<td style="text-align: left;">(0.018)</td>
+<td style="text-align: left;">(0.015)</td>
 <td style="text-align: left;">(0.004)</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.003)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_trade_gdp</td>
 <td style="text-align: left;">estimate</td>
-<td style="text-align: left;">-0.043</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">-12.993</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">0.018</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">0.025*</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.045</td>
+<td style="text-align: left;">-0.020</td>
+<td style="text-align: left;">-14.537</td>
+<td style="text-align: left;">5.675</td>
+<td style="text-align: left;">0.015</td>
+<td style="text-align: left;">0.011</td>
+<td style="text-align: left;">0.027*</td>
+<td style="text-align: left;">0.026**</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_trade_gdp</td>
 <td style="text-align: left;">std.error</td>
 <td style="text-align: left;">(0.043)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(49.580)</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.020)</td>
+<td style="text-align: left;">(49.952)</td>
+<td style="text-align: left;">(30.996)</td>
 <td style="text-align: left;">(0.021)</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.025)</td>
 <td style="text-align: left;">(0.012)</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.009)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_population_total</td>
 <td style="text-align: left;">estimate</td>
 <td style="text-align: left;">-0.000</td>
-<td style="text-align: left;"></td>
 <td style="text-align: left;">-0.000</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.000</td>
 <td style="text-align: left;">0.000</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">0.000</td>
 <td style="text-align: left;">-0.000</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.000</td>
+<td style="text-align: left;">-0.000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">estimates</td>
 <td style="text-align: left;">l1_population_total</td>
 <td style="text-align: left;">std.error</td>
 <td style="text-align: left;">(0.000)</td>
-<td style="text-align: left;"></td>
 <td style="text-align: left;">(0.000)</td>
-<td style="text-align: left;"></td>
 <td style="text-align: left;">(0.000)</td>
-<td style="text-align: left;"></td>
 <td style="text-align: left;">(0.000)</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;">(0.000)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">estimates</td>
-<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: left;">l1_gci_overall</td>
 <td style="text-align: left;">estimate</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">3.351**</td>
+<td style="text-align: left;">0.034+</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">-48740.336***</td>
+<td style="text-align: left;">-133.385**</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">24.012***</td>
+<td style="text-align: left;">-0.078</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">57.854***</td>
+<td style="text-align: left;">-0.046***</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">estimates</td>
-<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: left;">l1_gci_overall</td>
 <td style="text-align: left;">std.error</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(1.213)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(9520.849)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(2.216)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(4.059)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">estimates</td>
-<td style="text-align: left;">gci_overall</td>
-<td style="text-align: left;">estimate</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">-0.003</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">886.690***</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">0.007</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">0.010</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">estimates</td>
-<td style="text-align: left;">gci_overall</td>
-<td style="text-align: left;">std.error</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(0.014)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(120.642)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(0.028)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(0.051)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">estimates</td>
-<td style="text-align: left;">inflation_cpi</td>
-<td style="text-align: left;">estimate</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">-0.017*</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">181.650</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">-0.063*</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">0.007</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">estimates</td>
-<td style="text-align: left;">inflation_cpi</td>
-<td style="text-align: left;">std.error</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(0.007)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(110.935)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(0.026)</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">(0.019)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">estimates</td>
-<td style="text-align: left;">trade_gdp</td>
-<td style="text-align: left;">estimate</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">-0.000</td>
+<td style="text-align: left;">(41.642)</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">484.729***</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">-0.014</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">-0.011</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">estimates</td>
-<td style="text-align: left;">trade_gdp</td>
-<td style="text-align: left;">std.error</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(0.004)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(81.919)</td>
+<td style="text-align: left;">(0.049)</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">(0.013)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(0.022)</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">estimates</td>
-<td style="text-align: left;">population_total</td>
-<td style="text-align: left;">estimate</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">0.000***</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">-0.000</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">0.000**</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">0.000</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">estimates</td>
-<td style="text-align: left;">population_total</td>
-<td style="text-align: left;">std.error</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(0.000)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(0.000)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(0.000)</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">(0.000)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">Num.Obs.</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">872</td>
-<td style="text-align: left;">122</td>
-<td style="text-align: left;">866</td>
-<td style="text-align: left;">120</td>
-<td style="text-align: left;">862</td>
-<td style="text-align: left;">121</td>
-<td style="text-align: left;">869</td>
-<td style="text-align: left;">120</td>
+<td style="text-align: left;">860</td>
+<td style="text-align: left;">1517</td>
+<td style="text-align: left;">854</td>
+<td style="text-align: left;">1463</td>
+<td style="text-align: left;">850</td>
+<td style="text-align: left;">1481</td>
+<td style="text-align: left;">857</td>
+<td style="text-align: left;">1598</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">R2</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">0.534</td>
-<td style="text-align: left;">0.035</td>
+<td style="text-align: left;">0.539</td>
+<td style="text-align: left;">0.453</td>
 <td style="text-align: left;">0.995</td>
-<td style="text-align: left;">0.495</td>
-<td style="text-align: left;">0.843</td>
-<td style="text-align: left;">0.096</td>
+<td style="text-align: left;">0.994</td>
+<td style="text-align: left;">0.845</td>
+<td style="text-align: left;">0.767</td>
 <td style="text-align: left;">0.979</td>
-<td style="text-align: left;">0.004</td>
+<td style="text-align: left;">0.978</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">R2 Adj.</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">0.445</td>
-<td style="text-align: left;">0.002</td>
+<td style="text-align: left;">0.450</td>
+<td style="text-align: left;">0.383</td>
 <td style="text-align: left;">0.993</td>
-<td style="text-align: left;">0.477</td>
-<td style="text-align: left;">0.813</td>
-<td style="text-align: left;">0.065</td>
+<td style="text-align: left;">0.994</td>
+<td style="text-align: left;">0.815</td>
+<td style="text-align: left;">0.737</td>
 <td style="text-align: left;">0.975</td>
-<td style="text-align: left;">-0.030</td>
+<td style="text-align: left;">0.976</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">R2 Within</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">0.008</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">0.009</td>
+<td style="text-align: left;">0.005</td>
 <td style="text-align: left;">0.017</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">0.024</td>
 <td style="text-align: left;">0.023</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">0.028</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">0.011</td>
+<td style="text-align: left;">0.030</td>
+<td style="text-align: left;">0.050</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">R2 Within Adj.</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">0.003</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">0.004</td>
+<td style="text-align: left;">0.002</td>
 <td style="text-align: left;">0.012</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">0.017</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">0.023</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">0.021</td>
+<td style="text-align: left;">0.018</td>
+<td style="text-align: left;">0.008</td>
+<td style="text-align: left;">0.024</td>
+<td style="text-align: left;">0.047</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">AIC</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">4995.8</td>
-<td style="text-align: left;">584.3</td>
-<td style="text-align: left;">16950.3</td>
-<td style="text-align: left;">2867.9</td>
-<td style="text-align: left;">4476.6</td>
-<td style="text-align: left;">810.0</td>
-<td style="text-align: left;">3424.6</td>
-<td style="text-align: left;">913.0</td>
+<td style="text-align: left;">4901.6</td>
+<td style="text-align: left;">8588.5</td>
+<td style="text-align: left;">16721.3</td>
+<td style="text-align: left;">28459.6</td>
+<td style="text-align: left;">4398.3</td>
+<td style="text-align: left;">8585.7</td>
+<td style="text-align: left;">3373.0</td>
+<td style="text-align: left;">6492.9</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">BIC</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">5668.5</td>
-<td style="text-align: left;">598.3</td>
-<td style="text-align: left;">17617.2</td>
-<td style="text-align: left;">2881.8</td>
-<td style="text-align: left;">5142.9</td>
-<td style="text-align: left;">824.0</td>
-<td style="text-align: left;">4096.8</td>
-<td style="text-align: left;">927.0</td>
+<td style="text-align: left;">5567.5</td>
+<td style="text-align: left;">9514.9</td>
+<td style="text-align: left;">17381.5</td>
+<td style="text-align: left;">29348.1</td>
+<td style="text-align: left;">5057.9</td>
+<td style="text-align: left;">9492.1</td>
+<td style="text-align: left;">4038.4</td>
+<td style="text-align: left;">7412.2</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">RMSE</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;">3.61</td>
-<td style="text-align: left;">2.55</td>
-<td style="text-align: left;">3662.66</td>
-<td style="text-align: left;">35914.59</td>
-<td style="text-align: left;">2.76</td>
-<td style="text-align: left;">6.60</td>
-<td style="text-align: left;">1.48</td>
-<td style="text-align: left;">10.42</td>
+<td style="text-align: left;">3.55</td>
+<td style="text-align: left;">3.66</td>
+<td style="text-align: left;">3671.19</td>
+<td style="text-align: left;">3614.43</td>
+<td style="text-align: left;">2.73</td>
+<td style="text-align: left;">3.91</td>
+<td style="text-align: left;">1.47</td>
+<td style="text-align: left;">1.66</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">FE: iso3c</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">X</td>
-<td style="text-align: left;"></td>
 <td style="text-align: left;">X</td>
-<td style="text-align: left;"></td>
 <td style="text-align: left;">X</td>
-<td style="text-align: left;"></td>
 <td style="text-align: left;">X</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">gof</td>
 <td style="text-align: left;">FE: year</td>
 <td style="text-align: left;"></td>
 <td style="text-align: left;">X</td>
-<td style="text-align: left;"></td>
 <td style="text-align: left;">X</td>
-<td style="text-align: left;"></td>
 <td style="text-align: left;">X</td>
-<td style="text-align: left;"></td>
 <td style="text-align: left;">X</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
 </tr>
 </tbody>
 </table>

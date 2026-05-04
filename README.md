@@ -37,4 +37,4 @@ Optional incidents input:
 - [x] Project scaffold created
 - [x] Data download and harmonisation implemented
 - [x] Baseline FE models implemented
-- [ ] Report fully rendered with results
+- [x] Report fully rendered with results
