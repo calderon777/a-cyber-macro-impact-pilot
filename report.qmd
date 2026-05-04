@@ -51,6 +51,14 @@ if (file.exists(dict_path)) {
 
 We use country and year fixed-effects models with lagged cyber variables and clustered standard errors at country level.
 
+For the incidents-vs-readiness comparison, estimator structure differs by data availability in the current build:
+
+1. Incident intensity (`cyber_incidents_log`) is estimated with lagged terms in two-way FE panel models.
+2. Readiness (`gci_overall`) is estimated contemporaneously because current GCI input is predominantly single-year.
+3. When readiness data do not support two-way FE, the model path falls back to time FE or pure cross-section with heteroskedasticity-robust standard errors.
+
+These columns are useful for directional comparison, but not for strict coefficient-level causal ranking against each other.
+
 ```{r}
 headline_csv <- "output/tables/headline_regressions.csv"
 robust_csv <- "output/tables/robustness_regressions.csv"
@@ -69,6 +77,17 @@ if (file.exists(robust_csv)) {
 	knitr::kable(robust, caption = "Robustness FE models")
 } else {
 	cat("Robustness table not found. Run R/04_model_specs.R.\n")
+}
+```
+
+```{r}
+comparison_csv <- "output/tables/incidents_vs_readiness_regressions.csv"
+
+if (file.exists(comparison_csv)) {
+	comparison <- read.csv(comparison_csv, stringsAsFactors = FALSE)
+	knitr::kable(comparison, caption = "Incidents vs readiness comparison models")
+} else {
+	cat("Comparison table not found. Run R/04_model_specs.R.\n")
 }
 ```
 

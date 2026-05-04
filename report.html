@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Cyber Macro Impact Pilot</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="report_files/libs/clipboard/clipboard.min.js"></script>
+<script src="report_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="report_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="report_files/libs/quarto-html/popper.min.js"></script>
+<script src="report_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="report_files/libs/quarto-html/anchor.min.js"></script>
+<link href="report_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="report_files/libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="report_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="report_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="report_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#research-question" id="toc-research-question" class="nav-link active" data-scroll-target="#research-question"><span class="header-section-number">1</span> Research question</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2</span> Data</a></li>
+  <li><a href="#baseline-model" id="toc-baseline-model" class="nav-link" data-scroll-target="#baseline-model"><span class="header-section-number">3</span> Baseline model</a></li>
+  <li><a href="#figures" id="toc-figures" class="nav-link" data-scroll-target="#figures"><span class="header-section-number">4</span> Figures</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes"><span class="header-section-number">5</span> Notes</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Cyber Macro Impact Pilot</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="research-question" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="research-question"><span class="header-section-number">1</span> Research question</h2>
+<p>How are country-level cyber readiness and incident intensity associated with macro outcomes such as GDP growth, productivity, investment, and employment?</p>
+</section>
+<section id="data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="data"><span class="header-section-number">2</span> Data</h2>
+<p>This report uses the processed panel at <code>data_processed/panel_country_year.parquet</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>({</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(arrow)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(knitr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>panel_path <span class="ot">&lt;-</span> <span class="st">"data_processed/panel_country_year.parquet"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>dict_path <span class="ot">&lt;-</span> <span class="st">"data_processed/data_dictionary.csv"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(panel_path)) {</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Missing panel file. Run R/03_build_panel.R first."</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>panel <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">read_parquet</span>(panel_path)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>summary_tbl <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">metric =</span> <span class="fu">c</span>(<span class="st">"Rows"</span>, <span class="st">"Countries"</span>, <span class="st">"Year min"</span>, <span class="st">"Year max"</span>),</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">value =</span> <span class="fu">c</span>(</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="fu">nrow</span>(panel),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        dplyr<span class="sc">::</span><span class="fu">n_distinct</span>(panel<span class="sc">$</span>iso3c),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">min</span>(panel<span class="sc">$</span>year, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">max</span>(panel<span class="sc">$</span>year, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(summary_tbl, <span class="at">caption =</span> <span class="st">"Panel snapshot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Panel snapshot</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">metric</th>
+<th style="text-align: right;">value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Rows</td>
+<td style="text-align: right;">3223</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Countries</td>
+<td style="text-align: right;">270</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Year min</td>
+<td style="text-align: right;">2014</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Year max</td>
+<td style="text-align: right;">2025</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(dict_path)) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    dict <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(dict_path, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(dict, <span class="at">caption =</span> <span class="st">"Data dictionary"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Data dictionary</caption>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 19%">
+<col style="width: 31%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: left;">indicator</th>
+<th style="text-align: left;">source</th>
+<th style="text-align: left;">frequency</th>
+<th style="text-align: left;">transform</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">cyber_incidents</td>
+<td style="text-align: left;">INCIDENTS_OPEN</td>
+<td style="text-align: left;">Open incidents source</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cyber_incidents_log</td>
+<td style="text-align: left;">INCIDENTS_OPEN</td>
+<td style="text-align: left;">Open incidents source</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">employment_ratio</td>
+<td style="text-align: left;">SL.EMP.TOTL.SP.ZS</td>
+<td style="text-align: left;">World Development Indicators</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gcf_gdp</td>
+<td style="text-align: left;">NE.GDI.TOTL.ZS</td>
+<td style="text-align: left;">World Development Indicators</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gci_overall</td>
+<td style="text-align: left;">GCI_OPEN</td>
+<td style="text-align: left;">ITU GCI tier extraction</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gci_tier</td>
+<td style="text-align: left;">GCI_OPEN</td>
+<td style="text-align: left;">ITU GCI tier extraction</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gdp_growth</td>
+<td style="text-align: left;">NY.GDP.MKTP.KD.ZG</td>
+<td style="text-align: left;">World Development Indicators</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gdp_per_person_employed</td>
+<td style="text-align: left;">SL.GDP.PCAP.EM.KD</td>
+<td style="text-align: left;">World Development Indicators</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">inflation_cpi</td>
+<td style="text-align: left;">FP.CPI.TOTL.ZG</td>
+<td style="text-align: left;">World Development Indicators</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">internet_users_pct</td>
+<td style="text-align: left;">IT.NET.USER.ZS</td>
+<td style="text-align: left;">World Development Indicators</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">population_total</td>
+<td style="text-align: left;">SP.POP.TOTL</td>
+<td style="text-align: left;">World Development Indicators</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">none</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">trade_gdp</td>
+<td style="text-align: left;">NE.TRD.GNFS.ZS</td>
+<td style="text-align: left;">World Development Indicators</td>
+<td style="text-align: left;">annual</td>
+<td style="text-align: left;">none</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="baseline-model" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="baseline-model"><span class="header-section-number">3</span> Baseline model</h2>
+<p>We use country and year fixed-effects models with lagged cyber variables and clustered standard errors at country level.</p>
+<p>For the incidents-vs-readiness comparison, estimator structure differs by data availability in the current build:</p>
+<ol type="1">
+<li>Incident intensity (<code>cyber_incidents_log</code>) is estimated with lagged terms in two-way FE panel models.</li>
+<li>Readiness (<code>gci_overall</code>) is estimated contemporaneously because current GCI input is predominantly single-year.</li>
+<li>When readiness data do not support two-way FE, the model path falls back to time FE or pure cross-section with heteroskedasticity-robust standard errors.</li>
+</ol>
+<p>These columns are useful for directional comparison, but not for strict coefficient-level causal ranking against each other.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>headline_csv <span class="ot">&lt;-</span> <span class="st">"output/tables/headline_regressions.csv"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>robust_csv <span class="ot">&lt;-</span> <span class="st">"output/tables/robustness_regressions.csv"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(headline_csv)) {</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    headline <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(headline_csv, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(headline, <span class="at">caption =</span> <span class="st">"Headline FE models"</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Headline table not found. Run R/04_model_specs.R.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Headline FE models</caption>
+<colgroup>
+<col style="width: 9%">
+<col style="width: 22%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 23%">
+<col style="width: 7%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">part</th>
+<th style="text-align: left;">term</th>
+<th style="text-align: left;">statistic</th>
+<th style="text-align: left;">gdp_growth</th>
+<th style="text-align: left;">gdp_per_person_employed</th>
+<th style="text-align: left;">gcf_gdp</th>
+<th style="text-align: left;">employment_ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_cyber_incidents_log</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.066</td>
+<td style="text-align: left;">814.480*</td>
+<td style="text-align: left;">0.497+</td>
+<td style="text-align: left;">0.193</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_cyber_incidents_log</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;">(0.232)</td>
+<td style="text-align: left;">(409.242)</td>
+<td style="text-align: left;">(0.267)</td>
+<td style="text-align: left;">(0.126)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_inflation_cpi</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.001</td>
+<td style="text-align: left;">-10.606</td>
+<td style="text-align: left;">-0.015</td>
+<td style="text-align: left;">-0.005</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_inflation_cpi</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;">(0.006)</td>
+<td style="text-align: left;">(10.003)</td>
+<td style="text-align: left;">(0.017)</td>
+<td style="text-align: left;">(0.004)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_trade_gdp</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.043</td>
+<td style="text-align: left;">-12.993</td>
+<td style="text-align: left;">0.018</td>
+<td style="text-align: left;">0.025*</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_trade_gdp</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;">(0.043)</td>
+<td style="text-align: left;">(49.580)</td>
+<td style="text-align: left;">(0.021)</td>
+<td style="text-align: left;">(0.012)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_population_total</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.000</td>
+<td style="text-align: left;">-0.000</td>
+<td style="text-align: left;">0.000</td>
+<td style="text-align: left;">-0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_population_total</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;">(0.000)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">Num.Obs.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">872</td>
+<td style="text-align: left;">866</td>
+<td style="text-align: left;">862</td>
+<td style="text-align: left;">869</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">R2</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.534</td>
+<td style="text-align: left;">0.995</td>
+<td style="text-align: left;">0.843</td>
+<td style="text-align: left;">0.979</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">R2 Adj.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.445</td>
+<td style="text-align: left;">0.993</td>
+<td style="text-align: left;">0.813</td>
+<td style="text-align: left;">0.975</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">R2 Within</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.008</td>
+<td style="text-align: left;">0.017</td>
+<td style="text-align: left;">0.023</td>
+<td style="text-align: left;">0.028</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">R2 Within Adj.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.003</td>
+<td style="text-align: left;">0.012</td>
+<td style="text-align: left;">0.017</td>
+<td style="text-align: left;">0.023</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">AIC</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">4995.8</td>
+<td style="text-align: left;">16950.3</td>
+<td style="text-align: left;">4476.6</td>
+<td style="text-align: left;">3424.6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">BIC</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">5668.5</td>
+<td style="text-align: left;">17617.2</td>
+<td style="text-align: left;">5142.9</td>
+<td style="text-align: left;">4096.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">RMSE</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">3.61</td>
+<td style="text-align: left;">3662.66</td>
+<td style="text-align: left;">2.76</td>
+<td style="text-align: left;">1.48</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">FE: iso3c</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">FE: year</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(robust_csv)) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    robust <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(robust_csv, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(robust, <span class="at">caption =</span> <span class="st">"Robustness FE models"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Robustness table not found. Run R/04_model_specs.R.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Robustness FE models</caption>
+<colgroup>
+<col style="width: 9%">
+<col style="width: 22%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 23%">
+<col style="width: 7%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">part</th>
+<th style="text-align: left;">term</th>
+<th style="text-align: left;">statistic</th>
+<th style="text-align: left;">gdp_growth</th>
+<th style="text-align: left;">gdp_per_person_employed</th>
+<th style="text-align: left;">gcf_gdp</th>
+<th style="text-align: left;">employment_ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l2_cyber_incidents_log</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.040</td>
+<td style="text-align: left;">169.306</td>
+<td style="text-align: left;">0.515*</td>
+<td style="text-align: left;">0.188</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l2_cyber_incidents_log</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;">(0.294)</td>
+<td style="text-align: left;">(340.830)</td>
+<td style="text-align: left;">(0.251)</td>
+<td style="text-align: left;">(0.144)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l3_cyber_incidents_log</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.032</td>
+<td style="text-align: left;">725.222</td>
+<td style="text-align: left;">0.147</td>
+<td style="text-align: left;">0.145</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l3_cyber_incidents_log</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;">(0.266)</td>
+<td style="text-align: left;">(444.140)</td>
+<td style="text-align: left;">(0.214)</td>
+<td style="text-align: left;">(0.122)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_inflation_cpi</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.010**</td>
+<td style="text-align: left;">-7.014</td>
+<td style="text-align: left;">-0.004</td>
+<td style="text-align: left;">-0.003</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_inflation_cpi</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;">(0.003)</td>
+<td style="text-align: left;">(7.332)</td>
+<td style="text-align: left;">(0.010)</td>
+<td style="text-align: left;">(0.003)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_trade_gdp</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.012</td>
+<td style="text-align: left;">24.055</td>
+<td style="text-align: left;">0.013</td>
+<td style="text-align: left;">0.002</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_trade_gdp</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;">(0.029)</td>
+<td style="text-align: left;">(35.579)</td>
+<td style="text-align: left;">(0.021)</td>
+<td style="text-align: left;">(0.011)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_population_total</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.000</td>
+<td style="text-align: left;">-0.000</td>
+<td style="text-align: left;">0.000</td>
+<td style="text-align: left;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_population_total</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;">(0.000)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">Num.Obs.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">671</td>
+<td style="text-align: left;">667</td>
+<td style="text-align: left;">663</td>
+<td style="text-align: left;">668</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">R2</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.622</td>
+<td style="text-align: left;">0.996</td>
+<td style="text-align: left;">0.860</td>
+<td style="text-align: left;">0.986</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">R2 Adj.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.538</td>
+<td style="text-align: left;">0.995</td>
+<td style="text-align: left;">0.829</td>
+<td style="text-align: left;">0.983</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">R2 Within</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.005</td>
+<td style="text-align: left;">0.018</td>
+<td style="text-align: left;">0.014</td>
+<td style="text-align: left;">0.018</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">R2 Within Adj.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.004</td>
+<td style="text-align: left;">0.009</td>
+<td style="text-align: left;">0.004</td>
+<td style="text-align: left;">0.009</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">AIC</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">3639.5</td>
+<td style="text-align: left;">12956.5</td>
+<td style="text-align: left;">3315.3</td>
+<td style="text-align: left;">2360.5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">BIC</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">4194.1</td>
+<td style="text-align: left;">13510.3</td>
+<td style="text-align: left;">3863.9</td>
+<td style="text-align: left;">2914.5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">RMSE</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">3.03</td>
+<td style="text-align: left;">3324.74</td>
+<td style="text-align: left;">2.45</td>
+<td style="text-align: left;">1.18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">FE: iso3c</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">FE: year</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">X</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>comparison_csv <span class="ot">&lt;-</span> <span class="st">"output/tables/incidents_vs_readiness_regressions.csv"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(comparison_csv)) {</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    comparison <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(comparison_csv, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    knitr<span class="sc">::</span><span class="fu">kable</span>(comparison, <span class="at">caption =</span> <span class="st">"Incidents vs readiness comparison models"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Comparison table not found. Run R/04_model_specs.R.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Incidents vs readiness comparison models</caption>
+<colgroup>
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 3%">
+<col style="width: 10%">
+<col style="width: 8%">
+<col style="width: 15%">
+<col style="width: 12%">
+<col style="width: 9%">
+<col style="width: 7%">
+<col style="width: 12%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">part</th>
+<th style="text-align: left;">term</th>
+<th style="text-align: left;">statistic</th>
+<th style="text-align: left;">gdp_growth__cyber_incidents_log</th>
+<th style="text-align: left;">gdp_growth__gci_overall</th>
+<th style="text-align: left;">gdp_per_person_employed__cyber_incidents_log</th>
+<th style="text-align: left;">gdp_per_person_employed__gci_overall</th>
+<th style="text-align: left;">gcf_gdp__cyber_incidents_log</th>
+<th style="text-align: left;">gcf_gdp__gci_overall</th>
+<th style="text-align: left;">employment_ratio__cyber_incidents_log</th>
+<th style="text-align: left;">employment_ratio__gci_overall</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_cyber_incidents_log</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.066</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">814.480*</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.497+</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.193</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_cyber_incidents_log</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;">(0.232)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(409.242)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.267)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.126)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_inflation_cpi</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">0.001</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-10.606</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.015</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.005</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_inflation_cpi</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;">(0.006)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(10.003)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.017)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.004)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_trade_gdp</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.043</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-12.993</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.018</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.025*</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_trade_gdp</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;">(0.043)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(49.580)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.021)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.012)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_population_total</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;">-0.000</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.000</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.000</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.000</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">l1_population_total</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">3.351**</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-48740.336***</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">24.012***</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">57.854***</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(1.213)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(9520.849)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(2.216)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(4.059)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">gci_overall</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.003</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">886.690***</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.007</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.010</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">gci_overall</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.014)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(120.642)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.028)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.051)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">inflation_cpi</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.017*</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">181.650</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.063*</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.007</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">inflation_cpi</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.007)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(110.935)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.026)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.019)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">trade_gdp</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.000</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">484.729***</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.014</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.011</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">trade_gdp</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.004)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(81.919)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.013)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.022)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">population_total</td>
+<td style="text-align: left;">estimate</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.000***</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">-0.000</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.000**</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">estimates</td>
+<td style="text-align: left;">population_total</td>
+<td style="text-align: left;">std.error</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.000)</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">(0.000)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">Num.Obs.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">872</td>
+<td style="text-align: left;">122</td>
+<td style="text-align: left;">866</td>
+<td style="text-align: left;">120</td>
+<td style="text-align: left;">862</td>
+<td style="text-align: left;">121</td>
+<td style="text-align: left;">869</td>
+<td style="text-align: left;">120</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">R2</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.534</td>
+<td style="text-align: left;">0.035</td>
+<td style="text-align: left;">0.995</td>
+<td style="text-align: left;">0.495</td>
+<td style="text-align: left;">0.843</td>
+<td style="text-align: left;">0.096</td>
+<td style="text-align: left;">0.979</td>
+<td style="text-align: left;">0.004</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">R2 Adj.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.445</td>
+<td style="text-align: left;">0.002</td>
+<td style="text-align: left;">0.993</td>
+<td style="text-align: left;">0.477</td>
+<td style="text-align: left;">0.813</td>
+<td style="text-align: left;">0.065</td>
+<td style="text-align: left;">0.975</td>
+<td style="text-align: left;">-0.030</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">R2 Within</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.008</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.017</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.023</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.028</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">R2 Within Adj.</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.003</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.012</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.017</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.023</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">AIC</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">4995.8</td>
+<td style="text-align: left;">584.3</td>
+<td style="text-align: left;">16950.3</td>
+<td style="text-align: left;">2867.9</td>
+<td style="text-align: left;">4476.6</td>
+<td style="text-align: left;">810.0</td>
+<td style="text-align: left;">3424.6</td>
+<td style="text-align: left;">913.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">BIC</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">5668.5</td>
+<td style="text-align: left;">598.3</td>
+<td style="text-align: left;">17617.2</td>
+<td style="text-align: left;">2881.8</td>
+<td style="text-align: left;">5142.9</td>
+<td style="text-align: left;">824.0</td>
+<td style="text-align: left;">4096.8</td>
+<td style="text-align: left;">927.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">RMSE</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">3.61</td>
+<td style="text-align: left;">2.55</td>
+<td style="text-align: left;">3662.66</td>
+<td style="text-align: left;">35914.59</td>
+<td style="text-align: left;">2.76</td>
+<td style="text-align: left;">6.60</td>
+<td style="text-align: left;">1.48</td>
+<td style="text-align: left;">10.42</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">FE: iso3c</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">gof</td>
+<td style="text-align: left;">FE: year</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="figures" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="figures"><span class="header-section-number">4</span> Figures</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="output/figures/partial_correlation_scatter.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="output/figures/dynamic_fallback_trend.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="notes" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="notes"><span class="header-section-number">5</span> Notes</h2>
+<p>This MVP report is reproducible from the script pipeline in <code>R/</code>.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
