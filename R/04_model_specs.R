@@ -206,6 +206,12 @@ panel <- create_lags(panel, vars = lag_vars, lags = 1:3)
 
 baseline_models <- list()
 robust_models <- list()
+gof_map_nobs <- data.frame(
+	raw = "nobs",
+	clean = "Num.Obs.",
+	fmt = 0,
+	stringsAsFactors = FALSE
+)
 
 for (y in outcomes) {
 	baseline_terms <- c(paste0("l1_", main_regressor), paste0("l1_", controls))
@@ -215,10 +221,6 @@ for (y in outcomes) {
 		next
 	}
 
-	baseline_formula <- as.formula(
-		paste0(y, " ~ ", paste(baseline_terms, collapse = " + "), " | iso3c + year")
-	)
-
 	robust_terms <- c(
 		paste0("l2_", main_regressor),
 		paste0("l3_", main_regressor),
@@ -226,21 +228,15 @@ for (y in outcomes) {
 	)
 	robust_terms <- robust_terms[robust_terms %in% names(panel)]
 
-	robust_formula <- as.formula(
-		paste0(y, " ~ ", paste(robust_terms, collapse = " + "), " | iso3c + year")
-	)
+	baseline_fit <- fit_fe_model(panel, y, baseline_terms)
+	if (!is.null(baseline_fit)) {
+		baseline_models[[y]] <- baseline_fit
+	}
 
-	baseline_models[[y]] <- fixest::feols(
-		baseline_formula,
-		data = panel,
-		cluster = ~iso3c
-	)
-
-	robust_models[[y]] <- fixest::feols(
-		robust_formula,
-		data = panel,
-		cluster = ~iso3c
-	)
+	robust_fit <- fit_fe_model(panel, y, robust_terms)
+	if (!is.null(robust_fit)) {
+		robust_models[[y]] <- robust_fit
+	}
 }
 
 if (length(baseline_models) == 0) {
@@ -380,28 +376,28 @@ modelsummary::modelsummary(
 	baseline_models,
 	output = headline_html,
 	stars = TRUE,
-	goftable = "nobs"
+	gof_map = gof_map_nobs
 )
 
 modelsummary::modelsummary(
 	robust_models,
 	output = robust_html,
 	stars = TRUE,
-	goftable = "nobs"
+	gof_map = gof_map_nobs
 )
 
 headline_df <- modelsummary::modelsummary(
 	baseline_models,
 	output = "data.frame",
 	stars = TRUE,
-	goftable = "nobs"
+	gof_map = gof_map_nobs
 )
 
 robust_df <- modelsummary::modelsummary(
 	robust_models,
 	output = "data.frame",
 	stars = TRUE,
-	goftable = "nobs"
+	gof_map = gof_map_nobs
 )
 
 write.csv(headline_df, headline_csv, row.names = FALSE)
@@ -420,14 +416,14 @@ if (length(comparison_models) > 0) {
 		comparison_models,
 		output = comparison_html,
 		stars = TRUE,
-		goftable = "nobs"
+		gof_map = gof_map_nobs
 	)
 
 	comparison_df <- modelsummary::modelsummary(
 		comparison_models,
 		output = "data.frame",
 		stars = TRUE,
-		goftable = "nobs"
+		gof_map = gof_map_nobs
 	)
 
 	write.csv(comparison_df, comparison_csv, row.names = FALSE)

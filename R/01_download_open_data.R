@@ -69,9 +69,10 @@ if (skip_wdi_refresh) {
 		end_year,
 		"."
 	)
+	message("WDI refresh skipped for this run.")
+} else {
+	message("WDI refresh window: ", fetch_start_year, " to ", end_year)
 }
-
-message("WDI refresh window: ", fetch_start_year, " to ", end_year)
 
 # Persist indicator metadata up front so artifact exists even during long bootstrap runs.
 write.csv(indicator_map, metadata_path, row.names = FALSE)
@@ -353,6 +354,7 @@ repair_split_country_names <- function(x) {
 normalize_country_name <- function(x) {
 	x <- trimws(x)
 	x <- gsub("\\s+", " ", x)
+	x <- gsub("’", "'", x, fixed = TRUE)
 
 	recode <- c(
 		"Dem. Rep. of the Congo" = "Democratic Republic of the Congo",
@@ -361,7 +363,6 @@ normalize_country_name <- function(x) {
 		"Iran (Islamic Republic of)" = "Iran",
 		"Korea (Republic of)" = "Korea, Rep.",
 		"Dem. People's Rep. of Korea" = "Korea, Dem. People's Rep.",
-		"Dem. People’s Rep. of Korea" = "Korea, Dem. People's Rep.",
 		"Lao P.D.R." = "Lao People's Democratic Republic",
 		"Nepal (Republic of)" = "Nepal",
 		"State of Palestine" = "Palestine",
@@ -628,28 +629,45 @@ if (length(gci_batches) == 0) {
 	if (file.exists(gci_out)) {
 		existing_gci <- read.csv(gci_out, stringsAsFactors = FALSE)
 		existing_gci$year <- as.integer(existing_gci$year)
-		append_gci <- anti_join(
-			gci_raw_all,
+	} else {
+		existing_gci <- data.frame(
+			iso3c = character(),
+			country = character(),
+			gci_tier = integer(),
+			gci_overall = numeric(),
+			gci_rank = integer(),
+			year = integer(),
+			source_slug = character(),
+			stringsAsFactors = FALSE
+		)
+	}
+
+	batch_append_counts <- integer(length(gci_batches))
+	for (j in seq_along(gci_batches)) {
+		append_piece <- anti_join(
+			gci_batches[[j]],
 			existing_gci %>% select(iso3c, year),
 			by = c("iso3c", "year")
 		)
-		gci_final <- bind_rows(existing_gci, append_gci) %>%
-			arrange(iso3c, year)
-		gci_rows_appended <- nrow(append_gci)
-	} else {
-		gci_final <- gci_raw_all
-		gci_rows_appended <- nrow(gci_raw_all)
+
+		batch_append_counts[j] <- nrow(append_piece)
+
+		if (nrow(append_piece) > 0) {
+			existing_gci <- bind_rows(existing_gci, append_piece) %>%
+				arrange(iso3c, year)
+		}
 	}
+
+	gci_final <- existing_gci %>%
+		distinct(iso3c, year, .keep_all = TRUE) %>%
+		arrange(iso3c, year)
+	gci_rows_appended <- sum(batch_append_counts)
 
 	write.csv(gci_final, gci_out, row.names = FALSE)
 
 	gci_refresh <- bind_rows(gci_refresh_rows) %>%
 		mutate(
-			rows_appended = dplyr::if_else(
-				row_number() == n(),
-				gci_rows_appended,
-				0L
-			),
+			rows_appended = batch_append_counts,
 			total_rows_after_write = nrow(gci_final)
 		)
 
