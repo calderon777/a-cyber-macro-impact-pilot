@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>tinytable_03jddrex59un98qfkw2d</title>
+    <title>tinytable_0sun9f3ms2lvk7duwa5p</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
@@ -12,8 +12,8 @@
 
     <script>
 
-      function styleCell_03jddrex59un98qfkw2d(i, j, css_id) {
-          var table = document.getElementById("tinytable_03jddrex59un98qfkw2d");
+      function styleCell_0sun9f3ms2lvk7duwa5p(i, j, css_id) {
+          var table = document.getElementById("tinytable_0sun9f3ms2lvk7duwa5p");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -23,7 +23,7 @@
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_03jddrex59un98qfkw2d');
+        var table = document.getElementById('tinytable_0sun9f3ms2lvk7duwa5p');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -31,8 +31,8 @@
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_03jddrex59un98qfkw2d(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_03jddrex59un98qfkw2d");
+      function spanCell_0sun9f3ms2lvk7duwa5p(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_0sun9f3ms2lvk7duwa5p");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -62,20 +62,20 @@
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 18, j: 2 }, { i: 18, j: 3 }, { i: 18, j: 1 }, { i: 18, j: 4 },  ], css_id: 'tinytable_css_p2py8o3hrlbyz101r100',}, 
-          { positions: [ { i: 8, j: 4 }, { i: 8, j: 1 }, { i: 8, j: 2 }, { i: 8, j: 3 },  ], css_id: 'tinytable_css_an3qk6amj5kxpa1xmt8a',}, 
-          { positions: [ { i: 3, j: 1 }, { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 7, j: 1 }, { i: 4, j: 1 }, { i: 9, j: 1 }, { i: 10, j: 1 }, { i: 11, j: 1 }, { i: 2, j: 2 }, { i: 13, j: 1 }, { i: 14, j: 1 }, { i: 15, j: 1 }, { i: 16, j: 1 }, { i: 17, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 1, j: 2 }, { i: 15, j: 2 }, { i: 3, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 12, j: 1 }, { i: 7, j: 2 }, { i: 2, j: 3 }, { i: 9, j: 2 }, { i: 10, j: 2 }, { i: 11, j: 2 }, { i: 12, j: 2 }, { i: 13, j: 2 }, { i: 14, j: 2 }, { i: 9, j: 3 }, { i: 16, j: 2 }, { i: 17, j: 2 }, { i: 12, j: 3 }, { i: 6, j: 2 }, { i: 1, j: 3 }, { i: 15, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 7, j: 3 }, { i: 2, j: 4 }, { i: 3, j: 4 }, { i: 10, j: 3 }, { i: 11, j: 3 }, { i: 6, j: 4 }, { i: 13, j: 3 }, { i: 14, j: 3 }, { i: 9, j: 4 }, { i: 16, j: 3 }, { i: 17, j: 3 }, { i: 12, j: 4 }, { i: 13, j: 4 }, { i: 1, j: 4 }, { i: 15, j: 4 }, { i: 16, j: 4 }, { i: 4, j: 4 }, { i: 5, j: 4 }, { i: 10, j: 4 }, { i: 7, j: 4 }, { i: 17, j: 4 }, { i: 14, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_faa31z1ayvpwjjqd594q',}, 
-          { positions: [ { i: 0, j: 1 }, { i: 0, j: 4 }, { i: 0, j: 2 }, { i: 0, j: 3 },  ], css_id: 'tinytable_css_t1xmsza2fx9yrv1n9mb9',}, 
-          { positions: [ { i: 18, j: 0 },  ], css_id: 'tinytable_css_84iu49zan4utz3lccerd',}, 
-          { positions: [ { i: 8, j: 0 },  ], css_id: 'tinytable_css_djfbhihfxzy5njo90teh',}, 
-          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 12, j: 0 }, { i: 9, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 }, { i: 16, j: 0 }, { i: 13, j: 0 }, { i: 14, j: 0 }, { i: 15, j: 0 }, { i: 17, j: 0 },  ], css_id: 'tinytable_css_3t2sqw5trg77zmyf62km',}, 
-          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_85s7u1d5wlo8cwimzas7',}, 
+          { positions: [ { i: 18, j: 2 }, { i: 18, j: 3 }, { i: 18, j: 1 }, { i: 18, j: 4 },  ], css_id: 'tinytable_css_lw4nq4o8cmupmnabg76a',}, 
+          { positions: [ { i: 8, j: 4 }, { i: 8, j: 1 }, { i: 8, j: 2 }, { i: 8, j: 3 },  ], css_id: 'tinytable_css_i2r4w09y1yu2hoo15mpb',}, 
+          { positions: [ { i: 3, j: 1 }, { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 7, j: 1 }, { i: 4, j: 1 }, { i: 9, j: 1 }, { i: 10, j: 1 }, { i: 11, j: 1 }, { i: 2, j: 2 }, { i: 13, j: 1 }, { i: 14, j: 1 }, { i: 15, j: 1 }, { i: 16, j: 1 }, { i: 17, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 1, j: 2 }, { i: 15, j: 2 }, { i: 3, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 12, j: 1 }, { i: 7, j: 2 }, { i: 2, j: 3 }, { i: 9, j: 2 }, { i: 10, j: 2 }, { i: 11, j: 2 }, { i: 12, j: 2 }, { i: 13, j: 2 }, { i: 14, j: 2 }, { i: 9, j: 3 }, { i: 16, j: 2 }, { i: 17, j: 2 }, { i: 12, j: 3 }, { i: 6, j: 2 }, { i: 1, j: 3 }, { i: 15, j: 3 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 7, j: 3 }, { i: 2, j: 4 }, { i: 3, j: 4 }, { i: 10, j: 3 }, { i: 11, j: 3 }, { i: 6, j: 4 }, { i: 13, j: 3 }, { i: 14, j: 3 }, { i: 9, j: 4 }, { i: 16, j: 3 }, { i: 17, j: 3 }, { i: 12, j: 4 }, { i: 13, j: 4 }, { i: 1, j: 4 }, { i: 15, j: 4 }, { i: 16, j: 4 }, { i: 4, j: 4 }, { i: 5, j: 4 }, { i: 10, j: 4 }, { i: 7, j: 4 }, { i: 17, j: 4 }, { i: 14, j: 4 }, { i: 11, j: 4 },  ], css_id: 'tinytable_css_m38wadsxp5tk5f42wpfj',}, 
+          { positions: [ { i: 0, j: 1 }, { i: 0, j: 4 }, { i: 0, j: 2 }, { i: 0, j: 3 },  ], css_id: 'tinytable_css_216eafajxupyc1li1vun',}, 
+          { positions: [ { i: 18, j: 0 },  ], css_id: 'tinytable_css_zugscrg7ww7c0dlr3brq',}, 
+          { positions: [ { i: 8, j: 0 },  ], css_id: 'tinytable_css_29na0nebel9cy8uzy9jw',}, 
+          { positions: [ { i: 1, j: 0 }, { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 5, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 12, j: 0 }, { i: 9, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 }, { i: 16, j: 0 }, { i: 13, j: 0 }, { i: 14, j: 0 }, { i: 15, j: 0 }, { i: 17, j: 0 },  ], css_id: 'tinytable_css_mq37usx0v8urdq3mwhsy',}, 
+          { positions: [ { i: 0, j: 0 },  ], css_id: 'tinytable_css_ra5hnam7yuu63ysrflip',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_03jddrex59un98qfkw2d(cell.i, cell.j, group.css_id);
+                  styleCell_0sun9f3ms2lvk7duwa5p(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -83,17 +83,17 @@
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_p2py8o3hrlbyz101r100, .table th.tinytable_css_p2py8o3hrlbyz101r100 { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_an3qk6amj5kxpa1xmt8a, .table th.tinytable_css_an3qk6amj5kxpa1xmt8a { text-align: center; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_faa31z1ayvpwjjqd594q, .table th.tinytable_css_faa31z1ayvpwjjqd594q { text-align: center; }
-      .table td.tinytable_css_t1xmsza2fx9yrv1n9mb9, .table th.tinytable_css_t1xmsza2fx9yrv1n9mb9 { text-align: center; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_84iu49zan4utz3lccerd, .table th.tinytable_css_84iu49zan4utz3lccerd { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_djfbhihfxzy5njo90teh, .table th.tinytable_css_djfbhihfxzy5njo90teh { text-align: left; border-bottom: solid black 0.05em; }
-      .table td.tinytable_css_3t2sqw5trg77zmyf62km, .table th.tinytable_css_3t2sqw5trg77zmyf62km { text-align: left; }
-      .table td.tinytable_css_85s7u1d5wlo8cwimzas7, .table th.tinytable_css_85s7u1d5wlo8cwimzas7 { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_lw4nq4o8cmupmnabg76a, .table th.tinytable_css_lw4nq4o8cmupmnabg76a { text-align: center; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_i2r4w09y1yu2hoo15mpb, .table th.tinytable_css_i2r4w09y1yu2hoo15mpb { text-align: center; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_m38wadsxp5tk5f42wpfj, .table th.tinytable_css_m38wadsxp5tk5f42wpfj { text-align: center; }
+      .table td.tinytable_css_216eafajxupyc1li1vun, .table th.tinytable_css_216eafajxupyc1li1vun { text-align: center; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_zugscrg7ww7c0dlr3brq, .table th.tinytable_css_zugscrg7ww7c0dlr3brq { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_29na0nebel9cy8uzy9jw, .table th.tinytable_css_29na0nebel9cy8uzy9jw { text-align: left; border-bottom: solid black 0.05em; }
+      .table td.tinytable_css_mq37usx0v8urdq3mwhsy, .table th.tinytable_css_mq37usx0v8urdq3mwhsy { text-align: left; }
+      .table td.tinytable_css_ra5hnam7yuu63ysrflip, .table th.tinytable_css_ra5hnam7yuu63ysrflip { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_03jddrex59un98qfkw2d" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
+      <table class="table table-borderless" id="tinytable_0sun9f3ms2lvk7duwa5p" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing='true'>
         <thead>
         
               <tr>
@@ -108,43 +108,43 @@
         <tbody>
                 <tr>
                   <td>l1_cyber_incidents_log</td>
-                  <td>−0.066</td>
-                  <td>814.480*</td>
-                  <td>0.497+</td>
-                  <td>0.193</td>
+                  <td>−0.121</td>
+                  <td>808.261+</td>
+                  <td>0.485+</td>
+                  <td>0.187</td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>(0.232)</td>
-                  <td>(409.242)</td>
-                  <td>(0.267)</td>
+                  <td>(0.228)</td>
+                  <td>(409.866)</td>
+                  <td>(0.268)</td>
                   <td>(0.126)</td>
                 </tr>
                 <tr>
                   <td>l1_inflation_cpi</td>
-                  <td>0.001</td>
-                  <td>−10.606</td>
-                  <td>−0.015</td>
+                  <td>0.000</td>
+                  <td>−10.532</td>
+                  <td>−0.016</td>
                   <td>−0.005</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>(0.006)</td>
-                  <td>(10.003)</td>
-                  <td>(0.017)</td>
+                  <td>(9.975)</td>
+                  <td>(0.018)</td>
                   <td>(0.004)</td>
                 </tr>
                 <tr>
                   <td>l1_trade_gdp</td>
-                  <td>−0.043</td>
-                  <td>−12.993</td>
-                  <td>0.018</td>
-                  <td>0.025*</td>
+                  <td>−0.045</td>
+                  <td>−14.537</td>
+                  <td>0.015</td>
+                  <td>0.027*</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>(0.043)</td>
-                  <td>(49.580)</td>
+                  <td>(49.952)</td>
                   <td>(0.021)</td>
                   <td>(0.012)</td>
                 </tr>
@@ -164,59 +164,59 @@
                 </tr>
                 <tr>
                   <td>Num.Obs.</td>
-                  <td>872</td>
-                  <td>866</td>
-                  <td>862</td>
-                  <td>869</td>
+                  <td>860</td>
+                  <td>854</td>
+                  <td>850</td>
+                  <td>857</td>
                 </tr>
                 <tr>
                   <td>R2</td>
-                  <td>0.534</td>
+                  <td>0.539</td>
                   <td>0.995</td>
-                  <td>0.843</td>
+                  <td>0.845</td>
                   <td>0.979</td>
                 </tr>
                 <tr>
                   <td>R2 Adj.</td>
-                  <td>0.445</td>
+                  <td>0.450</td>
                   <td>0.993</td>
-                  <td>0.813</td>
+                  <td>0.815</td>
                   <td>0.975</td>
                 </tr>
                 <tr>
                   <td>R2 Within</td>
-                  <td>0.008</td>
+                  <td>0.009</td>
                   <td>0.017</td>
                   <td>0.023</td>
-                  <td>0.028</td>
+                  <td>0.030</td>
                 </tr>
                 <tr>
                   <td>R2 Within Adj.</td>
-                  <td>0.003</td>
+                  <td>0.004</td>
                   <td>0.012</td>
-                  <td>0.017</td>
-                  <td>0.023</td>
+                  <td>0.018</td>
+                  <td>0.024</td>
                 </tr>
                 <tr>
                   <td>AIC</td>
-                  <td>4995.8</td>
-                  <td>16950.3</td>
-                  <td>4476.6</td>
-                  <td>3424.6</td>
+                  <td>4901.6</td>
+                  <td>16721.3</td>
+                  <td>4398.3</td>
+                  <td>3373.0</td>
                 </tr>
                 <tr>
                   <td>BIC</td>
-                  <td>5668.5</td>
-                  <td>17617.2</td>
-                  <td>5142.9</td>
-                  <td>4096.8</td>
+                  <td>5567.5</td>
+                  <td>17381.5</td>
+                  <td>5057.9</td>
+                  <td>4038.4</td>
                 </tr>
                 <tr>
                   <td>RMSE</td>
-                  <td>3.61</td>
-                  <td>3662.66</td>
-                  <td>2.76</td>
-                  <td>1.48</td>
+                  <td>3.55</td>
+                  <td>3671.19</td>
+                  <td>2.73</td>
+                  <td>1.47</td>
                 </tr>
                 <tr>
                   <td>FE: iso3c</td>

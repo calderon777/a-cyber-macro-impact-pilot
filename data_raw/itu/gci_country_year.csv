@@ -1,193 +1,387 @@
-"country","gci_tier","iso3c","year","gci_overall"
-"Afghanistan",5,"AFG",2024,10
-"Angola",4,"AGO",2024,37.5
-"Albania",2,"ALB",2024,90
-"Andorra",3,"AND",2024,70
-"United Arab Emirates",1,"ARE",2024,97.5
-"Argentina",4,"ARG",2024,37.5
-"Armenia",4,"ARM",2024,37.5
-"Australia",1,"AUS",2024,97.5
-"Austria",2,"AUT",2024,90
-"Azerbaijan",2,"AZE",2024,90
-"Burundi",5,"BDI",2024,10
-"Belgium",1,"BEL",2024,97.5
-"Benin",2,"BEN",2024,90
-"Burkina Faso",3,"BFA",2024,70
-"Bangladesh",1,"BGD",2024,97.5
-"Bulgaria",3,"BGR",2024,70
-"Bahrain",1,"BHR",2024,97.5
-"Bahamas",4,"BHS",2024,37.5
-"Bosnia and Herzegovina",4,"BIH",2024,37.5
-"Belarus",3,"BLR",2024,70
-"Belize",4,"BLZ",2024,37.5
-"Bolivia (Plurinational",4,"BOL",2024,37.5
-"Brazil",1,"BRA",2024,97.5
-"Barbados",4,"BRB",2024,37.5
-"Brunei Darussalam",3,"BRN",2024,70
-"Bhutan",3,"BTN",2024,70
-"Botswana",3,"BWA",2024,70
-"Central African Rep.",5,"CAF",2024,10
-"Canada",2,"CAN",2024,90
-"Switzerland",2,"CHE",2024,90
-"Chile",3,"CHL",2024,70
-"China",2,"CHN",2024,90
-"Côte d'Ivoire",3,"CIV",2024,70
-"Cameroon",3,"CMR",2024,70
-"Democratic Republic of the Congo",3,"COD",2024,70
-"Republic of the Congo",4,"COG",2024,37.5
-"Colombia",3,"COL",2024,70
-"Comoros",4,"COM",2024,37.5
-"Cape Verde",4,"CPV",2024,37.5
-"Costa Rica",3,"CRI",2024,70
-"Cuba",3,"CUB",2024,70
-"Cyprus",1,"CYP",2024,97.5
-"Czech Republic",2,"CZE",2024,90
-"Germany",1,"DEU",2024,97.5
-"Djibouti",4,"DJI",2024,37.5
-"Dominica",4,"DMA",2024,37.5
-"Denmark",1,"DNK",2024,97.5
-"Dominican Republic",3,"DOM",2024,70
-"Algeria",3,"DZA",2024,70
-"Ecuador",2,"ECU",2024,90
-"Egypt",1,"EGY",2024,97.5
-"Eritrea",5,"ERI",2024,10
-"Spain",1,"ESP",2024,97.5
-"Estonia",1,"EST",2024,97.5
-"Ethiopia",3,"ETH",2024,70
-"Finland",1,"FIN",2024,97.5
-"Fiji",4,"FJI",2024,37.5
-"France",1,"FRA",2024,97.5
-"Micronesia, Fed. Sts.",5,"FSM",2024,10
-"Gabon",4,"GAB",2024,37.5
-"United Kingdom",1,"GBR",2024,97.5
-"Georgia",2,"GEO",2024,90
-"Ghana",1,"GHA",2024,97.5
-"Guinea",3,"GIN",2024,70
-"Gambia",3,"GMB",2024,70
-"Guinea-Bissau",5,"GNB",2024,10
-"Equatorial Guinea",4,"GNQ",2024,37.5
-"Greece",1,"GRC",2024,97.5
-"Grenada",4,"GRD",2024,37.5
-"Guatemala",4,"GTM",2024,37.5
-"Guyana",4,"GUY",2024,37.5
-"Honduras",4,"HND",2024,37.5
-"Croatia",2,"HRV",2024,90
-"Haiti",4,"HTI",2024,37.5
-"Hungary",2,"HUN",2024,90
-"Indonesia",1,"IDN",2024,97.5
-"India",1,"IND",2024,97.5
-"Ireland",2,"IRL",2024,90
-"Iran",3,"IRN",2024,70
-"Iraq",4,"IRQ",2024,37.5
-"Iceland of the)",1,"ISL",2024,97.5
-"Israel",2,"ISR",2024,90
-"Italy",1,"ITA",2024,97.5
-"Jamaica",3,"JAM",2024,70
-"Jordan",1,"JOR",2024,97.5
-"Japan",1,"JPN",2024,97.5
-"Kazakhstan",2,"KAZ",2024,90
-"Kenya",1,"KEN",2024,97.5
-"Kyrgyzstan",3,"KGZ",2024,70
-"Cambodia",4,"KHM",2024,37.5
-"Kiribati",3,"KIR",2024,70
-"Saint Kitts and Nevis",4,"KNA",2024,37.5
-"Korea, Rep.",1,"KOR",2024,97.5
-"Kuwait",3,"KWT",2024,70
-"Lao P.D.R. the Grenadines",4,"LAO",2024,37.5
-"Lebanon",4,"LBN",2024,37.5
-"Liberia",4,"LBR",2024,37.5
-"Libya",3,"LBY",2024,70
-"Saint Lucia",4,"LCA",2024,37.5
-"Liechtenstein",4,"LIE",2024,37.5
-"Sri Lanka",2,"LKA",2024,90
-"Lesotho",4,"LSO",2024,37.5
-"Lithuania",2,"LTU",2024,90
-"Luxembourg",1,"LUX",2024,97.5
-"Latvia",3,"LVA",2024,70
-"Morocco",1,"MAR",2024,97.5
-"Monaco",3,"MCO",2024,70
-"Moldova",3,"MDA",2024,70
-"Madagascar",4,"MDG",2024,37.5
-"Maldives",5,"MDV",2024,10
-"Mexico",2,"MEX",2024,90
-"Marshall Islands",5,"MHL",2024,10
-"North Macedonia",3,"MKD",2024,70
-"Mali",4,"MLI",2024,37.5
-"Malta",2,"MLT",2024,90
-"Myanmar",3,"MMR",2024,70
-"Montenegro",3,"MNE",2024,70
-"Mongolia",3,"MNG",2024,70
-"Mozambique",3,"MOZ",2024,70
-"Mauritania",4,"MRT",2024,37.5
-"Mauritius",1,"MUS",2024,97.5
-"Malawi",3,"MWI",2024,70
-"Malaysia",1,"MYS",2024,97.5
-"Namibia",4,"NAM",2024,37.5
-"Niger",4,"NER",2024,37.5
-"Nigeria",3,"NGA",2024,70
-"Nicaragua",4,"NIC",2024,37.5
-"Netherlands (Kingdom",1,"NLD",2024,97.5
-"Norway",1,"NOR",2024,97.5
-"Nepal",3,"NPL",2024,70
-"Nauru",4,"NRU",2024,37.5
-"New Zealand",3,"NZL",2024,70
-"Oman",1,"OMN",2024,97.5
-"Pakistan",1,"PAK",2024,97.5
-"Panama",3,"PAN",2024,70
-"Peru",3,"PER",2024,70
-"Philippines",2,"PHL",2024,90
-"Papua New Guinea",3,"PNG",2024,70
-"Poland",2,"POL",2024,90
-"Portugal",1,"PRT",2024,97.5
-"Paraguay",3,"PRY",2024,70
-"Palestine",4,"PSE",2024,37.5
-"Qatar",1,"QAT",2024,97.5
-"Romania",2,"ROU",2024,90
-"Russia",2,"RUS",2024,90
-"Rwanda",1,"RWA",2024,97.5
-"Saudi Arabia",1,"SAU",2024,97.5
-"Sudan",4,"SDN",2024,37.5
-"Senegal",3,"SEN",2024,70
-"Singapore",1,"SGP",2024,97.5
-"Solomon Islands",5,"SLB",2024,10
-"Sierra Leone",3,"SLE",2024,70
-"El Salvador",4,"SLV",2024,37.5
-"San Marino",4,"SMR",2024,37.5
-"Somalia",4,"SOM",2024,37.5
-"Serbia",1,"SRB",2024,97.5
-"South Sudan",4,"SSD",2024,37.5
-"Sao Tome and Principe",4,"STP",2024,37.5
-"Suriname",4,"SUR",2024,37.5
-"Slovakia",2,"SVK",2024,90
-"Slovenia",1,"SVN",2024,97.5
-"Sweden",1,"SWE",2024,97.5
-"Eswatini",3,"SWZ",2024,70
-"Seychelles",4,"SYC",2024,37.5
-"Syrian Arab Republic State of)",4,"SYR",2024,37.5
-"Chad",4,"TCD",2024,37.5
-"Togo",2,"TGO",2024,90
-"Thailand",1,"THA",2024,97.5
-"Tajikistan",4,"TJK",2024,37.5
-"Turkmenistan",4,"TKM",2024,37.5
-"Timor-Leste",5,"TLS",2024,10
-"Tonga",4,"TON",2024,37.5
-"Trinidad and Tobago",3,"TTO",2024,70
-"Tunisia",3,"TUN",2024,70
-"Turkey",1,"TUR",2024,97.5
-"Tuvalu",4,"TUV",2024,37.5
-"Tanzania",1,"TZA",2024,97.5
-"Uganda",3,"UGA",2024,70
-"Ukraine",3,"UKR",2024,70
-"Uruguay",2,"URY",2024,90
-"United States",1,"USA",2024,97.5
-"Uzbekistan",2,"UZB",2024,90
-"Holy See",5,"VAT",2024,10
-"Saint Vincent and",4,"VCT",2024,37.5
-"Venezuela",4,"VEN",2024,37.5
-"Vietnam",1,"VNM",2024,97.5
-"Vanuatu",3,"VUT",2024,70
-"Samoa",4,"WSM",2024,37.5
-"Yemen",5,"YEM",2024,10
-"South Africa",2,"ZAF",2024,90
-"Zambia",2,"ZMB",2024,90
-"Zimbabwe",4,"ZWE",2024,37.5
+"country","gci_tier","iso3c","year","gci_overall","gci_rank","source_slug"
+"Afghanistan",NA,"AFG",2020,5.2,171,"d-str-gci.01-2021-htm-e"
+"Afghanistan",5,"AFG",2024,10,NA,NA
+"Angola",NA,"AGO",2020,12.99,151,"d-str-gci.01-2021-htm-e"
+"Angola",4,"AGO",2024,37.5,NA,NA
+"Albania",NA,"ALB",2020,64.32,80,"d-str-gci.01-2021-htm-e"
+"Albania",2,"ALB",2024,90,NA,NA
+"Andorra",NA,"AND",2020,26.38,117,"d-str-gci.01-2021-htm-e"
+"Andorra",3,"AND",2024,70,NA,NA
+"United Arab Emirates",NA,"ARE",2020,98.06,5,"d-str-gci.01-2021-htm-e"
+"United Arab Emirates",1,"ARE",2024,97.5,NA,NA
+"Argentina",NA,"ARG",2020,50.12,91,"d-str-gci.01-2021-htm-e"
+"Argentina",4,"ARG",2024,37.5,NA,NA
+"Armenia",NA,"ARM",2020,50.47,90,"d-str-gci.01-2021-htm-e"
+"Armenia",4,"ARM",2024,37.5,NA,NA
+"Antigua and Barbuda",NA,"ATG",2020,15.62,142,"d-str-gci.01-2021-htm-e"
+"Australia",NA,"AUS",2020,97.47,12,"d-str-gci.01-2021-htm-e"
+"Australia",1,"AUS",2024,97.5,NA,NA
+"Austria",NA,"AUT",2020,93.89,29,"d-str-gci.01-2021-htm-e"
+"Austria",2,"AUT",2024,90,NA,NA
+"Azerbaijan",NA,"AZE",2020,89.31,40,"d-str-gci.01-2021-htm-e"
+"Azerbaijan",2,"AZE",2024,90,NA,NA
+"Burundi",NA,"BDI",2020,1.73,179,"d-str-gci.01-2021-htm-e"
+"Burundi",5,"BDI",2024,10,NA,NA
+"Belgium",NA,"BEL",2020,96.25,19,"d-str-gci.01-2021-htm-e"
+"Belgium",1,"BEL",2024,97.5,NA,NA
+"Benin",NA,"BEN",2020,80.06,56,"d-str-gci.01-2021-htm-e"
+"Benin",2,"BEN",2024,90,NA,NA
+"Burkina Faso",NA,"BFA",2020,39.98,96,"d-str-gci.01-2021-htm-e"
+"Burkina Faso",3,"BFA",2024,70,NA,NA
+"Bangladesh",NA,"BGD",2020,81.27,53,"d-str-gci.01-2021-htm-e"
+"Bangladesh",1,"BGD",2024,97.5,NA,NA
+"Bulgaria",NA,"BGR",2020,67.38,77,"d-str-gci.01-2021-htm-e"
+"Bulgaria",3,"BGR",2024,70,NA,NA
+"Bahrain",NA,"BHR",2020,77.86,60,"d-str-gci.01-2021-htm-e"
+"Bahrain",1,"BHR",2024,97.5,NA,NA
+"Bahamas",NA,"BHS",2020,13.37,147,"d-str-gci.01-2021-htm-e"
+"Bahamas",4,"BHS",2024,37.5,NA,NA
+"Bosnia and Herzegovina",NA,"BIH",2020,29.44,110,"d-str-gci.01-2021-htm-e"
+"Bosnia and Herzegovina",4,"BIH",2024,37.5,NA,NA
+"Belarus",NA,"BLR",2020,50.57,89,"d-str-gci.01-2021-htm-e"
+"Belarus",3,"BLR",2024,70,NA,NA
+"Belize",NA,"BLZ",2020,10.29,159,"d-str-gci.01-2021-htm-e"
+"Belize",4,"BLZ",2024,37.5,NA,NA
+"Bolivia (Plurinational State of)",NA,"BOL",2020,16.14,140,"d-str-gci.01-2021-htm-e"
+"Bolivia (Plurinational",4,"BOL",2024,37.5,NA,NA
+"Brazil",NA,"BRA",2020,96.6,18,"d-str-gci.01-2021-htm-e"
+"Brazil",1,"BRA",2024,97.5,NA,NA
+"Barbados",NA,"BRB",2020,16.89,139,"d-str-gci.01-2021-htm-e"
+"Barbados",4,"BRB",2024,37.5,NA,NA
+"Brunei Darussalam",NA,"BRN",2020,56.07,85,"d-str-gci.01-2021-htm-e"
+"Brunei Darussalam",3,"BRN",2024,70,NA,NA
+"Bhutan",NA,"BTN",2020,18.34,134,"d-str-gci.01-2021-htm-e"
+"Bhutan",3,"BTN",2024,70,NA,NA
+"Botswana",NA,"BWA",2020,53.06,88,"d-str-gci.01-2021-htm-e"
+"Botswana",3,"BWA",2024,70,NA,NA
+"Central African Rep.",NA,"CAF",2020,3.24,176,"d-str-gci.01-2021-htm-e"
+"Central African Rep.",5,"CAF",2024,10,NA,NA
+"Canada",NA,"CAN",2020,97.67,8,"d-str-gci.01-2021-htm-e"
+"Canada",2,"CAN",2024,90,NA,NA
+"Switzerland",NA,"CHE",2020,86.97,42,"d-str-gci.01-2021-htm-e"
+"Switzerland",2,"CHE",2024,90,NA,NA
+"Chile",NA,"CHL",2020,68.83,74,"d-str-gci.01-2021-htm-e"
+"Chile",3,"CHL",2024,70,NA,NA
+"China",NA,"CHN",2020,92.53,33,"d-str-gci.01-2021-htm-e"
+"China",2,"CHN",2024,90,NA,NA
+"Côte d'Ivoire",NA,"CIV",2020,67.82,75,"d-str-gci.01-2021-htm-e"
+"Côte d'Ivoire",3,"CIV",2024,70,NA,NA
+"Cameroon",NA,"CMR",2020,45.63,93,"d-str-gci.01-2021-htm-e"
+"Cameroon",3,"CMR",2024,70,NA,NA
+"Democratic Republic of the Congo",NA,"COD",2020,5.3,170,"d-str-gci.01-2021-htm-e"
+"Democratic Republic of the Congo",3,"COD",2024,70,NA,NA
+"Republic of the Congo",NA,"COG",2020,14.72,143,"d-str-gci.01-2021-htm-e"
+"Republic of the Congo",4,"COG",2024,37.5,NA,NA
+"Colombia",NA,"COL",2020,63.72,81,"d-str-gci.01-2021-htm-e"
+"Colombia",3,"COL",2024,70,NA,NA
+"Comoros",NA,"COM",2020,3.72,175,"d-str-gci.01-2021-htm-e"
+"Comoros",4,"COM",2024,37.5,NA,NA
+"Cape Verde",NA,"CPV",2020,17.74,136,"d-str-gci.01-2021-htm-e"
+"Cape Verde",4,"CPV",2024,37.5,NA,NA
+"Costa Rica",NA,"CRI",2020,67.45,76,"d-str-gci.01-2021-htm-e"
+"Costa Rica",3,"CRI",2024,70,NA,NA
+"Cuba",NA,"CUB",2020,58.76,82,"d-str-gci.01-2021-htm-e"
+"Cuba",3,"CUB",2024,70,NA,NA
+"Cyprus",NA,"CYP",2020,88.82,41,"d-str-gci.01-2021-htm-e"
+"Cyprus",1,"CYP",2024,97.5,NA,NA
+"Czech Republic",NA,"CZE",2020,74.37,68,"d-str-gci.01-2021-htm-e"
+"Czech Republic",2,"CZE",2024,90,NA,NA
+"Germany",NA,"DEU",2020,97.41,13,"d-str-gci.01-2021-htm-e"
+"Germany",1,"DEU",2024,97.5,NA,NA
+"Djibouti",NA,"DJI",2020,1.73,179,"d-str-gci.01-2021-htm-e"
+"Djibouti",4,"DJI",2024,37.5,NA,NA
+"Dominica",NA,"DMA",2020,4.2,174,"d-str-gci.01-2021-htm-e"
+"Dominica",4,"DMA",2024,37.5,NA,NA
+"Denmark",NA,"DNK",2020,92.6,32,"d-str-gci.01-2021-htm-e"
+"Denmark",1,"DNK",2024,97.5,NA,NA
+"Dominican Republic",NA,"DOM",2020,75.05,66,"d-str-gci.01-2021-htm-e"
+"Dominican Republic",3,"DOM",2024,70,NA,NA
+"Algeria",NA,"DZA",2020,33.95,104,"d-str-gci.01-2021-htm-e"
+"Algeria",3,"DZA",2024,70,NA,NA
+"Ecuador",NA,"ECU",2020,26.3,119,"d-str-gci.01-2021-htm-e"
+"Ecuador",2,"ECU",2024,90,NA,NA
+"Egypt",NA,"EGY",2020,95.48,23,"d-str-gci.01-2021-htm-e"
+"Egypt",1,"EGY",2024,97.5,NA,NA
+"Eritrea",NA,"ERI",2020,1.73,179,"d-str-gci.01-2021-htm-e"
+"Eritrea",5,"ERI",2024,10,NA,NA
+"Spain",NA,"ESP",2020,98.52,4,"d-str-gci.01-2021-htm-e"
+"Spain",1,"ESP",2024,97.5,NA,NA
+"Estonia",NA,"EST",2020,99.48,3,"d-str-gci.01-2021-htm-e"
+"Estonia",1,"EST",2024,97.5,NA,NA
+"Ethiopia",NA,"ETH",2020,27.74,115,"d-str-gci.01-2021-htm-e"
+"Ethiopia",3,"ETH",2024,70,NA,NA
+"Finland",NA,"FIN",2020,95.78,22,"d-str-gci.01-2021-htm-e"
+"Finland",1,"FIN",2024,97.5,NA,NA
+"Fiji",NA,"FJI",2020,29.08,112,"d-str-gci.01-2021-htm-e"
+"Fiji",4,"FJI",2024,37.5,NA,NA
+"France",NA,"FRA",2020,97.6,9,"d-str-gci.01-2021-htm-e"
+"France",1,"FRA",2024,97.5,NA,NA
+"Micronesia, Fed. Sts.",NA,"FSM",2020,0,182,"d-str-gci.01-2021-htm-e"
+"Micronesia, Fed. Sts.",5,"FSM",2024,10,NA,NA
+"Gabon",NA,"GAB",2020,11.36,157,"d-str-gci.01-2021-htm-e"
+"Gabon",4,"GAB",2024,37.5,NA,NA
+"United Kingdom",NA,"GBR",2020,99.54,2,"d-str-gci.01-2021-htm-e"
+"United Kingdom",1,"GBR",2024,97.5,NA,NA
+"Georgia",NA,"GEO",2020,81.06,55,"d-str-gci.01-2021-htm-e"
+"Georgia",2,"GEO",2024,90,NA,NA
+"Ghana",NA,"GHA",2020,86.69,43,"d-str-gci.01-2021-htm-e"
+"Ghana",1,"GHA",2024,97.5,NA,NA
+"Guinea",NA,"GIN",2020,20.53,130,"d-str-gci.01-2021-htm-e"
+"Guinea",3,"GIN",2024,70,NA,NA
+"Gambia",NA,"GMB",2020,32.12,107,"d-str-gci.01-2021-htm-e"
+"Gambia",3,"GMB",2024,70,NA,NA
+"Guinea-Bissau",NA,"GNB",2020,9.85,161,"d-str-gci.01-2021-htm-e"
+"Guinea-Bissau",5,"GNB",2024,10,NA,NA
+"Equatorial Guinea",NA,"GNQ",2020,1.46,180,"d-str-gci.01-2021-htm-e"
+"Equatorial Guinea",4,"GNQ",2024,37.5,NA,NA
+"Greece",NA,"GRC",2020,93.98,28,"d-str-gci.01-2021-htm-e"
+"Greece",1,"GRC",2024,97.5,NA,NA
+"Grenada",NA,"GRD",2020,9.41,163,"d-str-gci.01-2021-htm-e"
+"Grenada",4,"GRD",2024,37.5,NA,NA
+"Guatemala",NA,"GTM",2020,13.13,150,"d-str-gci.01-2021-htm-e"
+"Guatemala",4,"GTM",2024,37.5,NA,NA
+"Guyana",NA,"GUY",2020,28.11,114,"d-str-gci.01-2021-htm-e"
+"Guyana",4,"GUY",2024,37.5,NA,NA
+"Honduras",NA,"HND",2020,2.2,178,"d-str-gci.01-2021-htm-e"
+"Honduras",4,"HND",2024,37.5,NA,NA
+"Croatia",NA,"HRV",2020,92.53,33,"d-str-gci.01-2021-htm-e"
+"Croatia",2,"HRV",2024,90,NA,NA
+"Haiti",NA,"HTI",2020,6.4,167,"d-str-gci.01-2021-htm-e"
+"Haiti",4,"HTI",2024,37.5,NA,NA
+"Hungary",NA,"HUN",2020,91.28,35,"d-str-gci.01-2021-htm-e"
+"Hungary",2,"HUN",2024,90,NA,NA
+"Indonesia",NA,"IDN",2020,94.88,24,"d-str-gci.01-2021-htm-e"
+"Indonesia",1,"IDN",2024,97.5,NA,NA
+"India",NA,"IND",2020,97.5,10,"d-str-gci.01-2021-htm-e"
+"India",1,"IND",2024,97.5,NA,NA
+"Ireland",NA,"IRL",2020,85.86,46,"d-str-gci.01-2021-htm-e"
+"Ireland",2,"IRL",2024,90,NA,NA
+"Iran",NA,"IRN",2020,81.07,54,"d-str-gci.01-2021-htm-e"
+"Iran",3,"IRN",2024,70,NA,NA
+"Iraq",NA,"IRQ",2020,20.71,129,"d-str-gci.01-2021-htm-e"
+"Iraq",4,"IRQ",2024,37.5,NA,NA
+"Iceland",NA,"ISL",2020,79.81,58,"d-str-gci.01-2021-htm-e"
+"Iceland of the)",1,"ISL",2024,97.5,NA,NA
+"Israel",NA,"ISR",2020,90.93,36,"d-str-gci.01-2021-htm-e"
+"Israel",2,"ISR",2024,90,NA,NA
+"Italy",NA,"ITA",2020,96.13,20,"d-str-gci.01-2021-htm-e"
+"Italy",1,"ITA",2024,97.5,NA,NA
+"Jamaica",NA,"JAM",2020,32.53,106,"d-str-gci.01-2021-htm-e"
+"Jamaica",3,"JAM",2024,70,NA,NA
+"Jordan",NA,"JOR",2020,70.96,71,"d-str-gci.01-2021-htm-e"
+"Jordan",1,"JOR",2024,97.5,NA,NA
+"Japan",NA,"JPN",2020,97.82,7,"d-str-gci.01-2021-htm-e"
+"Japan",1,"JPN",2024,97.5,NA,NA
+"Kazakhstan",NA,"KAZ",2020,93.15,31,"d-str-gci.01-2021-htm-e"
+"Kazakhstan",2,"KAZ",2024,90,NA,NA
+"Kenya",NA,"KEN",2020,81.7,51,"d-str-gci.01-2021-htm-e"
+"Kenya",1,"KEN",2024,97.5,NA,NA
+"Kyrgyzstan",NA,"KGZ",2020,49.64,92,"d-str-gci.01-2021-htm-e"
+"Kyrgyzstan",3,"KGZ",2024,70,NA,NA
+"Cambodia",NA,"KHM",2020,19.12,132,"d-str-gci.01-2021-htm-e"
+"Cambodia",4,"KHM",2024,37.5,NA,NA
+"Kiribati",NA,"KIR",2020,13.84,145,"d-str-gci.01-2021-htm-e"
+"Kiribati",3,"KIR",2024,70,NA,NA
+"Saint Kitts and Nevis",NA,"KNA",2020,12.44,153,"d-str-gci.01-2021-htm-e"
+"Saint Kitts and Nevis",4,"KNA",2024,37.5,NA,NA
+"Korea (Rep. of)",NA,"KOR",2020,98.52,4,"d-str-gci.01-2021-htm-e"
+"Korea, Rep.",1,"KOR",2024,97.5,NA,NA
+"Kuwait",NA,"KWT",2020,75.07,65,"d-str-gci.01-2021-htm-e"
+"Kuwait",3,"KWT",2024,70,NA,NA
+"Lao People's Democratic Republic",NA,"LAO",2020,20.34,131,"d-str-gci.01-2021-htm-e"
+"Lao P.D.R. the Grenadines",4,"LAO",2024,37.5,NA,NA
+"Lebanon",NA,"LBN",2020,30.44,109,"d-str-gci.01-2021-htm-e"
+"Lebanon",4,"LBN",2024,37.5,NA,NA
+"Liberia",NA,"LBR",2020,9.72,162,"d-str-gci.01-2021-htm-e"
+"Liberia",4,"LBR",2024,37.5,NA,NA
+"Libya",NA,"LBY",2020,28.78,113,"d-str-gci.01-2021-htm-e"
+"Libya",3,"LBY",2024,70,NA,NA
+"Saint Lucia",NA,"LCA",2020,10.96,158,"d-str-gci.01-2021-htm-e"
+"Saint Lucia",4,"LCA",2024,37.5,NA,NA
+"Liechtenstein",NA,"LIE",2020,35.15,101,"d-str-gci.01-2021-htm-e"
+"Liechtenstein",4,"LIE",2024,37.5,NA,NA
+"Sri Lanka",NA,"LKA",2020,58.65,83,"d-str-gci.01-2021-htm-e"
+"Sri Lanka",2,"LKA",2024,90,NA,NA
+"Lesotho",NA,"LSO",2020,9.08,164,"d-str-gci.01-2021-htm-e"
+"Lesotho",4,"LSO",2024,37.5,NA,NA
+"Lithuania",NA,"LTU",2020,97.93,6,"d-str-gci.01-2021-htm-e"
+"Lithuania",2,"LTU",2024,90,NA,NA
+"Luxembourg",NA,"LUX",2020,97.41,13,"d-str-gci.01-2021-htm-e"
+"Luxembourg",1,"LUX",2024,97.5,NA,NA
+"Latvia",NA,"LVA",2020,97.28,15,"d-str-gci.01-2021-htm-e"
+"Latvia",3,"LVA",2024,70,NA,NA
+"Morocco",NA,"MAR",2020,82.41,50,"d-str-gci.01-2021-htm-e"
+"Morocco",1,"MAR",2024,97.5,NA,NA
+"Monaco",NA,"MCO",2020,72.57,69,"d-str-gci.01-2021-htm-e"
+"Monaco",3,"MCO",2024,70,NA,NA
+"Moldova",NA,"MDA",2020,75.78,63,"d-str-gci.01-2021-htm-e"
+"Moldova",3,"MDA",2024,70,NA,NA
+"Madagascar",NA,"MDG",2020,23.33,124,"d-str-gci.01-2021-htm-e"
+"Madagascar",4,"MDG",2024,37.5,NA,NA
+"Maldives",NA,"MDV",2020,2.95,177,"d-str-gci.01-2021-htm-e"
+"Maldives",5,"MDV",2024,10,NA,NA
+"Mexico",NA,"MEX",2020,81.68,52,"d-str-gci.01-2021-htm-e"
+"Mexico",2,"MEX",2024,90,NA,NA
+"Marshall Islands",NA,"MHL",2020,4.9,172,"d-str-gci.01-2021-htm-e"
+"Marshall Islands",5,"MHL",2024,10,NA,NA
+"North Macedonia",NA,"MKD",2020,89.92,38,"d-str-gci.01-2021-htm-e"
+"North Macedonia",3,"MKD",2024,70,NA,NA
+"Mali",NA,"MLI",2020,10.14,160,"d-str-gci.01-2021-htm-e"
+"Mali",4,"MLI",2024,37.5,NA,NA
+"Malta",NA,"MLT",2020,83.65,49,"d-str-gci.01-2021-htm-e"
+"Malta",2,"MLT",2024,90,NA,NA
+"Myanmar",NA,"MMR",2020,36.41,99,"d-str-gci.01-2021-htm-e"
+"Myanmar",3,"MMR",2024,70,NA,NA
+"Montenegro",NA,"MNE",2020,53.23,87,"d-str-gci.01-2021-htm-e"
+"Montenegro",3,"MNE",2024,70,NA,NA
+"Mongolia",NA,"MNG",2020,26.2,120,"d-str-gci.01-2021-htm-e"
+"Mongolia",3,"MNG",2024,70,NA,NA
+"Mozambique",NA,"MOZ",2020,24.18,123,"d-str-gci.01-2021-htm-e"
+"Mozambique",3,"MOZ",2024,70,NA,NA
+"Mauritania",NA,"MRT",2020,18.94,133,"d-str-gci.01-2021-htm-e"
+"Mauritania",4,"MRT",2024,37.5,NA,NA
+"Mauritius",NA,"MUS",2020,96.89,17,"d-str-gci.01-2021-htm-e"
+"Mauritius",1,"MUS",2024,97.5,NA,NA
+"Malawi",NA,"MWI",2020,36.83,97,"d-str-gci.01-2021-htm-e"
+"Malawi",3,"MWI",2024,70,NA,NA
+"Malaysia",NA,"MYS",2020,98.06,5,"d-str-gci.01-2021-htm-e"
+"Malaysia",1,"MYS",2024,97.5,NA,NA
+"Namibia",NA,"NAM",2020,11.47,155,"d-str-gci.01-2021-htm-e"
+"Namibia",4,"NAM",2024,37.5,NA,NA
+"Niger",NA,"NER",2020,11.38,156,"d-str-gci.01-2021-htm-e"
+"Niger",4,"NER",2024,37.5,NA,NA
+"Nigeria",NA,"NGA",2020,84.76,47,"d-str-gci.01-2021-htm-e"
+"Nigeria",3,"NGA",2024,70,NA,NA
+"Nicaragua",NA,"NIC",2020,9,165,"d-str-gci.01-2021-htm-e"
+"Nicaragua",4,"NIC",2024,37.5,NA,NA
+"Netherlands",NA,"NLD",2020,97.05,16,"d-str-gci.01-2021-htm-e"
+"Netherlands (Kingdom",1,"NLD",2024,97.5,NA,NA
+"Norway",NA,"NOR",2020,96.89,17,"d-str-gci.01-2021-htm-e"
+"Norway",1,"NOR",2024,97.5,NA,NA
+"Nepal",NA,"NPL",2020,44.99,94,"d-str-gci.01-2021-htm-e"
+"Nepal",3,"NPL",2024,70,NA,NA
+"Nauru",NA,"NRU",2020,21.42,127,"d-str-gci.01-2021-htm-e"
+"Nauru",4,"NRU",2024,37.5,NA,NA
+"New Zealand",NA,"NZL",2020,84.04,48,"d-str-gci.01-2021-htm-e"
+"New Zealand",3,"NZL",2024,70,NA,NA
+"Oman",NA,"OMN",2020,96.04,21,"d-str-gci.01-2021-htm-e"
+"Oman",1,"OMN",2024,97.5,NA,NA
+"Pakistan",NA,"PAK",2020,64.88,79,"d-str-gci.01-2021-htm-e"
+"Pakistan",1,"PAK",2024,97.5,NA,NA
+"Panama",NA,"PAN",2020,34.11,103,"d-str-gci.01-2021-htm-e"
+"Panama",3,"PAN",2024,70,NA,NA
+"Peru",NA,"PER",2020,55.67,86,"d-str-gci.01-2021-htm-e"
+"Peru",3,"PER",2024,70,NA,NA
+"Philippines",NA,"PHL",2020,77,61,"d-str-gci.01-2021-htm-e"
+"Philippines",2,"PHL",2024,90,NA,NA
+"Papua New Guinea",NA,"PNG",2020,26.33,118,"d-str-gci.01-2021-htm-e"
+"Papua New Guinea",3,"PNG",2024,70,NA,NA
+"Poland",NA,"POL",2020,93.86,30,"d-str-gci.01-2021-htm-e"
+"Poland",2,"POL",2024,90,NA,NA
+"Korea, Dem. People's Rep.",NA,"PRK",2020,1.35,181,"d-str-gci.01-2021-htm-e"
+"Portugal",NA,"PRT",2020,97.32,14,"d-str-gci.01-2021-htm-e"
+"Portugal",1,"PRT",2024,97.5,NA,NA
+"Paraguay",NA,"PRY",2020,57.09,84,"d-str-gci.01-2021-htm-e"
+"Paraguay",3,"PRY",2024,70,NA,NA
+"Palestine",NA,"PSE",2020,25.18,122,"d-str-gci.01-2021-htm-e"
+"Palestine",4,"PSE",2024,37.5,NA,NA
+"Qatar",NA,"QAT",2020,94.5,27,"d-str-gci.01-2021-htm-e"
+"Qatar",1,"QAT",2024,97.5,NA,NA
+"Romania",NA,"ROU",2020,76.29,62,"d-str-gci.01-2021-htm-e"
+"Romania",2,"ROU",2024,90,NA,NA
+"Russia",NA,"RUS",2020,98.06,5,"d-str-gci.01-2021-htm-e"
+"Russia",2,"RUS",2024,90,NA,NA
+"Rwanda",NA,"RWA",2020,79.95,57,"d-str-gci.01-2021-htm-e"
+"Rwanda",1,"RWA",2024,97.5,NA,NA
+"Saudi Arabia",NA,"SAU",2020,99.54,2,"d-str-gci.01-2021-htm-e"
+"Saudi Arabia",1,"SAU",2024,97.5,NA,NA
+"Sudan",NA,"SDN",2020,35.03,102,"d-str-gci.01-2021-htm-e"
+"Sudan",4,"SDN",2024,37.5,NA,NA
+"Senegal",NA,"SEN",2020,35.85,100,"d-str-gci.01-2021-htm-e"
+"Senegal",3,"SEN",2024,70,NA,NA
+"Singapore",NA,"SGP",2020,98.52,4,"d-str-gci.01-2021-htm-e"
+"Singapore",1,"SGP",2024,97.5,NA,NA
+"Solomon Islands",NA,"SLB",2020,7.08,166,"d-str-gci.01-2021-htm-e"
+"Solomon Islands",5,"SLB",2024,10,NA,NA
+"Sierra Leone",NA,"SLE",2020,25.31,121,"d-str-gci.01-2021-htm-e"
+"Sierra Leone",3,"SLE",2024,70,NA,NA
+"El Salvador",NA,"SLV",2020,13.3,148,"d-str-gci.01-2021-htm-e"
+"El Salvador",4,"SLV",2024,37.5,NA,NA
+"San Marino",NA,"SMR",2020,13.83,146,"d-str-gci.01-2021-htm-e"
+"San Marino",4,"SMR",2024,37.5,NA,NA
+"Somalia",NA,"SOM",2020,17.25,137,"d-str-gci.01-2021-htm-e"
+"Somalia",4,"SOM",2024,37.5,NA,NA
+"Serbia",NA,"SRB",2020,89.8,39,"d-str-gci.01-2021-htm-e"
+"Serbia",1,"SRB",2024,97.5,NA,NA
+"South Sudan",NA,"SSD",2020,5.75,169,"d-str-gci.01-2021-htm-e"
+"South Sudan",4,"SSD",2024,37.5,NA,NA
+"Sao Tome and Principe",NA,"STP",2020,15.64,141,"d-str-gci.01-2021-htm-e"
+"Sao Tome and Principe",4,"STP",2024,37.5,NA,NA
+"Suriname",NA,"SUR",2020,31.2,108,"d-str-gci.01-2021-htm-e"
+"Suriname",4,"SUR",2024,37.5,NA,NA
+"Slovakia",NA,"SVK",2020,92.36,34,"d-str-gci.01-2021-htm-e"
+"Slovakia",2,"SVK",2024,90,NA,NA
+"Slovenia",NA,"SVN",2020,74.93,67,"d-str-gci.01-2021-htm-e"
+"Slovenia",1,"SVN",2024,97.5,NA,NA
+"Sweden",NA,"SWE",2020,94.55,26,"d-str-gci.01-2021-htm-e"
+"Sweden",1,"SWE",2024,97.5,NA,NA
+"Eswatini",NA,"SWZ",2020,18.23,135,"d-str-gci.01-2021-htm-e"
+"Eswatini",3,"SWZ",2024,70,NA,NA
+"Seychelles",NA,"SYC",2020,13.23,149,"d-str-gci.01-2021-htm-e"
+"Seychelles",4,"SYC",2024,37.5,NA,NA
+"Syrian Arab Republic",NA,"SYR",2020,22.14,126,"d-str-gci.01-2021-htm-e"
+"Syrian Arab Republic State of)",4,"SYR",2024,37.5,NA,NA
+"Chad",NA,"TCD",2020,40.44,95,"d-str-gci.01-2021-htm-e"
+"Chad",4,"TCD",2024,37.5,NA,NA
+"Togo",NA,"TGO",2020,33.19,105,"d-str-gci.01-2021-htm-e"
+"Togo",2,"TGO",2024,90,NA,NA
+"Thailand",NA,"THA",2020,86.5,44,"d-str-gci.01-2021-htm-e"
+"Thailand",1,"THA",2024,97.5,NA,NA
+"Tajikistan",NA,"TJK",2020,17.1,138,"d-str-gci.01-2021-htm-e"
+"Tajikistan",4,"TJK",2024,37.5,NA,NA
+"Turkmenistan",NA,"TKM",2020,14.48,144,"d-str-gci.01-2021-htm-e"
+"Turkmenistan",4,"TKM",2024,37.5,NA,NA
+"Timor-Leste",NA,"TLS",2020,4.26,173,"d-str-gci.01-2021-htm-e"
+"Timor-Leste",5,"TLS",2024,10,NA,NA
+"Tonga",NA,"TON",2020,20.95,128,"d-str-gci.01-2021-htm-e"
+"Tonga",4,"TON",2024,37.5,NA,NA
+"Trinidad and Tobago",NA,"TTO",2020,22.18,125,"d-str-gci.01-2021-htm-e"
+"Trinidad and Tobago",3,"TTO",2024,70,NA,NA
+"Tunisia",NA,"TUN",2020,86.23,45,"d-str-gci.01-2021-htm-e"
+"Tunisia",3,"TUN",2024,70,NA,NA
+"Turkey",NA,"TUR",2020,97.49,11,"d-str-gci.01-2021-htm-e"
+"Turkey",1,"TUR",2024,97.5,NA,NA
+"Tuvalu",NA,"TUV",2020,5.78,168,"d-str-gci.01-2021-htm-e"
+"Tuvalu",4,"TUV",2024,37.5,NA,NA
+"Tanzania",NA,"TZA",2020,90.58,37,"d-str-gci.01-2021-htm-e"
+"Tanzania",1,"TZA",2024,97.5,NA,NA
+"Uganda",NA,"UGA",2020,69.98,72,"d-str-gci.01-2021-htm-e"
+"Uganda",3,"UGA",2024,70,NA,NA
+"Ukraine",NA,"UKR",2020,65.93,78,"d-str-gci.01-2021-htm-e"
+"Ukraine",3,"UKR",2024,70,NA,NA
+"Uruguay",NA,"URY",2020,75.15,64,"d-str-gci.01-2021-htm-e"
+"Uruguay",2,"URY",2024,90,NA,NA
+"United States of America",NA,"USA",2020,100,1,"d-str-gci.01-2021-htm-e"
+"United States",1,"USA",2024,97.5,NA,NA
+"Uzbekistan",NA,"UZB",2020,71.11,70,"d-str-gci.01-2021-htm-e"
+"Uzbekistan",2,"UZB",2024,90,NA,NA
+"Holy See",NA,"VAT",2020,0,182,"d-str-gci.01-2021-htm-e"
+"Holy See",5,"VAT",2024,10,NA,NA
+"Saint Vincent and the Grenadines",NA,"VCT",2020,12.18,154,"d-str-gci.01-2021-htm-e"
+"Saint Vincent and",4,"VCT",2024,37.5,NA,NA
+"Venezuela",NA,"VEN",2020,27.06,116,"d-str-gci.01-2021-htm-e"
+"Venezuela",4,"VEN",2024,37.5,NA,NA
+"Vietnam",NA,"VNM",2020,94.59,25,"d-str-gci.01-2021-htm-e"
+"Vietnam",1,"VNM",2024,97.5,NA,NA
+"Vanuatu",NA,"VUT",2020,12.88,152,"d-str-gci.01-2021-htm-e"
+"Vanuatu",3,"VUT",2024,70,NA,NA
+"Samoa",NA,"WSM",2020,29.33,111,"d-str-gci.01-2021-htm-e"
+"Samoa",4,"WSM",2024,37.5,NA,NA
+"Yemen",NA,"YEM",2020,0,182,"d-str-gci.01-2021-htm-e"
+"Yemen",5,"YEM",2024,10,NA,NA
+"South Africa",NA,"ZAF",2020,78.46,59,"d-str-gci.01-2021-htm-e"
+"South Africa",2,"ZAF",2024,90,NA,NA
+"Zambia",NA,"ZMB",2020,68.88,73,"d-str-gci.01-2021-htm-e"
+"Zambia",2,"ZMB",2024,90,NA,NA
+"Zimbabwe",NA,"ZWE",2020,36.49,98,"d-str-gci.01-2021-htm-e"
+"Zimbabwe",4,"ZWE",2024,37.5,NA,NA

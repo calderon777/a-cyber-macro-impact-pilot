@@ -250,6 +250,7 @@
 "AFG","Afghanistan",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",13572.9111378508
 "AFG","Afghanistan",2019,"SP.POP.TOTL","population_total",37856121
 "AFG","Afghanistan",2020,"FP.CPI.TOTL.ZG","inflation_cpi",5.60188791482224
+"AFG","Afghanistan",2020,"GCI_OPEN","gci_overall",5.2
 "AFG","Afghanistan",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "AFG","Afghanistan",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "AFG","Afghanistan",2020,"IT.NET.USER.ZS","internet_users_pct",17.04850006
@@ -452,6 +453,7 @@
 "AGO","Angola",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",28059.9533940627
 "AGO","Angola",2019,"SP.POP.TOTL","population_total",32375632
 "AGO","Angola",2020,"FP.CPI.TOTL.ZG","inflation_cpi",22.2715392470509
+"AGO","Angola",2020,"GCI_OPEN","gci_overall",12.99
 "AGO","Angola",2020,"INCIDENTS_OPEN","cyber_incidents",2
 "AGO","Angola",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.09861228866811
 "AGO","Angola",2020,"IT.NET.USER.ZS","internet_users_pct",33.32089996
@@ -560,6 +562,7 @@
 "ALB","Albania",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",38164.7731185576
 "ALB","Albania",2019,"SP.POP.TOTL","population_total",2567801
 "ALB","Albania",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.6208866171702
+"ALB","Albania",2020,"GCI_OPEN","gci_overall",64.32
 "ALB","Albania",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "ALB","Albania",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "ALB","Albania",2020,"IT.NET.USER.ZS","internet_users_pct",72.23767711
@@ -664,6 +667,7 @@
 "AND","Andorra",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "AND","Andorra",2019,"SP.POP.TOTL","population_total",76474
 "AND","Andorra",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"AND","Andorra",2020,"GCI_OPEN","gci_overall",26.38
 "AND","Andorra",2020,"IT.NET.USER.ZS","internet_users_pct",93.20570374
 "AND","Andorra",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "AND","Andorra",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -872,6 +876,7 @@
 "ARE","United Arab Emirates",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",112569.205841427
 "ARE","United Arab Emirates",2019,"SP.POP.TOTL","population_total",9445785
 "ARE","United Arab Emirates",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-2.07940317940943
+"ARE","United Arab Emirates",2020,"GCI_OPEN","gci_overall",98.06
 "ARE","United Arab Emirates",2020,"INCIDENTS_OPEN","cyber_incidents",17
 "ARE","United Arab Emirates",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.89037175789616
 "ARE","United Arab Emirates",2020,"IT.NET.USER.ZS","internet_users_pct",100
@@ -984,6 +989,7 @@
 "ARG","Argentina",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",64545.6690918665
 "ARG","Argentina",2019,"SP.POP.TOTL","population_total",44973465
 "ARG","Argentina",2020,"FP.CPI.TOTL.ZG","inflation_cpi",42.0150947376509
+"ARG","Argentina",2020,"GCI_OPEN","gci_overall",50.12
 "ARG","Argentina",2020,"INCIDENTS_OPEN","cyber_incidents",29
 "ARG","Argentina",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.40119738166216
 "ARG","Argentina",2020,"IT.NET.USER.ZS","internet_users_pct",85.51438646
@@ -1100,6 +1106,7 @@
 "ARM","Armenia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",42384.9927249539
 "ARM","Armenia",2019,"SP.POP.TOTL","population_total",2962500
 "ARM","Armenia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.21143577838464
+"ARM","Armenia",2020,"GCI_OPEN","gci_overall",50.47
 "ARM","Armenia",2020,"INCIDENTS_OPEN","cyber_incidents",14
 "ARM","Armenia",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.70805020110221
 "ARM","Armenia",2020,"IT.NET.USER.ZS","internet_users_pct",76.50770055
@@ -1302,6 +1309,7 @@
 "ATG","Antigua and Barbuda",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "ATG","Antigua and Barbuda",2019,"SP.POP.TOTL","population_total",91364
 "ATG","Antigua and Barbuda",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.625989707046719
+"ATG","Antigua and Barbuda",2020,"GCI_OPEN","gci_overall",15.62
 "ATG","Antigua and Barbuda",2020,"IT.NET.USER.ZS","internet_users_pct",71.36840057
 "ATG","Antigua and Barbuda",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "ATG","Antigua and Barbuda",2020,"NE.TRD.GNFS.ZS","trade_gdp",94.289529886499
@@ -1410,6 +1418,7 @@
 "AUS","Australia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",113842.022293434
 "AUS","Australia",2019,"SP.POP.TOTL","population_total",25334826
 "AUS","Australia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.846900734607273
+"AUS","Australia",2020,"GCI_OPEN","gci_overall",97.47
 "AUS","Australia",2020,"INCIDENTS_OPEN","cyber_incidents",99
 "AUS","Australia",2020,"INCIDENTS_OPEN","cyber_incidents_log",4.60517018598809
 "AUS","Australia",2020,"IT.NET.USER.ZS","internet_users_pct",94.6934967
@@ -1526,6 +1535,7 @@
 "AUT","Austria",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",129898.645396689
 "AUT","Austria",2019,"SP.POP.TOTL","population_total",8879920
 "AUT","Austria",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.38191063351853
+"AUT","Austria",2020,"GCI_OPEN","gci_overall",93.89
 "AUT","Austria",2020,"INCIDENTS_OPEN","cyber_incidents",16
 "AUT","Austria",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.83321334405622
 "AUT","Austria",2020,"IT.NET.USER.ZS","internet_users_pct",87.52942813
@@ -1642,6 +1652,7 @@
 "AZE","Azerbaijan",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",42430.5814120378
 "AZE","Azerbaijan",2019,"SP.POP.TOTL","population_total",10024283
 "AZE","Azerbaijan",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.75980947008127
+"AZE","Azerbaijan",2020,"GCI_OPEN","gci_overall",89.31
 "AZE","Azerbaijan",2020,"INCIDENTS_OPEN","cyber_incidents",7
 "AZE","Azerbaijan",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.07944154167984
 "AZE","Azerbaijan",2020,"IT.NET.USER.ZS","internet_users_pct",84.59999573
@@ -1746,6 +1757,7 @@
 "BDI","Burundi",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",2546.35560242313
 "BDI","Burundi",2019,"SP.POP.TOTL","population_total",12255336
 "BDI","Burundi",2020,"FP.CPI.TOTL.ZG","inflation_cpi",7.3211064341552
+"BDI","Burundi",2020,"GCI_OPEN","gci_overall",1.73
 "BDI","Burundi",2020,"IT.NET.USER.ZS","internet_users_pct",6.430099964
 "BDI","Burundi",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "BDI","Burundi",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -1856,6 +1868,7 @@
 "BEL","Belgium",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",142675.533329534
 "BEL","Belgium",2019,"SP.POP.TOTL","population_total",11488980
 "BEL","Belgium",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.740791812220343
+"BEL","Belgium",2020,"GCI_OPEN","gci_overall",96.25
 "BEL","Belgium",2020,"INCIDENTS_OPEN","cyber_incidents",26
 "BEL","Belgium",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.29583686600433
 "BEL","Belgium",2020,"IT.NET.USER.ZS","internet_users_pct",91.52641629
@@ -1962,6 +1975,7 @@
 "BEN","Benin",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",7742.91718776449
 "BEN","Benin",2019,"SP.POP.TOTL","population_total",12726755
 "BEN","Benin",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.02272119663759
+"BEN","Benin",2020,"GCI_OPEN","gci_overall",80.06
 "BEN","Benin",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "BEN","Benin",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "BEN","Benin",2020,"IT.NET.USER.ZS","internet_users_pct",22.12059975
@@ -2068,6 +2082,7 @@
 "BFA","Burkina Faso",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",5813.15200948724
 "BFA","Burkina Faso",2019,"SP.POP.TOTL","population_total",20961952
 "BFA","Burkina Faso",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.88470066518847
+"BFA","Burkina Faso",2020,"GCI_OPEN","gci_overall",39.98
 "BFA","Burkina Faso",2020,"IT.NET.USER.ZS","internet_users_pct",12.97319984
 "BFA","Burkina Faso",2020,"NE.GDI.TOTL.ZS","gcf_gdp",17.1615174265995
 "BFA","Burkina Faso",2020,"NE.TRD.GNFS.ZS","trade_gdp",60.7397786403239
@@ -2178,6 +2193,7 @@
 "BGD","Bangladesh",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",17073.9635892892
 "BGD","Bangladesh",2019,"SP.POP.TOTL","population_total",164913055
 "BGD","Bangladesh",2020,"FP.CPI.TOTL.ZG","inflation_cpi",5.69107474746211
+"BGD","Bangladesh",2020,"GCI_OPEN","gci_overall",81.27
 "BGD","Bangladesh",2020,"INCIDENTS_OPEN","cyber_incidents",19
 "BGD","Bangladesh",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.99573227355399
 "BGD","Bangladesh",2020,"IT.NET.USER.ZS","internet_users_pct",36.10910034
@@ -2290,6 +2306,7 @@
 "BGR","Bulgaria",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",62694.2453590044
 "BGR","Bulgaria",2019,"SP.POP.TOTL","population_total",6616726
 "BGR","Bulgaria",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.67244096855756
+"BGR","Bulgaria",2020,"GCI_OPEN","gci_overall",67.38
 "BGR","Bulgaria",2020,"INCIDENTS_OPEN","cyber_incidents",18
 "BGR","Bulgaria",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.94443897916644
 "BGR","Bulgaria",2020,"IT.NET.USER.ZS","internet_users_pct",70.16248359
@@ -2400,6 +2417,7 @@
 "BHR","Bahrain",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",100682.749637121
 "BHR","Bahrain",2019,"SP.POP.TOTL","population_total",1483756
 "BHR","Bahrain",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-2.31770629331378
+"BHR","Bahrain",2020,"GCI_OPEN","gci_overall",77.86
 "BHR","Bahrain",2020,"INCIDENTS_OPEN","cyber_incidents",2
 "BHR","Bahrain",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.09861228866811
 "BHR","Bahrain",2020,"IT.NET.USER.ZS","internet_users_pct",99.67103159
@@ -2512,6 +2530,7 @@
 "BHS","Bahamas, The",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",61411.8942733304
 "BHS","Bahamas, The",2019,"SP.POP.TOTL","population_total",394675
 "BHS","Bahamas, The",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.0385210980054557
+"BHS","Bahamas",2020,"GCI_OPEN","gci_overall",13.37
 "BHS","Bahamas, The",2020,"INCIDENTS_OPEN","cyber_incidents",5
 "BHS","Bahamas, The",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.79175946922805
 "BHS","Bahamas, The",2020,"IT.NET.USER.ZS","internet_users_pct",92.4437027
@@ -2624,6 +2643,7 @@
 "BIH","Bosnia and Herzegovina",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",47957.2182118771
 "BIH","Bosnia and Herzegovina",2019,"SP.POP.TOTL","population_total",3345533
 "BIH","Bosnia and Herzegovina",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-1.05129600763489
+"BIH","Bosnia and Herzegovina",2020,"GCI_OPEN","gci_overall",29.44
 "BIH","Bosnia and Herzegovina",2020,"INCIDENTS_OPEN","cyber_incidents",4
 "BIH","Bosnia and Herzegovina",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.6094379124341
 "BIH","Bosnia and Herzegovina",2020,"IT.NET.USER.ZS","internet_users_pct",73.21175294
@@ -2734,6 +2754,7 @@
 "BLR","Belarus",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",52419.6600118763
 "BLR","Belarus",2019,"SP.POP.TOTL","population_total",9419758
 "BLR","Belarus",2020,"FP.CPI.TOTL.ZG","inflation_cpi",5.5481435745651
+"BLR","Belarus",2020,"GCI_OPEN","gci_overall",50.57
 "BLR","Belarus",2020,"INCIDENTS_OPEN","cyber_incidents",20
 "BLR","Belarus",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.04452243772342
 "BLR","Belarus",2020,"IT.NET.USER.ZS","internet_users_pct",85.08791245
@@ -2840,6 +2861,7 @@
 "BLZ","Belize",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",26287.2729603767
 "BLZ","Belize",2019,"SP.POP.TOTL","population_total",385829
 "BLZ","Belize",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.121434644614893
+"BLZ","Belize",2020,"GCI_OPEN","gci_overall",10.29
 "BLZ","Belize",2020,"IT.NET.USER.ZS","internet_users_pct",64.43589783
 "BLZ","Belize",2020,"NE.GDI.TOTL.ZS","gcf_gdp",18.4434323395975
 "BLZ","Belize",2020,"NE.TRD.GNFS.ZS","trade_gdp",81.6431433128545
@@ -3052,6 +3074,7 @@
 "BOL","Bolivia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",24312.5373260295
 "BOL","Bolivia",2019,"SP.POP.TOTL","population_total",11671386
 "BOL","Bolivia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.940742153381849
+"BOL","Bolivia (Plurinational State of)",2020,"GCI_OPEN","gci_overall",16.14
 "BOL","Bolivia",2020,"INCIDENTS_OPEN","cyber_incidents",2
 "BOL","Bolivia",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.09861228866811
 "BOL","Bolivia",2020,"IT.NET.USER.ZS","internet_users_pct",59.94010155
@@ -3168,6 +3191,7 @@
 "BRA","Brazil",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",39945.5086415363
 "BRA","Brazil",2019,"SP.POP.TOTL","population_total",207455459
 "BRA","Brazil",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.21176803803376
+"BRA","Brazil",2020,"GCI_OPEN","gci_overall",96.6
 "BRA","Brazil",2020,"INCIDENTS_OPEN","cyber_incidents",33
 "BRA","Brazil",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.52636052461616
 "BRA","Brazil",2020,"IT.NET.USER.ZS","internet_users_pct",81.34269353
@@ -3276,6 +3300,7 @@
 "BRB","Barbados",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",42654.6942758124
 "BRB","Barbados",2019,"SP.POP.TOTL","population_total",281207
 "BRB","Barbados",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"BRB","Barbados",2020,"GCI_OPEN","gci_overall",16.89
 "BRB","Barbados",2020,"IT.NET.USER.ZS","internet_users_pct",69.89009857
 "BRB","Barbados",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "BRB","Barbados",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -3380,6 +3405,7 @@
 "BRN","Brunei Darussalam",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",169846.447864511
 "BRN","Brunei Darussalam",2019,"SP.POP.TOTL","population_total",442680
 "BRN","Brunei Darussalam",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.94031996607183
+"BRN","Brunei Darussalam",2020,"GCI_OPEN","gci_overall",56.07
 "BRN","Brunei Darussalam",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "BRN","Brunei Darussalam",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "BRN","Brunei Darussalam",2020,"IT.NET.USER.ZS","internet_users_pct",96.30549622
@@ -3486,6 +3512,7 @@
 "BTN","Bhutan",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",29729.1179836934
 "BTN","Bhutan",2019,"SP.POP.TOTL","population_total",764824
 "BTN","Bhutan",2020,"FP.CPI.TOTL.ZG","inflation_cpi",5.62936522632507
+"BTN","Bhutan",2020,"GCI_OPEN","gci_overall",18.34
 "BTN","Bhutan",2020,"IT.NET.USER.ZS","internet_users_pct",76.85079956
 "BTN","Bhutan",2020,"NE.GDI.TOTL.ZS","gcf_gdp",39.0705723574357
 "BTN","Bhutan",2020,"NE.TRD.GNFS.ZS","trade_gdp",71.8303510394637
@@ -3586,6 +3613,7 @@
 "BWA","Botswana",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",53491.7375710746
 "BWA","Botswana",2019,"SP.POP.TOTL","population_total",2332083
 "BWA","Botswana",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.8903591682421
+"BWA","Botswana",2020,"GCI_OPEN","gci_overall",53.06
 "BWA","Botswana",2020,"IT.NET.USER.ZS","internet_users_pct",51.67819977
 "BWA","Botswana",2020,"NE.GDI.TOTL.ZS","gcf_gdp",32.7272598389392
 "BWA","Botswana",2020,"NE.TRD.GNFS.ZS","trade_gdp",77.6634178592071
@@ -3686,6 +3714,7 @@
 "CAF","Central African Republic",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",3251.55169660674
 "CAF","Central African Republic",2019,"SP.POP.TOTL","population_total",4944703
 "CAF","Central African Republic",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.71015659523152
+"CAF","Central African Rep.",2020,"GCI_OPEN","gci_overall",3.24
 "CAF","Central African Republic",2020,"IT.NET.USER.ZS","internet_users_pct",NA
 "CAF","Central African Republic",2020,"NE.GDI.TOTL.ZS","gcf_gdp",25.9999999979092
 "CAF","Central African Republic",2020,"NE.TRD.GNFS.ZS","trade_gdp",49.5210200011921
@@ -3796,6 +3825,7 @@
 "CAN","Canada",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",110430.50597969
 "CAN","Canada",2019,"SP.POP.TOTL","population_total",37618495
 "CAN","Canada",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.716999632307827
+"CAN","Canada",2020,"GCI_OPEN","gci_overall",97.67
 "CAN","Canada",2020,"INCIDENTS_OPEN","cyber_incidents",118
 "CAN","Canada",2020,"INCIDENTS_OPEN","cyber_incidents_log",4.77912349311153
 "CAN","Canada",2020,"IT.NET.USER.ZS","internet_users_pct",92.3
@@ -4006,6 +4036,7 @@
 "CHE","Switzerland",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",143411.166919806
 "CHE","Switzerland",2019,"SP.POP.TOTL","population_total",8575280
 "CHE","Switzerland",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.725874933313402
+"CHE","Switzerland",2020,"GCI_OPEN","gci_overall",86.97
 "CHE","Switzerland",2020,"INCIDENTS_OPEN","cyber_incidents",29
 "CHE","Switzerland",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.40119738166216
 "CHE","Switzerland",2020,"IT.NET.USER.ZS","internet_users_pct",94.34999847
@@ -4216,6 +4247,7 @@
 "CHL","Chile",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",59490.6161227729
 "CHL","Chile",2019,"SP.POP.TOTL","population_total",19197744
 "CHL","Chile",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.04549084804326
+"CHL","Chile",2020,"GCI_OPEN","gci_overall",68.83
 "CHL","Chile",2020,"INCIDENTS_OPEN","cyber_incidents",21
 "CHL","Chile",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.09104245335832
 "CHL","Chile",2020,"IT.NET.USER.ZS","internet_users_pct",87.45929718
@@ -4332,6 +4364,7 @@
 "CHN","China",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",35777.2153203047
 "CHN","China",2019,"SP.POP.TOTL","population_total",1407745000
 "CHN","China",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.41942189457782
+"CHN","China",2020,"GCI_OPEN","gci_overall",92.53
 "CHN","China",2020,"INCIDENTS_OPEN","cyber_incidents",91
 "CHN","China",2020,"INCIDENTS_OPEN","cyber_incidents_log",4.52178857704904
 "CHN","China",2020,"IT.NET.USER.ZS","internet_users_pct",70.05275998
@@ -4436,6 +4469,7 @@
 "CIV","Cote d'Ivoire",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",16182.2996411821
 "CIV","Cote d'Ivoire",2019,"SP.POP.TOTL","population_total",28193009
 "CIV","Cote d'Ivoire",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.41252617189052
+"CIV","Côte d'Ivoire",2020,"GCI_OPEN","gci_overall",67.82
 "CIV","Cote d'Ivoire",2020,"IT.NET.USER.ZS","internet_users_pct",36.01660156
 "CIV","Cote d'Ivoire",2020,"NE.GDI.TOTL.ZS","gcf_gdp",21.7428934104601
 "CIV","Cote d'Ivoire",2020,"NE.TRD.GNFS.ZS","trade_gdp",41.9426318190526
@@ -4542,6 +4576,7 @@
 "CMR","Cameroon",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",13118.161243185
 "CMR","Cameroon",2019,"SP.POP.TOTL","population_total",25506095
 "CMR","Cameroon",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.43760882182236
+"CMR","Cameroon",2020,"GCI_OPEN","gci_overall",45.63
 "CMR","Cameroon",2020,"INCIDENTS_OPEN","cyber_incidents",2
 "CMR","Cameroon",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.09861228866811
 "CMR","Cameroon",2020,"IT.NET.USER.ZS","internet_users_pct",37.69749832
@@ -4642,6 +4677,7 @@
 "COD","Congo, Dem. Rep.",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",4209.39366167638
 "COD","Congo, Dem. Rep.",2019,"SP.POP.TOTL","population_total",92947442
 "COD","Congo, Dem. Rep.",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"COD","Democratic Republic of the Congo",2020,"GCI_OPEN","gci_overall",5.3
 "COD","Congo, Dem. Rep.",2020,"INCIDENTS_OPEN","cyber_incidents",2
 "COD","Congo, Dem. Rep.",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.09861228866811
 "COD","Congo, Dem. Rep.",2020,"IT.NET.USER.ZS","internet_users_pct",14.51049995
@@ -4744,6 +4780,7 @@
 "COG","Congo, Rep.",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",22069.2879812779
 "COG","Congo, Rep.",2019,"SP.POP.TOTL","population_total",5616661
 "COG","Congo, Rep.",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.79537147083107
+"COG","Republic of the Congo",2020,"GCI_OPEN","gci_overall",14.72
 "COG","Congo, Rep.",2020,"IT.NET.USER.ZS","internet_users_pct",21.99850082
 "COG","Congo, Rep.",2020,"NE.GDI.TOTL.ZS","gcf_gdp",23.7315670324983
 "COG","Congo, Rep.",2020,"NE.TRD.GNFS.ZS","trade_gdp",69.3066247188397
@@ -4850,6 +4887,7 @@
 "COL","Colombia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",38575.7202575428
 "COL","Colombia",2019,"SP.POP.TOTL","population_total",49907985
 "COL","Colombia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.52663500084706
+"COL","Colombia",2020,"GCI_OPEN","gci_overall",63.72
 "COL","Colombia",2020,"INCIDENTS_OPEN","cyber_incidents",5
 "COL","Colombia",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.79175946922805
 "COL","Colombia",2020,"IT.NET.USER.ZS","internet_users_pct",69.79533474
@@ -4954,6 +4992,7 @@
 "COM","Comoros",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",11174.4576484191
 "COM","Comoros",2019,"SP.POP.TOTL","population_total",786578
 "COM","Comoros",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.786641929499151
+"COM","Comoros",2020,"GCI_OPEN","gci_overall",3.72
 "COM","Comoros",2020,"IT.NET.USER.ZS","internet_users_pct",22.42040062
 "COM","Comoros",2020,"NE.GDI.TOTL.ZS","gcf_gdp",11.8017625207878
 "COM","Comoros",2020,"NE.TRD.GNFS.ZS","trade_gdp",33.7299346029218
@@ -5052,6 +5091,7 @@
 "CPV","Cabo Verde",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",25206.7704557971
 "CPV","Cabo Verde",2019,"SP.POP.TOTL","population_total",514104
 "CPV","Cabo Verde",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.6057961856899
+"CPV","Cape Verde",2020,"GCI_OPEN","gci_overall",17.74
 "CPV","Cabo Verde",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "CPV","Cabo Verde",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "CPV","Cabo Verde",2020,"IT.NET.USER.ZS","internet_users_pct",69.37339783
@@ -5162,6 +5202,7 @@
 "CRI","Costa Rica",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",51683.9007198684
 "CRI","Costa Rica",2019,"SP.POP.TOTL","population_total",4999553
 "CRI","Costa Rica",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.724911478131375
+"CRI","Costa Rica",2020,"GCI_OPEN","gci_overall",67.45
 "CRI","Costa Rica",2020,"INCIDENTS_OPEN","cyber_incidents",9
 "CRI","Costa Rica",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.30258509299405
 "CRI","Costa Rica",2020,"IT.NET.USER.ZS","internet_users_pct",80.53018608
@@ -5368,6 +5409,7 @@
 "CUB","Cuba",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "CUB","Cuba",2019,"SP.POP.TOTL","population_total",11202846
 "CUB","Cuba",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"CUB","Cuba",2020,"GCI_OPEN","gci_overall",58.76
 "CUB","Cuba",2020,"INCIDENTS_OPEN","cyber_incidents",3
 "CUB","Cuba",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.38629436111989
 "CUB","Cuba",2020,"IT.NET.USER.ZS","internet_users_pct",71.11907507
@@ -5686,6 +5728,7 @@
 "CYP","Cyprus",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",61358.8473142048
 "CYP","Cyprus",2019,"SP.POP.TOTL","population_total",1286671
 "CYP","Cyprus",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.638422797978958
+"CYP","Cyprus",2020,"GCI_OPEN","gci_overall",88.82
 "CYP","Cyprus",2020,"INCIDENTS_OPEN","cyber_incidents",3
 "CYP","Cyprus",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.38629436111989
 "CYP","Cyprus",2020,"IT.NET.USER.ZS","internet_users_pct",90.80194644
@@ -5800,6 +5843,7 @@
 "CZE","Czechia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",96427.3835750095
 "CZE","Czechia",2019,"SP.POP.TOTL","population_total",10671870
 "CZE","Czechia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.1612952849781
+"CZE","Czech Republic",2020,"GCI_OPEN","gci_overall",74.37
 "CZE","Czech Republic",2020,"INCIDENTS_OPEN","cyber_incidents",29
 "CZE","Czech Republic",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.40119738166216
 "CZE","Czechia",2020,"IT.NET.USER.ZS","internet_users_pct",81.33889705
@@ -5916,6 +5960,7 @@
 "DEU","Germany",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",122616.680134217
 "DEU","Germany",2019,"SP.POP.TOTL","population_total",83092962
 "DEU","Germany",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.144877925813981
+"DEU","Germany",2020,"GCI_OPEN","gci_overall",97.41
 "DEU","Germany",2020,"INCIDENTS_OPEN","cyber_incidents",100
 "DEU","Germany",2020,"INCIDENTS_OPEN","cyber_incidents_log",4.61512051684126
 "DEU","Germany",2020,"IT.NET.USER.ZS","internet_users_pct",89.81294133
@@ -6020,6 +6065,7 @@
 "DJI","Djibouti",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",36028.1984185206
 "DJI","Djibouti",2019,"SP.POP.TOTL","population_total",1088709
 "DJI","Djibouti",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.77900535643955
+"DJI","Djibouti",2020,"GCI_OPEN","gci_overall",1.73
 "DJI","Djibouti",2020,"IT.NET.USER.ZS","internet_users_pct",59.92570114
 "DJI","Djibouti",2020,"NE.GDI.TOTL.ZS","gcf_gdp",-0.248727784664231
 "DJI","Djibouti",2020,"NE.TRD.GNFS.ZS","trade_gdp",225.744871323723
@@ -6118,6 +6164,7 @@
 "DMA","Dominica",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "DMA","Dominica",2019,"SP.POP.TOTL","population_total",67880
 "DMA","Dominica",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.22026442242476
+"DMA","Dominica",2020,"GCI_OPEN","gci_overall",4.2
 "DMA","Dominica",2020,"IT.NET.USER.ZS","internet_users_pct",75.65670013
 "DMA","Dominica",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "DMA","Dominica",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -6228,6 +6275,7 @@
 "DNK","Denmark",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",135435.78445924
 "DNK","Denmark",2019,"SP.POP.TOTL","population_total",5814422
 "DNK","Denmark",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.420711974110024
+"DNK","Denmark",2020,"GCI_OPEN","gci_overall",92.6
 "DNK","Denmark",2020,"INCIDENTS_OPEN","cyber_incidents",34
 "DNK","Denmark",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.55534806148941
 "DNK","Denmark",2020,"IT.NET.USER.ZS","internet_users_pct",96.54914573
@@ -6340,6 +6388,7 @@
 "DOM","Dominican Republic",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",48767.7871166431
 "DOM","Dominican Republic",2019,"SP.POP.TOTL","population_total",10894043
 "DOM","Dominican Republic",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.78103179915516
+"DOM","Dominican Republic",2020,"GCI_OPEN","gci_overall",75.05
 "DOM","Dominican Republic",2020,"INCIDENTS_OPEN","cyber_incidents",8
 "DOM","Dominican Republic",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.19722457733622
 "DOM","Dominican Republic",2020,"IT.NET.USER.ZS","internet_users_pct",81.61730194
@@ -6450,6 +6499,7 @@
 "DZA","Algeria",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",59207.3848011386
 "DZA","Algeria",2019,"SP.POP.TOTL","population_total",43294546
 "DZA","Algeria",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.41513094083413
+"DZA","Algeria",2020,"GCI_OPEN","gci_overall",33.95
 "DZA","Algeria",2020,"INCIDENTS_OPEN","cyber_incidents",2
 "DZA","Algeria",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.09861228866811
 "DZA","Algeria",2020,"IT.NET.USER.ZS","internet_users_pct",63.47269821
@@ -7046,6 +7096,7 @@
 "ECU","Ecuador",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",29791.5177746738
 "ECU","Ecuador",2019,"SP.POP.TOTL","population_total",17340021
 "ECU","Ecuador",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.338872392562139
+"ECU","Ecuador",2020,"GCI_OPEN","gci_overall",26.3
 "ECU","Ecuador",2020,"INCIDENTS_OPEN","cyber_incidents",2
 "ECU","Ecuador",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.09861228866811
 "ECU","Ecuador",2020,"IT.NET.USER.ZS","internet_users_pct",70.7
@@ -7162,6 +7213,7 @@
 "EGY","Egypt, Arab Rep.",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",58323.0268036561
 "EGY","Egypt, Arab Rep.",2019,"SP.POP.TOTL","population_total",107553158
 "EGY","Egypt, Arab Rep.",2020,"FP.CPI.TOTL.ZG","inflation_cpi",5.04493288977538
+"EGY","Egypt",2020,"GCI_OPEN","gci_overall",95.48
 "EGY","Egypt, Arab Rep.",2020,"INCIDENTS_OPEN","cyber_incidents",10
 "EGY","Egypt, Arab Rep.",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.39789527279837
 "EGY","Egypt, Arab Rep.",2020,"IT.NET.USER.ZS","internet_users_pct",71.91420096
@@ -7362,6 +7414,7 @@
 "ERI","Eritrea",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "ERI","Eritrea",2019,"SP.POP.TOTL","population_total",3240194
 "ERI","Eritrea",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"ERI","Eritrea",2020,"GCI_OPEN","gci_overall",1.73
 "ERI","Eritrea",2020,"IT.NET.USER.ZS","internet_users_pct",14.34939957
 "ERI","Eritrea",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "ERI","Eritrea",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -7472,6 +7525,7 @@
 "ESP","Spain",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",110743.211960685
 "ESP","Spain",2019,"SP.POP.TOTL","population_total",47118501
 "ESP","Spain",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.322753017299739
+"ESP","Spain",2020,"GCI_OPEN","gci_overall",98.52
 "ESP","Spain",2020,"INCIDENTS_OPEN","cyber_incidents",72
 "ESP","Spain",2020,"INCIDENTS_OPEN","cyber_incidents_log",4.29045944114839
 "ESP","Spain",2020,"IT.NET.USER.ZS","internet_users_pct",93.20564892
@@ -7582,6 +7636,7 @@
 "EST","Estonia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",83770.9891912828
 "EST","Estonia",2019,"SP.POP.TOTL","population_total",1326898
 "EST","Estonia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.444531097679829
+"EST","Estonia",2020,"GCI_OPEN","gci_overall",99.48
 "EST","Estonia",2020,"INCIDENTS_OPEN","cyber_incidents",16
 "EST","Estonia",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.83321334405622
 "EST","Estonia",2020,"IT.NET.USER.ZS","internet_users_pct",89.05828666
@@ -7688,6 +7743,7 @@
 "ETH","Ethiopia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",5933.42359368362
 "ETH","Ethiopia",2019,"SP.POP.TOTL","population_total",115737383
 "ETH","Ethiopia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",20.3563468559061
+"ETH","Ethiopia",2020,"GCI_OPEN","gci_overall",27.74
 "ETH","Ethiopia",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "ETH","Ethiopia",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "ETH","Ethiopia",2020,"IT.NET.USER.ZS","internet_users_pct",16.06959915
@@ -7996,6 +8052,7 @@
 "FIN","Finland",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",122535.018382253
 "FIN","Finland",2019,"SP.POP.TOTL","population_total",5521606
 "FIN","Finland",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.290554555653239
+"FIN","Finland",2020,"GCI_OPEN","gci_overall",95.78
 "FIN","Finland",2020,"INCIDENTS_OPEN","cyber_incidents",40
 "FIN","Finland",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.71357206670431
 "FIN","Finland",2020,"IT.NET.USER.ZS","internet_users_pct",92.17027106
@@ -8102,6 +8159,7 @@
 "FJI","Fiji",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",33442.8689531785
 "FJI","Fiji",2019,"SP.POP.TOTL","population_total",914899
 "FJI","Fiji",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-1.70014167847317
+"FJI","Fiji",2020,"GCI_OPEN","gci_overall",29.08
 "FJI","Fiji",2020,"IT.NET.USER.ZS","internet_users_pct",68.62560272
 "FJI","Fiji",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "FJI","Fiji",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -8214,6 +8272,7 @@
 "FRA","France",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",128928.445413505
 "FRA","France",2019,"SP.POP.TOTL","population_total",67382061
 "FRA","France",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.476498852725065
+"FRA","France",2020,"GCI_OPEN","gci_overall",97.6
 "FRA","France",2020,"INCIDENTS_OPEN","cyber_incidents",110
 "FRA","France",2020,"INCIDENTS_OPEN","cyber_incidents_log",4.70953020131233
 "FRA","France",2020,"IT.NET.USER.ZS","internet_users_pct",84.70639801
@@ -8414,6 +8473,7 @@
 "FSM","Micronesia, Fed. Sts.",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "FSM","Micronesia, Fed. Sts.",2019,"SP.POP.TOTL","population_total",110282
 "FSM","Micronesia, Fed. Sts.",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.554594630853174
+"FSM","Micronesia, Fed. Sts.",2020,"GCI_OPEN","gci_overall",0
 "FSM","Micronesia, Fed. Sts.",2020,"IT.NET.USER.ZS","internet_users_pct",39.38330078
 "FSM","Micronesia, Fed. Sts.",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "FSM","Micronesia, Fed. Sts.",2020,"NE.TRD.GNFS.ZS","trade_gdp",85.0087703843389
@@ -8516,6 +8576,7 @@
 "GAB","Gabon",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",75293.5546198187
 "GAB","Gabon",2019,"SP.POP.TOTL","population_total",2267706
 "GAB","Gabon",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.35276110675333
+"GAB","Gabon",2020,"GCI_OPEN","gci_overall",11.36
 "GAB","Gabon",2020,"IT.NET.USER.ZS","internet_users_pct",63.91790009
 "GAB","Gabon",2020,"NE.GDI.TOTL.ZS","gcf_gdp",19.8634691076218
 "GAB","Gabon",2020,"NE.TRD.GNFS.ZS","trade_gdp",70.1140546466012
@@ -8626,6 +8687,7 @@
 "GBR","United Kingdom",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",106175.236523448
 "GBR","United Kingdom",2019,"SP.POP.TOTL","population_total",66631000
 "GBR","United Kingdom",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.989486703772491
+"GBR","United Kingdom",2020,"GCI_OPEN","gci_overall",99.54
 "GBR","United Kingdom",2020,"INCIDENTS_OPEN","cyber_incidents",323
 "GBR","United Kingdom",2020,"INCIDENTS_OPEN","cyber_incidents_log",5.78074351579233
 "GBR","United Kingdom",2020,"IT.NET.USER.ZS","internet_users_pct",94.81820132
@@ -8738,6 +8800,7 @@
 "GEO","Georgia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",41265.3226378976
 "GEO","Georgia",2019,"SP.POP.TOTL","population_total",3720161
 "GEO","Georgia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",5.2024648897534
+"GEO","Georgia",2020,"GCI_OPEN","gci_overall",81.06
 "GEO","Georgia",2020,"INCIDENTS_OPEN","cyber_incidents",6
 "GEO","Georgia",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.94591014905531
 "GEO","Georgia",2020,"IT.NET.USER.ZS","internet_users_pct",72.53157487
@@ -8854,6 +8917,7 @@
 "GHA","Ghana",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",16875.1360967053
 "GHA","Ghana",2019,"SP.POP.TOTL","population_total",31258945
 "GHA","Ghana",2020,"FP.CPI.TOTL.ZG","inflation_cpi",9.88728956269944
+"GHA","Ghana",2020,"GCI_OPEN","gci_overall",86.69
 "GHA","Ghana",2020,"INCIDENTS_OPEN","cyber_incidents",4
 "GHA","Ghana",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.6094379124341
 "GHA","Ghana",2020,"IT.NET.USER.ZS","internet_users_pct",62.51760101
@@ -9060,6 +9124,7 @@
 "GIN","Guinea",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",12298.2424655841
 "GIN","Guinea",2019,"SP.POP.TOTL","population_total",13034346
 "GIN","Guinea",2020,"FP.CPI.TOTL.ZG","inflation_cpi",10.6016203387167
+"GIN","Guinea",2020,"GCI_OPEN","gci_overall",20.53
 "GIN","Guinea",2020,"IT.NET.USER.ZS","internet_users_pct",26.14550018
 "GIN","Guinea",2020,"NE.GDI.TOTL.ZS","gcf_gdp",31.5164009990609
 "GIN","Guinea",2020,"NE.TRD.GNFS.ZS","trade_gdp",115.765259518929
@@ -9164,6 +9229,7 @@
 "GMB","Gambia, The",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",10474.5856942241
 "GMB","Gambia, The",2019,"SP.POP.TOTL","population_total",2456844
 "GMB","Gambia, The",2020,"FP.CPI.TOTL.ZG","inflation_cpi",5.93127636562441
+"GMB","Gambia",2020,"GCI_OPEN","gci_overall",32.12
 "GMB","Gambia, The",2020,"IT.NET.USER.ZS","internet_users_pct",36.01100159
 "GMB","Gambia, The",2020,"NE.GDI.TOTL.ZS","gcf_gdp",32.34205468872
 "GMB","Gambia, The",2020,"NE.TRD.GNFS.ZS","trade_gdp",47.3955201736291
@@ -9262,6 +9328,7 @@
 "GNB","Guinea-Bissau",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",6814.55374670954
 "GNB","Guinea-Bissau",2019,"SP.POP.TOTL","population_total",1967696
 "GNB","Guinea-Bissau",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.14000939393222
+"GNB","Guinea-Bissau",2020,"GCI_OPEN","gci_overall",9.85
 "GNB","Guinea-Bissau",2020,"IT.NET.USER.ZS","internet_users_pct",20.45730019
 "GNB","Guinea-Bissau",2020,"NE.GDI.TOTL.ZS","gcf_gdp",25.6521152299655
 "GNB","Guinea-Bissau",2020,"NE.TRD.GNFS.ZS","trade_gdp",42.8853856881523
@@ -9360,6 +9427,7 @@
 "GNQ","Equatorial Guinea",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",52784.1850252366
 "GNQ","Equatorial Guinea",2019,"SP.POP.TOTL","population_total",1670177
 "GNQ","Equatorial Guinea",2020,"FP.CPI.TOTL.ZG","inflation_cpi",4.76669523944228
+"GNQ","Equatorial Guinea",2020,"GCI_OPEN","gci_overall",1.46
 "GNQ","Equatorial Guinea",2020,"IT.NET.USER.ZS","internet_users_pct",55.00130081
 "GNQ","Equatorial Guinea",2020,"NE.GDI.TOTL.ZS","gcf_gdp",6.98846405853807
 "GNQ","Equatorial Guinea",2020,"NE.TRD.GNFS.ZS","trade_gdp",77.9278846441807
@@ -9466,6 +9534,7 @@
 "GRC","Greece",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",92661.4517378883
 "GRC","Greece",2019,"SP.POP.TOTL","population_total",10721582
 "GRC","Greece",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-1.24798355581405
+"GRC","Greece",2020,"GCI_OPEN","gci_overall",93.98
 "GRC","Greece",2020,"INCIDENTS_OPEN","cyber_incidents",7
 "GRC","Greece",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.07944154167984
 "GRC","Greece",2020,"IT.NET.USER.ZS","internet_users_pct",78.11584474
@@ -9570,6 +9639,7 @@
 "GRD","Grenada",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "GRD","Grenada",2019,"SP.POP.TOTL","population_total",115981
 "GRD","Grenada",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.740732597045498
+"GRD","Grenada",2020,"GCI_OPEN","gci_overall",9.41
 "GRD","Grenada",2020,"IT.NET.USER.ZS","internet_users_pct",65.65380096
 "GRD","Grenada",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "GRD","Grenada",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -9774,6 +9844,7 @@
 "GTM","Guatemala",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",30181.0422883954
 "GTM","Guatemala",2019,"SP.POP.TOTL","population_total",17103803
 "GTM","Guatemala",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.21444062197345
+"GTM","Guatemala",2020,"GCI_OPEN","gci_overall",13.13
 "GTM","Guatemala",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "GTM","Guatemala",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "GTM","Guatemala",2020,"IT.NET.USER.ZS","internet_users_pct",47.51229858
@@ -9988,6 +10059,7 @@
 "GUY","Guyana",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",41904.2622573113
 "GUY","Guyana",2019,"SP.POP.TOTL","population_total",807665
 "GUY","Guyana",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.99333702283873
+"GUY","Guyana",2020,"GCI_OPEN","gci_overall",28.11
 "GUY","Guyana",2020,"IT.NET.USER.ZS","internet_users_pct",62.95399857
 "GUY","Guyana",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "GUY","Guyana",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -10200,6 +10272,7 @@
 "HND","Honduras",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",15608.471636207
 "HND","Honduras",2019,"SP.POP.TOTL","population_total",9943633
 "HND","Honduras",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.46841177951184
+"HND","Honduras",2020,"GCI_OPEN","gci_overall",2.2
 "HND","Honduras",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "HND","Honduras",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "HND","Honduras",2020,"IT.NET.USER.ZS","internet_users_pct",45.24829865
@@ -10404,6 +10477,7 @@
 "HRV","Croatia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",86452.7828040296
 "HRV","Croatia",2019,"SP.POP.TOTL","population_total",3949390
 "HRV","Croatia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.154811374562106
+"HRV","Croatia",2020,"GCI_OPEN","gci_overall",92.53
 "HRV","Croatia",2020,"INCIDENTS_OPEN","cyber_incidents",11
 "HRV","Croatia",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.484906649788
 "HRV","Croatia",2020,"IT.NET.USER.ZS","internet_users_pct",78.32090004
@@ -10510,6 +10584,7 @@
 "HTI","Haiti",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",8945.17510107559
 "HTI","Haiti",2019,"SP.POP.TOTL","population_total",11105163
 "HTI","Haiti",2020,"FP.CPI.TOTL.ZG","inflation_cpi",22.7963113642528
+"HTI","Haiti",2020,"GCI_OPEN","gci_overall",6.4
 "HTI","Haiti",2020,"IT.NET.USER.ZS","internet_users_pct",39.38809967
 "HTI","Haiti",2020,"NE.GDI.TOTL.ZS","gcf_gdp",17.70308377994
 "HTI","Haiti",2020,"NE.TRD.GNFS.ZS","trade_gdp",37.4138801252638
@@ -10616,6 +10691,7 @@
 "HUN","Hungary",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",78041.4882076721
 "HUN","Hungary",2019,"SP.POP.TOTL","population_total",9694824
 "HUN","Hungary",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.32674385766738
+"HUN","Hungary",2020,"GCI_OPEN","gci_overall",91.28
 "HUN","Hungary",2020,"INCIDENTS_OPEN","cyber_incidents",15
 "HUN","Hungary",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.77258872223978
 "HUN","Hungary",2020,"IT.NET.USER.ZS","internet_users_pct",84.77115202
@@ -11114,6 +11190,7 @@
 "IDN","Indonesia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",26237.972652883
 "IDN","Indonesia",2019,"SP.POP.TOTL","population_total",272489381
 "IDN","Indonesia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.91983527270793
+"IDN","Indonesia",2020,"GCI_OPEN","gci_overall",94.88
 "IDN","Indonesia",2020,"INCIDENTS_OPEN","cyber_incidents",114
 "IDN","Indonesia",2020,"INCIDENTS_OPEN","cyber_incidents_log",4.74493212836325
 "IDN","Indonesia",2020,"IT.NET.USER.ZS","internet_users_pct",53.72649449
@@ -11426,6 +11503,7 @@
 "IND","India",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",22173.166446182
 "IND","India",2019,"SP.POP.TOTL","population_total",1389030312
 "IND","India",2020,"FP.CPI.TOTL.ZG","inflation_cpi",6.62343677628535
+"IND","India",2020,"GCI_OPEN","gci_overall",97.5
 "IND","India",2020,"INCIDENTS_OPEN","cyber_incidents",198
 "IND","India",2020,"INCIDENTS_OPEN","cyber_incidents_log",5.29330482472449
 "IND","India",2020,"IT.NET.USER.ZS","internet_users_pct",43.40544313
@@ -11542,6 +11620,7 @@
 "IRL","Ireland",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",204448.48599916
 "IRL","Ireland",2019,"SP.POP.TOTL","population_total",4976456
 "IRL","Ireland",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.326183651280033
+"IRL","Ireland",2020,"GCI_OPEN","gci_overall",85.86
 "IRL","Ireland",2020,"INCIDENTS_OPEN","cyber_incidents",22
 "IRL","Ireland",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.13549421592915
 "IRL","Ireland",2020,"IT.NET.USER.ZS","internet_users_pct",91.99989097
@@ -11656,6 +11735,7 @@
 "IRN","Iran, Islamic Rep.",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",49633.3778759749
 "IRN","Iran, Islamic Rep.",2019,"SP.POP.TOTL","population_total",87051648
 "IRN","Iran, Islamic Rep.",2020,"FP.CPI.TOTL.ZG","inflation_cpi",30.5941390387295
+"IRN","Iran",2020,"GCI_OPEN","gci_overall",81.07
 "IRN","Iran, Islamic Rep.",2020,"INCIDENTS_OPEN","cyber_incidents",23
 "IRN","Iran, Islamic Rep.",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.17805383034795
 "IRN","Iran, Islamic Rep.",2020,"IT.NET.USER.ZS","internet_users_pct",75.56986637
@@ -11768,6 +11848,7 @@
 "IRQ","Iraq",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",70116.120236766
 "IRQ","Iraq",2019,"SP.POP.TOTL","population_total",41192171
 "IRQ","Iraq",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.574162679425795
+"IRQ","Iraq",2020,"GCI_OPEN","gci_overall",20.71
 "IRQ","Iraq",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "IRQ","Iraq",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "IRQ","Iraq",2020,"IT.NET.USER.ZS","internet_users_pct",53.67779922
@@ -11878,6 +11959,7 @@
 "ISL","Iceland",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",109395.609709246
 "ISL","Iceland",2019,"SP.POP.TOTL","population_total",360563
 "ISL","Iceland",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.84792401518665
+"ISL","Iceland",2020,"GCI_OPEN","gci_overall",79.81
 "ISL","Iceland",2020,"IT.NET.USER.ZS","internet_users_pct",99.5327519
 "ISL","Iceland",2020,"NE.GDI.TOTL.ZS","gcf_gdp",21.046340093825
 "ISL","Iceland",2020,"NE.TRD.GNFS.ZS","trade_gdp",68.6550233460548
@@ -11992,6 +12074,7 @@
 "ISR","Israel",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",99127.4133695106
 "ISR","Israel",2019,"SP.POP.TOTL","population_total",9054000
 "ISR","Israel",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.575254620897756
+"ISR","Israel",2020,"GCI_OPEN","gci_overall",90.93
 "ISR","Israel",2020,"INCIDENTS_OPEN","cyber_incidents",71
 "ISR","Israel",2020,"INCIDENTS_OPEN","cyber_incidents_log",4.27666611901606
 "ISR","Israel",2020,"IT.NET.USER.ZS","internet_users_pct",90.12734091
@@ -12108,6 +12191,7 @@
 "ITA","Italy",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",127844.962730741
 "ITA","Italy",2019,"SP.POP.TOTL","population_total",59729081
 "ITA","Italy",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.13770757391651
+"ITA","Italy",2020,"GCI_OPEN","gci_overall",96.13
 "ITA","Italy",2020,"INCIDENTS_OPEN","cyber_incidents",61
 "ITA","Italy",2020,"INCIDENTS_OPEN","cyber_incidents_log",4.12713438504509
 "ITA","Italy",2020,"IT.NET.USER.ZS","internet_users_pct",70.48342785
@@ -12216,6 +12300,7 @@
 "JAM","Jamaica",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",21553.0824321545
 "JAM","Jamaica",2019,"SP.POP.TOTL","population_total",2823271
 "JAM","Jamaica",2020,"FP.CPI.TOTL.ZG","inflation_cpi",5.2267777929352
+"JAM","Jamaica",2020,"GCI_OPEN","gci_overall",32.53
 "JAM","Jamaica",2020,"INCIDENTS_OPEN","cyber_incidents",4
 "JAM","Jamaica",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.6094379124341
 "JAM","Jamaica",2020,"IT.NET.USER.ZS","internet_users_pct",76.38400269
@@ -12332,6 +12417,7 @@
 "JOR","Jordan",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",42641.9637944668
 "JOR","Jordan",2019,"SP.POP.TOTL","population_total",10671891
 "JOR","Jordan",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.333294350628378
+"JOR","Jordan",2020,"GCI_OPEN","gci_overall",70.96
 "JOR","Jordan",2020,"IT.NET.USER.ZS","internet_users_pct",78.4178009
 "JOR","Jordan",2020,"NE.GDI.TOTL.ZS","gcf_gdp",21.4585413761158
 "JOR","Jordan",2020,"NE.TRD.GNFS.ZS","trade_gdp",66.0599488089059
@@ -12446,6 +12532,7 @@
 "JPN","Japan",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",84299.252416948
 "JPN","Japan",2019,"SP.POP.TOTL","population_total",126633000
 "JPN","Japan",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.024995834027731
+"JPN","Japan",2020,"GCI_OPEN","gci_overall",97.82
 "JPN","Japan",2020,"INCIDENTS_OPEN","cyber_incidents",74
 "JPN","Japan",2020,"INCIDENTS_OPEN","cyber_incidents_log",4.31748811353631
 "JPN","Japan",2020,"IT.NET.USER.ZS","internet_users_pct",90.21945812
@@ -12558,6 +12645,7 @@
 "KAZ","Kazakhstan",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",70309.8634276871
 "KAZ","Kazakhstan",2019,"SP.POP.TOTL","population_total",19209555
 "KAZ","Kazakhstan",2020,"FP.CPI.TOTL.ZG","inflation_cpi",6.71815454861458
+"KAZ","Kazakhstan",2020,"GCI_OPEN","gci_overall",93.15
 "KAZ","Kazakhstan",2020,"INCIDENTS_OPEN","cyber_incidents",10
 "KAZ","Kazakhstan",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.39789527279837
 "KAZ","Kazakhstan",2020,"IT.NET.USER.ZS","internet_users_pct",85.94259898
@@ -12674,6 +12762,7 @@
 "KEN","Kenya",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",13354.3367171728
 "KEN","Kenya",2019,"SP.POP.TOTL","population_total",51202827
 "KEN","Kenya",2020,"FP.CPI.TOTL.ZG","inflation_cpi",5.40516207933392
+"KEN","Kenya",2020,"GCI_OPEN","gci_overall",81.7
 "KEN","Kenya",2020,"INCIDENTS_OPEN","cyber_incidents",10
 "KEN","Kenya",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.39789527279837
 "KEN","Kenya",2020,"IT.NET.USER.ZS","internet_users_pct",24.7227993
@@ -12784,6 +12873,7 @@
 "KGZ","Kyrgyz Republic",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",16229.0879298983
 "KGZ","Kyrgyz Republic",2019,"SP.POP.TOTL","population_total",6590211
 "KGZ","Kyrgyz Republic",2020,"FP.CPI.TOTL.ZG","inflation_cpi",6.32542296338078
+"KGZ","Kyrgyzstan",2020,"GCI_OPEN","gci_overall",49.64
 "KGZ","Kyrgyz Republic",2020,"INCIDENTS_OPEN","cyber_incidents",5
 "KGZ","Kyrgyz Republic",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.79175946922805
 "KGZ","Kyrgyz Republic",2020,"IT.NET.USER.ZS","internet_users_pct",72
@@ -12896,6 +12986,7 @@
 "KHM","Cambodia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",11406.4617876745
 "KHM","Cambodia",2019,"SP.POP.TOTL","population_total",16481304
 "KHM","Cambodia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.9402951426397
+"KHM","Cambodia",2020,"GCI_OPEN","gci_overall",19.12
 "KHM","Cambodia",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "KHM","Cambodia",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "KHM","Cambodia",2020,"IT.NET.USER.ZS","internet_users_pct",56.37590027
@@ -13000,6 +13091,7 @@
 "KIR","Kiribati",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "KIR","Kiribati",2019,"SP.POP.TOTL","population_total",123921
 "KIR","Kiribati",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.5532455441463
+"KIR","Kiribati",2020,"GCI_OPEN","gci_overall",13.84
 "KIR","Kiribati",2020,"IT.NET.USER.ZS","internet_users_pct",52.95090103
 "KIR","Kiribati",2020,"NE.GDI.TOTL.ZS","gcf_gdp",14.6977990367426
 "KIR","Kiribati",2020,"NE.TRD.GNFS.ZS","trade_gdp",78.4052134293582
@@ -13100,6 +13192,7 @@
 "KNA","St. Kitts and Nevis",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "KNA","St. Kitts and Nevis",2019,"SP.POP.TOTL","population_total",46952
 "KNA","St. Kitts and Nevis",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-1.16724501769353
+"KNA","Saint Kitts and Nevis",2020,"GCI_OPEN","gci_overall",12.44
 "KNA","St. Kitts and Nevis",2020,"IT.NET.USER.ZS","internet_users_pct",70.27529907
 "KNA","St. Kitts and Nevis",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "KNA","St. Kitts and Nevis",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -13210,6 +13303,7 @@
 "KOR","Korea, Rep.",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",93750.5460589006
 "KOR","Korea, Rep.",2019,"SP.POP.TOTL","population_total",51764822
 "KOR","Korea, Rep.",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.537288023411737
+"KOR","Korea (Rep. of)",2020,"GCI_OPEN","gci_overall",98.52
 "KOR","Korea, Rep.",2020,"INCIDENTS_OPEN","cyber_incidents",146
 "KOR","Korea, Rep.",2020,"INCIDENTS_OPEN","cyber_incidents_log",4.99043258677874
 "KOR","Korea, Rep.",2020,"IT.NET.USER.ZS","internet_users_pct",96.50506052
@@ -13324,6 +13418,7 @@
 "KWT","Kuwait",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",90447.3939760071
 "KWT","Kuwait",2019,"SP.POP.TOTL","population_total",4442316
 "KWT","Kuwait",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.101729548274
+"KWT","Kuwait",2020,"GCI_OPEN","gci_overall",75.07
 "KWT","Kuwait",2020,"INCIDENTS_OPEN","cyber_incidents",7
 "KWT","Kuwait",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.07944154167984
 "KWT","Kuwait",2020,"IT.NET.USER.ZS","internet_users_pct",99.10587017
@@ -13530,6 +13625,7 @@
 "LAO","Lao PDR",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",19562.9249785157
 "LAO","Lao PDR",2019,"SP.POP.TOTL","population_total",7237636
 "LAO","Lao PDR",2020,"FP.CPI.TOTL.ZG","inflation_cpi",5.10407262959919
+"LAO","Lao People's Democratic Republic",2020,"GCI_OPEN","gci_overall",20.34
 "LAO","Lao PDR",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "LAO","Lao PDR",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "LAO","Lao PDR",2020,"IT.NET.USER.ZS","internet_users_pct",54
@@ -13640,6 +13736,7 @@
 "LBN","Lebanon",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",50086.979540284
 "LBN","Lebanon",2019,"SP.POP.TOTL","population_total",5794594
 "LBN","Lebanon",2020,"FP.CPI.TOTL.ZG","inflation_cpi",84.8643330472041
+"LBN","Lebanon",2020,"GCI_OPEN","gci_overall",30.44
 "LBN","Lebanon",2020,"INCIDENTS_OPEN","cyber_incidents",3
 "LBN","Lebanon",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.38629436111989
 "LBN","Lebanon",2020,"IT.NET.USER.ZS","internet_users_pct",82.0664978
@@ -13748,6 +13845,7 @@
 "LBR","Liberia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",3630.82015300726
 "LBR","Liberia",2019,"SP.POP.TOTL","population_total",5043721
 "LBR","Liberia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",16.9557241496255
+"LBR","Liberia",2020,"GCI_OPEN","gci_overall",9.72
 "LBR","Liberia",2020,"INCIDENTS_OPEN","cyber_incidents",2
 "LBR","Liberia",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.09861228866811
 "LBR","Liberia",2020,"IT.NET.USER.ZS","internet_users_pct",22.91069984
@@ -13858,6 +13956,7 @@
 "LBY","Libya",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",51362.8042728563
 "LBY","Libya",2019,"SP.POP.TOTL","population_total",6951033
 "LBY","Libya",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.44703656998741
+"LBY","Libya",2020,"GCI_OPEN","gci_overall",28.78
 "LBY","Libya",2020,"IT.NET.USER.ZS","internet_users_pct",74.35810089
 "LBY","Libya",2020,"NE.GDI.TOTL.ZS","gcf_gdp",9.44983047721509
 "LBY","Libya",2020,"NE.TRD.GNFS.ZS","trade_gdp",50.9757934373319
@@ -13958,6 +14057,7 @@
 "LCA","St. Lucia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",48398.765011939
 "LCA","St. Lucia",2019,"SP.POP.TOTL","population_total",177661
 "LCA","St. Lucia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-1.75580833517594
+"LCA","Saint Lucia",2020,"GCI_OPEN","gci_overall",10.96
 "LCA","St. Lucia",2020,"IT.NET.USER.ZS","internet_users_pct",62.06399918
 "LCA","St. Lucia",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "LCA","St. Lucia",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -14252,6 +14352,7 @@
 "LIE","Liechtenstein",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "LIE","Liechtenstein",2019,"SP.POP.TOTL","population_total",38563
 "LIE","Liechtenstein",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"LIE","Liechtenstein",2020,"GCI_OPEN","gci_overall",35.15
 "LIE","Liechtenstein",2020,"IT.NET.USER.ZS","internet_users_pct",94.34999847
 "LIE","Liechtenstein",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "LIE","Liechtenstein",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -14362,6 +14463,7 @@
 "LKA","Sri Lanka",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",38492.3046054386
 "LKA","Sri Lanka",2019,"SP.POP.TOTL","population_total",21803000
 "LKA","Sri Lanka",2020,"FP.CPI.TOTL.ZG","inflation_cpi",6.15394508391738
+"LKA","Sri Lanka",2020,"GCI_OPEN","gci_overall",58.65
 "LKA","Sri Lanka",2020,"INCIDENTS_OPEN","cyber_incidents",5
 "LKA","Sri Lanka",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.79175946922805
 "LKA","Sri Lanka",2020,"IT.NET.USER.ZS","internet_users_pct",36.18473435
@@ -14562,6 +14664,7 @@
 "LSO","Lesotho",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",9051.90038262245
 "LSO","Lesotho",2019,"SP.POP.TOTL","population_total",2209405
 "LSO","Lesotho",2020,"FP.CPI.TOTL.ZG","inflation_cpi",4.97809676252309
+"LSO","Lesotho",2020,"GCI_OPEN","gci_overall",9.08
 "LSO","Lesotho",2020,"IT.NET.USER.ZS","internet_users_pct",43.65750122
 "LSO","Lesotho",2020,"NE.GDI.TOTL.ZS","gcf_gdp",26.2646701221778
 "LSO","Lesotho",2020,"NE.TRD.GNFS.ZS","trade_gdp",141.096605062998
@@ -14768,6 +14871,7 @@
 "LTU","Lithuania",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",87179.7320462365
 "LTU","Lithuania",2019,"SP.POP.TOTL","population_total",2811089
 "LTU","Lithuania",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.19989444983569
+"LTU","Lithuania",2020,"GCI_OPEN","gci_overall",97.93
 "LTU","Lithuania",2020,"INCIDENTS_OPEN","cyber_incidents",10
 "LTU","Lithuania",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.39789527279837
 "LTU","Lithuania",2020,"IT.NET.USER.ZS","internet_users_pct",83.05554724
@@ -14880,6 +14984,7 @@
 "LUX","Luxembourg",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",278812.234835193
 "LUX","Luxembourg",2019,"SP.POP.TOTL","population_total",620001
 "LUX","Luxembourg",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.819957302127036
+"LUX","Luxembourg",2020,"GCI_OPEN","gci_overall",97.41
 "LUX","Luxembourg",2020,"INCIDENTS_OPEN","cyber_incidents",8
 "LUX","Luxembourg",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.19722457733622
 "LUX","Luxembourg",2020,"IT.NET.USER.ZS","internet_users_pct",98.45962893
@@ -14990,6 +15095,7 @@
 "LVA","Latvia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",73185.2969753186
 "LVA","Latvia",2019,"SP.POP.TOTL","population_total",1913822
 "LVA","Latvia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.219064904841985
+"LVA","Latvia",2020,"GCI_OPEN","gci_overall",97.28
 "LVA","Latvia",2020,"INCIDENTS_OPEN","cyber_incidents",3
 "LVA","Latvia",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.38629436111989
 "LVA","Latvia",2020,"IT.NET.USER.ZS","internet_users_pct",88.89796078
@@ -15298,6 +15404,7 @@
 "MAR","Morocco",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",29172.6624215353
 "MAR","Morocco",2019,"SP.POP.TOTL","population_total",36210898
 "MAR","Morocco",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.705968661338261
+"MAR","Morocco",2020,"GCI_OPEN","gci_overall",82.41
 "MAR","Morocco",2020,"INCIDENTS_OPEN","cyber_incidents",5
 "MAR","Morocco",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.79175946922805
 "MAR","Morocco",2020,"IT.NET.USER.ZS","internet_users_pct",84.12036305
@@ -15406,6 +15513,7 @@
 "MCO","Monaco",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "MCO","Monaco",2019,"SP.POP.TOTL","population_total",38109
 "MCO","Monaco",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"MCO","Monaco",2020,"GCI_OPEN","gci_overall",72.57
 "MCO","Monaco",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "MCO","Monaco",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "MCO","Monaco",2020,"IT.NET.USER.ZS","internet_users_pct",98.57080078
@@ -15512,6 +15620,7 @@
 "MDA","Moldova",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",26689.5545152168
 "MDA","Moldova",2019,"SP.POP.TOTL","population_total",2664224
 "MDA","Moldova",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.76597122245351
+"MDA","Moldova",2020,"GCI_OPEN","gci_overall",75.78
 "MDA","Moldova",2020,"INCIDENTS_OPEN","cyber_incidents",2
 "MDA","Moldova",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.09861228866811
 "MDA","Moldova",2020,"IT.NET.USER.ZS","internet_users_pct",74.11830139
@@ -15618,6 +15727,7 @@
 "MDG","Madagascar",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",3456.58791145452
 "MDG","Madagascar",2019,"SP.POP.TOTL","population_total",28219554
 "MDG","Madagascar",2020,"FP.CPI.TOTL.ZG","inflation_cpi",4.20179312190557
+"MDG","Madagascar",2020,"GCI_OPEN","gci_overall",23.33
 "MDG","Madagascar",2020,"IT.NET.USER.ZS","internet_users_pct",11.35470009
 "MDG","Madagascar",2020,"NE.GDI.TOTL.ZS","gcf_gdp",17.7153251099228
 "MDG","Madagascar",2020,"NE.TRD.GNFS.ZS","trade_gdp",49.0107073664371
@@ -15722,6 +15832,7 @@
 "MDV","Maldives",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",45944.9909820572
 "MDV","Maldives",2019,"SP.POP.TOTL","population_total",487731
 "MDV","Maldives",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-1.36977425569811
+"MDV","Maldives",2020,"GCI_OPEN","gci_overall",2.95
 "MDV","Maldives",2020,"IT.NET.USER.ZS","internet_users_pct",79.09780121
 "MDV","Maldives",2020,"NE.GDI.TOTL.ZS","gcf_gdp",35.5119966004124
 "MDV","Maldives",2020,"NE.TRD.GNFS.ZS","trade_gdp",114.361902904327
@@ -15930,6 +16041,7 @@
 "MEX","Mexico",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",49950.1181396383
 "MEX","Mexico",2019,"SP.POP.TOTL","population_total",125762982
 "MEX","Mexico",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.39683415570006
+"MEX","Mexico",2020,"GCI_OPEN","gci_overall",81.68
 "MEX","Mexico",2020,"INCIDENTS_OPEN","cyber_incidents",87
 "MEX","Mexico",2020,"INCIDENTS_OPEN","cyber_incidents_log",4.47733681447821
 "MEX","Mexico",2020,"IT.NET.USER.ZS","internet_users_pct",71.49017499
@@ -16034,6 +16146,7 @@
 "MHL","Marshall Islands",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "MHL","Marshall Islands",2019,"SP.POP.TOTL","population_total",44007
 "MHL","Marshall Islands",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"MHL","Marshall Islands",2020,"GCI_OPEN","gci_overall",4.9
 "MHL","Marshall Islands",2020,"IT.NET.USER.ZS","internet_users_pct",56.41910172
 "MHL","Marshall Islands",2020,"NE.GDI.TOTL.ZS","gcf_gdp",20.6942928039702
 "MHL","Marshall Islands",2020,"NE.TRD.GNFS.ZS","trade_gdp",107.825971877585
@@ -16234,6 +16347,7 @@
 "MKD","North Macedonia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",60065.2812315477
 "MKD","North Macedonia",2019,"SP.POP.TOTL","population_total",1876262
 "MKD","North Macedonia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.20007348888469
+"MKD","North Macedonia",2020,"GCI_OPEN","gci_overall",89.92
 "MKD","North Macedonia",2020,"INCIDENTS_OPEN","cyber_incidents",4
 "MKD","North Macedonia",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.6094379124341
 "MKD","North Macedonia",2020,"IT.NET.USER.ZS","internet_users_pct",81.40553811
@@ -16340,6 +16454,7 @@
 "MLI","Mali",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",8535.50622802348
 "MLI","Mali",2019,"SP.POP.TOTL","population_total",21068405
 "MLI","Mali",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.438088940320669
+"MLI","Mali",2020,"GCI_OPEN","gci_overall",10.14
 "MLI","Mali",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "MLI","Mali",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "MLI","Mali",2020,"IT.NET.USER.ZS","internet_users_pct",29.11300087
@@ -16450,6 +16565,7 @@
 "MLT","Malta",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",106814.670403314
 "MLT","Malta",2019,"SP.POP.TOTL","population_total",503912
 "MLT","Malta",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.638544956776712
+"MLT","Malta",2020,"GCI_OPEN","gci_overall",83.65
 "MLT","Malta",2020,"INCIDENTS_OPEN","cyber_incidents",5
 "MLT","Malta",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.79175946922805
 "MLT","Malta",2020,"IT.NET.USER.ZS","internet_users_pct",86.85876183
@@ -16566,6 +16682,7 @@
 "MMR","Myanmar",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",14595.4994379377
 "MMR","Myanmar",2019,"SP.POP.TOTL","population_total",52640713
 "MMR","Myanmar",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"MMR","Myanmar",2020,"GCI_OPEN","gci_overall",36.41
 "MMR","Myanmar",2020,"INCIDENTS_OPEN","cyber_incidents",2
 "MMR","Myanmar",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.09861228866811
 "MMR","Myanmar",2020,"IT.NET.USER.ZS","internet_users_pct",45.4477005
@@ -16772,6 +16889,7 @@
 "MNE","Montenegro",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",65081.3643983414
 "MNE","Montenegro",2019,"SP.POP.TOTL","population_total",626753
 "MNE","Montenegro",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.255655699848551
+"MNE","Montenegro",2020,"GCI_OPEN","gci_overall",53.23
 "MNE","Montenegro",2020,"IT.NET.USER.ZS","internet_users_pct",77.60879306
 "MNE","Montenegro",2020,"NE.GDI.TOTL.ZS","gcf_gdp",30.0875172767022
 "MNE","Montenegro",2020,"NE.TRD.GNFS.ZS","trade_gdp",87.8612027134909
@@ -16878,6 +16996,7 @@
 "MNG","Mongolia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",39086.2039531684
 "MNG","Mongolia",2019,"SP.POP.TOTL","population_total",3267673
 "MNG","Mongolia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.7237230614026
+"MNG","Mongolia",2020,"GCI_OPEN","gci_overall",26.2
 "MNG","Mongolia",2020,"INCIDENTS_OPEN","cyber_incidents",2
 "MNG","Mongolia",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.09861228866811
 "MNG","Mongolia",2020,"IT.NET.USER.ZS","internet_users_pct",62.50002848
@@ -17076,6 +17195,7 @@
 "MOZ","Mozambique",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",3706.23698945483
 "MOZ","Mozambique",2019,"SP.POP.TOTL","population_total",29884380
 "MOZ","Mozambique",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.48393567493204
+"MOZ","Mozambique",2020,"GCI_OPEN","gci_overall",24.18
 "MOZ","Mozambique",2020,"IT.NET.USER.ZS","internet_users_pct",14.28740025
 "MOZ","Mozambique",2020,"NE.GDI.TOTL.ZS","gcf_gdp",44.8266764679686
 "MOZ","Mozambique",2020,"NE.TRD.GNFS.ZS","trade_gdp",99.906146051979
@@ -17174,6 +17294,7 @@
 "MRT","Mauritania",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",29917.7338765538
 "MRT","Mauritania",2019,"SP.POP.TOTL","population_total",4467708
 "MRT","Mauritania",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.3856948845632
+"MRT","Mauritania",2020,"GCI_OPEN","gci_overall",18.94
 "MRT","Mauritania",2020,"IT.NET.USER.ZS","internet_users_pct",29.90649986
 "MRT","Mauritania",2020,"NE.GDI.TOTL.ZS","gcf_gdp",38.6593231676652
 "MRT","Mauritania",2020,"NE.TRD.GNFS.ZS","trade_gdp",86.7761681322741
@@ -17280,6 +17401,7 @@
 "MUS","Mauritius",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",55991.1879372099
 "MUS","Mauritius",2019,"SP.POP.TOTL","population_total",1265985
 "MUS","Mauritius",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.5808007718283
+"MUS","Mauritius",2020,"GCI_OPEN","gci_overall",96.89
 "MUS","Mauritius",2020,"INCIDENTS_OPEN","cyber_incidents",4
 "MUS","Mauritius",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.6094379124341
 "MUS","Mauritius",2020,"IT.NET.USER.ZS","internet_users_pct",67.73290684
@@ -17386,6 +17508,7 @@
 "MWI","Malawi",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",4981.36610743155
 "MWI","Malawi",2019,"SP.POP.TOTL","population_total",19025752
 "MWI","Malawi",2020,"FP.CPI.TOTL.ZG","inflation_cpi",8.62551469650552
+"MWI","Malawi",2020,"GCI_OPEN","gci_overall",36.83
 "MWI","Malawi",2020,"IT.NET.USER.ZS","internet_users_pct",13.89949989
 "MWI","Malawi",2020,"NE.GDI.TOTL.ZS","gcf_gdp",16.7106351396417
 "MWI","Malawi",2020,"NE.TRD.GNFS.ZS","trade_gdp",41.0323429397328
@@ -17498,6 +17621,7 @@
 "MYS","Malaysia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",65082.787630927
 "MYS","Malaysia",2019,"SP.POP.TOTL","population_total",33440596
 "MYS","Malaysia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-1.1387021539305
+"MYS","Malaysia",2020,"GCI_OPEN","gci_overall",98.06
 "MYS","Malaysia",2020,"INCIDENTS_OPEN","cyber_incidents",9
 "MYS","Malaysia",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.30258509299405
 "MYS","Malaysia",2020,"IT.NET.USER.ZS","internet_users_pct",89.55501192
@@ -17700,6 +17824,7 @@
 "NAM","Namibia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",36365.7339585196
 "NAM","Namibia",2019,"SP.POP.TOTL","population_total",2650494
 "NAM","Namibia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.20938236933469
+"NAM","Namibia",2020,"GCI_OPEN","gci_overall",11.47
 "NAM","Namibia",2020,"IT.NET.USER.ZS","internet_users_pct",57.8608017
 "NAM","Namibia",2020,"NE.GDI.TOTL.ZS","gcf_gdp",13.9292034235476
 "NAM","Namibia",2020,"NE.TRD.GNFS.ZS","trade_gdp",76.9252424036465
@@ -17894,6 +18019,7 @@
 "NER","Niger",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",4330.93039147916
 "NER","Niger",2019,"SP.POP.TOTL","population_total",22947757
 "NER","Niger",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.8981937602627
+"NER","Niger",2020,"GCI_OPEN","gci_overall",11.38
 "NER","Niger",2020,"IT.NET.USER.ZS","internet_users_pct",11.85680008
 "NER","Niger",2020,"NE.GDI.TOTL.ZS","gcf_gdp",28.4897323087862
 "NER","Niger",2020,"NE.TRD.GNFS.ZS","trade_gdp",35.5129906570841
@@ -18004,6 +18130,7 @@
 "NGA","Nigeria",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",19181.3569052394
 "NGA","Nigeria",2019,"SP.POP.TOTL","population_total",209485641
 "NGA","Nigeria",2020,"FP.CPI.TOTL.ZG","inflation_cpi",13.2460234276597
+"NGA","Nigeria",2020,"GCI_OPEN","gci_overall",84.76
 "NGA","Nigeria",2020,"INCIDENTS_OPEN","cyber_incidents",13
 "NGA","Nigeria",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.63905732961526
 "NGA","Nigeria",2020,"IT.NET.USER.ZS","internet_users_pct",31.88879967
@@ -18114,6 +18241,7 @@
 "NIC","Nicaragua",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",15886.3039850805
 "NIC","Nicaragua",2019,"SP.POP.TOTL","population_total",6483657
 "NIC","Nicaragua",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.68181341625572
+"NIC","Nicaragua",2020,"GCI_OPEN","gci_overall",9
 "NIC","Nicaragua",2020,"INCIDENTS_OPEN","cyber_incidents",3
 "NIC","Nicaragua",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.38629436111989
 "NIC","Nicaragua",2020,"IT.NET.USER.ZS","internet_users_pct",44.87490082
@@ -18232,6 +18360,7 @@
 "NLD","Netherlands",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",125011.298368665
 "NLD","Netherlands",2019,"SP.POP.TOTL","population_total",17344874
 "NLD","Netherlands",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.27246037789161
+"NLD","Netherlands",2020,"GCI_OPEN","gci_overall",97.05
 "NLD","Netherlands",2020,"INCIDENTS_OPEN","cyber_incidents",37
 "NLD","Netherlands",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.63758615972639
 "NLD","Netherlands",2020,"IT.NET.USER.ZS","internet_users_pct",91.33333333
@@ -18346,6 +18475,7 @@
 "NOR","Norway",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",167315.772365741
 "NOR","Norway",2019,"SP.POP.TOTL","population_total",5347896
 "NOR","Norway",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.28658490707996
+"NOR","Norway",2020,"GCI_OPEN","gci_overall",96.89
 "NOR","Norway",2020,"INCIDENTS_OPEN","cyber_incidents",31
 "NOR","Norway",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.46573590279973
 "NOR","Norway",2020,"IT.NET.USER.ZS","internet_users_pct",94.60755647
@@ -18462,6 +18592,7 @@
 "NPL","Nepal",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",18741.4265242173
 "NPL","Nepal",2019,"SP.POP.TOTL","population_total",28414064
 "NPL","Nepal",2020,"FP.CPI.TOTL.ZG","inflation_cpi",5.05635826238499
+"NPL","Nepal",2020,"GCI_OPEN","gci_overall",44.99
 "NPL","Nepal",2020,"INCIDENTS_OPEN","cyber_incidents",4
 "NPL","Nepal",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.6094379124341
 "NPL","Nepal",2020,"IT.NET.USER.ZS","internet_users_pct",36.96530151
@@ -18564,6 +18695,7 @@
 "NRU","Nauru",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "NRU","Nauru",2019,"SP.POP.TOTL","population_total",11587
 "NRU","Nauru",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"NRU","Nauru",2020,"GCI_OPEN","gci_overall",21.42
 "NRU","Nauru",2020,"IT.NET.USER.ZS","internet_users_pct",77.46659851
 "NRU","Nauru",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "NRU","Nauru",2020,"NE.TRD.GNFS.ZS","trade_gdp",134.980107526882
@@ -18676,6 +18808,7 @@
 "NZL","New Zealand",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",87072.81996617
 "NZL","New Zealand",2019,"SP.POP.TOTL","population_total",4970300
 "NZL","New Zealand",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.71456170007245
+"NZL","New Zealand",2020,"GCI_OPEN","gci_overall",84.04
 "NZL","New Zealand",2020,"INCIDENTS_OPEN","cyber_incidents",29
 "NZL","New Zealand",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.40119738166216
 "NZL","New Zealand",2020,"IT.NET.USER.ZS","internet_users_pct",90.92099762
@@ -18884,6 +19017,7 @@
 "OMN","Oman",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",73700.4906581414
 "OMN","Oman",2019,"SP.POP.TOTL","population_total",4591241
 "OMN","Oman",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.40640291946585
+"OMN","Oman",2020,"GCI_OPEN","gci_overall",96.04
 "OMN","Oman",2020,"INCIDENTS_OPEN","cyber_incidents",3
 "OMN","Oman",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.38629436111989
 "OMN","Oman",2020,"IT.NET.USER.ZS","internet_users_pct",95.23229321
@@ -19094,6 +19228,7 @@
 "PAK","Pakistan",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",17420.0006655639
 "PAK","Pakistan",2019,"SP.POP.TOTL","population_total",230800899
 "PAK","Pakistan",2020,"FP.CPI.TOTL.ZG","inflation_cpi",9.74011619320125
+"PAK","Pakistan",2020,"GCI_OPEN","gci_overall",64.88
 "PAK","Pakistan",2020,"INCIDENTS_OPEN","cyber_incidents",19
 "PAK","Pakistan",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.99573227355399
 "PAK","Pakistan",2020,"IT.NET.USER.ZS","internet_users_pct",18.935
@@ -19206,6 +19341,7 @@
 "PAN","Panama",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",70487.5987245477
 "PAN","Panama",2019,"SP.POP.TOTL","population_total",4234700
 "PAN","Panama",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-1.5502754080376
+"PAN","Panama",2020,"GCI_OPEN","gci_overall",34.11
 "PAN","Panama",2020,"INCIDENTS_OPEN","cyber_incidents",3
 "PAN","Panama",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.38629436111989
 "PAN","Panama",2020,"IT.NET.USER.ZS","internet_users_pct",64.82430267
@@ -19316,6 +19452,7 @@
 "PER","Peru",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",27921.3330115687
 "PER","Peru",2019,"SP.POP.TOTL","population_total",32449303
 "PER","Peru",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.00241205759292
+"PER","Peru",2020,"GCI_OPEN","gci_overall",55.67
 "PER","Peru",2020,"INCIDENTS_OPEN","cyber_incidents",11
 "PER","Peru",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.484906649788
 "PER","Peru",2020,"IT.NET.USER.ZS","internet_users_pct",65.25179796
@@ -19432,6 +19569,7 @@
 "PHL","Philippines",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",23665.958018796
 "PHL","Philippines",2019,"SP.POP.TOTL","population_total",110804683
 "PHL","Philippines",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.3931623931624
+"PHL","Philippines",2020,"GCI_OPEN","gci_overall",77
 "PHL","Philippines",2020,"INCIDENTS_OPEN","cyber_incidents",31
 "PHL","Philippines",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.46573590279973
 "PHL","Philippines",2020,"IT.NET.USER.ZS","internet_users_pct",53.76490021
@@ -19634,6 +19772,7 @@
 "PNG","Papua New Guinea",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",13293.8515172271
 "PNG","Papua New Guinea",2019,"SP.POP.TOTL","population_total",9609010
 "PNG","Papua New Guinea",2020,"FP.CPI.TOTL.ZG","inflation_cpi",4.87167398565555
+"PNG","Papua New Guinea",2020,"GCI_OPEN","gci_overall",26.33
 "PNG","Papua New Guinea",2020,"IT.NET.USER.ZS","internet_users_pct",15.02040005
 "PNG","Papua New Guinea",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "PNG","Papua New Guinea",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -19748,6 +19887,7 @@
 "POL","Poland",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",81204.2075383073
 "POL","Poland",2019,"SP.POP.TOTL","population_total",37965475
 "POL","Poland",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.37446972618589
+"POL","Poland",2020,"GCI_OPEN","gci_overall",93.86
 "POL","Poland",2020,"INCIDENTS_OPEN","cyber_incidents",33
 "POL","Poland",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.52636052461616
 "POL","Poland",2020,"IT.NET.USER.ZS","internet_users_pct",83.18488715
@@ -20062,6 +20202,7 @@
 "PRK","Korea, Dem. People's Rep.",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "PRK","Korea, Dem. People's Rep.",2019,"SP.POP.TOTL","population_total",26037632
 "PRK","Korea, Dem. People's Rep.",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"PRK","Korea, Dem. People's Rep.",2020,"GCI_OPEN","gci_overall",1.35
 "PRK","Korea, Dem. People’s Rep.",2020,"INCIDENTS_OPEN","cyber_incidents",16
 "PRK","Korea, Dem. People’s Rep.",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.83321334405622
 "PRK","Korea, Dem. People's Rep.",2020,"IT.NET.USER.ZS","internet_users_pct",NA
@@ -20172,6 +20313,7 @@
 "PRT","Portugal",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",84215.3135133323
 "PRT","Portugal",2019,"SP.POP.TOTL","population_total",10286263
 "PRT","Portugal",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.0124383299575305
+"PRT","Portugal",2020,"GCI_OPEN","gci_overall",97.32
 "PRT","Portugal",2020,"INCIDENTS_OPEN","cyber_incidents",9
 "PRT","Portugal",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.30258509299405
 "PRT","Portugal",2020,"IT.NET.USER.ZS","internet_users_pct",78.26166044
@@ -20284,6 +20426,7 @@
 "PRY","Paraguay",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",32048.6859849236
 "PRY","Paraguay",2019,"SP.POP.TOTL","population_total",6515058
 "PRY","Paraguay",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.76751592356698
+"PRY","Paraguay",2020,"GCI_OPEN","gci_overall",57.09
 "PRY","Paraguay",2020,"INCIDENTS_OPEN","cyber_incidents",12
 "PRY","Paraguay",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.56494935746154
 "PRY","Paraguay",2020,"IT.NET.USER.ZS","internet_users_pct",73.95751114
@@ -20392,6 +20535,7 @@
 "PSE","West Bank and Gaza",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",31366.6017895356
 "PSE","West Bank and Gaza",2019,"SP.POP.TOTL","population_total",4685306
 "PSE","West Bank and Gaza",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.735332001092191
+"PSE","Palestine",2020,"GCI_OPEN","gci_overall",25.18
 "PSE","West Bank and Gaza",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "PSE","West Bank and Gaza",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "PSE","West Bank and Gaza",2020,"IT.NET.USER.ZS","internet_users_pct",76.18160248
@@ -20790,6 +20934,7 @@
 "QAT","Qatar",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",151626.363291597
 "QAT","Qatar",2019,"SP.POP.TOTL","population_total",2638657
 "QAT","Qatar",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-2.5403150300476
+"QAT","Qatar",2020,"GCI_OPEN","gci_overall",94.5
 "QAT","Qatar",2020,"INCIDENTS_OPEN","cyber_incidents",6
 "QAT","Qatar",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.94591014905531
 "QAT","Qatar",2020,"IT.NET.USER.ZS","internet_users_pct",99.65284913
@@ -20906,6 +21051,7 @@
 "ROU","Romania",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",86737.342866306
 "ROU","Romania",2019,"SP.POP.TOTL","population_total",19371648
 "ROU","Romania",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.63107311184743
+"ROU","Romania",2020,"GCI_OPEN","gci_overall",76.29
 "ROU","Romania",2020,"INCIDENTS_OPEN","cyber_incidents",13
 "ROU","Romania",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.63905732961526
 "ROU","Romania",2020,"IT.NET.USER.ZS","internet_users_pct",78.45526895
@@ -21022,6 +21168,7 @@
 "RUS","Russian Federation",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",78207.377119296
 "RUS","Russian Federation",2019,"SP.POP.TOTL","population_total",145453291
 "RUS","Russian Federation",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.38219796948068
+"RUS","Russia",2020,"GCI_OPEN","gci_overall",98.06
 "RUS","Russian Federation",2020,"INCIDENTS_OPEN","cyber_incidents",234
 "RUS","Russian Federation",2020,"INCIDENTS_OPEN","cyber_incidents_log",5.45958551414416
 "RUS","Russian Federation",2020,"IT.NET.USER.ZS","internet_users_pct",84.99466978
@@ -21130,6 +21277,7 @@
 "RWA","Rwanda",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",8520.96882545312
 "RWA","Rwanda",2019,"SP.POP.TOTL","population_total",12776103
 "RWA","Rwanda",2020,"FP.CPI.TOTL.ZG","inflation_cpi",9.85039902274207
+"RWA","Rwanda",2020,"GCI_OPEN","gci_overall",79.95
 "RWA","Rwanda",2020,"INCIDENTS_OPEN","cyber_incidents",2
 "RWA","Rwanda",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.09861228866811
 "RWA","Rwanda",2020,"IT.NET.USER.ZS","internet_users_pct",23.8
@@ -21342,6 +21490,7 @@
 "SAU","Saudi Arabia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",146096.648740083
 "SAU","Saudi Arabia",2019,"SP.POP.TOTL","population_total",30063799
 "SAU","Saudi Arabia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.37234961012303
+"SAU","Saudi Arabia",2020,"GCI_OPEN","gci_overall",99.54
 "SAU","Saudi Arabia",2020,"INCIDENTS_OPEN","cyber_incidents",12
 "SAU","Saudi Arabia",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.56494935746154
 "SAU","Saudi Arabia",2020,"IT.NET.USER.ZS","internet_users_pct",97.8623325
@@ -21448,6 +21597,7 @@
 "SDN","Sudan",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",17437.856962261
 "SDN","Sudan",2019,"SP.POP.TOTL","population_total",45548175
 "SDN","Sudan",2020,"FP.CPI.TOTL.ZG","inflation_cpi",163.257782355458
+"SDN","Sudan",2020,"GCI_OPEN","gci_overall",35.03
 "SDN","Sudan",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "SDN","Sudan",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "SDN","Sudan",2020,"IT.NET.USER.ZS","internet_users_pct",NA
@@ -21558,6 +21708,7 @@
 "SEN","Senegal",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",13972.7002212484
 "SEN","Senegal",2019,"SP.POP.TOTL","population_total",16352922
 "SEN","Senegal",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.54314685681662
+"SEN","Senegal",2020,"GCI_OPEN","gci_overall",35.85
 "SEN","Senegal",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "SEN","Senegal",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "SEN","Senegal",2020,"IT.NET.USER.ZS","internet_users_pct",53.30879974
@@ -21674,6 +21825,7 @@
 "SGP","Singapore",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",204683.223038573
 "SGP","Singapore",2019,"SP.POP.TOTL","population_total",5703569
 "SGP","Singapore",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.172111865925382
+"SGP","Singapore",2020,"GCI_OPEN","gci_overall",98.52
 "SGP","Singapore",2020,"INCIDENTS_OPEN","cyber_incidents",10
 "SGP","Singapore",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.39789527279837
 "SGP","Singapore",2020,"IT.NET.USER.ZS","internet_users_pct",92.00434653
@@ -21780,6 +21932,7 @@
 "SLB","Solomon Islands",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",5189.75945106097
 "SLB","Solomon Islands",2019,"SP.POP.TOTL","population_total",728147
 "SLB","Solomon Islands",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.96354992076065
+"SLB","Solomon Islands",2020,"GCI_OPEN","gci_overall",7.08
 "SLB","Solomon Islands",2020,"IT.NET.USER.ZS","internet_users_pct",24.1984005
 "SLB","Solomon Islands",2020,"NE.GDI.TOTL.ZS","gcf_gdp",16.7238165802949
 "SLB","Solomon Islands",2020,"NE.TRD.GNFS.ZS","trade_gdp",60.2204365577573
@@ -21880,6 +22033,7 @@
 "SLE","Sierra Leone",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",9158.79610841702
 "SLE","Sierra Leone",2019,"SP.POP.TOTL","population_total",7731991
 "SLE","Sierra Leone",2020,"FP.CPI.TOTL.ZG","inflation_cpi",13.4468711101052
+"SLE","Sierra Leone",2020,"GCI_OPEN","gci_overall",25.31
 "SLE","Sierra Leone",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "SLE","Sierra Leone",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "SLE","Sierra Leone",2020,"IT.NET.USER.ZS","internet_users_pct",17.12080002
@@ -21986,6 +22140,7 @@
 "SLV","El Salvador",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",25056.0973682155
 "SLV","El Salvador",2019,"SP.POP.TOTL","population_total",6222318
 "SLV","El Salvador",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.371590212324095
+"SLV","El Salvador",2020,"GCI_OPEN","gci_overall",13.3
 "SLV","El Salvador",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "SLV","El Salvador",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "SLV","El Salvador",2020,"IT.NET.USER.ZS","internet_users_pct",54.60136976
@@ -22092,6 +22247,7 @@
 "SMR","San Marino",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "SMR","San Marino",2019,"SP.POP.TOTL","population_total",34663
 "SMR","San Marino",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.133368898372915
+"SMR","San Marino",2020,"GCI_OPEN","gci_overall",13.83
 "SMR","San Marino",2020,"IT.NET.USER.ZS","internet_users_pct",77.94999695
 "SMR","San Marino",2020,"NE.GDI.TOTL.ZS","gcf_gdp",18.05086817635
 "SMR","San Marino",2020,"NE.TRD.GNFS.ZS","trade_gdp",304.903167579063
@@ -22194,6 +22350,7 @@
 "SOM","Somalia, Fed. Rep.",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",10212.912279554
 "SOM","Somalia, Fed. Rep.",2019,"SP.POP.TOTL","population_total",16030971
 "SOM","Somalia, Fed. Rep.",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"SOM","Somalia",2020,"GCI_OPEN","gci_overall",17.25
 "SOM","Somalia, Fed. Rep.",2020,"IT.NET.USER.ZS","internet_users_pct",15.02369976
 "SOM","Somalia, Fed. Rep.",2020,"NE.GDI.TOTL.ZS","gcf_gdp",16.006026889198
 "SOM","Somalia, Fed. Rep.",2020,"NE.TRD.GNFS.ZS","trade_gdp",75.6954102920723
@@ -22302,6 +22459,7 @@
 "SRB","Serbia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",51858.7478107861
 "SRB","Serbia",2019,"SP.POP.TOTL","population_total",6945235
 "SRB","Serbia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.57553290083415
+"SRB","Serbia",2020,"GCI_OPEN","gci_overall",89.8
 "SRB","Serbia",2020,"INCIDENTS_OPEN","cyber_incidents",15
 "SRB","Serbia",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.77258872223978
 "SRB","Serbia",2020,"IT.NET.USER.ZS","internet_users_pct",78.36804864
@@ -22502,6 +22660,7 @@
 "SSD","South Sudan",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "SSD","South Sudan",2019,"SP.POP.TOTL","population_total",10423384
 "SSD","South Sudan",2020,"FP.CPI.TOTL.ZG","inflation_cpi",29.6758435538572
+"SSD","South Sudan",2020,"GCI_OPEN","gci_overall",5.75
 "SSD","South Sudan",2020,"IT.NET.USER.ZS","internet_users_pct",NA
 "SSD","South Sudan",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "SSD","South Sudan",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -22792,6 +22951,7 @@
 "STP","Sao Tome and Principe",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",44346.49012254
 "STP","Sao Tome and Principe",2019,"SP.POP.TOTL","population_total",213392
 "STP","Sao Tome and Principe",2020,"FP.CPI.TOTL.ZG","inflation_cpi",9.81932791540146
+"STP","Sao Tome and Principe",2020,"GCI_OPEN","gci_overall",15.64
 "STP","Sao Tome and Principe",2020,"IT.NET.USER.ZS","internet_users_pct",51.55469894
 "STP","Sao Tome and Principe",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "STP","Sao Tome and Principe",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -22892,6 +23052,7 @@
 "SUR","Suriname",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",60708.0150618
 "SUR","Suriname",2019,"SP.POP.TOTL","population_total",605768
 "SUR","Suriname",2020,"FP.CPI.TOTL.ZG","inflation_cpi",34.889784309078
+"SUR","Suriname",2020,"GCI_OPEN","gci_overall",31.2
 "SUR","Suriname",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "SUR","Suriname",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "SUR","Suriname",2020,"IT.NET.USER.ZS","internet_users_pct",NA
@@ -23002,6 +23163,7 @@
 "SVK","Slovak Republic",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",78732.8431113351
 "SVK","Slovak Republic",2019,"SP.POP.TOTL","population_total",5454147
 "SVK","Slovak Republic",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.93694126694223
+"SVK","Slovakia",2020,"GCI_OPEN","gci_overall",92.36
 "SVK","Slovak Republic",2020,"INCIDENTS_OPEN","cyber_incidents",3
 "SVK","Slovak Republic",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.38629436111989
 "SVK","Slovak Republic",2020,"IT.NET.USER.ZS","internet_users_pct",89.92090413
@@ -23116,6 +23278,7 @@
 "SVN","Slovenia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",94110.0935501887
 "SVN","Slovenia",2019,"SP.POP.TOTL","population_total",2088385
 "SVN","Slovenia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.05485681576061
+"SVN","Slovenia",2020,"GCI_OPEN","gci_overall",74.93
 "SVN","Slovenia",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "SVN","Slovenia",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "SVN","Slovenia",2020,"IT.NET.USER.ZS","internet_users_pct",86.60130109
@@ -23232,6 +23395,7 @@
 "SWE","Sweden",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",124513.71338645
 "SWE","Sweden",2019,"SP.POP.TOTL","population_total",10278887
 "SWE","Sweden",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.497367318853572
+"SWE","Sweden",2020,"GCI_OPEN","gci_overall",94.55
 "SWE","Sweden",2020,"INCIDENTS_OPEN","cyber_incidents",29
 "SWE","Sweden",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.40119738166216
 "SWE","Sweden",2020,"IT.NET.USER.ZS","internet_users_pct",94.53943122
@@ -23336,6 +23500,7 @@
 "SWZ","Eswatini",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",43177.5960029879
 "SWZ","Eswatini",2019,"SP.POP.TOTL","population_total",1179874
 "SWZ","Eswatini",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"SWZ","Eswatini",2020,"GCI_OPEN","gci_overall",18.23
 "SWZ","Eswatini",2020,"IT.NET.USER.ZS","internet_users_pct",49.01300049
 "SWZ","Eswatini",2020,"NE.GDI.TOTL.ZS","gcf_gdp",15.2902282173586
 "SWZ","Eswatini",2020,"NE.TRD.GNFS.ZS","trade_gdp",84.0140188426878
@@ -23536,6 +23701,7 @@
 "SYC","Seychelles",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "SYC","Seychelles",2019,"SP.POP.TOTL","population_total",97625
 "SYC","Seychelles",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.20266463987123
+"SYC","Seychelles",2020,"GCI_OPEN","gci_overall",13.23
 "SYC","Seychelles",2020,"INCIDENTS_OPEN","cyber_incidents",2
 "SYC","Seychelles",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.09861228866811
 "SYC","Seychelles",2020,"IT.NET.USER.ZS","internet_users_pct",79.25170135
@@ -23648,6 +23814,7 @@
 "SYR","Syrian Arab Republic",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",23040.7905525683
 "SYR","Syrian Arab Republic",2019,"SP.POP.TOTL","population_total",20353534
 "SYR","Syrian Arab Republic",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"SYR","Syrian Arab Republic",2020,"GCI_OPEN","gci_overall",22.14
 "SYR","Syrian Arab Republic",2020,"INCIDENTS_OPEN","cyber_incidents",3
 "SYR","Syrian Arab Republic",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.38629436111989
 "SYR","Syrian Arab Republic",2020,"IT.NET.USER.ZS","internet_users_pct",NA
@@ -23848,6 +24015,7 @@
 "TCD","Chad",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",8466.4207555804
 "TCD","Chad",2019,"SP.POP.TOTL","population_total",16685223
 "TCD","Chad",2020,"FP.CPI.TOTL.ZG","inflation_cpi",4.46414437232861
+"TCD","Chad",2020,"GCI_OPEN","gci_overall",40.44
 "TCD","Chad",2020,"IT.NET.USER.ZS","internet_users_pct",8.343099594
 "TCD","Chad",2020,"NE.GDI.TOTL.ZS","gcf_gdp",22.7874455493419
 "TCD","Chad",2020,"NE.TRD.GNFS.ZS","trade_gdp",40.6428170621932
@@ -24140,6 +24308,7 @@
 "TGO","Togo",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",7680.97304140667
 "TGO","Togo",2019,"SP.POP.TOTL","population_total",8463068
 "TGO","Togo",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.69928463299399
+"TGO","Togo",2020,"GCI_OPEN","gci_overall",33.19
 "TGO","Togo",2020,"INCIDENTS_OPEN","cyber_incidents",3
 "TGO","Togo",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.38629436111989
 "TGO","Togo",2020,"IT.NET.USER.ZS","internet_users_pct",29.02370071
@@ -24252,6 +24421,7 @@
 "THA","Thailand",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",38366.1569552291
 "THA","Thailand",2019,"SP.POP.TOTL","population_total",71522271
 "THA","Thailand",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.845937147357041
+"THA","Thailand",2020,"GCI_OPEN","gci_overall",86.5
 "THA","Thailand",2020,"INCIDENTS_OPEN","cyber_incidents",10
 "THA","Thailand",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.39789527279837
 "THA","Thailand",2020,"IT.NET.USER.ZS","internet_users_pct",77.84374066
@@ -24360,6 +24530,7 @@
 "TJK","Tajikistan",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",16598.9432128389
 "TJK","Tajikistan",2019,"SP.POP.TOTL","population_total",9529966
 "TJK","Tajikistan",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"TJK","Tajikistan",2020,"GCI_OPEN","gci_overall",17.1
 "TJK","Tajikistan",2020,"IT.NET.USER.ZS","internet_users_pct",27.54409981
 "TJK","Tajikistan",2020,"NE.GDI.TOTL.ZS","gcf_gdp",33.4749512555638
 "TJK","Tajikistan",2020,"NE.TRD.GNFS.ZS","trade_gdp",55.7491040194954
@@ -24468,6 +24639,7 @@
 "TKM","Turkmenistan",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",53698.8341676221
 "TKM","Turkmenistan",2019,"SP.POP.TOTL","population_total",6803944
 "TKM","Turkmenistan",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"TKM","Turkmenistan",2020,"GCI_OPEN","gci_overall",14.48
 "TKM","Turkmenistan",2020,"IT.NET.USER.ZS","internet_users_pct",NA
 "TKM","Turkmenistan",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "TKM","Turkmenistan",2020,"NE.TRD.GNFS.ZS","trade_gdp",35.9365938526967
@@ -24664,6 +24836,7 @@
 "TLS","Timor-Leste",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",12491.0713664006
 "TLS","Timor-Leste",2019,"SP.POP.TOTL","population_total",1300945
 "TLS","Timor-Leste",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.495499215459571
+"TLS","Timor-Leste",2020,"GCI_OPEN","gci_overall",4.26
 "TLS","Timor-Leste",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "TLS","Timor-Leste",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "TLS","Timor-Leste",2020,"IT.NET.USER.ZS","internet_users_pct",32.01269913
@@ -24862,6 +25035,7 @@
 "TON","Tonga",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",20484.6281300432
 "TON","Tonga",2019,"SP.POP.TOTL","population_total",105669
 "TON","Tonga",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.349737696727496
+"TON","Tonga",2020,"GCI_OPEN","gci_overall",20.95
 "TON","Tonga",2020,"IT.NET.USER.ZS","internet_users_pct",54.47370148
 "TON","Tonga",2020,"NE.GDI.TOTL.ZS","gcf_gdp",24.5728729162426
 "TON","Tonga",2020,"NE.TRD.GNFS.ZS","trade_gdp",81.8494988890262
@@ -25158,6 +25332,7 @@
 "TTO","Trinidad and Tobago",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",71023.2557200008
 "TTO","Trinidad and Tobago",2019,"SP.POP.TOTL","population_total",1363985
 "TTO","Trinidad and Tobago",2020,"FP.CPI.TOTL.ZG","inflation_cpi",0.598986330824643
+"TTO","Trinidad and Tobago",2020,"GCI_OPEN","gci_overall",22.18
 "TTO","Trinidad and Tobago",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "TTO","Trinidad and Tobago",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "TTO","Trinidad and Tobago",2020,"IT.NET.USER.ZS","internet_users_pct",77.28130341
@@ -25268,6 +25443,7 @@
 "TUN","Tunisia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",42968.1278027622
 "TUN","Tunisia",2019,"SP.POP.TOTL","population_total",11875081
 "TUN","Tunisia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",5.63415115897625
+"TUN","Tunisia",2020,"GCI_OPEN","gci_overall",86.23
 "TUN","Tunisia",2020,"INCIDENTS_OPEN","cyber_incidents",9
 "TUN","Tunisia",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.30258509299405
 "TUN","Tunisia",2020,"IT.NET.USER.ZS","internet_users_pct",68.55639648
@@ -25384,6 +25560,7 @@
 "TUR","Turkiye",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",81669.732509391
 "TUR","Turkiye",2019,"SP.POP.TOTL","population_total",82579440
 "TUR","Turkiye",2020,"FP.CPI.TOTL.ZG","inflation_cpi",12.2789574462574
+"TUR","Turkey",2020,"GCI_OPEN","gci_overall",97.49
 "TUR","Türkiye",2020,"INCIDENTS_OPEN","cyber_incidents",19
 "TUR","Türkiye",2020,"INCIDENTS_OPEN","cyber_incidents_log",2.99573227355399
 "TUR","Turkiye",2020,"IT.NET.USER.ZS","internet_users_pct",77.6695605
@@ -25492,6 +25669,7 @@
 "TUV","Tuvalu",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "TUV","Tuvalu",2019,"SP.POP.TOTL","population_total",10581
 "TUV","Tuvalu",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"TUV","Tuvalu",2020,"GCI_OPEN","gci_overall",5.78
 "TUV","Tuvalu",2020,"IT.NET.USER.ZS","internet_users_pct",NA
 "TUV","Tuvalu",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "TUV","Tuvalu",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -25610,6 +25788,7 @@
 "TZA","Tanzania",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",7274.90077094387
 "TZA","Tanzania",2019,"SP.POP.TOTL","population_total",59174891
 "TZA","Tanzania",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.29029062798325
+"TZA","Tanzania",2020,"GCI_OPEN","gci_overall",90.58
 "TZA","Tanzania",2020,"IT.NET.USER.ZS","internet_users_pct",19.48139954
 "TZA","Tanzania",2020,"NE.GDI.TOTL.ZS","gcf_gdp",38.7464874924603
 "TZA","Tanzania",2020,"NE.TRD.GNFS.ZS","trade_gdp",27.9630151969884
@@ -25716,6 +25895,7 @@
 "UGA","Uganda",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",6622.04264637247
 "UGA","Uganda",2019,"SP.POP.TOTL","population_total",42999637
 "UGA","Uganda",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.31332289544502
+"UGA","Uganda",2020,"GCI_OPEN","gci_overall",69.98
 "UGA","Uganda",2020,"INCIDENTS_OPEN","cyber_incidents",4
 "UGA","Uganda",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.6094379124341
 "UGA","Uganda",2020,"IT.NET.USER.ZS","internet_users_pct",7.4
@@ -25832,6 +26012,7 @@
 "UKR","Ukraine",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",38113.50342085
 "UKR","Ukraine",2019,"SP.POP.TOTL","population_total",44957458
 "UKR","Ukraine",2020,"FP.CPI.TOTL.ZG","inflation_cpi",2.73249209419427
+"UKR","Ukraine",2020,"GCI_OPEN","gci_overall",65.93
 "UKR","Ukraine",2020,"INCIDENTS_OPEN","cyber_incidents",75
 "UKR","Ukraine",2020,"INCIDENTS_OPEN","cyber_incidents_log",4.33073334028633
 "UKR","Ukraine",2020,"IT.NET.USER.ZS","internet_users_pct",75.03790912
@@ -25942,6 +26123,7 @@
 "URY","Uruguay",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",64950.7594494456
 "URY","Uruguay",2019,"SP.POP.TOTL","population_total",3397206
 "URY","Uruguay",2020,"FP.CPI.TOTL.ZG","inflation_cpi",9.75640636078194
+"URY","Uruguay",2020,"GCI_OPEN","gci_overall",75.15
 "URY","Uruguay",2020,"INCIDENTS_OPEN","cyber_incidents",5
 "URY","Uruguay",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.79175946922805
 "URY","Uruguay",2020,"IT.NET.USER.ZS","internet_users_pct",85.47100067
@@ -26058,6 +26240,7 @@
 "USA","United States",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",140253.575221907
 "USA","United States",2019,"SP.POP.TOTL","population_total",330226227
 "USA","United States",2020,"FP.CPI.TOTL.ZG","inflation_cpi",1.23358439630629
+"USA","United States of America",2020,"GCI_OPEN","gci_overall",100
 "USA","United States",2020,"INCIDENTS_OPEN","cyber_incidents",1367
 "USA","United States",2020,"INCIDENTS_OPEN","cyber_incidents_log",7.2211050981825
 "USA","United States",2020,"IT.NET.USER.ZS","internet_users_pct",90.34470367
@@ -26170,6 +26353,7 @@
 "UZB","Uzbekistan",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",23018.6900929451
 "UZB","Uzbekistan",2019,"SP.POP.TOTL","population_total",32964701
 "UZB","Uzbekistan",2020,"FP.CPI.TOTL.ZG","inflation_cpi",12.8677297362606
+"UZB","Uzbekistan",2020,"GCI_OPEN","gci_overall",71.11
 "UZB","Uzbekistan",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "UZB","Uzbekistan",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "UZB","Uzbekistan",2020,"IT.NET.USER.ZS","internet_users_pct",71.09999824
@@ -26225,6 +26409,7 @@
 "UZB","Uzbekistan",2025,"SP.POP.TOTL","population_total",NA
 "VAT","Vatican City",2018,"INCIDENTS_OPEN","cyber_incidents",2
 "VAT","Vatican City",2018,"INCIDENTS_OPEN","cyber_incidents_log",1.09861228866811
+"VAT","Holy See",2020,"GCI_OPEN","gci_overall",0
 "VAT","Vatican City",2021,"INCIDENTS_OPEN","cyber_incidents",1
 "VAT","Vatican City",2021,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "VAT","Holy See",2024,"GCI_OPEN","gci_overall",10
@@ -26278,6 +26463,7 @@
 "VCT","St. Vincent and the Grenadines",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",38761.411312799
 "VCT","St. Vincent and the Grenadines",2019,"SP.POP.TOTL","population_total",104167
 "VCT","St. Vincent and the Grenadines",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-0.628131309354654
+"VCT","Saint Vincent and the Grenadines",2020,"GCI_OPEN","gci_overall",12.18
 "VCT","St. Vincent and the Grenadines",2020,"IT.NET.USER.ZS","internet_users_pct",63.38100052
 "VCT","St. Vincent and the Grenadines",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "VCT","St. Vincent and the Grenadines",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -26388,6 +26574,7 @@
 "VEN","Venezuela, RB",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "VEN","Venezuela, RB",2019,"SP.POP.TOTL","population_total",28938098
 "VEN","Venezuela, RB",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"VEN","Venezuela",2020,"GCI_OPEN","gci_overall",27.06
 "VEN","Venezuela, RB",2020,"INCIDENTS_OPEN","cyber_incidents",6
 "VEN","Venezuela, RB",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.94591014905531
 "VEN","Venezuela, RB",2020,"IT.NET.USER.ZS","internet_users_pct",72.44110107
@@ -26698,6 +26885,7 @@
 "VNM","Viet Nam",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",20457.7304210902
 "VNM","Viet Nam",2019,"SP.POP.TOTL","population_total",97173776
 "VNM","Viet Nam",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.22093436652514
+"VNM","Vietnam",2020,"GCI_OPEN","gci_overall",94.59
 "VNM","Vietnam",2020,"INCIDENTS_OPEN","cyber_incidents",22
 "VNM","Vietnam",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.13549421592915
 "VNM","Viet Nam",2020,"IT.NET.USER.ZS","internet_users_pct",70.30000012
@@ -26802,6 +26990,7 @@
 "VUT","Vanuatu",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",10392.0016912947
 "VUT","Vanuatu",2019,"SP.POP.TOTL","population_total",291985
 "VUT","Vanuatu",2020,"FP.CPI.TOTL.ZG","inflation_cpi",5.32935073101715
+"VUT","Vanuatu",2020,"GCI_OPEN","gci_overall",12.88
 "VUT","Vanuatu",2020,"IT.NET.USER.ZS","internet_users_pct",NA
 "VUT","Vanuatu",2020,"NE.GDI.TOTL.ZS","gcf_gdp",33.2424782471957
 "VUT","Vanuatu",2020,"NE.TRD.GNFS.ZS","trade_gdp",69.9148948336494
@@ -27002,6 +27191,7 @@
 "WSM","Samoa",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",24734.1680936417
 "WSM","Samoa",2019,"SP.POP.TOTL","population_total",209780
 "WSM","Samoa",2020,"FP.CPI.TOTL.ZG","inflation_cpi",-1.56891247740895
+"WSM","Samoa",2020,"GCI_OPEN","gci_overall",29.33
 "WSM","Samoa",2020,"INCIDENTS_OPEN","cyber_incidents",1
 "WSM","Samoa",2020,"INCIDENTS_OPEN","cyber_incidents_log",0.693147180559945
 "WSM","Samoa",2020,"IT.NET.USER.ZS","internet_users_pct",NA
@@ -27202,6 +27392,7 @@
 "YEM","Yemen, Rep.",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",NA
 "YEM","Yemen, Rep.",2019,"SP.POP.TOTL","population_total",35111408
 "YEM","Yemen, Rep.",2020,"FP.CPI.TOTL.ZG","inflation_cpi",NA
+"YEM","Yemen",2020,"GCI_OPEN","gci_overall",0
 "YEM","Yemen, Rep.",2020,"IT.NET.USER.ZS","internet_users_pct",NA
 "YEM","Yemen, Rep.",2020,"NE.GDI.TOTL.ZS","gcf_gdp",NA
 "YEM","Yemen, Rep.",2020,"NE.TRD.GNFS.ZS","trade_gdp",NA
@@ -27312,6 +27503,7 @@
 "ZAF","South Africa",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",50027.0502468781
 "ZAF","South Africa",2019,"SP.POP.TOTL","population_total",59587885
 "ZAF","South Africa",2020,"FP.CPI.TOTL.ZG","inflation_cpi",3.23238831615113
+"ZAF","South Africa",2020,"GCI_OPEN","gci_overall",78.46
 "ZAF","South Africa",2020,"INCIDENTS_OPEN","cyber_incidents",34
 "ZAF","South Africa",2020,"INCIDENTS_OPEN","cyber_incidents_log",3.55534806148941
 "ZAF","South Africa",2020,"IT.NET.USER.ZS","internet_users_pct",72.1128006
@@ -27420,6 +27612,7 @@
 "ZMB","Zambia",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",11353.0862603223
 "ZMB","Zambia",2019,"SP.POP.TOTL","population_total",18513839
 "ZMB","Zambia",2020,"FP.CPI.TOTL.ZG","inflation_cpi",15.7330604721369
+"ZMB","Zambia",2020,"GCI_OPEN","gci_overall",68.88
 "ZMB","Zambia",2020,"IT.NET.USER.ZS","internet_users_pct",14.64579964
 "ZMB","Zambia",2020,"NE.GDI.TOTL.ZS","gcf_gdp",32.2448509806584
 "ZMB","Zambia",2020,"NE.TRD.GNFS.ZS","trade_gdp",79.2068494095955
@@ -27528,6 +27721,7 @@
 "ZWE","Zimbabwe",2019,"SL.GDP.PCAP.EM.KD","gdp_per_person_employed",14261.1795385466
 "ZWE","Zimbabwe",2019,"SP.POP.TOTL","population_total",15271368
 "ZWE","Zimbabwe",2020,"FP.CPI.TOTL.ZG","inflation_cpi",557.201817362051
+"ZWE","Zimbabwe",2020,"GCI_OPEN","gci_overall",36.49
 "ZWE","Zimbabwe",2020,"INCIDENTS_OPEN","cyber_incidents",3
 "ZWE","Zimbabwe",2020,"INCIDENTS_OPEN","cyber_incidents_log",1.38629436111989
 "ZWE","Zimbabwe",2020,"IT.NET.USER.ZS","internet_users_pct",29.29856532
