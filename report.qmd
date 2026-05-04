@@ -1,7 +1,13 @@
 ---
 title: "Cyber Macro Impact Pilot"
 subtitle: "Institutional Technical Report"
-author: "Dr Camilo Calderon"
+author:
+  - name: "Dr Camilo Calderon"
+    affiliations:
+      - name: City, University of London
+        email: camilo.calderon@city.ac.uk
+      - name: University of Cambridge
+        email: cc907@cam.ac.uk
 date: "2026-05-04"
 format:
   html:
