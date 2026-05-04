@@ -1,0 +1,17 @@
+"spec","model","outcome","income_group_model","regressor","term","estimate","std.error","p.value","estimate_fmt","std.error_fmt","p.value_fmt","nobs"
+"Headline incident FE","gdp_growth","gdp_growth",NA,NA,"l1_cyber_incidents_log",-0.120532167325546,0.227829738862271,0.597697742431429,"-0.121","(0.228)","0.598",860
+"Headline incident FE","gdp_growth","gdp_growth",NA,NA,"l1_inflation_cpi",0.000331484120747452,0.00575657567996289,0.954170847521632,"0.000","(0.006)","0.954",860
+"Headline incident FE","gdp_growth","gdp_growth",NA,NA,"l1_trade_gdp",-0.0445741828053715,0.0427323067233295,0.298882264735292,"-0.045","(0.043)","0.299",860
+"Headline incident FE","gdp_growth","gdp_growth",NA,NA,"l1_population_total",-2.31856184239762e-08,1.77620902005559e-08,0.194136019176352,"-0.000","(0.000)","0.194",860
+"Headline incident FE","gdp_per_person_employed","gdp_per_person_employed",NA,NA,"l1_cyber_incidents_log",808.261201212136,409.866104161412,0.0507986504486089,"808.261+","(409.866)","0.051",854
+"Headline incident FE","gdp_per_person_employed","gdp_per_person_employed",NA,NA,"l1_inflation_cpi",-10.5317553126516,9.9747126589844,0.29305909035049,"-10.532","(9.975)","0.293",854
+"Headline incident FE","gdp_per_person_employed","gdp_per_person_employed",NA,NA,"l1_trade_gdp",-14.537122607191,49.9521772243514,0.771513915200399,"-14.537","(49.952)","0.772",854
+"Headline incident FE","gdp_per_person_employed","gdp_per_person_employed",NA,NA,"l1_population_total",-2.13957526963429e-05,3.49173323620679e-05,0.541143049529983,"-0.000","(0.000)","0.541",854
+"Headline incident FE","gcf_gdp","gcf_gdp",NA,NA,"l1_cyber_incidents_log",0.484657835521783,0.267651675190341,0.0725577747777142,"0.485+","(0.268)","0.073",850
+"Headline incident FE","gcf_gdp","gcf_gdp",NA,NA,"l1_inflation_cpi",-0.0155062960571189,0.0175412821443725,0.378385934594247,"-0.016","(0.018)","0.378",850
+"Headline incident FE","gcf_gdp","gcf_gdp",NA,NA,"l1_trade_gdp",0.0153556921732426,0.0208449629186597,0.462697315188054,"0.015","(0.021)","0.463",850
+"Headline incident FE","gcf_gdp","gcf_gdp",NA,NA,"l1_population_total",9.15265405871796e-09,1.47244897834828e-08,0.535331920095109,"0.000","(0.000)","0.535",850
+"Headline incident FE","employment_ratio","employment_ratio",NA,NA,"l1_cyber_incidents_log",0.187497677202646,0.12573980120144,0.138400182787217,"0.187","(0.126)","0.138",857
+"Headline incident FE","employment_ratio","employment_ratio",NA,NA,"l1_inflation_cpi",-0.00533144929054146,0.00441922471643569,0.229897399785074,"-0.005","(0.004)","0.230",857
+"Headline incident FE","employment_ratio","employment_ratio",NA,NA,"l1_trade_gdp",0.0265656643652824,0.0124373046924047,0.0346010654125795,"0.027*","(0.012)","0.035",857
+"Headline incident FE","employment_ratio","employment_ratio",NA,NA,"l1_population_total",-1.46129899962783e-08,2.64463718350228e-08,0.581541559622215,"-0.000","(0.000)","0.582",857

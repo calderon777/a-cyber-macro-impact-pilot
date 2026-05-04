@@ -23,6 +23,7 @@ dir.create("data_processed", showWarnings = FALSE)
 
 harmonised_path <- "data_processed/wdi_core_harmonised_long.csv"
 indicator_map_path <- "data_raw/wdi/wdi_indicator_map.csv"
+country_metadata_path <- "data_raw/wdi/wdi_country_metadata.csv"
 panel_path <- "data_processed/panel_country_year.parquet"
 dictionary_path <- "data_processed/data_dictionary.csv"
 
@@ -42,6 +43,27 @@ panel <- long_df %>%
 		values_from = value
 	) %>%
 	arrange(iso3c, year)
+
+if (file.exists(country_metadata_path)) {
+	country_metadata <- read.csv(country_metadata_path, stringsAsFactors = FALSE) %>%
+		transmute(
+			iso3c = toupper(trimws(iso3c)),
+			wb_region = trimws(region),
+			income_group = trimws(income_group),
+			income_group_model = dplyr::case_when(
+				income_group == "High income" ~ "High income",
+				income_group == "Upper middle income" ~ "Upper middle income",
+				income_group %in% c("Lower middle income", "Low income") ~ "Lower income",
+				TRUE ~ NA_character_
+			),
+			lending_type = trimws(lending_type)
+		) %>%
+		distinct(iso3c, .keep_all = TRUE)
+
+	panel <- panel %>%
+		left_join(country_metadata, by = "iso3c") %>%
+		arrange(iso3c, year)
+}
 
 # GCI interpolation and bounded carry rules.
 # GCI anchor years are 2020 (scores 0-100) and 2024 (tier midpoints).
@@ -111,6 +133,25 @@ if ("gci_overall_imputed" %in% names(panel)) {
 		transform = "flag"
 	)
 	data_dictionary <- dplyr::bind_rows(data_dictionary, gci_flag_row) %>%
+		arrange(variable)
+}
+
+if (all(c("income_group", "income_group_model", "wb_region", "lending_type") %in% names(panel))) {
+	metadata_rows <- data.frame(
+		variable = c("income_group", "income_group_model", "wb_region", "lending_type"),
+		indicator = "WB_COUNTRY_METADATA",
+		source = "World Bank country metadata endpoint",
+		frequency = "latest available",
+		transform = c(
+			"none",
+			"High income / Upper middle income / Lower income pooled",
+			"none",
+			"none"
+		),
+		stringsAsFactors = FALSE
+	)
+
+	data_dictionary <- dplyr::bind_rows(data_dictionary, metadata_rows) %>%
 		arrange(variable)
 }
 

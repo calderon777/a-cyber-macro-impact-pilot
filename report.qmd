@@ -21,6 +21,7 @@ suppressPackageStartupMessages({
 
 panel_path <- "data_processed/panel_country_year.parquet"
 dict_path <- "data_processed/data_dictionary.csv"
+gci_qa_path <- "output/tables/gci_imputation_qa.csv"
 
 if (!file.exists(panel_path)) {
 	stop("Missing panel file. Run R/03_build_panel.R first.")
@@ -63,11 +64,28 @@ The shared estimator structure makes coefficient magnitudes more directly compar
 Significance markers in the tables use `+` for p < 0.10, `*` for p < 0.05, `**` for p < 0.01, and `***` for p < 0.001. In the headline incident models, the incident coefficient is not significant at the 5% level; the productivity and investment specifications are only marginal at the 10% level. In the readiness comparison, `l1_gci_overall` is significant for productivity and employment, but these estimates rely heavily on the GCI interpolation and carry assumptions described above.
 
 ```{r}
-headline_csv <- "output/tables/headline_regressions.csv"
-robust_csv <- "output/tables/robustness_regressions.csv"
+if (file.exists(gci_qa_path)) {
+	gci_qa <- read.csv(gci_qa_path, stringsAsFactors = FALSE)
+	knitr::kable(gci_qa, caption = "GCI observed vs derived coverage")
+}
+```
+
+```{r}
+headline_csv <- "output/tables/headline_regressions_compact.csv"
+robust_csv <- "output/tables/robustness_regressions_compact.csv"
 
 if (file.exists(headline_csv)) {
 	headline <- read.csv(headline_csv, stringsAsFactors = FALSE)
+	headline <- headline %>%
+		filter(term %in% c("l1_cyber_incidents_log", "l1_inflation_cpi", "l1_trade_gdp", "l1_population_total")) %>%
+		transmute(
+			outcome,
+			term,
+			estimate = estimate_fmt,
+			std_error = std.error_fmt,
+			p_value = p.value_fmt,
+			nobs
+		)
 	knitr::kable(headline, caption = "Headline FE models")
 } else {
 	cat("Headline table not found. Run R/04_model_specs.R.\n")
@@ -77,6 +95,16 @@ if (file.exists(headline_csv)) {
 ```{r}
 if (file.exists(robust_csv)) {
 	robust <- read.csv(robust_csv, stringsAsFactors = FALSE)
+	robust <- robust %>%
+		filter(term %in% c("l2_cyber_incidents_log", "l3_cyber_incidents_log", "l1_inflation_cpi", "l1_trade_gdp", "l1_population_total")) %>%
+		transmute(
+			outcome,
+			term,
+			estimate = estimate_fmt,
+			std_error = std.error_fmt,
+			p_value = p.value_fmt,
+			nobs
+		)
 	knitr::kable(robust, caption = "Robustness FE models")
 } else {
 	cat("Robustness table not found. Run R/04_model_specs.R.\n")
@@ -84,13 +112,47 @@ if (file.exists(robust_csv)) {
 ```
 
 ```{r}
-comparison_csv <- "output/tables/incidents_vs_readiness_regressions.csv"
+comparison_csv <- "output/tables/incidents_vs_readiness_regressions_compact.csv"
 
 if (file.exists(comparison_csv)) {
 	comparison <- read.csv(comparison_csv, stringsAsFactors = FALSE)
+	comparison <- comparison %>%
+		filter(term %in% c("l1_cyber_incidents_log", "l1_gci_overall", "l1_inflation_cpi", "l1_trade_gdp", "l1_population_total")) %>%
+		transmute(
+			outcome,
+			regressor,
+			term,
+			estimate = estimate_fmt,
+			std_error = std.error_fmt,
+			p_value = p.value_fmt,
+			nobs
+		)
 	knitr::kable(comparison, caption = "Incidents vs readiness comparison models")
 } else {
 	cat("Comparison table not found. Run R/04_model_specs.R.\n")
+}
+```
+
+```{r}
+heterogeneity_csv <- "output/tables/heterogeneity_regressions.csv"
+
+if (file.exists(heterogeneity_csv)) {
+	heterogeneity <- read.csv(heterogeneity_csv, stringsAsFactors = FALSE)
+	heterogeneity <- heterogeneity %>%
+		filter(term %in% c("l1_cyber_incidents_log", "l1_gci_overall")) %>%
+		transmute(
+			income_group = income_group_model,
+			outcome,
+			regressor,
+			term,
+			estimate = estimate_fmt,
+			std_error = std.error_fmt,
+			p_value = p.value_fmt,
+			nobs
+		)
+	knitr::kable(heterogeneity, caption = "Income-group heterogeneity models")
+} else {
+	cat("Heterogeneity table not found. Run R/04_model_specs.R.\n")
 }
 ```
 
@@ -111,6 +173,15 @@ if (file.exists(fig_dyn)) {
 	knitr::include_graphics(fig_dyn)
 } else {
 	cat("Dynamic figure not found. Run R/05_figures.R.\n")
+}
+```
+
+```{r, echo=FALSE, out.width='100%'}
+fig_coeff <- "output/figures/comparison_coefficients.png"
+if (file.exists(fig_coeff)) {
+	knitr::include_graphics(fig_coeff)
+} else {
+	cat("Coefficient figure not found. Run R/05_figures.R.\n")
 }
 ```
 

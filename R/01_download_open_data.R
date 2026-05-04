@@ -239,6 +239,75 @@ message("Indicator-year requests failed after retries: ", failed_requests)
 message("Total rows stored: ", nrow(combined))
 
 # -----------------------------------------------------------------------------
+# World Bank country metadata for fixed grouping variables
+# -----------------------------------------------------------------------------
+
+country_metadata_path <- "data_raw/wdi/wdi_country_metadata.csv"
+country_metadata_log_path <- "data_raw/wdi/wdi_country_metadata_refresh_log.csv"
+
+fetch_wb_country_metadata <- function() {
+	url <- "https://api.worldbank.org/v2/country?format=json&per_page=400"
+
+	payload <- jsonlite::fromJSON(
+		url,
+		simplifyDataFrame = TRUE,
+		flatten = TRUE
+	)
+
+	if (length(payload) < 2 || is.null(payload[[2]]) || nrow(payload[[2]]) == 0) {
+		return(data.frame())
+	}
+
+	payload[[2]] %>%
+		transmute(
+			iso3c = toupper(trimws(id)),
+			country = trimws(name),
+			region = trimws(region.value),
+			admin_region = trimws(adminregion.value),
+			income_group = trimws(incomeLevel.value),
+			lending_type = trimws(lendingType.value)
+		) %>%
+		filter(
+			!is.na(iso3c),
+			grepl("^[A-Z]{3}$", iso3c),
+			!tolower(region) %in% c("aggregates", "not classified"),
+			!tolower(income_group) %in% c("aggregates", "not classified")
+		) %>%
+		distinct(iso3c, .keep_all = TRUE) %>%
+		arrange(iso3c)
+}
+
+country_metadata <- tryCatch(
+	fetch_wb_country_metadata(),
+	error = function(e) {
+		message("World Bank country metadata fetch skipped: ", conditionMessage(e))
+		data.frame()
+	}
+)
+
+if (nrow(country_metadata) > 0) {
+	write.csv(country_metadata, country_metadata_path, row.names = FALSE)
+
+	country_metadata_log <- data.frame(
+		refreshed_at_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
+		source = "https://api.worldbank.org/v2/country?format=json&per_page=400",
+		rows_after_cleaning = nrow(country_metadata),
+		stringsAsFactors = FALSE
+	)
+
+	if (file.exists(country_metadata_log_path)) {
+		old_country_metadata_log <- read.csv(country_metadata_log_path, stringsAsFactors = FALSE)
+		country_metadata_log <- bind_rows(old_country_metadata_log, country_metadata_log)
+	}
+
+	write.csv(country_metadata_log, country_metadata_log_path, row.names = FALSE)
+	message("World Bank country metadata refresh complete.")
+	message("Country metadata rows stored: ", nrow(country_metadata))
+} else if (!file.exists(country_metadata_path)) {
+	message("No country metadata file available; income-group heterogeneity will be skipped until metadata is fetched.")
+}
+
+# -----------------------------------------------------------------------------
 # Optional GCI ingestion (ITU epublications translation payload)
 # -----------------------------------------------------------------------------
 

@@ -10,8 +10,11 @@ dir.create("output/figures", recursive = TRUE, showWarnings = FALSE)
 panel_path <- "data_processed/panel_country_year.parquet"
 fig_structural <- "output/figures/partial_correlation_scatter.png"
 fig_dynamic <- "output/figures/dynamic_fallback_trend.png"
+fig_comparison_coefficients <- "output/figures/comparison_coefficients.png"
 data_structural <- "output/figures/partial_correlation_data.csv"
 data_dynamic <- "output/figures/dynamic_fallback_data.csv"
+data_comparison_coefficients <- "output/figures/comparison_coefficients_data.csv"
+comparison_compact_csv <- "output/tables/incidents_vs_readiness_regressions_compact.csv"
 
 if (!file.exists(panel_path)) {
 	stop("Missing panel file: ", panel_path, ". Run R/03_build_panel.R first.")
@@ -166,6 +169,53 @@ p_dynamic <- ggplot(trend_long, aes(x = year, y = value, color = series)) +
 
 ggsave(fig_dynamic, p_dynamic, width = 10, height = 6, dpi = 300)
 
+if (file.exists(comparison_compact_csv)) {
+	comparison_coefficients <- read.csv(comparison_compact_csv, stringsAsFactors = FALSE) %>%
+		filter(term %in% c("l1_cyber_incidents_log", "l1_gci_overall")) %>%
+		mutate(
+			outcome_label = dplyr::case_when(
+				outcome == "gdp_growth" ~ "GDP growth",
+				outcome == "gdp_per_person_employed" ~ "Productivity",
+				outcome == "gcf_gdp" ~ "Investment share",
+				outcome == "employment_ratio" ~ "Employment ratio",
+				TRUE ~ outcome
+			),
+			regressor_label = dplyr::case_when(
+				term == "l1_cyber_incidents_log" ~ "Incidents",
+				term == "l1_gci_overall" ~ "GCI readiness",
+				TRUE ~ term
+			),
+			conf.low = estimate - 1.96 * std.error,
+			conf.high = estimate + 1.96 * std.error
+		)
+
+	if (nrow(comparison_coefficients) > 0) {
+		write.csv(comparison_coefficients, data_comparison_coefficients, row.names = FALSE)
+
+		p_coefficients <- ggplot(
+			comparison_coefficients,
+			aes(x = estimate, y = outcome_label, color = regressor_label)
+		) +
+			geom_vline(xintercept = 0, linewidth = 0.4, color = "grey55") +
+			geom_errorbar(aes(xmin = conf.low, xmax = conf.high), orientation = "y", width = 0.18, linewidth = 0.8) +
+			geom_point(size = 2.0) +
+			facet_wrap(~regressor_label, scales = "free_x") +
+			scale_color_manual(
+				values = c("Incidents" = "#1f4e79", "GCI readiness" = "#c24e00")
+			) +
+			labs(
+				title = "Lagged Cyber Proxy Coefficients by Outcome",
+				x = "Coefficient estimate with 95% interval",
+				y = NULL,
+				color = NULL
+			) +
+			theme_minimal(base_size = 11) +
+			theme(legend.position = "none")
+
+		ggsave(fig_comparison_coefficients, p_coefficients, width = 10, height = 6, dpi = 300)
+	}
+}
+
 message("Figure generation complete.")
 message("Main regressor used: ", main_regressor)
 if (dropped_trend_rows > 0) {
@@ -173,3 +223,6 @@ if (dropped_trend_rows > 0) {
 }
 message("Wrote: ", fig_structural)
 message("Wrote: ", fig_dynamic)
+if (file.exists(fig_comparison_coefficients)) {
+	message("Wrote: ", fig_comparison_coefficients)
+}

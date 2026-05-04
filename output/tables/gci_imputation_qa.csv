@@ -1,0 +1,13 @@
+"year_band","gci_status","country_years","total_country_years"
+"2014-2019 carry-backward","derived",1181,1327
+"2014-2019 carry-backward","missing",146,1327
+"2020 observed anchor","derived",27,247
+"2020 observed anchor","missing",26,247
+"2020 observed anchor","observed_anchor",194,247
+"2021-2023 interpolated","derived",590,664
+"2021-2023 interpolated","missing",74,664
+"2024 observed anchor","derived",29,243
+"2024 observed anchor","missing",22,243
+"2024 observed anchor","observed_anchor",192,243
+"2025 carry-forward","derived",193,215
+"2025 carry-forward","missing",22,215
