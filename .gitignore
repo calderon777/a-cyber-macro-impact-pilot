@@ -1,2 +1,5 @@
 # Local bootstrap run logs
 /data_raw/wdi/bootstrap_run.log
+
+# Quarto local build state
+/.quarto/

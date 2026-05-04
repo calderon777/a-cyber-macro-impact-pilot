@@ -1,11 +1,11 @@
 project:
-	type: default
+  type: default
 
 format:
-	html:
-		toc: true
-		number-sections: true
+  html:
+    toc: true
+    number-sections: true
 
 execute:
-	warning: false
-	message: false
+  warning: false
+  message: false

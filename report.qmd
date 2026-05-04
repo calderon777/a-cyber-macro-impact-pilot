@@ -9,18 +9,89 @@ How are country-level cyber readiness and incident intensity associated with mac
 
 ## Data
 
-This report expects a processed country-year panel at `data_processed/panel_country_year.parquet`.
+This report uses the processed panel at `data_processed/panel_country_year.parquet`.
+
+```{r}
+suppressPackageStartupMessages({
+	library(arrow)
+	library(dplyr)
+	library(knitr)
+})
+
+panel_path <- "data_processed/panel_country_year.parquet"
+dict_path <- "data_processed/data_dictionary.csv"
+
+if (!file.exists(panel_path)) {
+	stop("Missing panel file. Run R/03_build_panel.R first.")
+}
+
+panel <- arrow::read_parquet(panel_path)
+
+summary_tbl <- tibble::tibble(
+	metric = c("Rows", "Countries", "Year min", "Year max"),
+	value = c(
+		nrow(panel),
+		dplyr::n_distinct(panel$iso3c),
+		min(panel$year, na.rm = TRUE),
+		max(panel$year, na.rm = TRUE)
+	)
+)
+
+knitr::kable(summary_tbl, caption = "Panel snapshot")
+```
+
+```{r}
+if (file.exists(dict_path)) {
+	dict <- read.csv(dict_path, stringsAsFactors = FALSE)
+	knitr::kable(dict, caption = "Data dictionary")
+}
+```
 
 ## Baseline model
 
 We use country and year fixed-effects models with lagged cyber variables and clustered standard errors at country level.
 
-## Outputs
+```{r}
+headline_csv <- "output/tables/headline_regressions.csv"
+robust_csv <- "output/tables/robustness_regressions.csv"
 
-- One headline regression table
-- One robustness table
-- Two figures (structural and dynamic)
+if (file.exists(headline_csv)) {
+	headline <- read.csv(headline_csv, stringsAsFactors = FALSE)
+	knitr::kable(headline, caption = "Headline FE models")
+} else {
+	cat("Headline table not found. Run R/04_model_specs.R.\n")
+}
+```
+
+```{r}
+if (file.exists(robust_csv)) {
+	robust <- read.csv(robust_csv, stringsAsFactors = FALSE)
+	knitr::kable(robust, caption = "Robustness FE models")
+} else {
+	cat("Robustness table not found. Run R/04_model_specs.R.\n")
+}
+```
+
+## Figures
+
+```{r, echo=FALSE, out.width='100%'}
+fig_struct <- "output/figures/partial_correlation_scatter.png"
+if (file.exists(fig_struct)) {
+	knitr::include_graphics(fig_struct)
+} else {
+	cat("Structural figure not found. Run R/05_figures.R.\n")
+}
+```
+
+```{r, echo=FALSE, out.width='100%'}
+fig_dyn <- "output/figures/dynamic_fallback_trend.png"
+if (file.exists(fig_dyn)) {
+	knitr::include_graphics(fig_dyn)
+} else {
+	cat("Dynamic figure not found. Run R/05_figures.R.\n")
+}
+```
 
 ## Notes
 
-This is an MVP scaffold. Populate scripts in `R/` to produce fully reproducible outputs.
+This MVP report is reproducible from the script pipeline in `R/`.
