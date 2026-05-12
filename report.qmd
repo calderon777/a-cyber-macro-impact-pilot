@@ -23,6 +23,7 @@ format:
     number-sections: true
     toc-depth: 3
     smooth-scroll: true
+    html-math-method: mathml
     theme: cosmo
     css: styles/report-institutional.css
 bibliography: references.bib
