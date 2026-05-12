@@ -1,7 +1,7 @@
 # Cyber Macro Impact Pilot: Source-Reviewed Research Note
 
 **Dr Camilo Calderon**
-camilo.calderon@city.ac.uk | cc907@cam.ac.uk
+camilo.calderon@city.ac.uk
 
 ## Executive Summary
 

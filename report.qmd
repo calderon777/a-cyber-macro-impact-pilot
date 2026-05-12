@@ -5,7 +5,6 @@ author:
   - name: "Dr Camilo Calderon"
     affiliations:
       - name: City, University of London
-      - name: University of Cambridge
 date: "2026-05-04"
 keywords:
   - cybersecurity
@@ -35,7 +34,7 @@ nocite: |
 ---
 
 ::: {.author-emails .small style="color:#555; margin-bottom:0.25em;"}
-camilo.calderon@city.ac.uk | cc907@cam.ac.uk
+camilo.calderon@city.ac.uk
 :::
 
 ```{=html}
